@@ -1,0 +1,11 @@
+{
+    "name": "HotelMgnt",
+    "alias": "hotelmgnt",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\HotelMgnt\\Providers\\HotelMgntServiceProvider"
+    ],
+    "files": []
+}

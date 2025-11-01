@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sales Dashboard</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    .sidebar {
+      min-height: 100vh;
+      background-color: #343a40;
+      color: white;
+    }
+    .sidebar .nav-link {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    .sidebar .nav-link:hover {
+      color: white;
+    }
+    .sidebar .nav-link.active {
+      color: white;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    .card-metric {
+      border-left: 4px solid #007bff;
+    }
+    .sales-chart {
+      height: 250px;
+    }
+  </style>
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <div class="col-md-3 col-lg-2 sidebar p-0">
+      <div class="p-4">
+        <h4 class="text-center mb-4">Sales System</h4>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">
+              <i class="fas fa-tachometer-alt mr-2"></i> Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fas fa-shopping-cart mr-2"></i> Sales
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fas fa-users mr-2"></i> Customers
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fas fa-chart-line mr-2"></i> Reports
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fas fa-cog mr-2"></i> Settings
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="col-md-9 col-lg-10 ml-sm-auto px-4 py-4">
+      <!-- Top Navigation Bar -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-white mb-4 p-3 rounded shadow-sm">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Reports</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search sales...">
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+
+      <!-- Metrics Cards -->
+      <div class="row mb-4">
+        <div class="col-md-3 mb-3">
+          <div class="card card-metric shadow-sm">
+            <div class="card-body">
+              <h6 class="card-title text-muted">TODAY'S SALES</h6>
+              <h3 class="card-text">$5,248</h3>
+              <span class="text-success"><i class="fas fa-arrow-up"></i> 12%</span>
+              <span class="text-muted">from yesterday</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mb-3">
+          <div class="card card-metric shadow-sm">
+            <div class="card-body">
+              <h6 class="card-title text-muted">WEEKLY SALES</h6>
+              <h3 class="card-text">$28,745</h3>
+              <span class="text-success"><i class="fas fa-arrow-up"></i> 7%</span>
+              <span class="text-muted">from last week</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mb-3">
+          <div class="card card-metric shadow-sm">
+            <div class="card-body">
+              <h6 class="card-title text-muted">MONTHLY SALES</h6>
+              <h3 class="card-text">$112,845</h3>
+              <span class="text-success"><i class="fas fa-arrow-up"></i> 15%</span>
+              <span class="text-muted">from last month</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mb-3">
+          <div class="card card-metric shadow-sm">
+            <div class="card-body">
+              <h6 class="card-title text-muted">TOTAL CUSTOMERS</h6>
+              <h3 class="card-text">2,847</h3>
+              <span class="text-success"><i class="fas fa-arrow-up"></i> 9%</span>
+              <span class="text-muted">from last month</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sales Form and Recent Transactions -->
+      <div class="row">
+        <!-- Sales Form -->
+        <div class="col-lg-6 mb-4">
+          <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+              <h5 class="mb-0">Record New Sale</h5>
+            </div>
+            <div class="card-body">
+              <form>
+                <div class="form-group">
+                  <label for="product">Product</label>
+                  <select class="form-control" id="product">
+                    <option>Select a product</option>
+                    <option>Product A - $49.99</option>
+                    <option>Product B - $79.99</option>
+                    <option>Product C - $129.99</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="quantity">Quantity</label>
+                  <input type="number" class="form-control" id="quantity" value="1" min="1">
+                </div>
+                <div class="form-group">
+                  <label for="customer">Customer</label>
+                  <input type="text" class="form-control" id="customer" placeholder="Customer name">
+                </div>
+                <div class="form-group">
+                  <label for="payment">Payment Method</label>
+                  <select class="form-control" id="payment">
+                    <option>Credit Card</option>
+                    <option>Cash</option>
+                    <option>Bank Transfer</option>
+                    <option>Digital Wallet</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Record Sale</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Transactions -->
+        <div class="col-lg-6 mb-4">
+          <div class="card shadow-sm">
+            <div class="card-header bg-white">
+              <h5 class="mb-0">Recent Transactions</h5>
+            </div>
+            <div class="card-body p-0">
+              <div class="list-group list-group-flush">
+                <div class="list-group-item">
+                  <div class="d-flex justify-content-between">
+                    <h6 class="mb-1">Product C</h6>
+                    <small class="text-success">$129.99</small>
+                  </div>
+                  <small class="text-muted">John Doe • Credit Card • 10:30 AM</small>
+                </div>
+                <div class="list-group-item">
+                  <div class="d-flex justify-content-between">
+                    <h6 class="mb-1">Product A</h6>
+                    <small class="text-success">$49.99</small>
+                  </div>
+                  <small class="text-muted">Jane Smith • Cash • 9:45 AM</small>
+                </div>
+                <div class="list-group-item">
+                  <div class="d-flex justify-content-between">
+                    <h6 class="mb-1">Product B</h6>
+                    <small class="text-success">$79.99</small>
+                  </div>
+                  <small class="text-muted">Robert Johnson • Digital Wallet • Yesterday</small>
+                </div>
+                <div class="list-group-item">
+                  <div class="d-flex justify-content-between">
+                    <h6 class="mb-1">Product A</h6>
+                    <small class="text-success">$49.99</small>
+                  </div>
+                  <small class="text-muted">Sarah Williams • Bank Transfer • Yesterday</small>
+                </div>
+                <div class="list-group-item">
+                  <div class="d-flex justify-content-between">
+                    <h6 class="mb-1">Product C</h6>
+                    <small class="text-success">$129.99</small>
+                  </div>
+                  <small class="text-muted">Michael Brown • Credit Card • Yesterday</small>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer bg-white">
+              <a href="#" class="btn btn-sm btn-outline-primary btn-block">View All Transactions</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

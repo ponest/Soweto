@@ -1,0 +1,8 @@
+{
+    "Setups": true,
+    "Auth": true,
+    "HotelMgnt": true,
+    "General": true,
+    "Inventory": true,
+    "Sales": true
+}

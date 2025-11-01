@@ -1,0 +1,13 @@
+.modal-header {
+    background-color: rgb(92, 107, 192);
+    color: white
+}
+
+.close{
+    color: white;
+}
+
+.fx-2 {
+    font-size: 19px !important;
+    color:black !important;
+}

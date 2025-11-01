@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bar POS System</title>
+  <!-- Bootstrap 4 CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body { background-color: #f8f9fa; }
+    .cart-summary { font-size: 1.2rem; font-weight: bold; }
+  </style>
+</head>
+<body>
+<div class="container mt-4">
+  <h2 class="mb-4 text-center">🍻 Bar Point of Sale</h2>
+
+  <!-- Add Item Form -->
+  <div class="card mb-4">
+    <div class="card-header bg-primary text-white">Add Item</div>
+    <div class="card-body">
+      <form id="addItemForm">
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label>Item</label>
+            <select id="itemName" class="form-control" required>
+              <option value="" disabled selected>Select item...</option>
+              <option value="Beer" data-price="3.50">Beer - $3.50</option>
+              <option value="Whiskey" data-price="5.00">Whiskey - $5.00</option>
+              <option value="Soda" data-price="1.20">Soda - $1.20</option>
+              <option value="Water" data-price="0.80">Water - $0.80</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2">
+            <label>Quantity</label>
+            <input type="number" id="quantity" class="form-control" min="1" value="1" required>
+          </div>
+          <div class="form-group col-md-3">
+            <label>Price (auto)</label>
+            <input type="number" step="0.01" id="price" class="form-control" readonly>
+          </div>
+          <div class="form-group col-md-3 d-flex align-items-end">
+            <button type="submit" class="btn btn-success btn-block">Add to Cart</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Cart Table -->
+  <div class="card">
+    <div class="card-header bg-dark text-white">Cart</div>
+    <div class="card-body">
+      <table class="table table-bordered table-striped" id="cartTable">
+        <thead class="thead-dark">
+        <tr>
+          <th>#</th>
+          <th>Item</th>
+          <th>Qty</th>
+          <th>Price</th>
+          <th>Total</th>
+          <th>Action</th>
+        </tr>
+        </thead>
+        <tbody></tbody>
+        <tfoot>
+        <tr>
+          <td colspan="4" class="text-right cart-summary">Grand Total</td>
+          <td colspan="2" class="cart-summary" id="grandTotal">$0.00</td>
+        </tr>
+        </tfoot>
+      </table>
+      <div class="text-right">
+        <button class="btn btn-warning" id="clearCart">Clear Cart</button>
+        <button class="btn btn-primary" id="checkout">Checkout</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap 4 JS + jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+  let cart = [];
+
+  // Auto-fill price when item selected
+  $('#itemName').change(function () {
+    let price = $(this).find(':selected').data('price') || 0;
+    $('#price').val(price.toFixed(2));
+  });
+
+  // Add item to cart
+  $('#addItemForm').submit(function (e) {
+    e.preventDefault();
+
+    let itemName = $('#itemName').val();
+    let quantity = parseInt($('#quantity').val());
+    let price = parseFloat($('#price').val());
+
+    if (!itemName || quantity < 1) return;
+
+    let total = (price * quantity).toFixed(2);
+
+    cart.push({ itemName, quantity, price, total });
+    updateCart();
+
+    this.reset();
+    $('#price').val('');
+  });
+
+  // Remove item
+  function removeItem(index) {
+    cart.splice(index, 1);
+    updateCart();
+  }
+
+  // Update cart table
+  function updateCart() {
+    let tbody = $('#cartTable tbody');
+    tbody.empty();
+
+    let grandTotal = 0;
+
+    cart.forEach((item, index) => {
+      grandTotal += parseFloat(item.total);
+
+      tbody.append(`
+        <tr>
+          <td>${index + 1}</td>
+          <td>${item.itemName}</td>
+          <td>${item.quantity}</td>
+          <td>$${item.price.toFixed(2)}</td>
+          <td>$${item.total}</td>
+          <td><button class="btn btn-sm btn-danger" onclick="removeItem(${index})">Remove</button></td>
+        </tr>
+      `);
+    });
+
+    $('#grandTotal').text(`$${grandTotal.toFixed(2)}`);
+  }
+
+  // Clear cart
+  $('#clearCart').click(function () {
+    cart = [];
+    updateCart();
+  });
+
+  // Checkout
+  $('#checkout').click(function () {
+    if (cart.length === 0) {
+      alert('Cart is empty!');
+      return;
+    }
+
+    alert('Checkout successful! Total: ' + $('#grandTotal').text());
+    cart = [];
+    updateCart();
+  });
+</script>
+</body>
+</html>
