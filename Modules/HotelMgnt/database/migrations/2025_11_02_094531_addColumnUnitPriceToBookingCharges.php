@@ -10,9 +10,9 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void {
-        Schema::table('room_check_in_outs', function (Blueprint $table) {
-            $table->boolean('is_paid')->default(false);
-            $table->decimal('paid_amount')->default(0);
+        Schema::table('booking_charges', function (Blueprint $table) {
+           $table->decimal('unit_price')->nullable();
+           $table->integer('quantity')->nullable();
         });
     }
 
@@ -20,9 +20,9 @@ return new class extends Migration
      * Reverse the migrations.
      */
     public function down(): void {
-        Schema::table('room_check_in_outs', function (Blueprint $table) {
-            $table->dropColumn('is_paid');
-            $table->dropColumn('paid_amount');
+        Schema::table('booking_charges', function (Blueprint $table) {
+            $table->dropColumn('unit_price');
+            $table->dropColumn('quantity');
         });
     }
 };

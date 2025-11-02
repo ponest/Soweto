@@ -14,18 +14,19 @@ use Illuminate\Support\Carbon;
  * @property int $booking_id
  * @property string $type
  * @property string|null $description
- * @property string $amount
+ * @property string $total_price
  * @property string $expense_date
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property Carbon|null $deleted_at
  * @property int $can_modify
  * @property int $is_billed
+ * @property string|null $unit_price
+ * @property int|null $quantity
  * @method static Builder<static>|BookingCharges newModelQuery()
  * @method static Builder<static>|BookingCharges newQuery()
  * @method static Builder<static>|BookingCharges onlyTrashed()
  * @method static Builder<static>|BookingCharges query()
- * @method static Builder<static>|BookingCharges whereAmount($value)
  * @method static Builder<static>|BookingCharges whereBookingId($value)
  * @method static Builder<static>|BookingCharges whereCanModify($value)
  * @method static Builder<static>|BookingCharges whereCreatedAt($value)
@@ -34,7 +35,10 @@ use Illuminate\Support\Carbon;
  * @method static Builder<static>|BookingCharges whereExpenseDate($value)
  * @method static Builder<static>|BookingCharges whereId($value)
  * @method static Builder<static>|BookingCharges whereIsBilled($value)
+ * @method static Builder<static>|BookingCharges whereQuantity($value)
+ * @method static Builder<static>|BookingCharges whereTotalPrice($value)
  * @method static Builder<static>|BookingCharges whereType($value)
+ * @method static Builder<static>|BookingCharges whereUnitPrice($value)
  * @method static Builder<static>|BookingCharges whereUpdatedAt($value)
  * @method static Builder<static>|BookingCharges withTrashed()
  * @method static Builder<static>|BookingCharges withoutTrashed()

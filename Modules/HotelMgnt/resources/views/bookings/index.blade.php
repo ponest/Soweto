@@ -45,18 +45,18 @@
                             <td>{{isset($item->proposed_end_date) ? date('d M Y',strtotime($item->proposed_end_date)) : ''}}</td>
                             <td>{{$item->booking_status}}</td>
                             <td style="width: 9%" class="text-center">
-                                @if(!$item->check_in_date)
+                                @if($item->booking_status == "Reserved")
                                     <a class="text-muted font-16 edit-link" href="{{route('bookings.edit',$item->id)}}"
                                        title="Edit" data-toggle="tooltip"><i class="fa fa-edit"></i></a> |
                                     <a class="text-muted font-16 delete-link"
                                        href="{{route('bookings.destroy',$item->id)}}"
                                        title="Delete" data-toggle="tooltip"><i class="fa fa-trash-o"></i></a>
                                     |
-                                    <a class="text-muted font-16 check-in-link"
-                                       href="{{route('bookings.check-in',$item->id)}}"
-                                       title="Check In" data-toggle="tooltip"><i class="fa fa-check-square"></i></a>
-                                @endif
-                                @if($item->booking_status === 'Reserved')
+{{--                                    <a class="text-muted font-16 check-in-link"--}}
+{{--                                       href="{{route('bookings.check-in',$item->id)}}"--}}
+{{--                                       title="Check In" data-toggle="tooltip"><i class="fa fa-check-square"></i></a>--}}
+{{--                                @endif--}}
+{{--                                @if($item->booking_status === 'Reserved')--}}
                                     | <a class="text-muted font-16 cancel-link"
                                        href="{{route('bookings.cancel-view',$item->id)}}"
                                        title="Cancel Booking" data-toggle="tooltip"><i class="fa fa-window-close"></i></a>

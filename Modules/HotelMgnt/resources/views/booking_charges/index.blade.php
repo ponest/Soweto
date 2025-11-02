@@ -12,9 +12,12 @@
                     <a href="{{route('room-checkinout')}}" class="btn btn-primary" >
                         <i class="fa fa-backward"></i> Go Back
                     </a>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create_modal">
-                        <i class="fa fa-plus-circle"></i> Add New
-                    </button>
+                    @if($bill && $bill->status == 'unpaid')
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create_modal">
+                            <i class="fa fa-plus-circle"></i> Add New
+                        </button>
+                    @endif
+
                 </div>
             </div>
 
@@ -30,7 +33,9 @@
                         <th>S/N</th>
                         <th>Type</th>
                         <th>Description</th>
-                        <th>Amount</th>
+                        <th>Unit Price</th>
+                        <th>Quantity</th>
+                        <th>Total Price</th>
                         <th>Expense Date</th>
                         <th>Action</th>
                     </tr>
@@ -41,10 +46,12 @@
                             <td style="width: 5%">{{++$key}}</td>
                             <td class="desc_name">{{$item->type}}</td>
                             <td>{{$item->description}}</td>
-                            <td>{{number_format($item->amount)}}</td>
+                            <td style="text-align: right">{{number_format($item->unit_price)}}</td>
+                            <td style="text-align: right">{{number_format($item->quantity)}}</td>
+                            <td style="text-align: right">{{number_format($item->total_price)}}</td>
                             <td>{{date('d M Y', strtotime($item->expense_date))}}</td>
                             <td style="width: 9%" class="text-center">
-                                @if($item->can_modify)
+                                @if($item->can_modify && $bill && $bill->status == 'unpaid')
                                     <a class="text-muted font-16 edit-link" href="{{route('booking-charges.edit',$item->id)}}"
                                        title="Edit" data-toggle="tooltip"><i class="fa fa-edit"></i></a> |
                                     <a class="text-muted font-16 delete-link"
@@ -96,6 +103,16 @@
         $('#edit_modal').on('shown.bs.modal', function (e) {
             datePickerLoad();
         });
+
+        $("#quantity").on('keyup', function (e) {
+            const quantity = $("#quantity").val();
+            const unitPrice = $("#unit_price").val();
+            const totalPrice = quantity * unitPrice;
+            console.log("Quantity",quantity);
+            console.log("Unit Price",unitPrice);
+            console.log("Total Price",totalPrice);
+            $("#total_price").val(totalPrice);
+        })
 
         //For Deleting
         $(".delete-link").click(function (e) {

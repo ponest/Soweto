@@ -21,8 +21,8 @@ use Illuminate\Support\Carbon;
  * @property Carbon|null $updated_at
  * @property Carbon|null $deleted_at
  * @property int $is_billed
- * @property-read Booking $booking
- * @property-read Room $room
+ * @property-read \Modules\HotelMgnt\Models\Booking $booking
+ * @property-read \Modules\HotelMgnt\Models\Room $room
  * @method static Builder<static>|BookingRoomHistory newModelQuery()
  * @method static Builder<static>|BookingRoomHistory newQuery()
  * @method static Builder<static>|BookingRoomHistory onlyTrashed()

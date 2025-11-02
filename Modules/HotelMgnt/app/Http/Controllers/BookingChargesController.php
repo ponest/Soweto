@@ -10,15 +10,17 @@ use Modules\HotelMgnt\Commands\BookingCharges\DeleteCommand;
 use Modules\HotelMgnt\Commands\BookingCharges\StoreCommand;
 use Modules\HotelMgnt\Commands\BookingCharges\UpdateCommand;
 use Modules\HotelMgnt\Models\BookingCharges;
+use Modules\Sales\Models\Bill;
 
 class BookingChargesController extends Controller
 {
 
     public function index($id)
     {
-        $params['items'] = BookingCharges::whereBookingId($id)->get();
-        $params['types'] = array('Laundry','Ironing','Swimming');
+        $params['items'] = BookingCharges::whereBookingId($id)->latest('id')->get();
+        $params['types'] = array('Laundry', 'Ironing', 'Swimming');
         $params['booking_id'] = $id;
+        $params['bill'] = Bill::where('booking_id', $id)->first();
         return view('hotelmgnt::booking_charges.index', $params);
     }
 
@@ -33,7 +35,7 @@ class BookingChargesController extends Controller
     public function edit($id)
     {
         $params['item'] = BookingCharges::find($id);
-        $params['types'] = array('Laundry','Ironing','Swimming');
+        $params['types'] = array('Laundry', 'Ironing', 'Swimming');
         return view('hotelmgnt::booking_charges.edit', $params);
     }
 

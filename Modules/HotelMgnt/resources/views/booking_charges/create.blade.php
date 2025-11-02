@@ -35,8 +35,18 @@
 
                     <div class="row mb-3">
                         <div class="col">
-                            <label>Amount</label>
-                            <input type="number" name="amount" class="form-control form-control-air" required>
+                            <label>Unit Price</label>
+                            <input type="number" name="unit_price" id="unit_price" class="form-control form-control-air" required>
+                        </div>
+                        <div class="col">
+                            <label>Quantity</label>
+                            <input type="number" name="quantity" id="quantity" class="form-control form-control-air" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label>Total Price</label>
+                            <input type="number" name="total_price" id="total_price" class="form-control form-control-air" readonly required>
                         </div>
                         <div class="col">
                             <label>Expense Date</label>

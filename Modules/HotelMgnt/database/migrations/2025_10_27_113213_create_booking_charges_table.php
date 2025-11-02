@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('booking_id')->constrained();
             $table->string('type');
             $table->string('description')->nullable();
-            $table->decimal('amount',10,2);
+            $table->decimal('total_price',10,2);
             $table->date('expense_date');
             $table->timestamps();
             $table->softDeletes();

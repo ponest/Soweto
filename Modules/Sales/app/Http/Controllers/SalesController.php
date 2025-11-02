@@ -129,7 +129,9 @@ class SalesController extends Controller
                         $bookingCharges->booking_id = $booking->id;
                         $bookingCharges->type = $category == 'bar' ? 'Beverage Charges' : 'Meal Charges';
                         $bookingCharges->description = $item['itemName'];
-                        $bookingCharges->amount = $item['total'];
+                        $bookingCharges->unit_price = $item['price'];
+                        $bookingCharges->quantity = $item['quantity'];
+                        $bookingCharges->total_price = $item['total'];
                         $bookingCharges->expense_date = date('Y-m-d');
                         $bookingCharges->save();
                     }
