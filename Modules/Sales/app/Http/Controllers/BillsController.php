@@ -2,10 +2,15 @@
 
 namespace Modules\Sales\Http\Controllers;
 
+use App\Helpers\General;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Modules\Auth\Models\User;
+use Modules\Sales\Commands\Bills\ConfirmPaymentCommand;
 use Modules\Sales\Models\Bill;
+use Modules\Sales\Models\Payment;
+use Modules\Setups\Models\PaymentMethod;
 
 class BillsController extends Controller
 {
@@ -17,42 +22,24 @@ class BillsController extends Controller
         return view('sales::bills.index', $params);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function confirmPaymentView($id)
     {
-        return view('sales::create');
+        $params['item'] = Bill::find($id);
+        $params['payment_methods'] = PaymentMethod::orderBy('name')->get();
+        return view('sales::bills.payment_conf', $params);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request) {}
-
-    /**
-     * Show the specified resource.
-     */
-    public function show($id)
+    public function confirmPayment(Request $request)
     {
-        return view('sales::show');
+        $data = $request->all();
+        $info = ConfirmPaymentCommand::handle($data);
+        $notification = General::customMessage($info['message'], $info['type']);
+        return Redirect::back()->with($notification);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit($id)
+    public function paymentView($id)
     {
-        return view('sales::edit');
+        $params['items'] = Payment::whereBillId($id)->get();
+        return view('sales::bills.payment', $params);
     }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, $id) {}
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy($id) {}
 }

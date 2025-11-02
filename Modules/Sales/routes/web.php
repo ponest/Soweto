@@ -33,6 +33,9 @@ Route::middleware('auth')->group(function () {
     Route::get('sales-history', [SalesController::class, 'salesHistory'])->name('sales-history');
 
     Route::get('bills/index', [BillsController::class, 'index'])->name('bills.index');
+    Route::get('bills/payment-conf/{id}', [BillsController::class, 'confirmPaymentView'])->name('bills.payment-conf');
+    Route::post('bills/payment-confirm', [BillsController::class, 'confirmPayment'])->name('bills.payment-confirm');
+    Route::get('bills/payment/{id}', [BillsController::class, 'paymentView'])->name('bills.payment');
 
 
     Route::resource('price-approval-item', PriceApprovalItemController::class)->except('show', 'destroy','index');

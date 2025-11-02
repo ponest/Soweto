@@ -1512,7 +1512,7 @@ test\\_%|schema||PUBLIC|&apos;&apos;|UPDATE|G</Grants>
     <schema id="575" parent="1" name="soweto_db">
       <AutoIntrospectionLevel>3</AutoIntrospectionLevel>
       <LastIntrospectionLevel>3</LastIntrospectionLevel>
-      <LastIntrospectionLocalTimestamp>2025-11-01.06:58:44</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2025-11-01.14:26:39</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
     <schema id="576" parent="1" name="sys">
@@ -1818,7 +1818,7 @@ test\\_%|schema||PUBLIC|&apos;&apos;|UPDATE|G</Grants>
       <Predicate>json_valid(`properties`)</Predicate>
     </check>
     <column id="640" parent="585" name="id">
-      <AutoIncrement>540</AutoIncrement>
+      <AutoIncrement>545</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
@@ -1894,7 +1894,7 @@ causer_id</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="657" parent="586" name="id">
-      <AutoIncrement>38</AutoIncrement>
+      <AutoIncrement>39</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
@@ -1959,7 +1959,7 @@ causer_id</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="671" parent="587" name="id">
-      <AutoIncrement>13</AutoIncrement>
+      <AutoIncrement>14</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
@@ -3221,7 +3221,7 @@ causer_id</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="942" parent="607" name="id">
-      <AutoIncrement>14</AutoIncrement>
+      <AutoIncrement>15</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
@@ -3765,7 +3765,7 @@ causer_id</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="1057" parent="617" name="id">
-      <AutoIncrement>1</AutoIncrement>
+      <AutoIncrement>3</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
@@ -3775,7 +3775,7 @@ causer_id</ColNames>
       <Position>2</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1059" parent="617" name="payment_method">
+    <column id="1059" parent="617" name="payment_method_id">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
@@ -3786,7 +3786,6 @@ causer_id</ColNames>
       <StoredType>decimal(8,2 digit)|0s</StoredType>
     </column>
     <column id="1061" parent="617" name="payment_reference">
-      <NotNull>1</NotNull>
       <Position>5</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
@@ -3818,7 +3817,7 @@ causer_id</ColNames>
       <RefTableName>bills</RefTableName>
     </foreign-key>
     <foreign-key id="1068" parent="617" name="payments_payment_method_foreign">
-      <ColNames>payment_method</ColNames>
+      <ColNames>payment_method_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>payment_methods</RefTableName>
     </foreign-key>
@@ -3837,7 +3836,7 @@ causer_id</ColNames>
       <Type>btree</Type>
     </index>
     <index id="1072" parent="617" name="payments_payment_method_foreign">
-      <ColNames>payment_method</ColNames>
+      <ColNames>payment_method_id</ColNames>
       <Type>btree</Type>
     </index>
     <index id="1073" parent="617" name="payments_payment_confirmed_by_foreign">
@@ -4234,7 +4233,7 @@ causer_id</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="1157" parent="624" name="id">
-      <AutoIncrement>18</AutoIncrement>
+      <AutoIncrement>19</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
@@ -4321,7 +4320,7 @@ causer_id</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="1175" parent="625" name="id">
-      <AutoIncrement>16</AutoIncrement>
+      <AutoIncrement>17</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>

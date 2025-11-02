@@ -91,7 +91,7 @@ class SalesController extends Controller
                 $bill = new Bill();
                 $bill->reference_no = "BILL-" . now()->timestamp;
                 $bill->ref_id = $sale_batch->id;
-                $bill->category = $category;
+                $bill->category = "Sales";
                 $bill->bill_amount = $grandTotal;
                 $bill->issued_by = auth()->id();
                 $bill->issued_at = now();
@@ -158,7 +158,9 @@ class SalesController extends Controller
     public function salesHistory()
     {
         $storeId = User::userStoreId();
-        $params['items'] = Sale::whereStoreId($storeId)->latest()->get();
+        $params['items'] = Sale::join('sales_batches as sl', 'sl.id','=','sales.sales_batch_id')
+        ->where('store_id',$storeId)->where('is_paid',true)
+            ->select('sales.*')->latest()->get();
         return view('sales::sales.sales_history', $params);
     }
 

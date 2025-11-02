@@ -70,6 +70,6 @@ class Bill extends Model
 
     public function issuer(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'issuer_id');
+        return $this->belongsTo(User::class, 'issued_by');
     }
 }
