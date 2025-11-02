@@ -5,23 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d44d5f7f-e478-428a-8108-98a2dcddfd72" name="Changes" comment="Modified Billing">
-      <change afterPath="$PROJECT_DIR$/Modules/Sales/app/Commands/Bills/StorePaymentCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/ClientWallet/DeleteCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/ClientWallet/StoreCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/ClientWallet/UpdateCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/client_wallet/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/client_wallet/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/client_wallet/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/6c9936b1-05da-4f32-99ec-df26f88096ae.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6c9936b1-05da-4f32-99ec-df26f88096ae.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/data_source_mapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/data_source_mapping.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/CheckInOut/ComputeBillCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/CheckInOut/ComputeBillCommand.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/CheckInOut/ConfirmPaymentCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/CheckInOut/ConfirmPaymentCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Http/Controllers/BookingChargesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Http/Controllers/BookingChargesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Models/BookingCharges.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Models/BookingCharges.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Models/BookingRoomHistory.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Models/BookingRoomHistory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/database/migrations/2025_10_27_113213_create_booking_charges_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/database/migrations/2025_10_27_113213_create_booking_charges_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/database/migrations/2025_10_31_153745_AddColumnsIsPaid.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/database/migrations/2025_10_31_153745_AddColumnsIsPaid.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/booking_charges/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/booking_charges/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/booking_charges/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/booking_charges/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/Guest/DeleteCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/Guest/DeleteCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/Guest/StoreCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/Guest/StoreCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/Guest/UpdateCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/Guest/UpdateCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Http/Controllers/BookingsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Http/Controllers/BookingsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Http/Controllers/GuestsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Http/Controllers/GuestsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Models/Booking.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Models/Booking.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Models/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Models/Client.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Models/Guest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/database/migrations/2025_05_17_154304_create_guests_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/database/migrations/2025_05_17_154304_create_guests_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/database/migrations/2025_05_30_122717_create_clients_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/database/migrations/2025_05_30_122717_create_clients_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/bookings/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/bookings/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/bookings/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/bookings/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/bookings/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/bookings/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/check_in_out/payment_conf.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/check_in_out/payment_conf.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Sales/app/Commands/Bills/ConfirmPaymentCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/app/Commands/Bills/ConfirmPaymentCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/SalesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/SalesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Sales/resources/views/sales/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/resources/views/sales/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/menus/front_office_menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menus/front_office_menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,7 +236,7 @@
     &quot;laravel_idea.dialogs.code_generation:createFormRequest.width&quot;: &quot;473&quot;,
     &quot;laravel_idea.dialogs.code_generation:createFormRequest.x&quot;: &quot;519&quot;,
     &quot;laravel_idea.dialogs.code_generation:createFormRequest.y&quot;: &quot;350&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Volumes/DATA/PROJECT/OTHERS/svh&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Volumes/DATA/PROJECT/OTHERS/svh/Modules/HotelMgnt/app/Commands&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -243,11 +255,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands" />
+      <recent name="$PROJECT_DIR$/Modules/HotelMgnt/resources/views" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/Modules/Sales/resources/views/bills" />
       <recent name="$PROJECT_DIR$/Modules/Setups/app/Commands" />
-      <recent name="$PROJECT_DIR$/Modules/Setups/resources/views" />
-      <recent name="$PROJECT_DIR$/Modules/HotelMgnt/resources/views" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/menus" />
@@ -397,7 +409,7 @@
       <workItem from="1761559128518" duration="36000" />
       <workItem from="1761809896827" duration="43595000" />
       <workItem from="1761934006029" duration="8314000" />
-      <workItem from="1761974979752" duration="30867000" />
+      <workItem from="1761974979752" duration="39881000" />
     </task>
     <task id="LOCAL-00001" summary="Role CRUD Completed">
       <option name="closed" value="true" />
@@ -743,7 +755,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762062048577</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Modified Billing">
+      <option name="closed" value="true" />
+      <created>1762084754108</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1762084754108</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

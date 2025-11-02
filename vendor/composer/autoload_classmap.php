@@ -3334,7 +3334,7 @@ return array(
     'Modules\\HotelMgnt\\Models\\Client' => $baseDir . '/Modules/HotelMgnt/app/Models/Client.php',
     'Modules\\HotelMgnt\\Models\\ConferenceBooking' => $baseDir . '/Modules/HotelMgnt/app/Models/ConferenceBooking.php',
     'Modules\\HotelMgnt\\Models\\ConferenceRoom' => $baseDir . '/Modules/HotelMgnt/app/Models/ConferenceRoom.php',
-    'Modules\\HotelMgnt\\Models\\Guest' => $baseDir . '/Modules/HotelMgnt/app/Models/Guest.php',
+    'Modules\\HotelMgnt\\Models\\Client' => $baseDir . '/Modules/HotelMgnt/app/Models/Guest.php',
     'Modules\\HotelMgnt\\Models\\HouseKeepingLog' => $baseDir . '/Modules/HotelMgnt/app/Models/HouseKeepingLog.php',
     'Modules\\HotelMgnt\\Models\\Room' => $baseDir . '/Modules/HotelMgnt/app/Models/Room.php',
     'Modules\\HotelMgnt\\Models\\RoomCheckInOut' => $baseDir . '/Modules/HotelMgnt/app/Models/RoomCheckInOut.php',

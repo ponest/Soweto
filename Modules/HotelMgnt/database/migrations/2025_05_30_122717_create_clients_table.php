@@ -11,17 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('clients', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('institution_id');
-            $table->string('name');
-            $table->string('email')->unique()->nullable();
-            $table->string('phone_number')->unique();
-            $table->timestamps();
-            $table->softDeletes();
-            //foreign Key
-            $table->foreign('institution_id')->references('id')->on('institutions');
-        });
+//        Schema::create('clients', function (Blueprint $table) {
+//            $table->id();
+//            $table->unsignedBigInteger('institution_id');
+//            $table->string('name');
+//            $table->string('email')->unique()->nullable();
+//            $table->string('phone_number')->unique();
+//            $table->timestamps();
+//            $table->softDeletes();
+//            //foreign Key
+//            $table->foreign('institution_id')->references('id')->on('institutions');
+//        });
     }
 
     /**
@@ -29,6 +29,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('clients');
+//        Schema::dropIfExists('clients');
+//        conference_bookings_client_id_foreign
     }
 };

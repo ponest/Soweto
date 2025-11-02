@@ -2,14 +2,14 @@
 
 namespace Modules\HotelMgnt\Commands\Guest;
 
-use Modules\HotelMgnt\Models\Guest;
+use Modules\HotelMgnt\Models\Client;
 
 class UpdateCommand
 {
     public static function handle($data, $id): array
     {
-        $guest = Guest::find($id);
-        $isExist = Guest::isExistOnEdit($data['full_name'], $data['phone_number'], $id);
+        $guest = Client::find($id);
+        $isExist = Client::isExistOnEdit($data['full_name'], $data['phone_number'], $id);
         if (!$isExist) {
             $guest->update($data);
             //Sending Notification Back to Roles

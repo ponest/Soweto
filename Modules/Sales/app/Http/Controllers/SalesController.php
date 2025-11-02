@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Modules\Auth\Models\User;
 use Modules\HotelMgnt\Models\Booking;
 use Modules\HotelMgnt\Models\BookingCharges;
-use Modules\HotelMgnt\Models\Guest;
+use Modules\HotelMgnt\Models\Client;
 use Modules\Inventory\Models\ItemStockOut;
 use Modules\Inventory\Models\StockItem;
 use Modules\Inventory\Models\StoreItem;
@@ -35,8 +35,8 @@ class SalesController extends Controller
             $params['stock_items'] = [];
         }
         $params['category'] = $category;
-        $guest_ids = Booking::whereBookingStatus('CheckedIn')->pluck('guest_id')->toArray();
-        $params['guests'] = Guest::whereIn('id', $guest_ids)->get();
+        $client_ids = Booking::whereBookingStatus('CheckedIn')->pluck('client_id')->toArray();
+        $params['clients'] = Client::whereIn('id', $client_ids)->get();
         return view('sales::sales.index', $params);
     }
 
@@ -46,11 +46,11 @@ class SalesController extends Controller
             $cart = $request->input('cart');
             $grandTotal = $request->input('grand_total');
             $category = $request->input('category');
-            $guestId = $request->input('guest_id');
+            $clientId = $request->input('client_id');
             $isAccommodation = $request->input('is_accommodation');
             $booking = null;
-            if ($guestId != null) {
-                $booking = Booking::whereGuestId($guestId)->where('booking_status', 'CheckedIn')->first();
+            if ($clientId != null) {
+                $booking = Booking::whereClientId($clientId)->where('booking_status', 'CheckedIn')->first();
             }
 
             if (empty($cart)) {
@@ -80,7 +80,7 @@ class SalesController extends Controller
                 'created_by' => auth()->id(),
                 'source' => ucwords($category),
                 'room_id' => $booking?->room_id,
-                'client_id' => $booking?->guest_id,
+                'client_id' => $booking?->client_id,
                 'client_type' => $booking ? 'Hotel Guest' : null,
             ]);
 

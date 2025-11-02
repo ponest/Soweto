@@ -13,7 +13,7 @@ use Modules\HotelMgnt\Commands\Booking\DeleteCommand;
 use Modules\HotelMgnt\Commands\Booking\StoreCommand;
 use Modules\HotelMgnt\Commands\Booking\UpdateCommand;
 use Modules\HotelMgnt\Models\Booking;
-use Modules\HotelMgnt\Models\Guest;
+use Modules\HotelMgnt\Models\Client;
 use Modules\HotelMgnt\Models\Room;
 
 class BookingsController extends Controller
@@ -21,7 +21,7 @@ class BookingsController extends Controller
     public function index()
     {
         $params['items'] = Booking::latest('id')->get();
-        $params['guests'] = Guest::orderBy('full_name')->get();
+        $params['clients'] = Client::orderBy('full_name')->get();
         $params['rooms'] = Room::orderBy('room_number')->get();
         return view('hotelmgnt::bookings.index', $params);
     }
@@ -37,7 +37,7 @@ class BookingsController extends Controller
     public function edit($id)
     {
         $params['item'] = Booking::find($id);
-        $params['guests'] = Guest::orderBy('full_name')->get();
+        $params['clients'] = Client::orderBy('full_name')->get();
         $params['rooms'] = Room::orderBy('room_number')->get();
         return view('hotelmgnt::bookings.edit', $params);
     }

@@ -6,22 +6,21 @@ use App\Helpers\General;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
-use Modules\HotelMgnt\Commands\Guest\DeleteCommand;
-use Modules\HotelMgnt\Commands\Guest\StoreCommand;
-use Modules\HotelMgnt\Commands\Guest\UpdateCommand;
+use Modules\HotelMgnt\Commands\ClientWallet\DeleteCommand;
+use Modules\HotelMgnt\Commands\ClientWallet\StoreCommand;
+use Modules\HotelMgnt\Commands\ClientWallet\UpdateCommand;
 use Modules\HotelMgnt\Models\Client;
-use Modules\Setups\Models\IdentityType;
+use Modules\HotelMgnt\Models\ClientWallet;
 
-class GuestsController extends Controller
+class ClientWalletController extends Controller
 {
+
     public function index()
     {
-        $params['items'] = Client::latest('id')->get();
-        $params['id_types'] = IdentityType::orderBy('name')->get();
-        $params['genders'] = array("Male", "Female");
-        return view('hotelmgnt::guests.index', $params);
+        $params['items'] = ClientWallet::all();
+        $params['clients'] = Client::orderBy('full_name')->get();
+        return view('hotelmgnt::client_wallet.index', $params);
     }
-
     public function store(Request $request)
     {
         $data = $request->all();
@@ -32,10 +31,9 @@ class GuestsController extends Controller
 
     public function edit($id)
     {
-        $params['item'] = Client::find($id);
-        $params['id_types'] = IdentityType::orderBy('name')->get();
-        $params['genders'] = array("Male", "Female");
-        return view('hotelmgnt::guests.edit', $params);
+        $params['item'] = ClientWallet::find($id);
+        $params['clients'] = Client::orderBy('full_name')->get();
+        return view('hotelmgnt::client_wallet.edit', $params);
     }
 
 

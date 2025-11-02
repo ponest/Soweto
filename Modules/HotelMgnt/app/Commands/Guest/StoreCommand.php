@@ -1,15 +1,15 @@
 <?php
 
 namespace Modules\HotelMgnt\Commands\Guest;
-use Modules\HotelMgnt\Models\Guest;
+use Modules\HotelMgnt\Models\Client;
 
 class StoreCommand
 {
     public static function handle($data): array
     {
-        $is_exist = Guest::isExist($data['full_name'], $data['phone_number']);
+        $is_exist = Client::isExist($data['full_name'], $data['phone_number']);
         if (!$is_exist) {
-            Guest::create($data);
+            Client::create($data);
             //Sending Notification Back
             return [
                 'message' => 'Guest Successfully Created!',

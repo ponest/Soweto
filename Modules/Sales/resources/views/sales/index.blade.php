@@ -46,11 +46,11 @@
                                     </select>
                                 </div>
                                 <div class="form-group col-md-4" id="guest_name" style="display: none">
-                                    <label>Guest Name</label>
-                                    <select id="guest_id" class="form-control" >
-                                        <option value="" disabled selected>Select Guest...</option>
-                                        @foreach($guests as $guest)
-                                            <option value="{{$guest->id}}">{{$guest->full_name}}</option>
+                                    <label>Client Name</label>
+                                    <select id="client_id" class="form-control" >
+                                        <option value="" disabled selected>Select Client...</option>
+                                        @foreach($clients as $client)
+                                            <option value="{{$client->id}}">{{$client->full_name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -118,7 +118,7 @@
 @section('Scripts')
     <script>
         let cart = [];
-        let guestId = null;
+        let clientId = null;
         let isAccommodation = "No";
         // Autofill price when item selected
         $('#itemName').change(function () {
@@ -138,10 +138,10 @@
             }
         });
 
-        $('#guest_id').change(function () {
+        $('#client_id').change(function () {
             const itemId = $(this).val();
             if (itemId != null) {
-                guestId = $(this).val();
+                clientId = $(this).val();
             }
         });
 
@@ -235,7 +235,7 @@
                     cart: cart, // send the entire cart array
                     grand_total: $('#grandTotal').text(),
                     category: category,
-                    guest_id: guestId,
+                    client_id: clientId,
                     is_accommodation: isAccommodation,
                 },
                 success: function (response) {

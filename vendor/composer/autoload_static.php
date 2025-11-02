@@ -4017,7 +4017,7 @@ class ComposerStaticInit88970a0117c062eed55fa8728fc43833
         'Modules\\HotelMgnt\\Models\\Client' => __DIR__ . '/../..' . '/Modules/HotelMgnt/app/Models/Client.php',
         'Modules\\HotelMgnt\\Models\\ConferenceBooking' => __DIR__ . '/../..' . '/Modules/HotelMgnt/app/Models/ConferenceBooking.php',
         'Modules\\HotelMgnt\\Models\\ConferenceRoom' => __DIR__ . '/../..' . '/Modules/HotelMgnt/app/Models/ConferenceRoom.php',
-        'Modules\\HotelMgnt\\Models\\Guest' => __DIR__ . '/../..' . '/Modules/HotelMgnt/app/Models/Guest.php',
+        'Modules\\HotelMgnt\\Models\\Client' => __DIR__ . '/../..' . '/Modules/HotelMgnt/app/Models/Client.php',
         'Modules\\HotelMgnt\\Models\\HouseKeepingLog' => __DIR__ . '/../..' . '/Modules/HotelMgnt/app/Models/HouseKeepingLog.php',
         'Modules\\HotelMgnt\\Models\\Room' => __DIR__ . '/../..' . '/Modules/HotelMgnt/app/Models/Room.php',
         'Modules\\HotelMgnt\\Models\\RoomCheckInOut' => __DIR__ . '/../..' . '/Modules/HotelMgnt/app/Models/RoomCheckInOut.php',

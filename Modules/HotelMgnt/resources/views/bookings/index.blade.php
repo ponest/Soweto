@@ -39,7 +39,7 @@
                         <tr>
                             <td>{{++$key}}</td>
                             <td class="desc_name">{{$item->reference_number}}</td>
-                            <td>{{$item->guest?->full_name}}</td>
+                            <td>{{$item->client?->full_name}}</td>
                             <td>{{isset($item->room) ? $item->room->room_number : ''}}</td>
                             <td>{{date('d M Y', strtotime($item->proposed_start_date))}}</td>
                             <td>{{isset($item->proposed_end_date) ? date('d M Y',strtotime($item->proposed_end_date)) : ''}}</td>

@@ -36,7 +36,7 @@ class ConfirmPaymentCommand
                 $roomCheckinout->save();
 
                 //Update Sales Batch
-                $salesBatches = SalesBatch::where('client_id', $roomCheckinout->booking->guest_id)
+                $salesBatches = SalesBatch::where('client_id', $roomCheckinout->booking->client_id)
                     ->where('room_id', $roomCheckinout->room_id)
                     ->where('is_paid',false)->get();
                 foreach ($salesBatches as $salesBatch) {

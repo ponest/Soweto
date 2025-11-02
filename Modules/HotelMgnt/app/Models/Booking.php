@@ -13,7 +13,8 @@ use Illuminate\Support\Carbon;
  * 
  *
  * @property int $id
- * @property int $guest_id
+ * @property string|null $reference_number
+ * @property int $client_id
  * @property int $room_id
  * @property string|null $proposed_start_date
  * @property string|null $proposed_end_date
@@ -25,8 +26,10 @@ use Illuminate\Support\Carbon;
  * @property int|null $cancelled_by
  * @property string|null $cancelled_at
  * @property string|null $cancellation_remarks
- * @property-read \Modules\HotelMgnt\Models\Guest $guest
+ * @property-read \Modules\HotelMgnt\Models\Client $client
  * @property-read \Modules\HotelMgnt\Models\Room $room
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\HotelMgnt\Models\BookingRoomHistory> $roomHistories
+ * @property-read int|null $room_histories_count
  * @method static Builder<static>|Booking newModelQuery()
  * @method static Builder<static>|Booking newQuery()
  * @method static Builder<static>|Booking onlyTrashed()
@@ -35,13 +38,14 @@ use Illuminate\Support\Carbon;
  * @method static Builder<static>|Booking whereCancellationRemarks($value)
  * @method static Builder<static>|Booking whereCancelledAt($value)
  * @method static Builder<static>|Booking whereCancelledBy($value)
+ * @method static Builder<static>|Booking whereClientId($value)
  * @method static Builder<static>|Booking whereCreatedAt($value)
  * @method static Builder<static>|Booking whereCreatedBy($value)
  * @method static Builder<static>|Booking whereDeletedAt($value)
- * @method static Builder<static>|Booking whereGuestId($value)
  * @method static Builder<static>|Booking whereId($value)
  * @method static Builder<static>|Booking whereProposedEndDate($value)
  * @method static Builder<static>|Booking whereProposedStartDate($value)
+ * @method static Builder<static>|Booking whereReferenceNumber($value)
  * @method static Builder<static>|Booking whereRoomId($value)
  * @method static Builder<static>|Booking whereUpdatedAt($value)
  * @method static Builder<static>|Booking withTrashed()
@@ -54,9 +58,9 @@ class Booking extends Model
 
     protected $guarded = [];
 
-    public function guest(): BelongsTo
+    public function client(): BelongsTo
     {
-        return $this->belongsTo(Guest::class);
+        return $this->belongsTo(Client::class);
     }
 
     public function room(): BelongsTo

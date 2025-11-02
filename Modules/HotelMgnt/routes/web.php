@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Modules\HotelMgnt\Http\Controllers\BookingChargesController;
 use Modules\HotelMgnt\Http\Controllers\BookingsController;
 use Modules\HotelMgnt\Http\Controllers\ClientsController;
+use Modules\HotelMgnt\Http\Controllers\ClientWalletController;
 use Modules\HotelMgnt\Http\Controllers\ConferenceBookingsController;
 use Modules\HotelMgnt\Http\Controllers\ConferenceRoomsController;
 use Modules\HotelMgnt\Http\Controllers\GuestsController;
@@ -51,9 +52,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('booking-charges/index/{id}', [BookingChargesController::class, 'index'])->name('booking-charges.index');
     Route::get('booking-charges/destroy/{id}', [BookingChargesController::class, 'destroy'])->name('booking-charges.destroy');
 
-
     Route::resource('clients', ClientsController::class)->except('show', 'destroy');
     Route::get('clients/destroy/{id}', [ClientsController::class, 'destroy'])->name('clients.destroy');
+
+    Route::resource('client-wallet', ClientWalletController::class)->except('show', 'destroy');
+    Route::get('client-wallet/destroy/{id}', [ClientWalletController::class, 'destroy'])->name('client-wallet.destroy');
 
     Route::resource('conference-rooms', ConferenceRoomsController::class)->except('show', 'destroy');
     Route::get('conference-rooms/destroy/{id}', [ConferenceRoomsController::class, 'destroy'])->name('conference-rooms.destroy');
