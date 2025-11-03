@@ -22,9 +22,23 @@
             </div>
         </div>
         <div class="row mb-3">
-            <div class="col">
+            <div class="col-9">
                 <label>Reference Number</label>
-                <input type="text" name="payment_reference" class="form-control form-control-air">
+                <input type="text" name="payment_reference" id="payment_reference" class="form-control form-control-air">
+            </div>
+            <div class="col-3">
+                <button  onclick="verifyWallet()" class="btn btn-primary" style="margin-top: 3.2vh">Verify</button>
+            </div>
+
+        </div>
+        <div class="row mb-3">
+            <div class="col">
+                <label>Wallet Amount</label>
+                <input type="number" id="wallet_amount" class="form-control form-control-air" readonly>
+            </div>
+            <div class="col">
+                <label>Wallet Balance</label>
+                <input type="number" id="wallet_balance" name="wallet_balance" class="form-control form-control-air" readonly>
             </div>
         </div>
         <div class="row mb-3">

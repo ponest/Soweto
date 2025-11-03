@@ -157,5 +157,32 @@
 
         datePickerLoad();
 
+
+        function verifyWallet()
+        {
+            const referenceNumber = $("#payment_reference").val();
+
+            $.ajax({
+                url: '{{ route("client-wallet.details") }}', // 👈 make sure route name or URL matches your controller route
+                method: 'GET',
+                data: {
+                    _token: '{{ csrf_token() }}', // CSRF protection
+                    reference_no: referenceNumber,
+                },
+                success: function (response) {
+                    if (response.success === true) {
+                        swal("Success", response.message, 'success');
+                        $("#wallet_amount").val(response.wallet_amount);
+                        $("#wallet_balance").val(response.balance);
+                    } else {
+                        swal("Error", response.message, 'error');
+                    }
+                },
+                error: function (xhr) {
+                    console.error(xhr.responseText);
+                    swal("Error", 'Something went wrong. Please try again.', 'error');
+                }
+            });
+        }
     </script>
 @endsection

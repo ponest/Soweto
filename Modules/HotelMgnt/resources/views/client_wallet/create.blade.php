@@ -21,6 +21,19 @@
                             </select>
                         </div>
                     </div>
+
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label>Payment Method</label>
+                            <select name="payment_method_id" class="form-control form-control-air" required>
+                                <option value="">Select</option>
+                                @foreach($payment_methods as $payment_method)
+                                    <option value="{{$payment_method->id}}">{{$payment_method->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
                     <div class="row mb-3">
                         <div class="col">
                             <label>Transaction Reference No</label>

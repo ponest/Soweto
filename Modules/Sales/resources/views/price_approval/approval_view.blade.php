@@ -3,7 +3,6 @@
 @section('content')
     <div class="ibox">
         <div class="ibox-body">
-
             <div class="row">
                 <div class="col-9" style="padding-top: 2vh">
                     <h5 class="font-strong">PRICE APPROVAL REQUEST</h5>

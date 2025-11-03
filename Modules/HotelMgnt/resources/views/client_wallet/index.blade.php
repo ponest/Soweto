@@ -26,9 +26,11 @@
                     <tr>
                         <th>S/N</th>
                         <th>Client Name</th>
+                        <th>Payment Method</th>
                         <th>Reference No</th>
                         <th>Transaction Reference No</th>
                         <th>Wallet Amount</th>
+                        <th>Reject Comment</th>
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -37,9 +39,11 @@
                         <tr>
                             <td style="width: 5%">{{++$key}}</td>
                             <td class="desc_name">{{$item->client?->full_name}}</td>
+                            <td>{{$item->paymentMethod?->name}}</td>
                             <td>{{$item->reference_no}}</td>
                             <td>{{$item->transaction_reference_no}}</td>
-                            <td>{{$item->wallet_amount}}</td>
+                            <td style="text-align: right">{{number_format($item->wallet_amount)}}</td>
+                            <td>{{$item->reject_comments}}</td>
                             <td style="width: 9%" class="text-center">
                                 @if(!$item->submitted_at)
                                 <a class="text-muted font-16 edit-link" href="{{route('client-wallet.edit',$item->id)}}"

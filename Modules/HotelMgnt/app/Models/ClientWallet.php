@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 use Modules\Auth\Models\User;
+use Modules\Setups\Models\PaymentMethod;
 
 /**
  * 
@@ -31,7 +32,9 @@ use Modules\Auth\Models\User;
  * @property int|null $is_approved
  * @property string|null $reject_comments
  * @property string|null $status
+ * @property int|null $payment_method_id
  * @property-read \Modules\HotelMgnt\Models\Client $client
+ * @property-read User|null $reviewer
  * @method static Builder<static>|ClientWallet newModelQuery()
  * @method static Builder<static>|ClientWallet newQuery()
  * @method static Builder<static>|ClientWallet onlyTrashed()
@@ -45,6 +48,7 @@ use Modules\Auth\Models\User;
  * @method static Builder<static>|ClientWallet whereId($value)
  * @method static Builder<static>|ClientWallet whereIsActive($value)
  * @method static Builder<static>|ClientWallet whereIsApproved($value)
+ * @method static Builder<static>|ClientWallet wherePaymentMethodId($value)
  * @method static Builder<static>|ClientWallet whereReferenceNo($value)
  * @method static Builder<static>|ClientWallet whereRejectComments($value)
  * @method static Builder<static>|ClientWallet whereReviewedAt($value)
@@ -73,5 +77,10 @@ class ClientWallet extends Model
     public function reviewer(): BelongsTo
     {
         return $this->belongsTo(User::class,'reviewed_by');
+    }
+
+    public function paymentMethod(): BelongsTo
+    {
+        return $this->belongsTo(PaymentMethod::class);
     }
 }

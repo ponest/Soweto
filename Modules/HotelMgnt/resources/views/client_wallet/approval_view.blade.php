@@ -53,6 +53,10 @@
                                     @if(!$item->reviewed_at)
                                         <a class="text-muted font-16 approve-link" href="{{route('client-wallet.approve',$item->id)}}"
                                            data-toggle="tooltip" title="Approve"><i class="fa fa-check-circle"></i></a>
+                                        | <a class="text-muted font-16 reject-link"
+                                             href="{{route('client-wallet.reject-view',$item->id)}}"
+                                             title="Reject" data-toggle="tooltip"><i
+                                                    class="fa fx-2 fa-close"></i></a>
                                     @endif
                                 </td>
                             @endif
@@ -64,9 +68,9 @@
         </div>
     </div>
 
-    <div class="modal fade" id="edit_modal" aria-labelledby="edit_modal" aria-hidden="true">
+    <div class="modal fade" id="reject_modal" aria-labelledby="reject_modal" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content modal-edit">
+            <div class="modal-content modal-reject">
                 <!--Edit Form Loads Here-->
             </div>
         </div>
@@ -75,11 +79,11 @@
 
 @section('Scripts')
     <script>
-        $('.edit-link').on('click', function (e) {
+        $('.reject-link').on('click', function (e) {
             e.preventDefault();
             const dataURL = $(this).attr('href');
-            $('.modal-edit').load(dataURL, function () {
-                $('#edit_modal').modal({show: true});
+            $('.modal-reject').load(dataURL, function () {
+                $('#reject_modal').modal({show: true});
             });
         });
 
