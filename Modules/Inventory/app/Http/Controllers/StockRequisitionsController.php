@@ -74,7 +74,16 @@ class StockRequisitionsController extends Controller
 
     public function approverView()
     {
-        $params['items'] = StockRequisition::whereNotNull('submitted_at')->latest('id')->get();
+        $params['items'] = StockRequisition::whereNotNull('submitted_at')
+            ->whereNull('reviewed_by')->latest('id')->get();
+        $params['approved_view'] = false;
+        return view('inventory::stock_requisition.approval_view', $params);
+    }
+
+    public function approved()
+    {
+        $params['items'] = StockRequisition::whereIsApproved(true)->latest('id')->get();
+        $params['approved_view'] = true;
         return view('inventory::stock_requisition.approval_view', $params);
     }
 

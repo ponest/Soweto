@@ -57,6 +57,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::resource('client-wallet', ClientWalletController::class)->except('show', 'destroy');
     Route::get('client-wallet/destroy/{id}', [ClientWalletController::class, 'destroy'])->name('client-wallet.destroy');
+    Route::get('client-wallet/submit/{id}', [ClientWalletController::class, 'submitRequest'])->name('client-wallet.submit');
+    Route::get('client-wallet/approver', [ClientWalletController::class, 'approverView'])->name('client-wallet.approver-view');
+    Route::get('client-wallet/approve/{id}', [ClientWalletController::class, 'approveRequest'])->name('client-wallet.approve');
+    Route::get('client-wallet/approved', [ClientWalletController::class, 'approved'])->name('client-wallet.approved');
 
     Route::resource('conference-rooms', ConferenceRoomsController::class)->except('show', 'destroy');
     Route::get('conference-rooms/destroy/{id}', [ConferenceRoomsController::class, 'destroy'])->name('conference-rooms.destroy');

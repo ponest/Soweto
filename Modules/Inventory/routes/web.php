@@ -38,6 +38,7 @@ Route::middleware('auth')->group(function () {
     Route::get('stock-requisition/submit/{id}', [StockRequisitionsController::class, 'submitRequest'])->name('stock-requisition.submit');
     Route::get('stock-requisition/approve/{id}', [StockRequisitionsController::class, 'approveRequest'])->name('stock-requisition.approve');
     Route::get('stock-requisition/approve-view', [StockRequisitionsController::class, 'approverView'])->name('stock-requisition.approve-view');
+    Route::get('stock-requisition/approved', [StockRequisitionsController::class, 'approved'])->name('stock-requisition.approved');
     Route::get('stock-requisition/items/{id}', [StockRequisitionsController::class, 'viewItems'])->name('stock-requisition.items');
     Route::get('stock-requisition/reject/{id}', [StockRequisitionsController::class, 'rejectView'])->name('stock-requisition.reject-view');
     Route::post('stock-requisition/reject', [StockRequisitionsController::class, 'rejectRequest'])->name('stock-requisition.reject');

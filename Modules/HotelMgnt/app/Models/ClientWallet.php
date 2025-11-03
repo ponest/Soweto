@@ -7,9 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
+use Modules\Auth\Models\User;
 
 /**
- *
+ * 
  *
  * @property int $id
  * @property int $client_id
@@ -22,6 +23,15 @@ use Illuminate\Support\Carbon;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property Carbon|null $deleted_at
+ * @property int $is_active
+ * @property int|null $submitted_by
+ * @property string|null $submitted_at
+ * @property int|null $reviewed_by
+ * @property string|null $reviewed_at
+ * @property int|null $is_approved
+ * @property string|null $reject_comments
+ * @property string|null $status
+ * @property-read \Modules\HotelMgnt\Models\Client $client
  * @method static Builder<static>|ClientWallet newModelQuery()
  * @method static Builder<static>|ClientWallet newQuery()
  * @method static Builder<static>|ClientWallet onlyTrashed()
@@ -33,7 +43,15 @@ use Illuminate\Support\Carbon;
  * @method static Builder<static>|ClientWallet whereCreatedBy($value)
  * @method static Builder<static>|ClientWallet whereDeletedAt($value)
  * @method static Builder<static>|ClientWallet whereId($value)
+ * @method static Builder<static>|ClientWallet whereIsActive($value)
+ * @method static Builder<static>|ClientWallet whereIsApproved($value)
  * @method static Builder<static>|ClientWallet whereReferenceNo($value)
+ * @method static Builder<static>|ClientWallet whereRejectComments($value)
+ * @method static Builder<static>|ClientWallet whereReviewedAt($value)
+ * @method static Builder<static>|ClientWallet whereReviewedBy($value)
+ * @method static Builder<static>|ClientWallet whereStatus($value)
+ * @method static Builder<static>|ClientWallet whereSubmittedAt($value)
+ * @method static Builder<static>|ClientWallet whereSubmittedBy($value)
  * @method static Builder<static>|ClientWallet whereTransactionReferenceNo($value)
  * @method static Builder<static>|ClientWallet whereUpdatedAt($value)
  * @method static Builder<static>|ClientWallet whereWalletAmount($value)
@@ -50,5 +68,10 @@ class ClientWallet extends Model
     public function client(): BelongsTo
     {
         return $this->belongsTo(Client::class);
+    }
+
+    public function reviewer(): BelongsTo
+    {
+        return $this->belongsTo(User::class,'reviewed_by');
     }
 }

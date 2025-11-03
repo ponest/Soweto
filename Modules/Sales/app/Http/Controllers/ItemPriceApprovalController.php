@@ -68,7 +68,14 @@ class ItemPriceApprovalController extends Controller
 
     public function approverView()
     {
-        $params['items'] = ItemPriceApproval::whereNotNull('submitted_at')->latest('id')->get();
+        $params['items'] = ItemPriceApproval::whereNotNull('submitted_at')
+            ->whereNull('reviewed_by')->latest('id')->get();
+        return view('sales::price_approval.approval_view', $params);
+    }
+
+    public function approved()
+    {
+        $params['items'] = ItemPriceApproval::whereIsApproved(true)->latest('id')->get();
         return view('sales::price_approval.approval_view', $params);
     }
 

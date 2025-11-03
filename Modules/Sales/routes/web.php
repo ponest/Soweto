@@ -21,6 +21,7 @@ Route::middleware('auth')->group(function () {
     Route::get('item-price-approval/submit/{id}', [ItemPriceApprovalController::class, 'submitRequest'])->name('item-price-approval.submit');
     Route::get('item-price-approval/approve/{id}', [ItemPriceApprovalController::class, 'approveRequest'])->name('item-price-approval.approve');
     Route::get('item-price-approval/approve-view', [ItemPriceApprovalController::class, 'approverView'])->name('item-price-approval.approve-view');
+    Route::get('item-price-approval/approved', [ItemPriceApprovalController::class, 'approved'])->name('item-price-approval.approved');
     Route::get('item-price-approval/items/{id}', [ItemPriceApprovalController::class, 'viewItems'])->name('item-price-approval.items');
     Route::get('item-price-approval/reject/{id}', [ItemPriceApprovalController::class, 'rejectView'])->name('item-price-approval.reject-view');
     Route::post('item-price-approval/reject', [ItemPriceApprovalController::class, 'rejectRequest'])->name('item-price-approval.reject');
@@ -50,6 +51,7 @@ Route::middleware('auth')->group(function () {
     Route::get('menu-price-approval/submit/{id}', [MenuPriceApprovalController::class, 'submitRequest'])->name('menu-price-approval.submit');
     Route::get('menu-price-approval/approve/{id}', [MenuPriceApprovalController::class, 'approveRequest'])->name('menu-price-approval.approve');
     Route::get('menu-price-approval/approve-view', [MenuPriceApprovalController::class, 'approverView'])->name('menu-price-approval.approve-view');
+    Route::get('menu-price-approval/approved', [MenuPriceApprovalController::class, 'approved'])->name('menu-price-approval.approved');
     Route::get('menu-price-approval/items/{id}', [MenuPriceApprovalController::class, 'viewItems'])->name('menu-price-approval.items');
     Route::get('menu-price-approval/reject/{id}', [MenuPriceApprovalController::class, 'rejectView'])->name('menu-price-approval.reject-view');
     Route::post('menu-price-approval/reject', [MenuPriceApprovalController::class, 'rejectRequest'])->name('menu-price-approval.reject');

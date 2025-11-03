@@ -68,7 +68,14 @@ class MenuPriceApprovalController extends Controller
 
     public function approverView()
     {
-        $params['items'] = MenuPriceApproval::whereNotNull('submitted_at')->latest('id')->get();
+        $params['items'] = MenuPriceApproval::whereNotNull('submitted_at')
+            ->whereNull('reviewed_by')->latest('id')->get();
+        return view('sales::menu_price_approval.approval_view', $params);
+    }
+
+    public function approved()
+    {
+        $params['items'] = MenuPriceApproval::whereIsApproved(true)->latest('id')->get();
         return view('sales::menu_price_approval.approval_view', $params);
     }
 

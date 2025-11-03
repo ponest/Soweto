@@ -74,13 +74,15 @@
         </div>
     </div>
 
-    <div class="modal fade" id="reject_modal" aria-labelledby="edit_modal" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content modal-reject">
-                <!--Edit Form Loads Here-->
+    @if(!$approved_view)
+        <div class="modal fade" id="reject_modal" aria-labelledby="edit_modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content modal-reject">
+                    <!--Edit Form Loads Here-->
+                </div>
             </div>
         </div>
-    </div>
+    @endif
 
     <div class="modal fade" id="show_modal" aria-labelledby="create_modal" aria-hidden="true">
         <div class="modal-dialog">
@@ -102,6 +104,7 @@
             </div>
         </div>
     </div>
+
 
 @endsection
 
