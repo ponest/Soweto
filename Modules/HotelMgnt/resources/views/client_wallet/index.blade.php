@@ -30,6 +30,7 @@
                         <th>Reference No</th>
                         <th>Transaction Reference No</th>
                         <th>Wallet Amount</th>
+                        <th>Status</th>
                         <th>Reject Comment</th>
                         <th>Action</th>
                     </tr>
@@ -43,6 +44,7 @@
                             <td>{{$item->reference_no}}</td>
                             <td>{{$item->transaction_reference_no}}</td>
                             <td style="text-align: right">{{number_format($item->wallet_amount)}}</td>
+                            <td>{{$item->status}}</td>
                             <td>{{$item->reject_comments}}</td>
                             <td style="width: 9%" class="text-center">
                                 @if(!$item->submitted_at)
@@ -52,6 +54,8 @@
                                    title="Delete"><i class="fa fa-trash-o"></i></a>
                                 | <a class="text-muted font-16 submit-link" href="{{route('client-wallet.submit',$item->id)}}"
                                          title="Submit"><i class="fa fa-check-circle"></i></a>
+                                @else
+                                    <span><i>No Action</i></span>
                                 @endif
                             </td>
                         </tr>

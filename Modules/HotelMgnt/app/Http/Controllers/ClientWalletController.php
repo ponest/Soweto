@@ -104,7 +104,8 @@ class ClientWalletController extends Controller
 
     public function getWalletDetails(Request $request)
     {
-        $wallet = ClientWallet::whereReferenceNo($request->reference_no)->first();
+        $wallet = ClientWallet::whereReferenceNo($request->reference_no)
+            ->where('is_approved',true)->first();
         if ($wallet) {
             $total_transaction = WalletTransaction::where('wallet_id', $wallet->id)->sum('amount');
             $balance = $wallet->wallet_amount - $total_transaction;

@@ -133,6 +133,31 @@
             $('select').select2({
                 width: '100%'
             });
+
+            $("#payment_method_id").on('change', function (e) {
+                const paymentMethodId = $(this).val();
+                if (paymentMethodId === "4") {
+                    $(".hid_div").css("display", "block");
+                }else{
+                    $(".hid_div").css("display", "none");
+                }
+            });
+
+            $("#payment_form").on('submit', function (e) {
+                e.preventDefault();
+
+                const paidAmount = parseFloat($("#paid_amount").val()) || 0;
+                const walletBalance = parseFloat($("#wallet_balance").val()) || 0;
+
+                if (paidAmount > walletBalance) {
+                    swal("Warning", "The wallet balance is smaller than the paid amount", "warning");
+                } else {
+                    // Proceed with form submission
+                    this.submit();
+                }
+            });
+
+
         });
 
         //For Check In
@@ -156,6 +181,8 @@
         });
 
         datePickerLoad();
+
+
 
 
         function verifyWallet()

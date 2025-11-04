@@ -27,12 +27,13 @@ class ConfirmPaymentCommand
             }
 
             if ($data['payment_method_id'] == 4) {
-                if ($data['wallet_balance'] <= $data['paid_amount']){
+                if ($data['wallet_balance'] < $data['paid_amount']){
                     return [
                         'message' => 'Paid Amount is Less than Wallet Balance!',
                         'type' => 'error'
                     ];
                 }
+
                 //Make Transaction
                 $wallet =  ClientWallet::where('reference_no', $data['payment_reference'])->first();
                 $walletTransaction = new WalletTransaction();
