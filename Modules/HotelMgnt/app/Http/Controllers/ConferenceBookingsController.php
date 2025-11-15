@@ -6,17 +6,23 @@ use App\Helpers\General;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Modules\HotelMgnt\Commands\ConferenceBooking\StoreCommand;
+use Modules\HotelMgnt\Models\Client;
 use Modules\HotelMgnt\Models\ConferenceBooking;
+use Modules\HotelMgnt\Models\ConferenceRoom;
 use Modules\Setups\Commands\Department\DeleteCommand;
-use Modules\Setups\Commands\Department\StoreCommand;
 use Modules\Setups\Commands\Department\UpdateCommand;
 use Modules\Setups\Models\Department;
+use Modules\Setups\Models\Institution;
 
 class ConferenceBookingsController extends Controller
 {
     public function index()
     {
         $params['items'] = ConferenceBooking::latest('id')->get();
+        $params['clients'] = Client::orderBy('full_name')->get();
+        $params['rooms'] = ConferenceRoom::orderBy('name')->get();
+        $params['institutions'] = Institution::orderBy('name')->get();
         return view('hotelmgnt::conference_bookings.index', $params);
     }
 

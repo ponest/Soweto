@@ -21,7 +21,7 @@ class PriceApprovalItemController extends Controller
         $params['stock_items'] = StockItem::getAll();
         $params['price_approval'] = ItemPriceApproval::find($id);
         $params['type'] = $type;
-        return view('sales::menu_price_approval_items.index', $params);
+        return view('sales::price_approval_items.index', $params);
     }
 
     public function store(Request $request)

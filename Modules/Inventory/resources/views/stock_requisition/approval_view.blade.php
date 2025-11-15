@@ -9,11 +9,11 @@
                     <h5 class="font-strong">STOCK REQUISITION</h5>
                 </div>
                 <div class="col-3" style="text-align: right">
-                    @cannot('Approver')
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create_modal">
+                    @if(!auth()->user()->hasRole('Approver') && !auth()->user()->hasRole('Store Officer'))
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create_modal">
                         <i class="fa fa-plus-circle"></i> Add New
                     </button>
-                    @endcannot
+                    @endif
                 </div>
             </div>
 

@@ -1,22 +1,22 @@
 <?php
 
-namespace Modules\HotelMgnt\Commands\Guest;
+namespace Modules\HotelMgnt\Commands\Booking;
 
 use Exception;
 use Illuminate\Support\Facades\Log;
-use Modules\HotelMgnt\Models\Client;
+use Modules\HotelMgnt\Models\Booking;
 
 class DeleteCommand
 {
     public static function handle($id): array
     {
         try {
-            $item = Client::find($id);
+            $item = Booking::find($id);
             $item->delete();
 
             //Sending Back Notification
             return [
-                'message' => 'Guest Successfully Deleted!',
+                'message' => 'Booking Successfully Deleted!',
                 'type' => 'success'
             ];
         } catch (Exception $ex) {

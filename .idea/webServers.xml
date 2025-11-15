@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="7fb994e1-1e86-4776-b243-3207301f5e02" name="LIVE">
+        <fileTransfer rootFolder="/var/www/html/soweto" accessType="SFTP" host="194.233.89.9" port="22" sshConfigId="d3b592e5-8c3b-4f78-b3eb-88a35471d8ed" sshConfig="root@194.233.89.9:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="05c7da36-5ac1-43d0-8004-a1b0f883c14b" name="TEST">
+        <fileTransfer rootFolder="/var/www/html/soweto-test" accessType="SFTP" host="194.233.89.9" port="22" sshConfigId="d3b592e5-8c3b-4f78-b3eb-88a35471d8ed" sshConfig="root@194.233.89.9:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+    <groups>
+      <group>
+        <name>SRV GRP</name>
+        <servers>
+          <name value="LIVE" />
+          <name value="TEST" />
+        </servers>
+      </group>
+    </groups>
+  </component>
+</project>

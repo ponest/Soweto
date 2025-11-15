@@ -45,7 +45,7 @@
             </div>
             <div class="col">
                 <label>Assigned Store</label>
-                <select  name="store_id" class="form-control form-control-air dd_select" style="width: 100%" required>
+                <select  name="store_id" class="form-control form-control-air dd_select" style="width: 100%">
                     <option value="">Select Store</option>
                     @foreach($stores as $item_store)
                         <option value="{{$item_store->id}}" {{$item_store->id == $item->store_id ? 'selected':''}}>{{$item_store->name}}</option>

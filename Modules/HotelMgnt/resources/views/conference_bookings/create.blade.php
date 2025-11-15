@@ -27,7 +27,8 @@
 
                     <div class="row mb-3">
                         <div class="col">
-                            <select name="conference_room_id" class="form-control form-control-air dd_select" style="width: 100%"
+                            <select name="conference_room_id" class="form-control form-control-air dd_select"
+                                    style="width: 100%"
                                     required>
                                 <option value="">Select Room</option>
                                 @foreach($conference_rooms as $conference_room)
@@ -39,25 +40,42 @@
 
                     <div class="row mb-3">
                         <div class="col">
-                            <input type="text" name="start_date" class="form-control form-control-air" placeholder="Start Date">
+                            <label>Institution</label>
+                            <select name="institution_id" class="form-control form-control-air dd_select"
+                                    style="width: 100%" required>
+                                <option>Select Institution</option>
+                                @foreach($institutions as $institution)
+                                    <option value="{{$institution->id}}">{{$institution->name}}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
 
                     <div class="row mb-3">
                         <div class="col">
-                            <input type="text" name="end_date" class="form-control form-control-air" placeholder="End Date">
+                            <input type="text" name="start_date" class="form-control form-control-air"
+                                   placeholder="Start Date">
                         </div>
                     </div>
 
                     <div class="row mb-3">
                         <div class="col">
-                            <input type="text" name="number_of_people" class="form-control form-control-air" placeholder="No of People">
+                            <input type="text" name="end_date" class="form-control form-control-air"
+                                   placeholder="End Date">
                         </div>
                     </div>
 
                     <div class="row mb-3">
                         <div class="col">
-                            <input type="text" name="discount_percentage" class="form-control form-control-air" placeholder="Discount Percentage">
+                            <input type="text" name="number_of_people" class="form-control form-control-air"
+                                   placeholder="No of People">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col">
+                            <input type="text" name="discount_percentage" class="form-control form-control-air"
+                                   placeholder="Discount Percentage">
                         </div>
                     </div>
                 </div>

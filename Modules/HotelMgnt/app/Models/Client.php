@@ -48,14 +48,14 @@ class Client extends Model
 //    protected $table = 'hotel_guests';
     protected $guarded = [];
 
-    public static function isExist($full_name, $phone_number)
+    public static function isExist($name, $phone_number)
     {
-        return self:: where([['phone_number', $phone_number], ['full_name', $full_name]])->first();
+        return self:: where([['phone_number', $phone_number], ['full_name', $name]])->first();
     }
 
-    public static function isExistOnEdit($full_name, $phone_number, $id)
+    public static function isExistOnEdit($name, $phone_number, $id)
     {
-        return self::where([['full_name', $full_name], ['phone_number', $phone_number], ['id', '!=', $id]])->first();
+        return self::where([['full_name', $name], ['phone_number', $phone_number], ['id', '!=', $id]])->first();
     }
 
     public function identityType(): BelongsTo

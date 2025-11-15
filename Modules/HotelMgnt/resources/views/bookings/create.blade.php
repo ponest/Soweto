@@ -38,6 +38,18 @@
                         </div>
                     </div>
 
+{{--                    <div class="row mb-3">--}}
+{{--                        <div class="col">--}}
+{{--                            <label>Institution</label>--}}
+{{--                            <select name="institution_id" class="form-control form-control-air dd_select" style="width: 100%" required>--}}
+{{--                                <option>Select Institution</option>--}}
+{{--                                @foreach($institutions as $institution)--}}
+{{--                                    <option value="{{$institution->id}}">{{$institution->name}}</option>--}}
+{{--                                @endforeach--}}
+{{--                            </select>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+
                     <div class="row mb-3">
                         <div class="col">
                             <label>Proposed Start Date</label>

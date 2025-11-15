@@ -10,14 +10,15 @@ use Modules\HotelMgnt\Commands\Client\DeleteCommand;
 use Modules\HotelMgnt\Commands\Client\StoreCommand;
 use Modules\HotelMgnt\Commands\Client\UpdateCommand;
 use Modules\HotelMgnt\Models\Client;
-use Modules\Setups\Models\Institution;
+use Modules\Setups\Models\IdentityType;
 
 class ClientsController extends Controller
 {
     public function index()
     {
         $params['items'] = Client::latest('id')->get();
-        $params['institutions'] = Institution::orderBy('name')->get();
+        $params['id_types'] = IdentityType::orderBy('name')->get();
+        $params['genders'] = array("Male", "Female");
         return view('hotelmgnt::clients.index', $params);
     }
 
@@ -32,6 +33,8 @@ class ClientsController extends Controller
     public function edit($id)
     {
         $params['item'] = Client::find($id);
+        $params['id_types'] = IdentityType::orderBy('name')->get();
+        $params['genders'] = array("Male", "Female");
         return view('hotelmgnt::clients.edit', $params);
     }
 

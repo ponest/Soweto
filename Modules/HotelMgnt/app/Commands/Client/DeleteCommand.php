@@ -16,7 +16,7 @@ class DeleteCommand
 
             //Sending Back Notification
             return [
-                'message' => 'Client Successfully Deleted!',
+                'message' => 'Guest Successfully Deleted!',
                 'type' => 'success'
             ];
         } catch (Exception $ex) {

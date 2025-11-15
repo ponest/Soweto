@@ -7,7 +7,6 @@ use Modules\HotelMgnt\Http\Controllers\ClientsController;
 use Modules\HotelMgnt\Http\Controllers\ClientWalletController;
 use Modules\HotelMgnt\Http\Controllers\ConferenceBookingsController;
 use Modules\HotelMgnt\Http\Controllers\ConferenceRoomsController;
-use Modules\HotelMgnt\Http\Controllers\GuestsController;
 use Modules\HotelMgnt\Http\Controllers\HotelMgntController;
 use Modules\HotelMgnt\Http\Controllers\HouseKeepingLogController;
 use Modules\HotelMgnt\Http\Controllers\RoomCheckInOutController;
@@ -25,8 +24,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('rooms', RoomsController::class)->except('show', 'destroy');
     Route::get('rooms/destroy/{id}', [RoomsController::class, 'destroy'])->name('rooms.destroy');
 
-    Route::resource('guests', GuestsController::class)->except('show', 'destroy');
-    Route::get('guests/destroy/{id}', [GuestsController::class, 'destroy'])->name('guests.destroy');
+//    Route::resource('guests', ClientsController::class)->except('show', 'destroy');
+//    Route::get('guests/destroy/{id}', [ClientsController::class, 'destroy'])->name('guests.destroy');
 
     Route::resource('house-kp-logs', HouseKeepingLogController::class)->except('show', 'destroy');
     Route::get('house-kp-logs/destroy/{id}', [HouseKeepingLogController::class, 'destroy'])->name('house-kp-logs.destroy');

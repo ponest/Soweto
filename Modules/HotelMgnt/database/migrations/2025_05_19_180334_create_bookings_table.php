@@ -13,19 +13,15 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('guest_id')->unsigned();
-            $table->bigInteger('room_id')->unsigned();
+            $table->foreignId('client_id')->constrained();
+            $table->foreignId('room_id')->constrained();
             $table->dateTime('check_in_date')->nullable();
             $table->dateTime('check_out_date')->nullable();
             $table->string('booking_status');
             $table->integer('price')->nullable();
-            $table->bigInteger('created_by')->unsigned();
+            $table->foreignId('created_by')->constrained('users');
             $table->timestamps();
             $table->softDeletes();
-            //Foreign Key
-            $table->foreign('guest_id')->references('id')->on('hotel_guests');
-            $table->foreign('room_id')->references('id')->on('rooms');
-            $table->foreign('created_by')->references('id')->on('users');
         });
     }
 

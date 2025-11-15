@@ -38,7 +38,7 @@
                     @foreach($items as $key=>$item)
                         <tr>
                             <td>{{++$key}}</td>
-                            <td class="desc_name">{{$item->guest->full_name}}</td>
+                            <td class="desc_name">{{$item->guest?->full_name}}</td>
                             <td>{{isset($item->room) ? $item->room->room_number : ''}}</td>
                             <td>{{$item->check_in_date}}</td>
                             <td>{{isset($item->check_out_date) ? date('d M Y H:i:s',strtotime($item->check_out_date)) : ''}}</td>
@@ -71,7 +71,7 @@
     </div>
 
     <!--Create Modal && Edit Modal -->
-    @include('hotelmgnt::bookings.create')
+    @include('hotelmgnt::conference_bookings.create')
 
     <div class="modal fade" id="edit_modal" aria-labelledby="edit_modal" aria-hidden="true">
         <div class="modal-dialog">
@@ -108,6 +108,8 @@
             const ButtonText = 'Yes, Check In';
             actionConfirm(Description, Url, ButtonText);
         });
+
+        datePickerLoad();
 
     </script>
 @endsection

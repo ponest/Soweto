@@ -6,7 +6,7 @@
 
             <div class="row">
                 <div class="col-9" style="padding-top: 2vh">
-                    <h5 class="font-strong">CLIENTS</h5>
+                    <h5 class="font-strong">CLIENTS/GUESTS</h5>
                 </div>
                 <div class="col-3" style="text-align: right">
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create_modal">
@@ -24,33 +24,36 @@
                 <table class="table table-bordered table-hover table-sm" id="datatable">
                     <thead class="thead-default thead-lg">
                     <tr>
-                        <th>S/N</th>
-                        <th>Name</th>
-                        <th>Institution</th>
+                        <th>#</th>
+                        <th>Full Name</th>
                         <th>Phone Number</th>
                         <th>Email</th>
+                        <th>ID Type</th>
+                        <th>ID Number</th>
                         <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
                     @foreach($items as $key=>$item)
                         <tr>
-                            <td style="width: 5%">{{++$key}}</td>
-                            <td class="desc_name">{{$item->name}}</td>
-                            <td>{{isset($item->institution) ?  $item->institution->name:'Not Defined'}}</td>
+                            <td>{{++$key}}</td>
+                            <td class="desc_name">{{$item->full_name}}</td>
                             <td>{{$item->phone_number}}</td>
                             <td>{{$item->email}}</td>
+                            <td>{{isset($item->identityType) ? $item->identityType->name : ''}}</td>
+                            <td>{{$item->identity_number}}</td>
                             <td style="width: 9%" class="text-center">
                                 <a class="text-muted font-16 edit-link" href="{{route('clients.edit',$item->id)}}"
-                                   title="Edit"><i class="fa fa-edit"></i></a> |
+                                   title="Edit" data-toggle="tooltip"><i class="fa fa-edit"></i></a> |
                                 <a class="text-muted font-16 delete-link" href="{{route('clients.destroy',$item->id)}}"
-                                   title="Delete"><i class="fa fa-trash-o"></i></a>
+                                   title="Delete" data-toggle="tooltip"><i class="fa fa-trash-o"></i></a>
                             </td>
                         </tr>
                     @endforeach
                     </tbody>
                 </table>
             </div>
+
         </div>
     </div>
 
@@ -58,7 +61,7 @@
     @include('hotelmgnt::clients.create')
 
     <div class="modal fade" id="edit_modal" aria-labelledby="edit_modal" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content modal-edit">
                 <!--Edit Form Loads Here-->
             </div>
@@ -76,7 +79,7 @@
             });
         });
 
-        //For Deleting
+        //For Deleting Zones
         $(".delete-link").click(function (e) {
             e.preventDefault();
             const Description = $(this).closest('tr').children('td.desc_name').text().trim();
@@ -84,5 +87,8 @@
             deleteConfirm(Description, Url);
         });
 
+        $('#edit_modal').on('shown.bs.modal', function () {
+            $('.dd_select').select2();
+        });
     </script>
 @endsection
