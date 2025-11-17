@@ -1,5 +1,5 @@
 <li>
-    <a href="mailbox.html"><i class="sidebar-item-icon ti-dashboard"></i>
+    <a href="{{route('dashboard')}}"><i class="sidebar-item-icon ti-dashboard"></i>
         <span class="nav-label">Dashboard</span>
     </a>
 </li>

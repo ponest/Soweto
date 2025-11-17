@@ -6,7 +6,7 @@ use App\Helpers\General;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
-use Modules\HotelMgnt\Commands\clientWallet\ApproveCommand;
+use Modules\HotelMgnt\Commands\ClientWallet\ApproveCommand;
 use Modules\HotelMgnt\Commands\ClientWallet\DeleteCommand;
 use Modules\HotelMgnt\Commands\ClientWallet\RejectCommand;
 use Modules\HotelMgnt\Commands\ClientWallet\StoreCommand;

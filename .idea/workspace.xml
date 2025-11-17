@@ -4,50 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d44d5f7f-e478-428a-8108-98a2dcddfd72" name="Changes" comment="Client Approval Implemented">
-      <change afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/ConferenceBooking/CancelBookingCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/ConferenceBooking/CheckInCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/ConferenceBooking/CheckOutCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/ConferenceBooking/StoreCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/ConferenceBooking/UpdateCommand.php" afterDir="false" />
+    <list default="true" id="d44d5f7f-e478-428a-8108-98a2dcddfd72" name="Changes" comment="Fix Issues">
+      <change afterPath="$PROJECT_DIR$/resources/views/menus/house_keeping_menu.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/43de1f09-489f-44d2-8e1c-5ae6849ac275.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/43de1f09-489f-44d2-8e1c-5ae6849ac275.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/bc813df7-c2e0-4836-97a7-128262c39fce.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/bc813df7-c2e0-4836-97a7-128262c39fce.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/data_source_mapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/data_source_mapping.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Auth/resources/views/users/change_password.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Auth/resources/views/users/change_password.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Auth/resources/views/users/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Auth/resources/views/users/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Modules/Auth/resources/views/users/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Auth/resources/views/users/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/Client/DeleteCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/Client/DeleteCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/Client/StoreCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/Client/StoreCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/Client/UpdateCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/Client/UpdateCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/Guest/DeleteCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/ConferenceBooking/DeleteCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/Guest/StoreCommand.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/Guest/UpdateCommand.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Http/Controllers/ClientsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Http/Controllers/ClientsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Http/Controllers/ConferenceBookingsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Http/Controllers/ConferenceBookingsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Http/Controllers/GuestsController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Models/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Models/Client.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Models/ConferenceBooking.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Models/ConferenceBooking.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/database/migrations/2025_05_19_180334_create_bookings_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/database/migrations/2025_05_19_180334_create_bookings_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/bookings/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/bookings/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/clients/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/clients/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/clients/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/clients/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/clients/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/clients/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/conference_bookings/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/conference_bookings/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/conference_bookings/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/conference_bookings/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/guests/create.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/guests/edit.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/guests/index.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Inventory/resources/views/stock_requisition/approval_view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Inventory/resources/views/stock_requisition/approval_view.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/PriceApprovalItemController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/PriceApprovalItemController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Setups/app/Models/IdentityType.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Setups/app/Models/IdentityType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Setups/app/Models/Institution.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Setups/app/Models/Institution.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/CheckInOut/CheckInCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/CheckInOut/CheckInCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/ClientWallet/ApproveCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/ClientWallet/ApproveCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Http/Controllers/ClientWalletController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Http/Controllers/ClientWalletController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/booking_charges/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/booking_charges/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/bookings/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/bookings/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Inventory/app/Commands/StockIssue/IssueStockCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Inventory/app/Commands/StockIssue/IssueStockCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Inventory/app/Commands/StockRequisition/StoreCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Inventory/app/Commands/StockRequisition/StoreCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Inventory/app/Http/Controllers/StockIssuingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Inventory/app/Http/Controllers/StockIssuingController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Inventory/resources/views/item_stock_in/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Inventory/resources/views/item_stock_in/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/SalesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/SalesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Sales/database/migrations/2025_10_31_224557_create_payments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/database/migrations/2025_10_31_224557_create_payments_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Setups/database/migrations/2025_05_20_220521_create_departments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Setups/database/migrations/2025_05_20_220521_create_departments_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/menu.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/menus/admin_menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menus/admin_menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/menus/bar_menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menus/bar_menu.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/menus/front_office_menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menus/front_office_menu.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/menus/store_menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menus/store_menu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,49 +214,49 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.highlight.mappings&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.highlight.symlinks&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
-    &quot;com.laravel_idea.eloquent_global_unguard&quot;: &quot;0&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;laravel_idea.dialogs.code_generation:createFormRequest.width&quot;: &quot;473&quot;,
-    &quot;laravel_idea.dialogs.code_generation:createFormRequest.x&quot;: &quot;519&quot;,
-    &quot;laravel_idea.dialogs.code_generation:createFormRequest.y&quot;: &quot;350&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Volumes/DATA/PROJECT/OTHERS/svh/Modules/HotelMgnt/app/Commands&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;web.server&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
+    "WebServerToolWindowPanel.toolwindow.show.date": "false",
+    "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
+    "WebServerToolWindowPanel.toolwindow.show.size": "false",
+    "com.laravel_idea.eloquent_global_unguard": "0",
+    "git-widget-placeholder": "master",
+    "laravel_idea.dialogs.code_generation:createFormRequest.width": "473",
+    "laravel_idea.dialogs.code_generation:createFormRequest.x": "519",
+    "laravel_idea.dialogs.code_generation:createFormRequest.y": "350",
+    "last_opened_file_path": "/Volumes/DATA/PROJECT/OTHERS/svh/resources/views/menus",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "web.server",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;,
-      &quot;mariadb&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql",
+      "mariadb"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/menus" />
       <recent name="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands" />
       <recent name="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/ClientWallet" />
       <recent name="$PROJECT_DIR$/Modules/HotelMgnt/resources/views" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/Modules/Sales/resources/views/bills" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/menus" />
@@ -432,6 +415,11 @@
       <workItem from="1762924853512" duration="5592000" />
       <workItem from="1763056474387" duration="8555000" />
       <workItem from="1763181741537" duration="3887000" />
+      <workItem from="1763192393023" duration="1040000" />
+      <workItem from="1763195635874" duration="1056000" />
+      <workItem from="1763199543574" duration="3833000" />
+      <workItem from="1763208089340" duration="7770000" />
+      <workItem from="1763370010726" duration="5759000" />
     </task>
     <task id="LOCAL-00001" summary="Role CRUD Completed">
       <option name="closed" value="true" />
@@ -817,14 +805,21 @@
       <option name="project" value="LOCAL" />
       <updated>1762251766423</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="Fix Issues">
+      <option name="closed" value="true" />
+      <created>1763192427336</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1763192427336</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Implemented User Logs" />
     <MESSAGE value="Stock Items CRUD Implemented" />
     <MESSAGE value="Suppliers CRUD Implemented" />
     <MESSAGE value="Item Categories CRUD Implemented" />
@@ -849,7 +844,8 @@
     <MESSAGE value="Modified Billing" />
     <MESSAGE value="Client Wallet Successfully Developed" />
     <MESSAGE value="Client Approval Implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="Client Approval Implemented" />
+    <MESSAGE value="Fix Issues" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix Issues" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

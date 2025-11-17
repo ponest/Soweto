@@ -15,7 +15,7 @@ class CheckInCommand
         $booking = Booking::find($data['booking_id']);
         $room = Room::find($booking->room_id);
 
-        if ($room->status == 'Available') {
+        if ($room->status == 'Available' || $room->status == 'available') {
             $checkIn = new RoomCheckInOut();
             $checkIn->checked_in_at = now();
             $checkIn->checked_in_by = auth()->id();

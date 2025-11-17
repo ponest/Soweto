@@ -17,6 +17,11 @@
                             <i class="fa fa-plus-circle"></i> Add New
                         </button>
                     @endif
+                    @if($bill == null)
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create_modal">
+                            <i class="fa fa-plus-circle"></i> Add New
+                        </button>
+                    @endif
 
                 </div>
             </div>

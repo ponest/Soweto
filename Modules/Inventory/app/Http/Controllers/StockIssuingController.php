@@ -20,7 +20,7 @@ class StockIssuingController extends Controller
 
     public function request()
     {
-        $params['stockRequests'] = StockRequisition::whereIsApproved(true)->get();
+        $params['stockRequests'] = StockRequisition::whereIsApproved(true)->latest('id')->get();
         return view('inventory::stock_issue.requests', $params);
     }
 

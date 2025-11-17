@@ -29,7 +29,7 @@
             </div>
             <div class="col">
                 <label>Phone Number</label>
-                <input type="number" name="phone_number" class="form-control form-control-air"
+                <input type="tel" name="phone_number" class="form-control form-control-air"
                      value="{{$item->phone_number}}"  required>
             </div>
         </div>

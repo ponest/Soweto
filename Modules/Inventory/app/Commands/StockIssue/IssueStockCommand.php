@@ -64,6 +64,7 @@ class IssueStockCommand
                 //Update Stock Requisition
                 $stockRequisition->issued_by = auth()->id();
                 $stockRequisition->issued_at = now();
+                $stockRequisition->status = "Issued";
                 $stockRequisition->update();
 
                 // Commit the transaction

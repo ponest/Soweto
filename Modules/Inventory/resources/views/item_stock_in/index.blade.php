@@ -10,9 +10,9 @@
                 </div>
                 <div class="col-3" style="text-align: right">
                     @can('StoreOfficer')
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create_modal">
-                        <i class="fa fa-plus-circle"></i> Add New
-                    </button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create_modal">
+                            <i class="fa fa-plus-circle"></i> Add New
+                        </button>
                     @endcan
                 </div>
             </div>
@@ -38,7 +38,9 @@
                             <th>Total Price</th>
                         @endcan
                         <th>Received Date</th>
-                        <th>Action</th>
+                        @can('StoreOfficer')
+                            <th>Action</th>
+                        @endcan
                     </tr>
                     </thead>
                     <tbody>
@@ -56,13 +58,16 @@
                                 <td>{{number_format($item->total_price)}}</td>
                             @endcan
                             <td>{{$item->received_date}}</td>
-                            <td style="width: 9%" class="text-center">
-                                <a class="text-muted font-16 edit-link" href="{{route('item-stock-in.edit',$item->id)}}"
-                                   title="Edit" data-toggle="tooltip"><i class="fa fa-edit"></i></a> |
-                                <a class="text-muted font-16 delete-link"
-                                   href="{{route('item-stock-in.destroy',$item->id)}}"
-                                   title="Delete" data-toggle="tooltip"><i class="fa fa-trash-o"></i></a>
-                            </td>
+                            @can('StoreOfficer')
+                                <td style="width: 9%" class="text-center">
+                                    <a class="text-muted font-16 edit-link"
+                                       href="{{route('item-stock-in.edit',$item->id)}}"
+                                       title="Edit" data-toggle="tooltip"><i class="fa fa-edit"></i></a> |
+                                    <a class="text-muted font-16 delete-link"
+                                       href="{{route('item-stock-in.destroy',$item->id)}}"
+                                       title="Delete" data-toggle="tooltip"><i class="fa fa-trash-o"></i></a>
+                                </td>
+                            @endcan
                         </tr>
                     @endforeach
                     </tbody>

@@ -29,7 +29,7 @@
                         </div>
                         <div class="col">
                             <label for="phone_number">Phone Number</label>
-                            <input type="number" name="phone_number" class="form-control form-control-air" required>
+                            <input type="tel" name="phone_number" class="form-control form-control-air" required>
                         </div>
                     </div>
                     <div class="row mb-3">

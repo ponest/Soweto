@@ -39,6 +39,7 @@
     <ul class="nav-2-level collapse">
         <li><a href="{{route('item-stock-in.index')}}">Item Stock In</a></li>
         <li><a href="{{route('stock-requisition.index')}}">Stock Requisition</a></li>
+        <li><a href="{{route('stock-balance')}}">Stock Balance</a></li>
         <li><a href="{{route('stock-issue.index')}}">Stock Receive</a></li>
     </ul>
 </li>

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('bill_id')->constrained();
-            $table->foreignId('payment_method')->constrained();
+            $table->foreignId('payment_method_id')->constrained();
             $table->decimal('paid_amount');
             $table->string('payment_reference')->nullable();
             $table->foreignId('payment_confirmed_by')->constrained('users');

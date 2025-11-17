@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\HotelMgnt\Commands\clientWallet;
+namespace Modules\HotelMgnt\Commands\ClientWallet;
 
 use Exception;
 use Illuminate\Support\Facades\DB;

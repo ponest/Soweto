@@ -67,7 +67,7 @@
         @csrf
         <h4 class="font-strong text-center mb-5">CHANGE PASSWORD</h4>
         <div class="form-group mb-4">
-            <input class="form-control form-control-line" type="text" name="password" placeholder="Password">
+            <input class="form-control form-control-line" type="password" name="password" placeholder="Password">
         </div>
 
         <div class="form-group mb-4">
