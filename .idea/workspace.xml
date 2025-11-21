@@ -5,32 +5,44 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d44d5f7f-e478-428a-8108-98a2dcddfd72" name="Changes" comment="Fix Issues">
-      <change afterPath="$PROJECT_DIR$/resources/views/menus/house_keeping_menu.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/Sales/resources/views/bills/bill_items.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/menus/cashier_menu.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/bc813df7-c2e0-4836-97a7-128262c39fce.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/bc813df7-c2e0-4836-97a7-128262c39fce.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/data_source_mapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/data_source_mapping.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Auth/resources/views/users/change_password.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Auth/resources/views/users/change_password.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Auth/resources/views/users/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Auth/resources/views/users/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Auth/resources/views/users/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Auth/resources/views/users/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/CheckInOut/CheckInCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/CheckInOut/CheckInCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/ClientWallet/ApproveCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/ClientWallet/ApproveCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Http/Controllers/ClientWalletController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Http/Controllers/ClientWalletController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/booking_charges/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/booking_charges/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/bookings/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/bookings/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Inventory/app/Commands/StockIssue/IssueStockCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Inventory/app/Commands/StockIssue/IssueStockCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Inventory/app/Commands/StockRequisition/StoreCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Inventory/app/Commands/StockRequisition/StoreCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Inventory/app/Http/Controllers/StockIssuingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Inventory/app/Http/Controllers/StockIssuingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Inventory/resources/views/item_stock_in/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Inventory/resources/views/item_stock_in/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/BillsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/BillsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/SalesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/SalesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Sales/database/migrations/2025_10_31_224557_create_payments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/database/migrations/2025_10_31_224557_create_payments_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Setups/database/migrations/2025_05_20_220521_create_departments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Setups/database/migrations/2025_05_20_220521_create_departments_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Sales/resources/views/bills/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/resources/views/bills/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Sales/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/menu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/menus/admin_menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menus/admin_menu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/menus/bar_menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menus/bar_menu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/menus/front_office_menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menus/front_office_menu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/menus/store_menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menus/store_menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf/.github/FUNDING.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf/.github/ISSUE_TEMPLATE/bug_report.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf/.github/stale.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf/.github/workflows/run-tests.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf/config/dompdf.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf/config/dompdf.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf/grumphp.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf/phpstan.neon" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf/phpunit.xml.dist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf/src/Facade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf/src/Facade/Pdf.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf/src/Facade/Pdf.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf/src/PDF.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf/src/PDF.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf/src/ServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf/src/ServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf/tests/PdfTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf/tests/TestCase.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf/tests/views/test.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +88,7 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/ponest/soweto.git&quot;,
+    &quot;url&quot;: &quot;https://github.com/ponest/Soweto.git&quot;,
     &quot;accountId&quot;: &quot;7b94ef52-e662-4283-b36f-e91fbfc8415b&quot;
   }
 }</component>
@@ -204,6 +216,11 @@
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-activitylog" />
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-package-tools" />
       <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf" />
+      <path value="$PROJECT_DIR$/vendor/masterminds/html5" />
+      <path value="$PROJECT_DIR$/vendor/sabberworm/php-css-parser" />
+      <path value="$PROJECT_DIR$/vendor/dompdf/php-svg-lib" />
+      <path value="$PROJECT_DIR$/vendor/dompdf/php-font-lib" />
+      <path value="$PROJECT_DIR$/vendor/dompdf/dompdf" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">{
@@ -214,42 +231,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
-    "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
-    "WebServerToolWindowPanel.toolwindow.show.date": "false",
-    "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
-    "WebServerToolWindowPanel.toolwindow.show.size": "false",
-    "com.laravel_idea.eloquent_global_unguard": "0",
-    "git-widget-placeholder": "master",
-    "laravel_idea.dialogs.code_generation:createFormRequest.width": "473",
-    "laravel_idea.dialogs.code_generation:createFormRequest.x": "519",
-    "laravel_idea.dialogs.code_generation:createFormRequest.y": "350",
-    "last_opened_file_path": "/Volumes/DATA/PROJECT/OTHERS/svh/resources/views/menus",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "web.server",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.mappings&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.symlinks&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
+    &quot;com.laravel_idea.eloquent_global_unguard&quot;: &quot;0&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;laravel_idea.dialogs.code_generation:createFormRequest.width&quot;: &quot;473&quot;,
+    &quot;laravel_idea.dialogs.code_generation:createFormRequest.x&quot;: &quot;519&quot;,
+    &quot;laravel_idea.dialogs.code_generation:createFormRequest.y&quot;: &quot;350&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Volumes/DATA/PROJECT/OTHERS/svh/resources/views/menus&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;web.server&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql",
-      "mariadb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;,
+      &quot;mariadb&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/menus" />
@@ -419,15 +436,10 @@
       <workItem from="1763195635874" duration="1056000" />
       <workItem from="1763199543574" duration="3833000" />
       <workItem from="1763208089340" duration="7770000" />
-      <workItem from="1763370010726" duration="5759000" />
-    </task>
-    <task id="LOCAL-00001" summary="Role CRUD Completed">
-      <option name="closed" value="true" />
-      <created>1747420405500</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1747420405500</updated>
+      <workItem from="1763370010726" duration="7292000" />
+      <workItem from="1763382829008" duration="79000" />
+      <workItem from="1763733702011" duration="1150000" />
+      <workItem from="1763737626361" duration="2382000" />
     </task>
     <task id="LOCAL-00002" summary="Added Role to User">
       <option name="closed" value="true" />
@@ -813,7 +825,15 @@
       <option name="project" value="LOCAL" />
       <updated>1763192427336</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="Fix Issues">
+      <option name="closed" value="true" />
+      <created>1763381313814</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1763381313814</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -52,6 +52,9 @@ class AppServiceProvider extends ServiceProvider
             return $user->hasRole('House Keeping');
         });
 
+        Gate::define('Cashier',function ($user){
+            return $user->hasRole('Cashier');
+        });
 
         $modulesPath = base_path('Modules');
         $moduleDirs = File::directories($modulesPath);

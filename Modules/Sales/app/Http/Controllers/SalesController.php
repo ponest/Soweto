@@ -5,6 +5,7 @@ namespace Modules\Sales\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 use Modules\Auth\Models\User;
 use Modules\HotelMgnt\Models\Booking;
 use Modules\HotelMgnt\Models\BookingCharges;
@@ -162,9 +163,16 @@ class SalesController extends Controller
     public function salesHistory()
     {
         $storeId = User::userStoreId();
-        $params['items'] = Sale::join('sales_batches as sl', 'sl.id','=','sales.sales_batch_id')
-        ->where('store_id',$storeId)->where('is_paid',true)
-            ->select('sales.*')->latest()->get();
+        if (Gate::allows('Cashier')) {
+            $params['items'] = Sale::join('sales_batches as sl', 'sl.id','=','sales.sales_batch_id')
+                ->where('is_paid',true)
+                ->select('sales.*')->latest()->get();
+        }else{
+            $params['items'] = Sale::join('sales_batches as sl', 'sl.id','=','sales.sales_batch_id')
+                ->where('store_id',$storeId)->where('is_paid',true)
+                ->select('sales.*')->latest()->get();
+        }
+
         return view('sales::sales.sales_history', $params);
     }
 

@@ -37,6 +37,7 @@ Route::middleware('auth')->group(function () {
     Route::get('bills/payment-conf/{id}', [BillsController::class, 'confirmPaymentView'])->name('bills.payment-conf');
     Route::post('bills/payment-confirm', [BillsController::class, 'confirmPayment'])->name('bills.payment-confirm');
     Route::get('bills/payment/{id}', [BillsController::class, 'paymentView'])->name('bills.payment');
+    Route::get('bills/items/{id}', [BillsController::class, 'billItems'])->name('bills.items');
 
 
     Route::resource('price-approval-item', PriceApprovalItemController::class)->except('show', 'destroy','index');

@@ -22,6 +22,9 @@
             @can('House Keeping')
                 @include('menus.house_keeping_menu')
             @endcan
+            @can('Cashier')
+                @include('menus.cashier_menu')
+            @endcan
         </ul>
         <div class="sidebar-footer">
             <a href="javascript:;"><i class="ti-announcement"></i></a>

@@ -44,10 +44,14 @@
                             <td style="width: 15%; text-align: right">{{$item->issuer?->full_name}}</td>
                             <td style="width: 9%" class="text-center">
                                 @if($item->status != 'Paid')
+                                    @cannot('Cashier')
                                     <a class="text-muted font-16 conf-payment-link" href="{{route('bills.payment-conf',$item->id)}}"
                                        title="Confirm Payment" data-toggle="tooltip"><i class="fa fa-edit"></i></a> |
+                                    @endcannot
                                 @endif
-                                <a class="text-muted font-16 payment" href="{{route('bills.payment',$item->id)}}"
+                                <a class="text-muted font-16 bill-items" href="{{route('bills.items',$item->id)}}"
+                                     title="Bill Items" data-toggle="tooltip"><i class="fa fa-money"></i></a>
+                                | <a class="text-muted font-16 payment" href="{{route('bills.payment',$item->id)}}"
                                    title="Payment" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
                             </td>
                         </tr>
@@ -87,6 +91,27 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="bill_items_modal" aria-labelledby="bill_items_modal" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content ">
+                <div class="modal-header">
+                    <h5 class="modal-title">Bill Items</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body modal-bill-items">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-close"></i>
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @section('Scripts')
@@ -104,6 +129,14 @@
             const dataURL = $(this).attr('href');
             $('.modal-payment').load(dataURL, function () {
                 $('#payment_modal').modal({show: true});
+            });
+        });
+
+        $('.bill-items').on('click', function (e) {
+            e.preventDefault();
+            const dataURL = $(this).attr('href');
+            $('.modal-bill-items').load(dataURL, function () {
+                $('#bill_items_modal').modal({show: true});
             });
         });
 
