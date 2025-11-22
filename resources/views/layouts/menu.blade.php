@@ -10,8 +10,8 @@
             @can('Bar')
                 @include('menus.bar_menu')
             @endcan
-            @can('Approver')
-                @include('menus.approver_menu')
+            @can('Manager')
+                @include('menus.manager_menu')
             @endcan
             @can('FrontOfficer')
                 @include('menus.front_office_menu')

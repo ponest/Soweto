@@ -84,7 +84,6 @@ class StockItem extends Model
         $mainStoreId = Store::where('name','Main Store')->first()->id;
         $total = ItemStockIn::where('item_id', $id)->where('store_id',$mainStoreId)->sum('quantity');
         $total_issued = StockRequisitionItem::where('stock_item_id', $id)->sum('issued_quantity');
-        $balance = $total - $total_issued;
-        return $balance;
+        return $total - $total_issued;
     }
 }

@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use Modules\Inventory\Http\Controllers\InventoryController;
 use Modules\Inventory\Http\Controllers\ItemStockInController;
 use Modules\Inventory\Http\Controllers\ItemUnitConversionController;
+use Modules\Inventory\Http\Controllers\PurchaseReqAdditionalCostController;
+use Modules\Inventory\Http\Controllers\PurchaseReqItemsController;
+use Modules\Inventory\Http\Controllers\PurchaseRequestController;
 use Modules\Inventory\Http\Controllers\StockIssuingController;
 use Modules\Inventory\Http\Controllers\StockItemController;
 use Modules\Inventory\Http\Controllers\StockRequisitionItemsController;
@@ -55,5 +58,24 @@ Route::middleware('auth')->group(function () {
     Route::get('stock-issue/issue/{id}', [StockIssuingController::class, 'issueStock'])->name('stock-issue.issue');
     Route::get('stock-issue/index', [StockIssuingController::class, 'index'])->name('stock-issue.index');
     Route::get('stock-issue/receive/{id}', [StockIssuingController::class, 'receiveStock'])->name('stock-issue.receive');
+
+    Route::resource('purchase-request', PurchaseRequestController::class)->except('show', 'destroy');
+    Route::get('purchase-request/destroy/{id}', [PurchaseRequestController::class, 'destroy'])->name('purchase-request.destroy');
+    Route::get('purchase-request/submit/{id}', [PurchaseRequestController::class, 'submitRequest'])->name('purchase-request.submit');
+//    Route::get('stock-requisition/approve/{id}', [StockRequisitionsController::class, 'approveRequest'])->name('stock-requisition.approve');
+//    Route::get('stock-requisition/approve-view', [StockRequisitionsController::class, 'approverView'])->name('stock-requisition.approve-view');
+//    Route::get('stock-requisition/approved', [StockRequisitionsController::class, 'approved'])->name('stock-requisition.approved');
+//    Route::get('stock-requisition/items/{id}', [StockRequisitionsController::class, 'viewItems'])->name('stock-requisition.items');
+//    Route::get('stock-requisition/reject/{id}', [StockRequisitionsController::class, 'rejectView'])->name('stock-requisition.reject-view');
+//    Route::post('stock-requisition/reject', [StockRequisitionsController::class, 'rejectRequest'])->name('stock-requisition.reject');
+
+
+    Route::resource('purchase-request-item', PurchaseReqItemsController::class)->except('show', 'destroy','index');
+    Route::get('purchase-request-item/index/{id}', [PurchaseReqItemsController::class, 'index'])->name('purchase-request-item.index');
+    Route::get('purchase-request-item/destroy/{id}', [PurchaseReqItemsController::class, 'destroy'])->name('purchase-request-item.destroy');
+
+    Route::resource('purchase-req-cost', PurchaseReqAdditionalCostController::class)->except('show', 'destroy','index');
+    Route::get('purchase-req-cost/index/{id}', [PurchaseReqAdditionalCostController::class, 'index'])->name('purchase-req-cost');
+    Route::get('purchase-req-cost/destroy/{id}', [PurchaseReqAdditionalCostController::class, 'destroy'])->name('purchase-req-cost.destroy');
 
 });

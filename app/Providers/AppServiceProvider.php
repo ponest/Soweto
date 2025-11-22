@@ -36,8 +36,8 @@ class AppServiceProvider extends ServiceProvider
             return $user->hasRole('Bar');
         });
 
-        Gate::define('Approver',function ($user){
-            return $user->hasRole('Approver');
+        Gate::define('Manager',function ($user){
+            return $user->hasRole('Manager');
         });
 
         Gate::define('FrontOfficer',function ($user){
