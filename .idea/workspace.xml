@@ -4,45 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d44d5f7f-e478-428a-8108-98a2dcddfd72" name="Changes" comment="Purchase Request Implemented">
-      <change afterPath="$PROJECT_DIR$/Modules/Inventory/app/Commands/PurchaseRequest/ApproveCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Inventory/app/Commands/PurchaseRequest/DeleteCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Inventory/app/Commands/PurchaseRequest/PreviewCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Inventory/app/Commands/PurchaseRequest/ReviewCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Sales/app/Commands/Sales/SaveBillCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Sales/app/Commands/Sales/SaveBillItemsCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Sales/app/Commands/Sales/SaveBookingChargesCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Sales/app/Commands/Sales/SaveSalesBatchCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Sales/app/Commands/Sales/SaveSalesCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Sales/app/Commands/Sales/SaveStockOutCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/menus/director_menu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/43de1f09-489f-44d2-8e1c-5ae6849ac275.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/43de1f09-489f-44d2-8e1c-5ae6849ac275.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/bc813df7-c2e0-4836-97a7-128262c39fce.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/bc813df7-c2e0-4836-97a7-128262c39fce.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/data_source_mapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/data_source_mapping.xml" afterDir="false" />
+    <list default="true" id="d44d5f7f-e478-428a-8108-98a2dcddfd72" name="Changes" comment="Modified Bill Handling">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/CheckInOut/ComputeBillCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/CheckInOut/ComputeBillCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Http/Controllers/ClientWalletController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Http/Controllers/ClientWalletController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/check_in_out/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/check_in_out/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/client_wallet/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/client_wallet/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/client_wallet/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/client_wallet/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/client_wallet/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/client_wallet/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Inventory/app/Http/Controllers/PurchaseRequestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Inventory/app/Http/Controllers/PurchaseRequestController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Inventory/app/Models/PurchaseRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Inventory/app/Models/PurchaseRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Inventory/resources/views/purchase_request/approval_view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Inventory/resources/views/purchase_request/approval_view.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Inventory/resources/views/purchase_request/items_view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Inventory/resources/views/purchase_request/items_view.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Inventory/resources/views/stock_requisition/items_view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Inventory/resources/views/stock_requisition/items_view.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Inventory/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Inventory/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/BillsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/BillsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/SalesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/SalesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Sales/app/Models/BillItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/app/Models/BillItem.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Sales/resources/views/bills/bill_items.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/resources/views/bills/bill_items.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/menu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/menus/cashier_menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menus/cashier_menu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/menus/front_office_menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menus/front_office_menu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/menus/house_keeping_menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menus/house_keeping_menu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/menus/manager_menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menus/manager_menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Http/Controllers/RoomCheckInOutController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Http/Controllers/RoomCheckInOutController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/bookings/bill_pdf.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/bookings/bill_pdf.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -441,15 +406,7 @@
       <workItem from="1763733702011" duration="1150000" />
       <workItem from="1763737626361" duration="43229000" />
       <workItem from="1763979606529" duration="328000" />
-      <workItem from="1763979961389" duration="7097000" />
-    </task>
-    <task id="LOCAL-00004" summary="Room Types Crud Implemented">
-      <option name="closed" value="true" />
-      <created>1747492265004</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1747492265004</updated>
+      <workItem from="1763979961389" duration="11777000" />
     </task>
     <task id="LOCAL-00005" summary="Room Crud Implemented">
       <option name="closed" value="true" />
@@ -835,14 +792,21 @@
       <option name="project" value="LOCAL" />
       <updated>1763805647992</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="Modified Bill Handling">
+      <option name="closed" value="true" />
+      <created>1763987288060</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1763987288060</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Suppliers CRUD Implemented" />
     <MESSAGE value="Item Categories CRUD Implemented" />
     <MESSAGE value="Log Activity Implemented" />
     <MESSAGE value="Unit Conversion Implemented" />
@@ -867,7 +831,8 @@
     <MESSAGE value="Client Approval Implemented" />
     <MESSAGE value="Fix Issues" />
     <MESSAGE value="Purchase Request Implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="Purchase Request Implemented" />
+    <MESSAGE value="Modified Bill Handling" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modified Bill Handling" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

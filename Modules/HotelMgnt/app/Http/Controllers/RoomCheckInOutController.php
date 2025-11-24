@@ -12,6 +12,7 @@ use Modules\HotelMgnt\Commands\CheckInOut\ComputeBillCommand;
 use Modules\HotelMgnt\Commands\CheckInOut\ConfirmPaymentCommand;
 use Modules\HotelMgnt\Commands\CheckInOut\TransferRoomCommand;
 use Modules\HotelMgnt\Models\Booking;
+use Modules\HotelMgnt\Models\Client;
 use Modules\HotelMgnt\Models\Room;
 use Modules\HotelMgnt\Models\RoomCheckInOut;
 use Modules\Sales\Models\Bill;
@@ -67,6 +68,9 @@ class RoomCheckInOutController extends Controller
     {
         $params['bill_items'] = BillItem::join('bills', 'bills.id', '=', 'bill_items.bill_id')
             ->where('bills.booking_id', $id)->select('bill_items.*')->get();
+        $booking = Booking::find($id);
+        $params['client'] = Client::find($booking->client_id);
+        $params['total_price'] = collect($params['bill_items'])->sum('total_price');
         $pdf = PDF::loadView('hotelmgnt::bookings.bill_pdf', $params);
         return $pdf->download("Bill" . '.pdf');
     }
