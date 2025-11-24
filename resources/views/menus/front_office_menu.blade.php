@@ -10,7 +10,7 @@
     <ul class="nav-2-level collapse">
         <li><a href="{{route('room-types.index')}}">Room Types</a></li>
         <li><a href="{{route('rooms.index')}}">Rooms</a></li>
-        <li><a href="{{route('house-kp-logs.index')}}">House Keeping</a></li>
+{{--        <li><a href="{{route('house-kp-logs.index')}}">House Keeping</a></li>--}}
         <li><a href="{{route('client-wallet.index')}}">Client Wallet</a></li>
         <li><a href="{{route('bookings.index')}}">Bookings</a></li>
         <li><a href="{{route('room-checkinout')}}">Check In/Out</a></li>

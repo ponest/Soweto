@@ -8,16 +8,18 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Modules\Auth\Models\User;
 use Modules\HotelMgnt\Models\Booking;
-use Modules\HotelMgnt\Models\BookingCharges;
 use Modules\HotelMgnt\Models\Client;
-use Modules\Inventory\Models\ItemStockOut;
 use Modules\Inventory\Models\StockItem;
 use Modules\Inventory\Models\StoreItem;
+use Modules\Sales\Commands\Sales\SaveBillCommand;
+use Modules\Sales\Commands\Sales\SaveBillItemsCommand;
+use Modules\Sales\Commands\Sales\SaveBookingChargesCommand;
+use Modules\Sales\Commands\Sales\SaveSalesBatchCommand;
+use Modules\Sales\Commands\Sales\SaveSalesCommand;
+use Modules\Sales\Commands\Sales\SaveStockOutCommand;
 use Modules\Sales\Models\Bill;
-use Modules\Sales\Models\BillItem;
 use Modules\Sales\Models\FoodMenu;
 use Modules\Sales\Models\Sale;
-use Modules\Sales\Models\SalesBatch;
 
 class SalesController extends Controller
 {
@@ -50,6 +52,7 @@ class SalesController extends Controller
             $clientId = $request->input('client_id');
             $isAccommodation = $request->input('is_accommodation');
             $booking = null;
+
             if ($clientId != null) {
                 $booking = Booking::whereClientId($clientId)->where('booking_status', 'CheckedIn')->first();
             }
@@ -71,86 +74,38 @@ class SalesController extends Controller
                             'message' => 'Balance is not enough!'
                         ]);
                     }
-
-//                    if ($category === 'bar') {
-                        //Save to Item Stock Out
-                        $unitId = StockItem::find($item['itemId'])->unit_id;
-                        $itemStockOut = new ItemStockOut();
-                        $itemStockOut->item_id = $item['itemId'];
-                        $itemStockOut->quantity = $item['quantity'];
-                        $itemStockOut->category = "Sales";
-                        $itemStockOut->unit_id = $unitId;
-                        $itemStockOut->store_id = $storeId;
-                        $itemStockOut->save();
-//                    }
+                    //Save to Item Stock Out
+                    SaveStockOutCommand::handle($item, $storeId);
                 }
             }
-
-            // Example: Save sale and items
-            $sale_batch = SalesBatch::create([
-                'batch_number' => 'SL-' . now()->timestamp,
-                'total_price' => $grandTotal,
-                'created_by' => auth()->id(),
-                'source' => ucwords($category),
-                'room_id' => $booking?->room_id,
-                'client_id' => $booking?->client_id,
-                'client_type' => $booking ? 'Hotel Guest' : null,
-            ]);
-
+            // Save Sale Batch
+            $sale_batch = SaveSalesBatchCommand::handle($grandTotal, $category, $booking);
 
             //Save to Bills Table
-            if ($isAccommodation == 'No') {
-                $departmentId = User::currentUserDepartmentId();
-                $bill = new Bill();
-                $bill->reference_no = "BILL-" . now()->timestamp;
-                $bill->ref_id = $sale_batch->id;
-                $bill->category = "Sales";
-                $bill->bill_amount = $grandTotal;
-                $bill->issued_by = auth()->id();
-                $bill->issued_at = now();
-                $bill->department_id = $departmentId;
-                $bill->save();
+            if ($booking) {
+                //if bill exist
+                $billExist = Bill::whereBookingId($booking->id)->first();
+                if ($billExist) {
+                    $bill = $billExist;
+                } else {
+                    $bill = SaveBillCommand::handle($sale_batch, $grandTotal, $booking);
+                }
+            } else {
+                $bill = SaveBillCommand::handle($sale_batch, $grandTotal, $booking);
             }
 
             foreach ($cart as $item) {
-                Sale::create([
-                    'sales_batch_id' => $sale_batch->id,
-                    'unit_price' => $item['price'],
-                    'quantity' => $item['quantity'],
-                    'total_price' => $item['total'],
-                    'ref_id' => $item['itemId'],
-                    'item_name' => $item['itemName'],
-                    'store_id' => $storeId,
-                ]);
-
-
+                SaveSalesCommand::handle($item, $storeId, $sale_batch);
 
                 if ($isAccommodation == 'Yes') {
                     //Save to Booking Charges
                     if ($booking != null) {
-                        $bookingCharges = new BookingCharges();
-                        $bookingCharges->booking_id = $booking->id;
-                        $bookingCharges->type = $category == 'bar' ? 'Beverage Charges' : 'Meal Charges';
-                        $bookingCharges->description = $item['itemName'];
-                        $bookingCharges->unit_price = $item['price'];
-                        $bookingCharges->quantity = $item['quantity'];
-                        $bookingCharges->total_price = $item['total'];
-                        $bookingCharges->expense_date = date('Y-m-d');
-                        $bookingCharges->save();
+                        SaveBookingChargesCommand::handle($item, $category, $booking);
                     }
                 }
 
-                if ($isAccommodation == 'No') {
-                    //Save Bill Items
-                    $billItem = new BillItem();
-                    $billItem->bill_id = $bill->id;
-                    $billItem->item_name = $item['itemName'];
-                    $billItem->unit_price = $item['price'];
-                    $billItem->quantity = $item['quantity'];
-                    $billItem->total_price = $item['total'];
-                    $billItem->save();
-                }
-
+                //Save Bill Items
+                SaveBillItemsCommand::handle($bill, $item, $storeId);
             }
 
             return response()->json([
@@ -164,12 +119,12 @@ class SalesController extends Controller
     {
         $storeId = User::userStoreId();
         if (Gate::allows('Cashier')) {
-            $params['items'] = Sale::join('sales_batches as sl', 'sl.id','=','sales.sales_batch_id')
-                ->where('is_paid',true)
+            $params['items'] = Sale::join('sales_batches as sl', 'sl.id', '=', 'sales.sales_batch_id')
+                ->where('is_paid', true)
                 ->select('sales.*')->latest()->get();
-        }else{
-            $params['items'] = Sale::join('sales_batches as sl', 'sl.id','=','sales.sales_batch_id')
-                ->where('store_id',$storeId)->where('is_paid',true)
+        } else {
+            $params['items'] = Sale::join('sales_batches as sl', 'sl.id', '=', 'sales.sales_batch_id')
+                ->where('store_id', $storeId)->where('is_paid', true)
                 ->select('sales.*')->latest()->get();
         }
 

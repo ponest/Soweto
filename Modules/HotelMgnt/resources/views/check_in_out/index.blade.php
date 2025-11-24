@@ -26,6 +26,7 @@
                     <tr>
                         <th>S/N</th>
                         <th>Booking Reference</th>
+                        <th>Client Name</th>
                         <th>Room Number</th>
                         <th>Checked In At</th>
                         <th>Check In By</th>
@@ -39,6 +40,7 @@
                         <tr>
                             <td>{{++$key}}</td>
                             <td class="desc_name">{{$item->booking?->reference_number}}</td>
+                            <td>{{$item->booking?->client?->full_name}}</td>
                             <td>{{$item->room?->room_number}}</td>
                             <td>{{date('d M Y H:i', strtotime($item->checked_in_at))}}</td>
                             <td>{{$item->checkedInBy?->full_name}}</td>

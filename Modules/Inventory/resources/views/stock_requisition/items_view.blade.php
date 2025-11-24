@@ -1,5 +1,5 @@
 <table class="table table-bordered table-hover table-sm" id="datatable">
-    <thead class="thead-default thead-lg">
+    <thead class="thead-default thead-md">
     <tr>
         <th>S/N</th>
         <th>Item Name</th>

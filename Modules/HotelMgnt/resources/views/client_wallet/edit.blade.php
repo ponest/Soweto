@@ -18,15 +18,29 @@
                     @endforeach
                 </select>
             </div>
-        </div>
-        <div class="row mb-3">
             <div class="col">
-                <label>Transaction Reference No</label>
-                <input type="text" name="transaction_reference_no" value="{{$item->transaction_reference_no}}" class="form-control form-control-air" required>
+                <label>Payment Method</label>
+                <select name="payment_method_id" class="form-control form-control-air" required>
+                    <option value="">Select</option>
+                    @foreach($payment_methods as $payment_method)
+                        <option value="{{$payment_method->id}}" {{$payment_method->id == $item->payment_method_id ?'selected':''}}>{{$payment_method->name}}</option>
+                    @endforeach
+                </select>
             </div>
         </div>
 
         <div class="row mb-3">
+            <div class="col">
+                <label>Payment Description</label>
+                <input type="text" name="description" value="{{$item->description}}" class="form-control form-control-air" required>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col">
+                <label>Transaction Reference No</label>
+                <input type="text" name="transaction_reference_no" value="{{$item->transaction_reference_no}}" class="form-control form-control-air">
+            </div>
             <div class="col">
                 <label>Wallet Amount</label>
                 <input type="number" name="wallet_amount" value="{{$item->wallet_amount}}" class="form-control form-control-air" required>

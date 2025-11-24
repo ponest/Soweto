@@ -22,10 +22,11 @@
 
             <div class="table-responsive row">
                 <table class="table table-bordered table-hover table-sm" id="datatable">
-                    <thead class="thead-default thead-lg">
+                    <thead class="thead-default thead-md">
                     <tr>
                         <th>S/N</th>
                         <th>Client Name</th>
+                        <th>Description</th>
                         <th>Payment Method</th>
                         <th>Reference No</th>
                         <th>Transaction Reference No</th>
@@ -40,6 +41,7 @@
                         <tr>
                             <td style="width: 5%">{{++$key}}</td>
                             <td class="desc_name">{{$item->client?->full_name}}</td>
+                            <td>{{$item->description}}</td>
                             <td>{{$item->paymentMethod?->name}}</td>
                             <td>{{$item->reference_no}}</td>
                             <td>{{$item->transaction_reference_no}}</td>

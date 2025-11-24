@@ -62,10 +62,12 @@ Route::middleware('auth')->group(function () {
     Route::resource('purchase-request', PurchaseRequestController::class)->except('show', 'destroy');
     Route::get('purchase-request/destroy/{id}', [PurchaseRequestController::class, 'destroy'])->name('purchase-request.destroy');
     Route::get('purchase-request/submit/{id}', [PurchaseRequestController::class, 'submitRequest'])->name('purchase-request.submit');
-//    Route::get('stock-requisition/approve/{id}', [StockRequisitionsController::class, 'approveRequest'])->name('stock-requisition.approve');
-//    Route::get('stock-requisition/approve-view', [StockRequisitionsController::class, 'approverView'])->name('stock-requisition.approve-view');
+    Route::get('purchase-request/approve/{id}', [PurchaseRequestController::class, 'approveRequest'])->name('purchase-request.approve');
+    Route::get('purchase-request/preview/{id}', [PurchaseRequestController::class, 'previewRequest'])->name('purchase-request.preview');
+    Route::get('purchase-request/review/{id}', [PurchaseRequestController::class, 'reviewRequest'])->name('purchase-request.review');
+    Route::get('purchase-request/approve-view', [PurchaseRequestController::class, 'approverView'])->name('purchase-request.approve-view');
 //    Route::get('stock-requisition/approved', [StockRequisitionsController::class, 'approved'])->name('stock-requisition.approved');
-//    Route::get('stock-requisition/items/{id}', [StockRequisitionsController::class, 'viewItems'])->name('stock-requisition.items');
+    Route::get('purchase-request/items/{id}', [PurchaseRequestController::class, 'viewItems'])->name('purchase-request.items');
 //    Route::get('stock-requisition/reject/{id}', [StockRequisitionsController::class, 'rejectView'])->name('stock-requisition.reject-view');
 //    Route::post('stock-requisition/reject', [StockRequisitionsController::class, 'rejectRequest'])->name('stock-requisition.reject');
 

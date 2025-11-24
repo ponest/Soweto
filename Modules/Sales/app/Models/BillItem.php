@@ -12,6 +12,7 @@ use Illuminate\Support\Carbon;
  *
  * @property int $id
  * @property int $bill_id
+ * @property int|null $store_id
  * @property string $item_name
  * @property string|null $item_description
  * @property string|null $unit_price
@@ -31,6 +32,7 @@ use Illuminate\Support\Carbon;
  * @method static Builder<static>|BillItem whereItemDescription($value)
  * @method static Builder<static>|BillItem whereItemName($value)
  * @method static Builder<static>|BillItem whereQuantity($value)
+ * @method static Builder<static>|BillItem whereStoreId($value)
  * @method static Builder<static>|BillItem whereTotalPrice($value)
  * @method static Builder<static>|BillItem whereUnitPrice($value)
  * @method static Builder<static>|BillItem whereUpdatedAt($value)

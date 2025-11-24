@@ -1,19 +1,15 @@
 @extends('layouts.master')
-@section('title','Stock Requisition')
+@section('title','Purchase Stock Request')
 @section('content')
     <div class="ibox">
         <div class="ibox-body">
 
             <div class="row">
                 <div class="col-9" style="padding-top: 2vh">
-                    <h5 class="font-strong">STOCK REQUISITION</h5>
+                    <h5 class="font-strong">STOCK PURCHASE REQUEST</h5>
                 </div>
                 <div class="col-3" style="text-align: right">
-                    @if(!auth()->user()->hasRole('Approver') && !auth()->user()->hasRole('Store Officer'))
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create_modal">
-                        <i class="fa fa-plus-circle"></i> Add New
-                    </button>
-                    @endif
+                    <!--Buttons Goes Here-->
                 </div>
             </div>
 
@@ -28,7 +24,6 @@
                     <tr>
                         <th>S/N</th>
                         <th>Requisition No</th>
-                        <th>Requesting Store</th>
                         <th>Description</th>
                         <th>Submitted By</th>
                         <th>Submitted At</th>
@@ -40,31 +35,55 @@
                     @foreach($items as $key=>$item)
                         <tr>
                             <td style="width: 5%">{{++$key}}</td>
-                            <td class="desc_name">{{$item->requisition_number}}</td>
-                            <td>{{$item->store->name}}</td>
+                            <td class="desc_name">{{$item->request_number}}</td>
                             <td>{{$item->description}}</td>
                             <td>{{isset($item->submittedBy) ? $item->submittedBy->full_name:'Not Submitted'}}</td>
                             <td>{{isset($item->submitted_at) ? date('d M Y H:i',strtotime($item->submitted_at)) : 'N/A'}}</td>
                             <td>{{$item->status}}</td>
                             <td style="width: 9%" class="text-center">
                                 <a class="text-muted font-16 show-link"
-                                   href="{{route('stock-requisition.items',$item->id)}}"
+                                   href="{{route('purchase-request.items',$item->id)}}"
                                    title="Items" data-toggle="tooltip"><i class="fa fx-2 fa-eye"></i></a>
-                                @if($item->is_approved ==null)
-                                    | <a class="text-muted font-16 approve-link"
-                                       href="{{route('stock-requisition.approve',$item->id)}}"
-                                       title="Approve" data-toggle="tooltip"><i
-                                                class="fa fx-2 fa-check-circle-o"></i></a>
-                                    | <a class="text-muted font-16 reject-link"
-                                         href="{{route('stock-requisition.reject-view',$item->id)}}"
-                                         title="Reject" data-toggle="tooltip"><i
-                                                class="fa fx-2 fa-close"></i></a>
-                                @endif
-                                @if(!$item->submitted_at)
-                                    | <a class="text-muted font-16 submit-link"
-                                         href="{{route('stock-requisition.submit',$item->id)}}"
-                                         title="Submit" data-toggle="tooltip"><i class="fa fa-check-circle-o"></i></a>
-                                @endif
+                                @can('Cashier')
+                                    @if($item->previewed_by ==null)
+                                        | <a class="text-muted font-16 preview-link"
+                                             href="{{route('purchase-request.preview',$item->id)}}"
+                                             title="Forward" data-toggle="tooltip"><i
+                                                    class="fa fx-2 fa-fast-forward"></i></a>
+                                    @endif
+                                @endcan
+                                @can('Manager')
+                                    @if($item->reviewed_by ==null)
+                                        | <a class="text-muted font-16 review-link"
+                                             href="{{route('purchase-request.review',$item->id)}}"
+                                             title="Review" data-toggle="tooltip"><i
+                                                    class="fa fx-2 fa-check-circle-o"></i></a>
+                                    @endif
+                                @endcan
+                                @can('Director')
+                                    @if($item->approved_by ==null)
+                                        | <a class="text-muted font-16 approve-link"
+                                             href="{{route('purchase-request.approve',$item->id)}}"
+                                             title="Approve" data-toggle="tooltip"><i
+                                                    class="fa fx-2 fa-check-circle-o"></i></a>
+                                    @endif
+                                @endcan
+                                {{--                                @if($item->is_approved ==null)--}}
+                                {{--                                    | <a class="text-muted font-16 approve-link"--}}
+                                {{--                                       href="{{route('purchase-request.preview',$item->id)}}"--}}
+                                {{--                                       title="Approve" data-toggle="tooltip"><i--}}
+                                {{--                                                class="fa fx-2 fa-check-circle-o"></i></a>--}}
+                                {{--                                    | <a class="text-muted font-16 reject-link"--}}
+                                {{--                                         href="{{route('stock-requisition.reject-view',$item->id)}}"--}}
+                                {{--                                         title="Reject" data-toggle="tooltip"><i--}}
+                                {{--                                                class="fa fx-2 fa-close"></i></a>--}}
+                                {{--                                @endif--}}
+
+{{--                                | <a class="text-muted font-16 reject-link"--}}
+{{--                                     href="{{route('stock-requisition.reject-view',$item->id)}}"--}}
+{{--                                     title="Reject" data-toggle="tooltip"><i--}}
+{{--                                            class="fa fx-2 fa-close"></i></a>--}}
+
                             </td>
                         </tr>
                     @endforeach
@@ -85,10 +104,10 @@
     @endif
 
     <div class="modal fade" id="show_modal" aria-labelledby="create_modal" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="create_modal">Stock Requisition Items</h5>
+                    <h5 class="modal-title" id="create_modal">Stock Purchase Request Items</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -104,7 +123,6 @@
             </div>
         </div>
     </div>
-
 
 @endsection
 
@@ -126,12 +144,27 @@
             });
         });
 
-
         $(".approve-link").click(function (e) {
             e.preventDefault();
             const Description = "Request " + $(this).closest('tr').children('td.desc_name').text().trim() + " Will be Approved";
             const Url = $(this).attr('href');
             const ButtonText = 'Yes, Approve';
+            actionConfirm(Description, Url, ButtonText);
+        });
+
+        $(".preview-link").click(function (e) {
+            e.preventDefault();
+            const Description = "Request " + $(this).closest('tr').children('td.desc_name').text().trim() + " Will be Forwarded";
+            const Url = $(this).attr('href');
+            const ButtonText = 'Yes, Forward';
+            actionConfirm(Description, Url, ButtonText);
+        });
+
+        $(".review-link").click(function (e) {
+            e.preventDefault();
+            const Description = "Request " + $(this).closest('tr').children('td.desc_name').text().trim() + " Will be Reviewed";
+            const Url = $(this).attr('href');
+            const ButtonText = 'Yes, Review';
             actionConfirm(Description, Url, ButtonText);
         });
 

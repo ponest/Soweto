@@ -5,12 +5,12 @@ namespace Modules\Inventory\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Auth\Models\User;
 
-
 /**
- * 
+ *
  *
  * @property int $id
  * @property string $description
@@ -19,6 +19,8 @@ use Modules\Auth\Models\User;
  * @property int|null $is_approved
  * @property int|null $submitted_by
  * @property string|null $submitted_at
+ * @property int|null $previewed_by
+ * @property string|null $previewed_at
  * @property int|null $reviewed_by
  * @property string|null $reviewed_at
  * @property int|null $approved_by
@@ -27,6 +29,8 @@ use Modules\Auth\Models\User;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property-read User|null $reviewedBy
+ * @property-read User|null $submittedBy
  * @method static Builder<static>|PurchaseRequest newModelQuery()
  * @method static Builder<static>|PurchaseRequest newQuery()
  * @method static Builder<static>|PurchaseRequest onlyTrashed()
@@ -38,6 +42,8 @@ use Modules\Auth\Models\User;
  * @method static Builder<static>|PurchaseRequest whereDescription($value)
  * @method static Builder<static>|PurchaseRequest whereId($value)
  * @method static Builder<static>|PurchaseRequest whereIsApproved($value)
+ * @method static Builder<static>|PurchaseRequest wherePreviewedAt($value)
+ * @method static Builder<static>|PurchaseRequest wherePreviewedBy($value)
  * @method static Builder<static>|PurchaseRequest whereRejectComments($value)
  * @method static Builder<static>|PurchaseRequest whereRequestNumber($value)
  * @method static Builder<static>|PurchaseRequest whereReviewedAt($value)
@@ -64,5 +70,15 @@ class PurchaseRequest extends Model
     public function reviewedBy(): BelongsTo
     {
         return $this->belongsTo(User::class, 'reviewed_by');
+    }
+
+    public function items(): HasMany
+    {
+        return $this->hasMany(PurchaseReqItem::class);
+    }
+
+    public function additionalCost(): HasMany
+    {
+        return $this->hasMany(PurchaseReqAdditionalCost::class);
     }
 }

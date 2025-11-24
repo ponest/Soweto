@@ -1167,13 +1167,13 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     <schema id="291" parent="1" name="soweto_db">
       <AutoIntrospectionLevel>3</AutoIntrospectionLevel>
       <LastIntrospectionLevel>3</LastIntrospectionLevel>
-      <LastIntrospectionLocalTimestamp>2025-11-21.15:38:40</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2025-11-24.11:36:36</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="292" parent="1" name="soweto_test_db">
       <AutoIntrospectionLevel>3</AutoIntrospectionLevel>
       <LastIntrospectionLevel>3</LastIntrospectionLevel>
-      <LastIntrospectionLocalTimestamp>2025-11-21.15:38:40</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2025-11-24.11:36:36</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="293" parent="1" name="sys">
@@ -5473,7 +5473,7 @@ causer_id</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="1209" parent="356" name="id">
-      <AutoIncrement>610</AutoIncrement>
+      <AutoIncrement>618</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint unsigned|0s</StoredType>
@@ -7748,7 +7748,7 @@ causer_id</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="1698" parent="391" name="id">
-      <AutoIncrement>21</AutoIncrement>
+      <AutoIncrement>24</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint unsigned|0s</StoredType>
@@ -9126,7 +9126,7 @@ causer_id</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="1993" parent="410" name="id">
-      <AutoIncrement>13</AutoIncrement>
+      <AutoIncrement>14</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint unsigned|0s</StoredType>

@@ -5,6 +5,14 @@
 </li>
 
 <li>
+    <a href="javascript:;"><i class="sidebar-item-icon ti-home"></i>
+        <span class="nav-label">Room Management</span><i class="fa fa-angle-left arrow"></i></a>
+    <ul class="nav-2-level collapse">
+        <li><a href="{{route('house-kp-logs.index')}}">House Keeping</a></li>
+    </ul>
+</li>
+
+<li>
     <a href="javascript:;"><i class="sidebar-item-icon ti-bar-chart"></i>
         <span class="nav-label">Inventory</span><i class="fa fa-angle-left arrow"></i></a>
     <ul class="nav-2-level collapse">

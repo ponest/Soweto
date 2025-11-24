@@ -61,7 +61,9 @@ class ComputeBillCommand
                 $bill->save();
             }
 
-            $AllBookingCharges = BookingCharges::where([['booking_id', $roomCheckInOut->booking_id],['is_billed',false]])->get();
+            $skippedTypes = array('Beverage Charges','Meal Charges');
+            $AllBookingCharges = BookingCharges::where([['booking_id', $roomCheckInOut->booking_id],['is_billed',false]])
+                ->whereNotIn('type',$skippedTypes)->get();
             foreach ($AllBookingCharges as $item) {
                 $billItem = new BillItem();
                 $billItem->bill_id = $bookingBill ? $bookingBill->id : $bill->id;

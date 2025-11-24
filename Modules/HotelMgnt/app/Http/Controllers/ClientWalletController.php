@@ -40,6 +40,7 @@ class ClientWalletController extends Controller
     {
         $params['item'] = ClientWallet::find($id);
         $params['clients'] = Client::orderBy('full_name')->get();
+        $params['payment_methods'] = PaymentMethod::orderBy('name')->get();
         return view('hotelmgnt::client_wallet.edit', $params);
     }
 

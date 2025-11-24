@@ -25,6 +25,9 @@
             @can('Cashier')
                 @include('menus.cashier_menu')
             @endcan
+            @can('Director')
+                @include('menus.director_menu')
+            @endcan
         </ul>
         <div class="sidebar-footer">
             <a href="javascript:;"><i class="ti-announcement"></i></a>

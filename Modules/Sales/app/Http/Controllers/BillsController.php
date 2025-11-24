@@ -19,11 +19,17 @@ class BillsController extends Controller
 
     public function index()
     {
-        $departmentId = User::currentUserDepartmentId();
-        if (Gate::allows('Cashier')){
+        if (Gate::allows('Cashier')) {
             $params['items'] = Bill::latest('id')->limit(1000)->get();
-        }else{
-            $params['items'] = Bill::whereDepartmentId($departmentId)->latest('id')->get();
+        } else {
+            $storeId = User::userStoreId();
+
+            $params['items'] = Bill::join('bill_items', 'bills.id', '=', 'bill_items.bill_id')
+                ->where('bill_items.store_id', $storeId)
+                ->select('bills.*')
+                ->distinct()
+                ->latest('bills.id')
+                ->get();
         }
         return view('sales::bills.index', $params);
     }
