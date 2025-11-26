@@ -52,3 +52,11 @@
     </ul>
 </li>
 
+<li>
+    <a href="javascript:;"><i class="sidebar-item-icon ti-target"></i>
+        <span class="nav-label">Discount Request</span><i class="fa fa-angle-left arrow"></i></a>
+    <ul class="nav-2-level collapse">
+        <li><a href="{{route('discount-req.approve-view')}}">Incoming</a></li>
+        <li><a href="{{route('bills.paid')}}">Paid Bills</a></li>
+    </ul>
+</li>

@@ -1,12 +1,12 @@
 @extends('layouts.master')
-@section('title','Bills')
+@section('title','Paid Bills')
 @section('content')
     <div class="ibox">
         <div class="ibox-body">
 
             <div class="row">
                 <div class="col-9" style="padding-top: 2vh">
-                    <h5 class="font-strong">BILLS</h5>
+                    <h5 class="font-strong">PAID BILLS</h5>
                 </div>
                 <div class="col-3" style="text-align: right">
                     <!--Buttons Goes Here-->
@@ -26,9 +26,7 @@
                         <th>Reference No</th>
                         <th>Origin</th>
                         <th>Bill Amount</th>
-                        <th>Status</th>
-                        <th>Issued At</th>
-                        <th>Issued By</th>
+                        <th>Created At</th>
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -36,23 +34,15 @@
                     @foreach($items as $key=>$item)
                         <tr>
                             <td style="width: 5%">{{++$key}}</td>
-                            <td class="desc_name">{{$item->reference_no}}</td>
+                            <td>{{$item->reference_no}}</td>
                             <td style="width: 15%; text-align: right">{{$item->category}}</td>
                             <td style="width: 15%; text-align: right">{{number_format($item->bill_amount)}}</td>
-                            <td style="width: 15%; text-align: right">{{$item->status}}</td>
                             <td style="width: 15%;">{{date('d M Y H:i', strtotime($item->issued_at))}}</td>
-                            <td style="width: 15%; text-align: right">{{$item->issuer?->full_name}}</td>
                             <td style="width: 9%" class="text-center">
-                                @if($item->status != 'Paid')
-                                    @cannot('Cashier')
-                                    <a class="text-muted font-16 conf-payment-link" href="{{route('bills.payment-conf',$item->id)}}"
-                                       title="Confirm Payment" data-toggle="tooltip"><i class="fa fa-edit"></i></a> |
-                                    @endcannot
-                                @endif
                                 <a class="text-muted font-16 bill-items" href="{{route('bills.items',$item->id)}}"
-                                     title="Bill Items" data-toggle="tooltip"><i class="fa fa-money"></i></a>
+                                   title="Bill Items" data-toggle="tooltip"><i class="fa fa-money"></i></a>
                                 | <a class="text-muted font-16 payment" href="{{route('bills.payment',$item->id)}}"
-                                   title="Payment" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
+                                     title="Payment" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
                             </td>
                         </tr>
                     @endforeach
@@ -62,29 +52,12 @@
         </div>
     </div>
 
-
-    <div class="modal fade" id="conf_payment_modal" aria-labelledby="conf_payment_modal" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content modal-payment-conf">
-                <!--Edit Form Loads Here-->
-            </div>
-        </div>
-    </div>
-
-   @include('sales::bills.payment_det_modal')
-   @include('sales::bills.bill_items_modal')
-
+    @include('sales::bills.payment_det_modal')
+    @include('sales::bills.bill_items_modal')
 @endsection
 
 @section('Scripts')
     <script>
-        $('.conf-payment-link').on('click', function (e) {
-            e.preventDefault();
-            const dataURL = $(this).attr('href');
-            $('.modal-payment-conf').load(dataURL, function () {
-                $('#conf_payment_modal').modal({show: true});
-            });
-        });
 
         $('.payment').on('click', function (e) {
             e.preventDefault();
@@ -102,10 +75,6 @@
             });
         });
 
-        $("#conf_payment_modal").on('shown.bs.modal', function (e) {
-            $('select').select2({
-                width: '100%'
-            });
-        })
     </script>
 @endsection
+

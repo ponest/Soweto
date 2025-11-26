@@ -11,7 +11,6 @@
     <a href="javascript:;"><i class="sidebar-item-icon ti-bar-chart"></i>
         <span class="nav-label">Stock Requisition</span><i class="fa fa-angle-left arrow"></i></a>
     <ul class="nav-2-level collapse">
-        <li><a href="{{route('stock-requisition.approve-view')}}">Incoming</a></li>
         <li><a href="{{route('stock-requisition.approved')}}">Approved</a></li>
     </ul>
 </li>
@@ -20,7 +19,6 @@
     <a href="javascript:;"><i class="sidebar-item-icon ti-bar-chart"></i>
         <span class="nav-label">Item Price Request</span><i class="fa fa-angle-left arrow"></i></a>
     <ul class="nav-2-level collapse">
-        <li><a href="{{route('item-price-approval.approve-view')}}">Incoming</a></li>
         <li><a href="{{route('item-price-approval.approved')}}">Approved</a></li>
     </ul>
 </li>
@@ -29,7 +27,6 @@
     <a href="javascript:;"><i class="sidebar-item-icon ti-bar-chart"></i>
         <span class="nav-label">Menu Price Request</span><i class="fa fa-angle-left arrow"></i></a>
     <ul class="nav-2-level collapse">
-        <li><a href="{{route('menu-price-approval.approve-view')}}">Incoming</a></li>
         <li><a href="{{route('menu-price-approval.approved')}}">Approved</a></li>
     </ul>
 </li>
@@ -38,7 +35,6 @@
     <a href="javascript:;"><i class="sidebar-item-icon ti-bar-chart"></i>
         <span class="nav-label">Client Wallet Req</span><i class="fa fa-angle-left arrow"></i></a>
     <ul class="nav-2-level collapse">
-        <li><a href="{{route('client-wallet.approver-view')}}">Incoming</a></li>
         <li><a href="{{route('client-wallet.approved')}}">Approved</a></li>
     </ul>
 </li>
@@ -49,6 +45,15 @@
     <ul class="nav-2-level collapse">
         <li><a href="{{route('purchase-request.approve-view')}}">Incoming</a></li>
         <li><a href="{{route('client-wallet.approved')}}">Approved</a></li>
+    </ul>
+</li>
+
+<li>
+    <a href="javascript:;"><i class="sidebar-item-icon ti-target"></i>
+        <span class="nav-label">Discount Request</span><i class="fa fa-angle-left arrow"></i></a>
+    <ul class="nav-2-level collapse">
+        <li><a href="{{route('discount-req.approve-view')}}">Incoming</a></li>
+        <li><a href="{{route('bills.paid')}}">Paid Bills</a></li>
     </ul>
 </li>
 

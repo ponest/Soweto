@@ -1,5 +1,5 @@
 <table class="table table-bordered table-hover table-sm" id="datatable">
-    <thead class="thead-default thead-lg">
+    <thead class="thead-default thead-sm">
     <tr>
         <th>S/N</th>
         <th>Payment Reference</th>

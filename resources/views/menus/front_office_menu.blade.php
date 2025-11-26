@@ -18,6 +18,25 @@
 </li>
 
 <li>
+    <a href="javascript:;"><i class="sidebar-item-icon ti-target"></i>
+        <span class="nav-label">Bills</span><i class="fa fa-angle-left arrow"></i></a>
+    <ul class="nav-2-level collapse">
+        <li><a href="{{route('bills.index')}}">Unpaid Bills</a></li>
+        <li><a href="{{route('bills.paid')}}">Paid Bills</a></li>
+    </ul>
+</li>
+
+
+<li>
+    <a href="javascript:;"><i class="sidebar-item-icon ti-target"></i>
+        <span class="nav-label">Discount Request</span><i class="fa fa-angle-left arrow"></i></a>
+    <ul class="nav-2-level collapse">
+        <li><a href="{{route('discount-req.index')}}">Request</a></li>
+        <li><a href="{{route('discount-req.approved')}}">Approved</a></li>
+    </ul>
+</li>
+
+<li>
     <a href="{{route('clients.index')}}"><i class="sidebar-item-icon ti-dashboard"></i>
         <span class="nav-label">Guests/Clients</span>
     </a>

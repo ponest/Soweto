@@ -20,18 +20,42 @@ class BillsController extends Controller
     public function index()
     {
         if (Gate::allows('Cashier')) {
-            $params['items'] = Bill::latest('id')->limit(1000)->get();
+            $params['items'] = Bill::where('status','!=','paid')->latest('id')->limit(1000)->get();
+        } elseif (Gate::allows('FrontOfficer')) {
+            $params['items'] = Bill::where('status','!=','paid')->whereNotNull('booking_id')->latest('id')->limit(1000)->get();
         } else {
             $storeId = User::userStoreId();
 
             $params['items'] = Bill::join('bill_items', 'bills.id', '=', 'bill_items.bill_id')
                 ->where('bill_items.store_id', $storeId)
+                ->where('status','!=','paid')
                 ->select('bills.*')
                 ->distinct()
                 ->latest('bills.id')
                 ->get();
         }
         return view('sales::bills.index', $params);
+    }
+
+
+    public function paid()
+    {
+        if (Gate::allows('Cashier')) {
+            $params['items'] = Bill::where('status','paid')->latest('id')->limit(1000)->get();
+        } elseif (Gate::allows('FrontOfficer')) {
+            $params['items'] = Bill::where('status','paid')->whereNotNull('booking_id')->latest('id')->limit(1000)->get();
+        } else {
+            $storeId = User::userStoreId();
+
+            $params['items'] = Bill::join('bill_items', 'bills.id', '=', 'bill_items.bill_id')
+                ->where('bill_items.store_id', $storeId)
+                ->where('status','paid')
+                ->select('bills.*')
+                ->distinct()
+                ->latest('bills.id')
+                ->get();
+        }
+        return view('sales::bills.paid', $params);
     }
 
     public function confirmPaymentView($id)

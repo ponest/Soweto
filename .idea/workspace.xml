@@ -5,9 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d44d5f7f-e478-428a-8108-98a2dcddfd72" name="Changes" comment="Modified Bill Handling">
+      <change afterPath="$PROJECT_DIR$/Modules/General/app/Commands/DiscountRequest/ApproveCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/General/app/Commands/DiscountRequest/DeleteCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/General/app/Commands/DiscountRequest/RejectCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/General/app/Commands/DiscountRequest/ReviewCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/General/app/Commands/DiscountRequest/StoreCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/General/app/Commands/DiscountRequest/SubmitCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/General/app/Commands/DiscountRequest/UpdateCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/General/resources/views/discount_request/approval.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/General/resources/views/discount_request/approval_view.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/General/resources/views/discount_request/approved.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/General/resources/views/discount_request/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/General/resources/views/discount_request/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/General/resources/views/discount_request/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/General/resources/views/discount_request/items_view.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/General/resources/views/discount_request/reject_view.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/Sales/resources/views/bills/bill_items_modal.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/Sales/resources/views/bills/paid.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/Sales/resources/views/bills/payment_det_modal.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/43de1f09-489f-44d2-8e1c-5ae6849ac275.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/43de1f09-489f-44d2-8e1c-5ae6849ac275.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Http/Controllers/RoomCheckInOutController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Http/Controllers/RoomCheckInOutController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/bookings/bill_pdf.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/bookings/bill_pdf.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/General/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/General/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/BillsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/BillsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Sales/resources/views/bills/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/resources/views/bills/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Sales/resources/views/bills/payment.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/resources/views/bills/payment.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Sales/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/menus/bar_menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menus/bar_menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/menus/director_menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menus/director_menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/menus/front_office_menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menus/front_office_menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/menus/kitchen_menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menus/kitchen_menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/menus/manager_menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menus/manager_menu.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,49 +224,49 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.highlight.mappings&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.highlight.symlinks&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
-    &quot;com.laravel_idea.eloquent_global_unguard&quot;: &quot;0&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;laravel_idea.dialogs.code_generation:createFormRequest.width&quot;: &quot;473&quot;,
-    &quot;laravel_idea.dialogs.code_generation:createFormRequest.x&quot;: &quot;519&quot;,
-    &quot;laravel_idea.dialogs.code_generation:createFormRequest.y&quot;: &quot;350&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Volumes/DATA/PROJECT/OTHERS/svh/Modules/Inventory/app/Commands/PurchaseRequest&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;web.server&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
+    "WebServerToolWindowPanel.toolwindow.show.date": "false",
+    "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
+    "WebServerToolWindowPanel.toolwindow.show.size": "false",
+    "com.laravel_idea.eloquent_global_unguard": "0",
+    "git-widget-placeholder": "main",
+    "laravel_idea.dialogs.code_generation:createFormRequest.width": "473",
+    "laravel_idea.dialogs.code_generation:createFormRequest.x": "519",
+    "laravel_idea.dialogs.code_generation:createFormRequest.y": "350",
+    "last_opened_file_path": "/Volumes/DATA/PROJECT/OTHERS/svh/Modules/General/resources/views/discount_request",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "web.server",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;,
-      &quot;mariadb&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql",
+      "mariadb"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Modules/Inventory/app/Commands/PurchaseRequest" />
-      <recent name="$PROJECT_DIR$/resources/views/menus" />
-      <recent name="$PROJECT_DIR$/Modules/Inventory/app/Commands" />
-      <recent name="$PROJECT_DIR$/Modules/Inventory/resources/views" />
-      <recent name="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands" />
+      <recent name="$PROJECT_DIR$/Modules/General/resources/views/discount_request" />
+      <recent name="$PROJECT_DIR$/Modules/General/app/Commands/DiscountRequest" />
+      <recent name="$PROJECT_DIR$/Modules/General/app/Commands" />
+      <recent name="$PROJECT_DIR$/Modules/General/resources/views" />
+      <recent name="$PROJECT_DIR$/Modules/Sales/resources/views/bills" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/menus" />
@@ -406,15 +434,9 @@
       <workItem from="1763733702011" duration="1150000" />
       <workItem from="1763737626361" duration="43229000" />
       <workItem from="1763979606529" duration="328000" />
-      <workItem from="1763979961389" duration="11777000" />
-    </task>
-    <task id="LOCAL-00005" summary="Room Crud Implemented">
-      <option name="closed" value="true" />
-      <created>1747495253823</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1747495253823</updated>
+      <workItem from="1763979961389" duration="12188000" />
+      <workItem from="1763993298146" duration="604000" />
+      <workItem from="1764129437255" duration="11907000" />
     </task>
     <task id="LOCAL-00006" summary="Identity Type Crud Implemented">
       <option name="closed" value="true" />
@@ -800,7 +822,15 @@
       <option name="project" value="LOCAL" />
       <updated>1763987288060</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="Modified Bill Handling">
+      <option name="closed" value="true" />
+      <created>1763992485160</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1763992485160</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

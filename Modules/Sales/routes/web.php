@@ -35,6 +35,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('bills/index', [BillsController::class, 'index'])->name('bills.index');
     Route::get('bills/payment-conf/{id}', [BillsController::class, 'confirmPaymentView'])->name('bills.payment-conf');
+    Route::get('bills/paid', [BillsController::class, 'paid'])->name('bills.paid');
     Route::post('bills/payment-confirm', [BillsController::class, 'confirmPayment'])->name('bills.payment-confirm');
     Route::get('bills/payment/{id}', [BillsController::class, 'paymentView'])->name('bills.payment');
     Route::get('bills/items/{id}', [BillsController::class, 'billItems'])->name('bills.items');
