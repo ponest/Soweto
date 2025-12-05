@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Redirect;
 use Modules\General\Commands\DiscountRequest\ApproveCommand;
+use Modules\General\Commands\DiscountRequest\RejectCommand;
 use Modules\General\Commands\DiscountRequest\ReviewCommand;
 use Modules\General\Commands\DiscountRequest\SubmitCommand;
 use Modules\General\Models\DiscountReq;
@@ -98,7 +99,7 @@ class DiscountReqController extends Controller
     public function rejectView($id)
     {
         $params['id'] = $id;
-        return view('inventory::stock_requisition.reject_view', $params);
+        return view('general::discount_request.reject_view', $params);
     }
 
     public function rejectRequest(Request $request)
@@ -108,5 +109,11 @@ class DiscountReqController extends Controller
         $info = RejectCommand::handle($id, $data);
         $notification = General::customMessage($info['message'], $info['type']);
         return Redirect::back()->with($notification);
+    }
+
+    public function rejected()
+    {
+        $params['items'] = DiscountReq::whereIsApproved(false)->latest('id')->get();
+        return view('general::discount_request.rejected', $params);
     }
 }

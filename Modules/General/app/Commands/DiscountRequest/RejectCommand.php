@@ -1,31 +1,31 @@
 <?php
 
-namespace Modules\General\Commands\StockRequisition;
+namespace Modules\General\Commands\DiscountRequest;
 
 use Exception;
-use Modules\Inventory\Models\StockRequisition;
+use Modules\General\Models\DiscountReq;
 
 class RejectCommand
 {
     public static function handle($id, $data): array
     {
         try {
-            $stockRequisition = StockRequisition::find($id);
-            $stockRequisition->reviewed_by = auth()->id();
-            $stockRequisition->reviewed_at = now();
-            $stockRequisition->is_approved = false;
-            $stockRequisition->status = "Rejected";
-            $stockRequisition->reject_comments = $data['reject_comments'];
+            $discountReq = DiscountReq::find($id);
+            $discountReq->reviewed_by = auth()->id();
+            $discountReq->reviewed_at = now();
+            $discountReq->is_approved = false;
+            $discountReq->status = "Rejected";
+            $discountReq->reject_comments = $data['reject_comments'];
 
             //Undo Submission
-            $stockRequisition->submitted_by = null;
-            $stockRequisition->submitted_at = null;
+            $discountReq->submitted_by = null;
+            $discountReq->submitted_at = null;
 
             //Update
-            $stockRequisition->update();
+            $discountReq->update();
             //Sending Notification Back
             return [
-                'message' => 'Stock Requisition Successfully Rejected!',
+                'message' => 'Discount Request Successfully Rejected!',
                 'type' => 'success'
             ];
         } catch (Exception $ex) {
@@ -34,6 +34,5 @@ class RejectCommand
                 'type' => 'error'
             ];
         }
-
     }
 }

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('request_number');
             $table->foreignId('client_id')->nullable()->constrained('clients');
             $table->text('description');
+            $table->decimal('discount_amount');
             $table->string('status');
             $table->string('discount_code')->nullable();
             $table->foreignId('submitted_by')->nullable()->constrained('users');

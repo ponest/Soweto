@@ -21,7 +21,14 @@
         </div>
         <div class="row mb-3">
             <div class="col">
+                <label>Description</label>
                 <input type="text" name="description" value="{{$item->description}}" class="form-control form-control-air" placeholder="Description" required>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col">
+                <label>Discount Amount</label>
+                <input type="number" name="discount_amount" value="{{$item->discount_amount}}" class="form-control form-control-air" required>
             </div>
         </div>
     </div>

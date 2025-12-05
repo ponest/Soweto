@@ -1,7 +1,7 @@
-<form action="{{route('stock-requisition.reject')}}" method="post" autocomplete="off">
+<form action="{{route('discount-req.reject')}}" method="post" autocomplete="off">
     @csrf
     <div class="modal-header">
-        <h5 class="modal-title" id="create_modal">Reject Stock Requisition</h5>
+        <h5 class="modal-title" id="create_modal">Reject Discount Request</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>

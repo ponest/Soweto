@@ -10,14 +10,14 @@ use Illuminate\Support\Carbon;
 use Modules\Auth\Models\User;
 use Modules\HotelMgnt\Models\Client;
 
-
 /**
- *
+ * 
  *
  * @property int $id
  * @property string $request_number
  * @property int|null $client_id
  * @property string $description
+ * @property string $discount_amount
  * @property string $status
  * @property string|null $discount_code
  * @property int|null $submitted_by
@@ -33,7 +33,9 @@ use Modules\HotelMgnt\Models\Client;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property Carbon|null $deleted_at
+ * @property-read User|null $approvedBy
  * @property-read Client|null $client
+ * @property-read User|null $submittedBy
  * @method static Builder<static>|DiscountReq newModelQuery()
  * @method static Builder<static>|DiscountReq newQuery()
  * @method static Builder<static>|DiscountReq onlyTrashed()
@@ -44,6 +46,7 @@ use Modules\HotelMgnt\Models\Client;
  * @method static Builder<static>|DiscountReq whereCreatedAt($value)
  * @method static Builder<static>|DiscountReq whereDeletedAt($value)
  * @method static Builder<static>|DiscountReq whereDescription($value)
+ * @method static Builder<static>|DiscountReq whereDiscountAmount($value)
  * @method static Builder<static>|DiscountReq whereDiscountCode($value)
  * @method static Builder<static>|DiscountReq whereId($value)
  * @method static Builder<static>|DiscountReq whereIsApproved($value)
@@ -80,6 +83,11 @@ class DiscountReq extends Model
     public function approvedBy(): BelongsTo
     {
         return $this->belongsTo(User::class, 'approved_by');
+    }
+
+    public function reviewedBy(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'reviewed_by');
     }
 
 }

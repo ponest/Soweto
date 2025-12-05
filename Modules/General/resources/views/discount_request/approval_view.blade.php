@@ -24,10 +24,11 @@
                     <tr>
                         <th>S/N</th>
                         <th>Request Number</th>
+                        <th>Discount Amount</th>
+                        <th>Client Name</th>
                         <th>Description</th>
                         <th>Submitted By</th>
                         <th>Submitted At</th>
-                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -36,10 +37,11 @@
                         <tr>
                             <td style="width: 5%">{{++$key}}</td>
                             <td class="desc_name">{{$item->request_number}}</td>
+                            <td style="text-align: right">{{$item->discount_amount}}</td>
+                            <td>{{$item->client?->full_name}}</td>
                             <td>{{$item->description}}</td>
                             <td>{{isset($item->submittedBy) ? $item->submittedBy->full_name:'Not Submitted'}}</td>
                             <td>{{isset($item->submitted_at) ? date('d M Y H:i',strtotime($item->submitted_at)) : 'N/A'}}</td>
-                            <td>{{$item->status}}</td>
                             <td style="width: 9%" class="text-center">
                                 @if($item->is_approved ==null)
                                     @can('Manager')
@@ -57,7 +59,7 @@
                                     @endcan
 
                                     | <a class="text-muted font-16 reject-link"
-                                         href="{{route('stock-requisition.reject-view',$item->id)}}"
+                                         href="{{route('discount-req.reject-view',$item->id)}}"
                                          title="Reject" data-toggle="tooltip"><i
                                                 class="fa fx-2 fa-close"></i></a>
                                 @endif

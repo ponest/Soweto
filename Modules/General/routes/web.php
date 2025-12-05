@@ -24,8 +24,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('discount-req/approve-view', [DiscountReqController::class, 'approverView'])->name('discount-req.approve-view');
     Route::get('discount-req/review/{id}', [DiscountReqController::class, 'reviewRequest'])->name('discount-req.review');
     Route::get('discount-req/approved', [DiscountReqController::class, 'approved'])->name('discount-req.approved');
-//    Route::get('stock-requisition/items/{id}', [StockRequisitionsController::class, 'viewItems'])->name('stock-requisition.items');
-//    Route::get('stock-requisition/reject/{id}', [StockRequisitionsController::class, 'rejectView'])->name('stock-requisition.reject-view');
-//    Route::post('stock-requisition/reject', [StockRequisitionsController::class, 'rejectRequest'])->name('stock-requisition.reject');
+    Route::get('discount-req/reject/{id}', [DiscountReqController::class, 'rejectView'])->name('discount-req.reject-view');
+    Route::post('discount-req/reject', [DiscountReqController::class, 'rejectRequest'])->name('discount-req.reject');
+    Route::get('discount-req/rejected', [DiscountReqController::class, 'rejected'])->name('discount-req.rejected');
 
 });

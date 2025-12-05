@@ -33,6 +33,7 @@
     <ul class="nav-2-level collapse">
         <li><a href="{{route('discount-req.index')}}">Request</a></li>
         <li><a href="{{route('discount-req.approved')}}">Approved</a></li>
+        <li><a href="{{route('discount-req.rejected')}}">Rejected</a></li>
     </ul>
 </li>
 

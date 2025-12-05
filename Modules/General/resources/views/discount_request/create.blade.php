@@ -27,6 +27,12 @@
                             <input type="text" name="description" class="form-control form-control-air" required>
                         </div>
                     </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label>Discount Amount</label>
+                            <input type="number" name="discount_amount" class="form-control form-control-air" required>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-close"></i>

@@ -85,6 +85,7 @@ return array(
     'Modules\\Auth\\Database\\Factories\\' => array($baseDir . '/Modules/Auth/database/factories'),
     'Modules\\Auth\\' => array($baseDir . '/Modules/Auth/app'),
     'Mockery\\' => array($vendorDir . '/mockery/mockery/library/Mockery'),
+    'Mike42\\' => array($vendorDir . '/mike42/escpos-php/src/Mike42', $vendorDir . '/mike42/gfx-php/src/Mike42'),
     'Masterminds\\' => array($vendorDir . '/masterminds/html5/src'),
     'Livewire\\' => array($vendorDir . '/livewire/livewire/src'),
     'League\\Uri\\' => array($vendorDir . '/league/uri', $vendorDir . '/league/uri-interfaces'),
