@@ -54,14 +54,15 @@
 
                                     @if($item->is_billed)
                                         | <a class="text-muted font-16"
-                                                href="{{route('room-download-bill',$item->booking_id)}}"
-                                                title="Download Bill" data-toggle="tooltip"><i
+                                             href="{{route('room-download-bill',$item->booking_id)}}"
+                                             title="Download Bill" data-toggle="tooltip"><i
                                                     class="fa fa-download"></i></a>
 
                                         @if(!$item->is_paid)
                                             | <a class="text-muted font-16 conf-payment-link"
                                                  href="{{route('room-confirm-payment-view',$item->id)}}"
-                                                 title="Confirm Payment" data-toggle="tooltip"><i class="fa fa-check-circle"></i></a>
+                                                 title="Confirm Payment" data-toggle="tooltip"><i
+                                                        class="fa fa-check-circle"></i></a>
                                         @endif
                                     @endif
 
@@ -140,27 +141,62 @@
                 const paymentMethodId = $(this).val();
                 if (paymentMethodId === "4") {
                     $(".hid_div").css("display", "block");
-                }else{
+                    $(".hid_disc_div").css("display", "none");
+                    $(".hid_div_btn").css("display", "block");
+                } else if (paymentMethodId === "6") {
                     $(".hid_div").css("display", "none");
+                    $(".hid_disc_div").css("display", "block");
+                    $(".hid_div_btn").css("display", "block");
+                } else {
+                    $(".hid_div").css("display", "none");
+                    $(".hid_disc_div").css("display", "none");
+                    $(".hid_div_btn").css("display", "none");
                 }
             });
 
             $("#payment_form").on('submit', function (e) {
                 e.preventDefault();
 
+                const paymentMethodId = $("#payment_method_id").val();
                 const paidAmount = parseFloat($("#paid_amount").val()) || 0;
                 const walletBalance = parseFloat($("#wallet_balance").val()) || 0;
+                const discountBalance = parseFloat($("#discount_balance").val()) || 0;
+                const billAmount = parseFloat($("#bill_amount").val()) || 0;
 
-                if (paidAmount > walletBalance) {
-                    swal("Warning", "The wallet balance is smaller than the paid amount", "warning");
-                } else {
-                    // Proceed with form submission
-                    this.submit();
+                if (paymentMethodId === "4") {
+                    if (paidAmount > walletBalance) {
+                        swal("Warning", "The wallet balance is smaller than the paid amount", "warning");
+                        return;
+                    }
                 }
+
+                if (paymentMethodId === "6") {
+                    if (paidAmount > discountBalance) {
+                        swal("Warning", "The Discount Balance is smaller than the paid amount", "warning");
+                        return;
+                    }
+                }
+
+                if (paidAmount > billAmount) {
+                    swal("Warning", "The Paid amount is greater than the bill amount", "warning");
+                    return;
+                }
+
+                // Proceed with form submission
+                this.submit();
+
             });
-
-
         });
+
+        function fetchDetails() {
+            const paymentMethodId = $("#payment_method_id").val();
+
+            if (paymentMethodId === "4") {
+                verifyWallet();
+            } else {
+                verifyDiscount();
+            }
+        }
 
         //For Check In
         $(".check-out-link").click(function (e) {
@@ -185,10 +221,7 @@
         datePickerLoad();
 
 
-
-
-        function verifyWallet()
-        {
+        function verifyWallet() {
             const referenceNumber = $("#payment_reference").val();
 
             $.ajax({
@@ -203,6 +236,32 @@
                         swal("Success", response.message, 'success');
                         $("#wallet_amount").val(response.wallet_amount);
                         $("#wallet_balance").val(response.balance);
+                    } else {
+                        swal("Error", response.message, 'error');
+                    }
+                },
+                error: function (xhr) {
+                    console.error(xhr.responseText);
+                    swal("Error", 'Something went wrong. Please try again.', 'error');
+                }
+            });
+        }
+
+        function verifyDiscount() {
+            const referenceNumber = $("#payment_reference").val();
+
+            $.ajax({
+                url: '{{ route("discount-req.details") }}', // 👈 make sure route name or URL matches your controller route
+                method: 'GET',
+                data: {
+                    _token: '{{ csrf_token() }}', // CSRF protection
+                    discount_code: referenceNumber,
+                },
+                success: function (response) {
+                    if (response.success === true) {
+                        swal("Success", response.message, 'success');
+                        $("#discount_amount").val(response.discount_amount);
+                        $("#discount_balance").val(response.balance);
                     } else {
                         swal("Error", response.message, 'error');
                     }

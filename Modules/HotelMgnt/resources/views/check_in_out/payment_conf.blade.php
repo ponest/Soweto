@@ -26,8 +26,9 @@
                 <label>Reference Number</label>
                 <input type="text" name="payment_reference" id="payment_reference" class="form-control form-control-air">
             </div>
-            <div class="col-3 hid_div" style="display: none">
-                <button  onclick="verifyWallet()" class="btn btn-primary" style="margin-top: 3.2vh">Verify</button>
+            <div class="col-3 hid_div_btn" style="display: none">
+{{--                <button  onclick="verifyWallet()" class="btn btn-primary" style="margin-top: 3.2vh">Verify</button>--}}
+                <button  onclick="fetchDetails()" class="btn btn-primary" style="margin-top: 3.2vh">Verify</button>
             </div>
 
         </div>
@@ -41,10 +42,22 @@
                 <input type="number" id="wallet_balance" name="wallet_balance" class="form-control form-control-air" readonly>
             </div>
         </div>
+
+        <div class="hid_disc_div row mb-3" style="display: none">
+            <div class="col">
+                <label>Discount Amount</label>
+                <input type="number" id="discount_amount" class="form-control form-control-air" readonly>
+            </div>
+            <div class="col">
+                <label>Discount Balance</label>
+                <input type="number" id="discount_balance" name="discount_balance" class="form-control form-control-air" readonly>
+            </div>
+        </div>
+
         <div class="row mb-3">
             <div class="col">
                 <label>Bill Amount</label>
-                <input type="text" value="{{$bill_amount}}" class="form-control form-control-air" readonly>
+                <input type="text" value="{{$bill_amount}}" id="bill_amount" class="form-control form-control-air" readonly>
             </div>
             <div class="col">
                 <label>Paid Amount</label>

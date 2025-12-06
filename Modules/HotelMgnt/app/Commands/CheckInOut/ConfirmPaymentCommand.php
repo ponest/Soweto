@@ -2,7 +2,10 @@
 
 namespace Modules\HotelMgnt\Commands\CheckInOut;
 
+use App\Enums\PaymentMethodEnum;
 use Illuminate\Support\Facades\DB;
+use Modules\General\Models\DiscountReq;
+use Modules\General\Models\DiscountTransaction;
 use Modules\HotelMgnt\Models\ClientWallet;
 use Modules\HotelMgnt\Models\RoomCheckInOut;
 use Modules\HotelMgnt\Models\WalletTransaction;
@@ -16,7 +19,7 @@ class ConfirmPaymentCommand
     {
         return DB::transaction(function () use ($data) {
 
-            if ($data['payment_method_id'] != 1) {
+            if ($data['payment_method_id'] != PaymentMethodEnum::CashId) {
                 if ($data['payment_reference'] == null) {
                     //Sending Notification Back
                     return [
@@ -26,7 +29,7 @@ class ConfirmPaymentCommand
                 }
             }
 
-            if ($data['payment_method_id'] == 4) {
+            if ($data['payment_method_id'] == PaymentMethodEnum::WalletId) {
                 if ($data['wallet_balance'] < $data['paid_amount']){
                     return [
                         'message' => 'Paid Amount is Less than Wallet Balance!',
@@ -40,6 +43,22 @@ class ConfirmPaymentCommand
                 $walletTransaction->wallet_id = $wallet->id;
                 $walletTransaction->amount = $data['paid_amount'];
                 $walletTransaction->save();
+            }
+
+            if ($data['payment_method_id'] == PaymentMethodEnum::DiscountId) {
+                if ($data['discount_balance'] < $data['paid_amount']){
+                    return [
+                        'message' => 'Paid Amount is Less than Discount Balance!',
+                        'type' => 'error'
+                    ];
+                }
+
+                //Make Transaction
+                $discount =  DiscountReq::where('discount_code', $data['payment_reference'])->first();
+                $discountTransaction = new DiscountTransaction();
+                $discountTransaction->discount_id = $discount->id;
+                $discountTransaction->amount = $data['paid_amount'];
+                $discountTransaction->save();
             }
 
             $bookingId = $data['booking_id'];

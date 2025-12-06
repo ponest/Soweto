@@ -3,7 +3,7 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'a1cbf9d719b872088f15ba68dc2eee90dd05abf6',
+        'reference' => '4992e5288e6a553a73b6930ddabfcb24bd9eda48',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -37,6 +37,15 @@
             'aliases' => array(),
             'dev_requirement' => true,
         ),
+        'bensampo/laravel-enum' => array(
+            'pretty_version' => 'v6.12.2',
+            'version' => '6.12.2.0',
+            'reference' => 'c4c3c1e63dd1d215fc91c88cb83ac11212ad322c',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../bensampo/laravel-enum',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'brick/math' => array(
             'pretty_version' => '0.12.3',
             'version' => '0.12.3.0',
@@ -62,7 +71,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/./class-map-generator',
             'aliases' => array(),
-            'dev_requirement' => true,
+            'dev_requirement' => false,
         ),
         'composer/pcre' => array(
             'pretty_version' => '3.3.2',
@@ -71,7 +80,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/./pcre',
             'aliases' => array(),
-            'dev_requirement' => true,
+            'dev_requirement' => false,
         ),
         'cordoval/hamcrest-php' => array(
             'dev_requirement' => true,
@@ -448,6 +457,15 @@
                 0 => '*',
             ),
         ),
+        'laminas/laminas-code' => array(
+            'pretty_version' => '4.17.0',
+            'version' => '4.17.0.0',
+            'reference' => '40d61e2899ec17c5d08bbc0a2d586b3ca17ab9bd',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../laminas/laminas-code',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'laravel/framework' => array(
             'pretty_version' => 'v12.13.0',
             'version' => '12.13.0.0',
@@ -460,7 +478,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'a1cbf9d719b872088f15ba68dc2eee90dd05abf6',
+            'reference' => '4992e5288e6a553a73b6930ddabfcb24bd9eda48',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

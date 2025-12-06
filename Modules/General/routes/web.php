@@ -27,5 +27,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('discount-req/reject/{id}', [DiscountReqController::class, 'rejectView'])->name('discount-req.reject-view');
     Route::post('discount-req/reject', [DiscountReqController::class, 'rejectRequest'])->name('discount-req.reject');
     Route::get('discount-req/rejected', [DiscountReqController::class, 'rejected'])->name('discount-req.rejected');
+    Route::get('discount-req/details', [DiscountReqController::class, 'getDiscountDetails'])->name('discount-req.details');
 
 });

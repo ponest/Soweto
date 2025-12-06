@@ -29,7 +29,22 @@ class ComputeBillCommand
                     ? $start_date->diffInDays($end_date)
                     : $start_date->diffInDays(Carbon::today());
 
-                $totalRoomCost += $days * $stay->rate;
+                $now = Carbon::now();
+                $checkoutTime = $now->format('H:i');
+
+                // Additional charge based on time
+                $additional = 0;
+
+                if ($checkoutTime >= '11:00' && $checkoutTime < '13:00') {
+                    $additional = 0.5; // half-day
+                } elseif ($checkoutTime >= '13:00') {
+                    $additional = 1; // full extra day
+                }
+
+                $chargeableDays = $days + $additional;
+
+
+                $totalRoomCost += $chargeableDays * $stay->rate;
                 //Update Status
                 $stay->is_billed = true;
                 $stay->save();
@@ -40,8 +55,8 @@ class ComputeBillCommand
                 $bookingCharges->type = "Room Charges";
                 $bookingCharges->description = "Accommodation";
                 $bookingCharges->unit_price = $stay->rate;
-                $bookingCharges->quantity = $days;
-                $bookingCharges->total_price = $days * $stay->rate;
+                $bookingCharges->quantity = $chargeableDays;
+                $bookingCharges->total_price = $chargeableDays * $stay->rate;
                 $bookingCharges->expense_date = date("Y-m-d");
                 $bookingCharges->save();
             }

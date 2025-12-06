@@ -15,7 +15,10 @@ use Modules\General\Models\DiscountReq;
 use Modules\General\Commands\DiscountRequest\DeleteCommand;
 use Modules\General\Commands\DiscountRequest\StoreCommand;
 use Modules\General\Commands\DiscountRequest\UpdateCommand;
+use Modules\General\Models\DiscountTransaction;
 use Modules\HotelMgnt\Models\Client;
+use Modules\HotelMgnt\Models\ClientWallet;
+use Modules\HotelMgnt\Models\WalletTransaction;
 
 class DiscountReqController extends Controller
 {
@@ -115,5 +118,27 @@ class DiscountReqController extends Controller
     {
         $params['items'] = DiscountReq::whereIsApproved(false)->latest('id')->get();
         return view('general::discount_request.rejected', $params);
+    }
+
+    public function getDiscountDetails(Request $request)
+    {
+        $discount = DiscountReq::whereIsApproved(true)->where('discount_code',$request->discount_code)->first();
+        if ($discount) {
+            $total_transaction = DiscountTransaction::where('discount_id', $discount->id)->sum('amount');
+            $balance = $discount->discount_amount - $total_transaction;
+            $discount_amount = $discount->discount_amount;
+            return response()->json([
+                'success' => true,
+                'message' => 'Discount Successfully Found',
+                'balance' => $balance,
+                'total_transaction' => $total_transaction,
+                'discount_amount' => $discount_amount,
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'Discount not found'
+            ]);
+        }
     }
 }

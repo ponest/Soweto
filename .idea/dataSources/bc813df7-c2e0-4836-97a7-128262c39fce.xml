@@ -5941,7 +5941,7 @@ causer_id</ColNames>
     <column id="1311" parent="361" name="bill_amount">
       <NotNull>1</NotNull>
       <Position>6</Position>
-      <StoredType>decimal(8,2 digit)|0s</StoredType>
+      <StoredType>decimal(18,2 digit)|0s</StoredType>
     </column>
     <column id="1312" parent="361" name="paid_amount">
       <DefaultExpression>0.00</DefaultExpression>

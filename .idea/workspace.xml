@@ -4,13 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d44d5f7f-e478-428a-8108-98a2dcddfd72" name="Changes" comment="Bill Print Test">
+    <list default="true" id="d44d5f7f-e478-428a-8108-98a2dcddfd72" name="Changes" comment="Modified Billing to Add Bill Items">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/43de1f09-489f-44d2-8e1c-5ae6849ac275.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/43de1f09-489f-44d2-8e1c-5ae6849ac275.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/bc813df7-c2e0-4836-97a7-128262c39fce.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/bc813df7-c2e0-4836-97a7-128262c39fce.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/data_source_mapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/data_source_mapping.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Sales/app/Commands/Sales/SaveBillItemsCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/app/Commands/Sales/SaveBillItemsCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/SalesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/SalesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Sales/resources/views/sales/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/resources/views/sales/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Sales/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/General/app/Http/Controllers/DiscountReqController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/General/app/Http/Controllers/DiscountReqController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/General/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/General/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/CheckInOut/ComputeBillCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/CheckInOut/ComputeBillCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/CheckInOut/ConfirmPaymentCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/CheckInOut/ConfirmPaymentCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Http/Controllers/RoomCheckInOutController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Http/Controllers/RoomCheckInOutController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/check_in_out/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/check_in_out/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/check_in_out/payment_conf.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/check_in_out/payment_conf.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,6 +204,8 @@
       <path value="$PROJECT_DIR$/vendor/dompdf/dompdf" />
       <path value="$PROJECT_DIR$/vendor/mike42/escpos-php" />
       <path value="$PROJECT_DIR$/vendor/mike42/gfx-php" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-code" />
+      <path value="$PROJECT_DIR$/vendor/bensampo/laravel-enum" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">{
@@ -427,15 +442,7 @@
       <workItem from="1764674160330" duration="3024000" />
       <workItem from="1764926911084" duration="1671000" />
       <workItem from="1764936176317" duration="11188000" />
-      <workItem from="1765008648025" duration="4782000" />
-    </task>
-    <task id="LOCAL-00009" summary="Department CRUD Implemented">
-      <option name="closed" value="true" />
-      <created>1747769447050</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1747769447050</updated>
+      <workItem from="1765008648025" duration="16209000" />
     </task>
     <task id="LOCAL-00010" summary="Staff Role CRUD Implemented">
       <option name="closed" value="true" />
@@ -821,14 +828,21 @@
       <option name="project" value="LOCAL" />
       <updated>1765008119019</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Modified Billing to Add Bill Items">
+      <option name="closed" value="true" />
+      <created>1765014143410</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1765014143410</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Unit Conversion Implemented" />
     <MESSAGE value="ITEM STOCK IN Implemented" />
     <MESSAGE value="Conference Room Implemented" />
     <MESSAGE value="Conference And Clients Implemented" />
@@ -853,7 +867,8 @@
     <MESSAGE value="Modified Bill Handling" />
     <MESSAGE value="Discount Request Implemented" />
     <MESSAGE value="Bill Print Test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bill Print Test" />
+    <MESSAGE value="Modified Billing to Add Bill Items" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modified Billing to Add Bill Items" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

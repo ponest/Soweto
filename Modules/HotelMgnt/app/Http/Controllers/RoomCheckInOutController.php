@@ -18,6 +18,7 @@ use Modules\HotelMgnt\Models\RoomCheckInOut;
 use Modules\Sales\Models\Bill;
 use Modules\Sales\Models\BillItem;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Modules\Sales\Models\Payment;
 use Modules\Setups\Models\PaymentMethod;
 
 class RoomCheckInOutController extends Controller
@@ -78,7 +79,10 @@ class RoomCheckInOutController extends Controller
     public function confirmPaymentView($id){
         $params['item'] = RoomCheckInOut::find($id);
         $params['payment_methods'] = PaymentMethod::orderBy('name')->get();
-        $params['bill_amount'] = Bill::where('booking_id', $params['item']->booking_id)->sum('bill_amount');
+        $bill_amount = Bill::where('booking_id', $params['item']->booking_id)->sum('bill_amount');
+        $bill_ids = Bill::where('booking_id', $params['item']->booking_id)->pluck('id')->toArray();
+        $paid_amount = Payment::whereIn('bill_id', $bill_ids)->sum('paid_amount');
+        $params['bill_amount'] = $bill_amount - $paid_amount;
         return view('hotelmgnt::check_in_out.payment_conf', $params);
     }
 
