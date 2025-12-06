@@ -45,6 +45,13 @@
                                         <option value="Yes">Yes</option>
                                     </select>
                                 </div>
+                                <div class="form-group col-md-4" id="added_bill">
+                                    <label>Add On existing Bill?</label>
+                                    <select id="is_added_bill" class="form-control" >
+                                        <option value="No" selected>No</option>
+                                        <option value="Yes">Yes</option>
+                                    </select>
+                                </div>
                                 <div class="form-group col-md-4" id="guest_name" style="display: none">
                                     <label>Client Name</label>
                                     <select id="client_id" class="form-control" >
@@ -53,6 +60,10 @@
                                             <option value="{{$client->id}}">{{$client->full_name}}</option>
                                         @endforeach
                                     </select>
+                                </div>
+                                <div class="form-group col-md-4" id="bill_ref" style="display: none">
+                                    <label>Bill Ref No:</label>
+                                    <input type="text" id="bill_ref_no" class="form-control">
                                 </div>
                             </div>
                             <div class="form-row">
@@ -119,7 +130,9 @@
     <script>
         let cart = [];
         let clientId = null;
+        let billRefNo = null;
         let isAccommodation = "No";
+        let isAddedBill = "No";
         // Autofill price when item selected
         $('#itemName').change(function () {
             const itemId = $(this).val();
@@ -133,8 +146,21 @@
              isAccommodation = $(this).val();
             if (isAccommodation === "Yes") {
                $("#guest_name").css('display', 'block');
+               $("#added_bill").css('display', 'none');
             }else{
                 $("#guest_name").css('display', 'none');
+                $("#added_bill").css('display', 'block');
+            }
+        });
+
+        $('#is_added_bill').change(function () {
+            isAddedBill = $(this).val();
+            if (isAddedBill === "Yes") {
+                $("#bill_ref").css('display', 'block');
+                $("#bill_ref_no").attr('required', true);
+            }else{
+                $("#bill_ref").css('display', 'none');
+                $("#bill_ref_no").attr('required', false);
             }
         });
 
@@ -169,6 +195,7 @@
             let quantity = parseInt($('#quantity').val());
             const priceSelector = $('#price');
             let price = parseFloat(priceSelector.val());
+            billRefNo = $('#bill_ref_no').val();
 
             if (!itemId || quantity < 1) return;
 
@@ -237,6 +264,8 @@
                     category: category,
                     client_id: clientId,
                     is_accommodation: isAccommodation,
+                    is_addition_bill: isAddedBill,
+                    bill_ref_no: billRefNo,
                 },
                 success: function (response) {
                     if (response.success === true) {

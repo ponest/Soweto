@@ -45,13 +45,28 @@ class SalesController extends Controller
 
     public function itemSales(Request $request)
     {
+//        dd($request->all());
         return DB::transaction(function () use ($request) {
             $cart = $request->input('cart');
             $grandTotal = $request->input('grand_total');
             $category = $request->input('category');
             $clientId = $request->input('client_id');
             $isAccommodation = $request->input('is_accommodation');
+            $isAdditionBill = $request->input('is_addition_bill');
+            $billRefNo = $request->input('bill_ref_no');
             $booking = null;
+
+
+            if ($isAdditionBill == 'Yes'){
+                $billInfo = Bill::where('reference_no', $billRefNo)
+                    ->where('status','=','unpaid')->first();
+                if (!$billInfo) {
+                    return response()->json([
+                        'success' => false,
+                        'message' => 'Bill Reference Number is not found or is Already Paid'], 400);
+                }
+            }
+
 
             if ($clientId != null) {
                 $booking = Booking::whereClientId($clientId)->where('booking_status', 'CheckedIn')->first();
@@ -91,7 +106,11 @@ class SalesController extends Controller
                     $bill = SaveBillCommand::handle($sale_batch, $grandTotal, $booking);
                 }
             } else {
-                $bill = SaveBillCommand::handle($sale_batch, $grandTotal, $booking);
+                if ($isAdditionBill == 'Yes') {
+                    $bill = $billInfo;
+                }else{
+                    $bill = SaveBillCommand::handle($sale_batch, $grandTotal, $booking);
+                }
             }
 
             foreach ($cart as $item) {

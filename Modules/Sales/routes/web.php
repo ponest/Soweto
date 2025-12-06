@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\Sales\Http\Controllers\BillPrintController;
 use Modules\Sales\Http\Controllers\BillsController;
 use Modules\Sales\Http\Controllers\ItemPriceController;
 use Modules\Sales\Http\Controllers\MenuPriceApprovalController;
@@ -63,6 +62,5 @@ Route::middleware('auth')->group(function () {
     Route::get('menu-price-approval-item/index/{id}/{type?}', [MenuPriceApprovalItemController::class, 'index'])->name('menu-price-approval-item.index');
     Route::get('menu-price-approval-item/destroy/{id}', [MenuPriceApprovalItemController::class, 'destroy'])->name('menu-price-approval-item.destroy');
 
-//    Route::post('print-bill', [BillPrintController::class, 'print']);
     Route::get('print-bill/{id}', [BillsController::class, 'print'])->name('bills.print');
 });

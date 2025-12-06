@@ -5,16 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d44d5f7f-e478-428a-8108-98a2dcddfd72" name="Changes" comment="Bill Print Test">
-      <change afterPath="$PROJECT_DIR$/Modules/Sales/resources/views/bills/bill_pdf.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/bc813df7-c2e0-4836-97a7-128262c39fce.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/bc813df7-c2e0-4836-97a7-128262c39fce.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Sales/app/Commands/Bills/BillPrint.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/BillPrintController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/BillPrintController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/BillsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/BillsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Sales/app/Models/Bill.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/app/Models/Bill.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Sales/app/Models/BillItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/app/Models/BillItem.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Sales/resources/views/bills/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/resources/views/bills/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Sales/app/Commands/Sales/SaveBillItemsCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/app/Commands/Sales/SaveBillItemsCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/SalesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/SalesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Sales/resources/views/sales/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/resources/views/sales/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Modules/Sales/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -235,7 +230,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;web.server&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -262,6 +257,10 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" scope="XML" use_alternative_configuration_file="true" />
+      <method v="2" />
+    </configuration>
     <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" scope="XML" use_alternative_configuration_file="true" />
       <method v="2" />
@@ -427,15 +426,8 @@
       <workItem from="1764586395265" duration="1963000" />
       <workItem from="1764674160330" duration="3024000" />
       <workItem from="1764926911084" duration="1671000" />
-      <workItem from="1764936176317" duration="10527000" />
-    </task>
-    <task id="LOCAL-00008" summary="Booking CRUD Implemented">
-      <option name="closed" value="true" />
-      <created>1747761571537</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1747761571537</updated>
+      <workItem from="1764936176317" duration="11188000" />
+      <workItem from="1765008648025" duration="4782000" />
     </task>
     <task id="LOCAL-00009" summary="Department CRUD Implemented">
       <option name="closed" value="true" />
@@ -821,7 +813,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764927856808</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="Bill Print Test">
+      <option name="closed" value="true" />
+      <created>1765008119015</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1765008119019</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

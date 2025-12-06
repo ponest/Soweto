@@ -2,6 +2,7 @@
 
 namespace Modules\Sales\Commands\Sales;
 
+use Modules\Sales\Models\Bill;
 use Modules\Sales\Models\BillItem;
 
 class SaveBillItemsCommand
@@ -16,5 +17,10 @@ class SaveBillItemsCommand
         $billItem->total_price = $item['total'];
         $billItem->store_id = $storeId;
         $billItem->save();
+
+        //Update Bill Amount
+        $bill = Bill::find($bill->id);
+        $bill->bill_amount = BillItem::where('bill_id', $bill->id)->sum('total_price');
+        $bill->save();
     }
 }
