@@ -4,6 +4,7 @@ namespace Modules\Sales\Http\Controllers;
 
 use App\Helpers\General;
 use App\Http\Controllers\Controller;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Redirect;
@@ -83,5 +84,14 @@ class BillsController extends Controller
     {
         $params['items'] = BillItem::whereBillId($id)->get();
         return view('sales::bills.bill_items', $params);
+    }
+
+    public function print($id)
+    {
+        $params['bill'] = Bill::findOrFail($id);
+        $params['bill_items'] = BillItem::whereBillId($id)->get();
+        $params['bill_sum'] = BillItem::whereBillId($id)->sum('total_price');
+        $pdf = PDF::loadView('sales::bills.bill_pdf', $params);
+        return $pdf->download("Bill" . '.pdf');
     }
 }

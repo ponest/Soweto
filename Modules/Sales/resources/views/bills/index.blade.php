@@ -45,14 +45,18 @@
                             <td style="width: 9%" class="text-center">
                                 @if($item->status != 'Paid')
                                     @cannot('Cashier')
-                                    <a class="text-muted font-16 conf-payment-link" href="{{route('bills.payment-conf',$item->id)}}"
-                                       title="Confirm Payment" data-toggle="tooltip"><i class="fa fa-edit"></i></a> |
+                                        <a class="text-muted font-16 conf-payment-link"
+                                           href="{{route('bills.payment-conf',$item->id)}}"
+                                           title="Confirm Payment" data-toggle="tooltip"><i class="fa fa-edit"></i></a>
+                                        |
                                     @endcannot
                                 @endif
                                 <a class="text-muted font-16 bill-items" href="{{route('bills.items',$item->id)}}"
-                                     title="Bill Items" data-toggle="tooltip"><i class="fa fa-money"></i></a>
+                                   title="Bill Items" data-toggle="tooltip"><i class="fa fa-money"></i></a>
+                                | <a class="text-muted font-16" href="{{route('bills.print',$item->id)}}"
+                                     title="Print" data-toggle="tooltip"><i class="fa fa-print"></i></a>
                                 | <a class="text-muted font-16 payment" href="{{route('bills.payment',$item->id)}}"
-                                   title="Payment" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
+                                     title="Payment" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
                             </td>
                         </tr>
                     @endforeach
@@ -71,8 +75,8 @@
         </div>
     </div>
 
-   @include('sales::bills.payment_det_modal')
-   @include('sales::bills.bill_items_modal')
+    @include('sales::bills.payment_det_modal')
+    @include('sales::bills.bill_items_modal')
 
 @endsection
 

@@ -4,6 +4,7 @@ namespace Modules\Sales\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 
@@ -45,4 +46,9 @@ class BillItem extends Model
     use SoftDeletes;
 
     protected $guarded =  [];
+
+    public function bill(): BelongsTo
+    {
+        return $this->belongsTo(Bill::class);
+    }
 }

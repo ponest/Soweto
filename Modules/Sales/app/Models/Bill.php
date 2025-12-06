@@ -5,6 +5,7 @@ namespace Modules\Sales\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 use Modules\Auth\Models\User;
@@ -71,5 +72,10 @@ class Bill extends Model
     public function issuer(): BelongsTo
     {
         return $this->belongsTo(User::class, 'issued_by');
+    }
+
+    public function billItems(): HasMany
+    {
+        return $this->hasMany(BillItem::class, 'bill_id','id');
     }
 }
