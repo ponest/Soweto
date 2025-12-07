@@ -74,7 +74,7 @@ class DiscountReqController extends Controller
                 ->whereNull('reviewed_by')->latest('id')->get();
         }else{
             $params['items'] = DiscountReq::whereNotNull('reviewed_by')
-                ->whereNull('approved_by')->latest('id')->get();
+                ->whereNull(['approved_by','reject_comments'])->latest('id')->get();
         }
         return view('general::discount_request.approval_view', $params);
     }

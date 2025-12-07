@@ -57,6 +57,7 @@
         <span class="nav-label">Discount Request</span><i class="fa fa-angle-left arrow"></i></a>
     <ul class="nav-2-level collapse">
         <li><a href="{{route('discount-req.approve-view')}}">Incoming</a></li>
-        <li><a href="{{route('bills.paid')}}">Paid Bills</a></li>
+        <li><a href="{{route('discount-req.approved')}}">Approved</a></li>
+        <li><a href="{{route('discount-req.rejected')}}">Rejected</a></li>
     </ul>
 </li>

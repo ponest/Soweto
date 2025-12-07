@@ -1,14 +1,17 @@
 @extends('layouts.master')
-@section('title','Rooms')
+@section('title','Room Items')
 @section('content')
     <div class="ibox">
         <div class="ibox-body">
 
             <div class="row">
                 <div class="col-9" style="padding-top: 2vh">
-                    <h5 class="font-strong">ROOMS</h5>
+                    <h5 class="font-strong">ROOM ITEMS</h5>
                 </div>
                 <div class="col-3" style="text-align: right">
+                    <a href="{{route('rooms.index')}}" class="btn btn-primary">
+                        <i class="fa fa-backward"></i> Go Back
+                    </a>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create_modal">
                         <i class="fa fa-plus-circle"></i> Add New
                     </button>
@@ -25,10 +28,8 @@
                     <thead class="thead-default thead-lg">
                     <tr>
                         <th>S/N</th>
-                        <th>Room Type</th>
-                        <th>Room Number</th>
-                        <th>Rate Per Night</th>
-                        <th>Status</th>
+                        <th>Item Name</th>
+                        <th>Quantity</th>
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -36,17 +37,13 @@
                     @foreach($items as $key=>$item)
                         <tr>
                             <td style="width: 5%">{{++$key}}</td>
-                            <td>{{$item->roomType->name}}</td>
-                            <td class="desc_name">{{$item->room_number}}</td>
-                            <td>{{number_format($item->rate_per_night)." TZS"}}</td>
-                            <td>{{$item->status}}</td>
+                            <td class="desc_name">{{$item->stockItem?->name}}</td>
+                            <td>{{$item->quantity}}</td>
                             <td style="width: 9%" class="text-center">
-                                <a class="text-muted font-16 edit-link" href="{{route('rooms.edit',$item->id)}}"
+                                <a class="text-muted font-16 edit-link" href="{{route('room-items.edit',$item->id)}}"
                                    title="Edit" data-toggle="tooltip"><i class="fa fa-edit"></i></a> |
-                                <a class="text-muted font-16 delete-link" href="{{route('rooms.destroy',$item->id)}}"
+                                <a class="text-muted font-16 delete-link" href="{{route('room-items.destroy',$item->id)}}"
                                    title="Delete" data-toggle="tooltip"><i class="fa fa-trash-o"></i></a>
-                                | <a class="text-muted font-16" href="{{route('room-items.index',$item->id)}}"
-                                     title="Room Items" data-toggle="tooltip"><i class="fa fa-arrow-circle-right"></i></a>
                             </td>
                         </tr>
                     @endforeach
@@ -57,7 +54,7 @@
     </div>
 
     <!--Create Modal && Edit Modal -->
-    @include('hotelmgnt::rooms.create')
+    @include('hotelmgnt::room_items.create')
 
     <div class="modal fade" id="edit_modal" aria-labelledby="edit_modal" aria-hidden="true">
         <div class="modal-dialog">
@@ -84,11 +81,6 @@
             const Description = $(this).closest('tr').children('td.desc_name').text().trim();
             const Url = $(this).attr('href');
             deleteConfirm(Description, Url);
-        });
-
-        $(".select_my").select2({
-            placeholder: "Select a state",
-            allowClear: true
         });
 
     </script>

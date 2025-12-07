@@ -10,6 +10,7 @@ use Modules\HotelMgnt\Http\Controllers\ConferenceRoomsController;
 use Modules\HotelMgnt\Http\Controllers\HotelMgntController;
 use Modules\HotelMgnt\Http\Controllers\HouseKeepingLogController;
 use Modules\HotelMgnt\Http\Controllers\RoomCheckInOutController;
+use Modules\HotelMgnt\Http\Controllers\RoomItemController;
 use Modules\HotelMgnt\Http\Controllers\RoomsController;
 use Modules\HotelMgnt\Http\Controllers\RoomTypesController;
 
@@ -23,6 +24,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::resource('rooms', RoomsController::class)->except('show', 'destroy');
     Route::get('rooms/destroy/{id}', [RoomsController::class, 'destroy'])->name('rooms.destroy');
+
+    Route::resource('room-items', RoomItemController::class)->except(['show', 'destroy','index']);
+    Route::get('room-items/index/{id}', [RoomItemController::class, 'index'])->name('room-items.index');
+    Route::get('room-items/destroy/{id}', [RoomItemController::class, 'destroy'])->name('room-items.destroy');
+
+
 
 //    Route::resource('guests', ClientsController::class)->except('show', 'destroy');
 //    Route::get('guests/destroy/{id}', [ClientsController::class, 'destroy'])->name('guests.destroy');
