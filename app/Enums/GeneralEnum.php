@@ -11,5 +11,5 @@ use BenSampo\Enum\Enum;
  */
 final class GeneralEnum extends Enum
 {
-
+    const HouseKeepingStoreId = 5;
 }

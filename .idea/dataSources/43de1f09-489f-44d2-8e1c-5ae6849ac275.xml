@@ -1515,7 +1515,7 @@ test\\_%|schema||PUBLIC|&apos;&apos;|UPDATE|G</Grants>
     <schema id="576" parent="1" name="soweto_db">
       <AutoIntrospectionLevel>3</AutoIntrospectionLevel>
       <LastIntrospectionLevel>3</LastIntrospectionLevel>
-      <LastIntrospectionLocalTimestamp>2025-12-07.15:19:09</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2025-12-08.09:32:23</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
     <schema id="577" parent="1" name="sys">
@@ -1856,7 +1856,7 @@ test\\_%|schema||PUBLIC|&apos;&apos;|UPDATE|G</Grants>
       <Predicate>json_valid(`properties`)</Predicate>
     </check>
     <column id="648" parent="586" name="id">
-      <AutoIncrement>964</AutoIncrement>
+      <AutoIncrement>969</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
@@ -4722,7 +4722,7 @@ causer_id</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="1266" parent="628" name="id">
-      <AutoIncrement>1</AutoIncrement>
+      <AutoIncrement>4</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>

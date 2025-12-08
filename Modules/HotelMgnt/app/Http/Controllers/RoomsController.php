@@ -2,15 +2,21 @@
 
 namespace Modules\HotelMgnt\Http\Controllers;
 
+use App\Enums\GeneralEnum;
+use App\Enums\StockOutCategories;
 use App\Helpers\General;
 use App\Http\Controllers\Controller;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
 use Modules\HotelMgnt\Commands\Room\DeleteCommand;
 use Modules\HotelMgnt\Commands\Room\StoreCommand;
 use Modules\HotelMgnt\Commands\Room\UpdateCommand;
 use Modules\HotelMgnt\Models\Room;
+use Modules\HotelMgnt\Models\RoomItem;
 use Modules\HotelMgnt\Models\RoomType;
+use Modules\Sales\Commands\Sales\SaveStockOutCommand;
 
 class RoomsController extends Controller
 {
@@ -50,4 +56,6 @@ class RoomsController extends Controller
         $notification = General::customMessage($info['message'], $info['type']);
         return Redirect::back()->with($notification);
     }
+
+
 }

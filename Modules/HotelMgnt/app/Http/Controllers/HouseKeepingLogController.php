@@ -54,4 +54,7 @@ class HouseKeepingLogController extends Controller
         $notification = General::customMessage($info['message'], $info['type']);
         return Redirect::back()->with($notification);
     }
+
+
+
 }

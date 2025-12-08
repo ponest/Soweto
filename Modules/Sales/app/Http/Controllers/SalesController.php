@@ -2,6 +2,7 @@
 
 namespace Modules\Sales\Http\Controllers;
 
+use App\Enums\StockOutCategories;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -90,7 +91,7 @@ class SalesController extends Controller
                         ]);
                     }
                     //Save to Item Stock Out
-                    SaveStockOutCommand::handle($item, $storeId);
+                    SaveStockOutCommand::handle($item, $storeId, StockOutCategories::SALES);
                 }
             }
             // Save Sale Batch
