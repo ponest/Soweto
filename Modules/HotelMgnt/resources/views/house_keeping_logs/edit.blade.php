@@ -10,6 +10,7 @@
     <div class="modal-body">
         <div class="row mb-3">
             <div class="col">
+                <label>Room Number</label>
                 <select name="room_id" class="form-control form-control-air" required>
                     <option value="">Select Room</option>
                     @foreach($rooms as $room)
@@ -20,6 +21,7 @@
         </div>
         <div class="row mb-3">
             <div class="col">
+                <label>Staff</label>
                 <select name="staff_id" class="form-control form-control-air" required>
                     <option value="">Select Staff</option>
                     @foreach($staffs as $staff)
@@ -30,7 +32,14 @@
         </div>
         <div class="row mb-3">
             <div class="col">
-                <input type="text" value="{{$item->cleaned_on}}" name="cleaned_on" class="form-control form-control-air datePicker" placeholder="Cleaned Date" required>
+                <label>Cleaned On</label>
+                <input type="text" value="{{$item->cleaned_on}}" name="cleaned_on" class="form-control form-control-air datePicker" required>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col">
+                <label>Observations</label>
+                <textarea type="text" name="observation" class="form-control form-control-air" required>{{$item->observation}}</textarea>
             </div>
         </div>
     </div>

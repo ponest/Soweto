@@ -17,8 +17,6 @@ use Modules\General\Commands\DiscountRequest\StoreCommand;
 use Modules\General\Commands\DiscountRequest\UpdateCommand;
 use Modules\General\Models\DiscountTransaction;
 use Modules\HotelMgnt\Models\Client;
-use Modules\HotelMgnt\Models\ClientWallet;
-use Modules\HotelMgnt\Models\WalletTransaction;
 
 class DiscountReqController extends Controller
 {

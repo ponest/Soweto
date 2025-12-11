@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Modules\HotelMgnt\Http\Controllers\BookingChargesController;
 use Modules\HotelMgnt\Http\Controllers\BookingsController;
+use Modules\HotelMgnt\Http\Controllers\CheckOutRequestController;
 use Modules\HotelMgnt\Http\Controllers\ClientsController;
 use Modules\HotelMgnt\Http\Controllers\ClientWalletController;
 use Modules\HotelMgnt\Http\Controllers\ConferenceBookingsController;
@@ -54,7 +55,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('room/confirm-payment/{id}', [RoomCheckInOutController::class, 'confirmPaymentView'])->name('room-confirm-payment-view');
     Route::post('room/confirm-payment', [RoomCheckInOutController::class, 'confirmPayment'])->name('room-confirm-payment');
 
-    Route::resource('booking-charges', BookingChargesController::class)->except('show', 'destroy','index');
+    Route::resource('booking-charges', BookingChargesController::class)->except( 'destroy','index');
     Route::get('booking-charges/index/{id}', [BookingChargesController::class, 'index'])->name('booking-charges.index');
     Route::get('booking-charges/destroy/{id}', [BookingChargesController::class, 'destroy'])->name('booking-charges.destroy');
 
@@ -80,4 +81,18 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('conference-bookings/destroy/{id}', [ConferenceBookingsController::class, 'destroy'])->name('conference-bookings.destroy');
     Route::get('conference-bookings/check-in/{id}', [ConferenceBookingsController::class, 'checkIn'])->name('conference-bookings.check-in');
     Route::get('conference-bookings/check-out/{id}', [ConferenceBookingsController::class, 'checkOut'])->name('conference-bookings.check-out');
+
+    Route::resource('checkout-req', CheckOutRequestController::class)->except('show', 'destroy','create');
+    Route::get('checkout-req/create/{id}', [CheckOutRequestController::class, 'create'])->name('checkout-req.create');
+    Route::get('checkout-req/destroy/{id}', [CheckOutRequestController::class, 'destroy'])->name('checkout-req.destroy');
+    Route::get('checkout-req/submit/{id}', [CheckOutRequestController::class, 'submitRequest'])->name('checkout-req.submit');
+    Route::get('checkout-req/approve/{id}', [CheckOutRequestController::class, 'approveRequest'])->name('checkout-req.approve');
+    Route::get('checkout-req/approve-view', [CheckOutRequestController::class, 'approverView'])->name('checkout-req.approve-view');
+    Route::get('checkout-req/review/{id}', [CheckOutRequestController::class, 'reviewRequest'])->name('checkout-req.review');
+    Route::get('checkout-req/approved', [CheckOutRequestController::class, 'approved'])->name('checkout-req.approved');
+    Route::get('checkout-req/reject/{id}', [CheckOutRequestController::class, 'rejectView'])->name('checkout-req.reject-view');
+    Route::post('checkout-req/reject', [CheckOutRequestController::class, 'rejectRequest'])->name('checkout-req.reject');
+    Route::get('checkout-req/rejected', [CheckOutRequestController::class, 'rejected'])->name('checkout-req.rejected');
+    Route::get('checkout-req/details', [CheckOutRequestController::class, 'getDiscountDetails'])->name('checkout-req.details');
+
 });

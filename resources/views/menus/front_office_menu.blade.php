@@ -26,6 +26,15 @@
     </ul>
 </li>
 
+<li>
+    <a href="javascript:;"><i class="sidebar-item-icon ti-target"></i>
+        <span class="nav-label">Checkout Request</span><i class="fa fa-angle-left arrow"></i></a>
+    <ul class="nav-2-level collapse">
+        <li><a href="{{route('checkout-req.index')}}">Request</a></li>
+        <li><a href="{{route('checkout-req.approved')}}">Approved</a></li>
+        <li><a href="{{route('checkout-req.rejected')}}">Rejected</a></li>
+    </ul>
+</li>
 
 <li>
     <a href="javascript:;"><i class="sidebar-item-icon ti-target"></i>

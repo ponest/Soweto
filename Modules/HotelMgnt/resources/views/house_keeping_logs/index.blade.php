@@ -28,6 +28,7 @@
                         <th>Room Number</th>
                         <th>Cleaned By</th>
                         <th>Cleaned On</th>
+                        <th>Observations</th>
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -38,11 +39,12 @@
                             <td class="desc_name">{{isset($item->room) ? $item->room->room_number:'Not Defined'}}</td>
                             <td>{{isset($item->staff) ? $item->staff->full_name:'Not Defined'}}</td>
                             <td>{{$item->cleaned_on}}</td>
+                            <td>{{$item->observation}}</td>
                             <td style="width: 9%" class="text-center">
                                 <a class="text-muted font-16 edit-link" href="{{route('house-kp-logs.edit',$item->id)}}"
                                    title="Edit" data-toggle="tooltip"><i class="fa fa-edit"></i></a> |
                                 <a class="text-muted font-16 delete-link" href="{{route('house-kp-logs.destroy',$item->id)}}"
-                                   title="Delete" data-toggle="tooltip"><i class="fa fa-trash-o"></i></a> |
+                                   title="Delete" data-toggle="tooltip"><i class="fa fa-trash-o"></i></a>
                             </td>
                         </tr>
                     @endforeach
@@ -76,9 +78,9 @@
 
         datePickerLoad();
 
-        $('#edit_modal').on('shown.bs.modal',function (){
-            datePickerLoad();
-        });
+        // $('#edit_modal').on('shown.bs.modal',function (){
+        //     datePickerLoad();
+        // });
 
         //For Deleting
         $(".delete-link").click(function (e) {

@@ -1,4 +1,4 @@
-<div class="modal fade" id="create_modal" tabindex="-1" aria-labelledby="create_modal" aria-hidden="true">
+<div class="modal fade" id="create_modal" aria-labelledby="create_modal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <form action="{{route('house-kp-logs.store')}}" method="post" autocomplete="off">
@@ -12,6 +12,7 @@
                 <div class="modal-body">
                     <div class="row mb-3">
                         <div class="col">
+                            <label>Room Number</label>
                             <select name="room_id" class="form-control form-control-air" required>
                                 <option value="">Select Room</option>
                                 @foreach($rooms as $room)
@@ -22,6 +23,7 @@
                     </div>
                     <div class="row mb-3">
                         <div class="col">
+                            <label>Staff</label>
                             <select name="staff_id" class="form-control form-control-air" required>
                                 <option value="">Select Staff</option>
                                 @foreach($staffs as $staff)
@@ -32,7 +34,14 @@
                     </div>
                     <div class="row mb-3">
                         <div class="col">
-                            <input type="text" name="cleaned_on" class="form-control form-control-air datePicker" placeholder="Cleaned Date" required>
+                            <label>Cleaned Date</label>
+                            <input type="text" name="cleaned_on" class="form-control form-control-air datePicker" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label>Observations</label>
+                            <textarea type="text" name="observation" class="form-control form-control-air" required></textarea
                         </div>
                     </div>
                 </div>

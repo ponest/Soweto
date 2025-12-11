@@ -46,7 +46,7 @@
                             <td>{{$item->checkedInBy?->full_name}}</td>
                             <td>{{$item->checked_out_at != null ? date('d M Y H:i', strtotime($item->checked_out_at)):'---'}}</td>
                             <td>{{$item->checkedOutBy?->full_name}}</td>
-                            <td style="width: 9%" class="text-center">
+                            <td style="width: 12%" class="text-center">
                                 @if(!$item->checked_out_at)
                                     <a class="text-muted font-16 transfer-link"
                                        href="{{route('room.transfer-view',$item->id)}}"
@@ -63,6 +63,10 @@
                                                  href="{{route('room-confirm-payment-view',$item->id)}}"
                                                  title="Confirm Payment" data-toggle="tooltip"><i
                                                         class="fa fa-check-circle"></i></a>
+                                            | <a class="text-muted font-16 checkout-req-link"
+                                                 href="{{route('checkout-req.create',$item->booking_id)}}"
+                                                 title="Checkout Request" data-toggle="tooltip"><i
+                                                        class="fa fa-credit-card"></i></a>
                                         @endif
                                     @endif
 
@@ -112,6 +116,14 @@
         </div>
     </div>
 
+    <div class="modal fade" id="checkout_req" aria-labelledby="checkout_req" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content modal-checkout-req">
+                <!--Edit Form Loads Here-->
+            </div>
+        </div>
+    </div>
+
 @endsection
 
 @section('Scripts')
@@ -125,6 +137,15 @@
         });
 
         $('.conf-payment-link').on('click', function (e) {
+            e.preventDefault();
+            const dataURL = $(this).attr('href');
+            $('.modal-checkout-req').load(dataURL, function () {
+                $('#checkout_req').modal({show: true});
+            });
+        });
+
+
+        $('.checkout-req-link').on('click', function (e) {
             e.preventDefault();
             const dataURL = $(this).attr('href');
             $('.modal-conf-payment').load(dataURL, function () {

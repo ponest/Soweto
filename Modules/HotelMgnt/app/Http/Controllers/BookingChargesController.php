@@ -32,6 +32,14 @@ class BookingChargesController extends Controller
         return Redirect::back()->with($notification);
     }
 
+    public function show($bookingId)
+    {
+        $params['items'] = BookingCharges::whereBookingId($bookingId)->get();
+        $params['total_price'] = BookingCharges::whereBookingId($bookingId)->sum('total_price');
+        return view('hotelmgnt::booking_charges.show', $params);
+    }
+
+
     public function edit($id)
     {
         $params['item'] = BookingCharges::find($id);
