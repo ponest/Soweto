@@ -79,3 +79,27 @@ function getUnit(itemId, unitRef, unitIdRef) {
         }
     });
 }
+
+
+function populateItems(purchaseId, itemRef) {
+    const baseUrl = window.location.origin;
+    const ajaxUrl = baseUrl + '/ajax/get-items';
+    $.ajax({
+        url: ajaxUrl,
+        type: "GET",
+        data: {purchase_id: purchaseId},
+        dataType: "json",
+        success: function (data) {
+            itemRef.empty();
+            itemRef.append('<option value="">Select Item</option>');
+            $.each(data, function (key, value) {
+                itemRef.append('<option value="' + key + '">' + value + '</option>');
+            });
+        },
+        error: function (xhr) {
+            const errorMessage = xhr.status + ': ' + xhr.statusText;
+            console.log(errorMessage);
+            // handleAjaxError(xhr);
+        }
+    });
+}

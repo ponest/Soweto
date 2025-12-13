@@ -76,6 +76,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('purchase-request-item', PurchaseReqItemsController::class)->except('show', 'destroy','index');
     Route::get('purchase-request-item/index/{id}', [PurchaseReqItemsController::class, 'index'])->name('purchase-request-item.index');
     Route::get('purchase-request-item/destroy/{id}', [PurchaseReqItemsController::class, 'destroy'])->name('purchase-request-item.destroy');
+    Route::get('ajax/get-items', [PurchaseReqItemsController::class, 'getItems'])->name('ajax.get-items');
 
     Route::resource('purchase-req-cost', PurchaseReqAdditionalCostController::class)->except('show', 'destroy','index');
     Route::get('purchase-req-cost/index/{id}', [PurchaseReqAdditionalCostController::class, 'index'])->name('purchase-req-cost');

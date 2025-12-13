@@ -60,9 +60,9 @@
                             <td>{{$item->received_date}}</td>
                             @can('StoreOfficer')
                                 <td style="width: 9%" class="text-center">
-                                    <a class="text-muted font-16 edit-link"
-                                       href="{{route('item-stock-in.edit',$item->id)}}"
-                                       title="Edit" data-toggle="tooltip"><i class="fa fa-edit"></i></a> |
+{{--                                    <a class="text-muted font-16 edit-link"--}}
+{{--                                       href="{{route('item-stock-in.edit',$item->id)}}"--}}
+{{--                                       title="Edit" data-toggle="tooltip"><i class="fa fa-edit"></i></a> |--}}
                                     <a class="text-muted font-16 delete-link"
                                        href="{{route('item-stock-in.destroy',$item->id)}}"
                                        title="Delete" data-toggle="tooltip"><i class="fa fa-trash-o"></i></a>
@@ -96,6 +96,13 @@
             $('.modal-edit').load(dataURL, function () {
                 $('#edit_modal').modal({show: true});
             });
+        });
+
+        //Populating the station
+        $('#purchase_request_id').on('change', function () {
+            const purchaseId = $(this).val();
+            const itemRef = $('#item_id');
+            populateItems(purchaseId, itemRef);
         });
 
         //For Deleting

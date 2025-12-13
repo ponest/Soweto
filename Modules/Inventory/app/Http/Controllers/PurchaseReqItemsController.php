@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Redirect;
 use Modules\Inventory\Commands\PurchaseRequestItem\DeleteCommand;
 use Modules\Inventory\Commands\PurchaseRequestItem\StoreCommand;
 use Modules\Inventory\Commands\PurchaseRequestItem\UpdateCommand;
+use Modules\Inventory\Models\ItemStockIn;
 use Modules\Inventory\Models\PurchaseReqItem;
 use Modules\Inventory\Models\PurchaseRequest;
 use Modules\Inventory\Models\StockItem;
@@ -52,6 +53,15 @@ class PurchaseReqItemsController extends Controller
         $info = DeleteCommand::handle($id);
         $notification = General::customMessage($info['message'], $info['type']);
         return Redirect::back()->with($notification);
+    }
+
+    public function getItems(Request $request)
+    {
+        $itemIds = PurchaseReqItem::wherePurchaseRequestId($request->purchase_id)->pluck("stock_item_id")->toArray();
+        $usedItems = ItemStockIn::where('purchase_request_id', $request->purchase_id)->pluck("item_id")->toArray();
+        $usable= array_diff($itemIds, $usedItems);
+        $stockItems = StockItem::whereIn('id',$usable)->pluck("name", "id");
+        return json_encode($stockItems);
     }
 
 }

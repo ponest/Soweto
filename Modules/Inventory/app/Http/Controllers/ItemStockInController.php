@@ -11,6 +11,7 @@ use Modules\Inventory\Commands\ItemStockIn\DeleteCommand;
 use Modules\Inventory\Commands\ItemStockIn\StoreCommand;
 use Modules\Inventory\Commands\ItemStockIn\UpdateCommand;
 use Modules\Inventory\Models\ItemStockIn;
+use Modules\Inventory\Models\PurchaseRequest;
 use Modules\Inventory\Models\StockItem;
 use Modules\Inventory\Models\Supplier;
 use Modules\Setups\Models\Unit;
@@ -24,6 +25,7 @@ class ItemStockInController extends Controller
         $params['suppliers'] = Supplier::orderBy('name')->get();
         $params['stock_items'] = StockItem::orderBy('name')->get();
         $params['units'] = Unit::orderBy('name')->get();
+        $params['purchase_requests'] = PurchaseRequest::whereIsApproved(true)->latest('id')->limit(10)->get();
         return view('inventory::item_stock_in.index', $params);
     }
 

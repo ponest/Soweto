@@ -6,6 +6,7 @@ use Exception;
 use Modules\Auth\Models\User;
 use Modules\Inventory\Models\ItemStockIn;
 use Modules\Inventory\Models\ItemUnitConversion;
+use Modules\Inventory\Models\PurchaseReqItem;
 use Modules\Inventory\Models\StoreItem;
 
 class StoreCommand
@@ -24,6 +25,23 @@ class StoreCommand
             //check if user is assigned to a Store
             $storeId = auth()->user()->store_id;
             if ($storeId) {
+                //check if purchase request correspond to the entered things
+                $purchaseReItem = PurchaseReqItem::where([['purchase_request_id', $data['purchase_request_id']], ['stock_item_id', $data['item_id']]])->first();
+                if ($data['quantity'] > $purchaseReItem->quantity) {
+                    return [
+                        'message' => "Warning!, The Qty {$data['quantity']} exceeds Purchase Request Qty which was $purchaseReItem->quantity",
+                        'type' => 'error'
+                    ];
+                }
+
+                $purchaseReItem = PurchaseReqItem::where([['purchase_request_id', $data['purchase_request_id']], ['stock_item_id', $data['item_id']]])->first();
+                if ($data['total_price'] > $purchaseReItem->total_price) {
+                    return [
+                        'message' => "Warning!, The total Price {$data['total_price']} exceeds Purchase Request Qty which was $purchaseReItem->total_price",
+                        'type' => 'error'
+                    ];
+                }
+
                 $data['store_id'] = $storeId;
                 $data['department_id'] = User::currentUserDepartmentId();
                 ItemStockIn::create($data);

@@ -140,4 +140,6 @@ class PurchaseRequestController extends Controller
         return view('inventory::purchase_request.rejected', $params);
     }
 
+
+
 }
