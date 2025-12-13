@@ -22,6 +22,13 @@
         </tr>
     @endforeach
     </tbody>
+    <tfoot>
+    <tr>
+        <td></td>
+        <td colspan="3">Total</td>
+        <td style="text-align: right">{{number_format($total_items_cost)}}</td>
+    </tr>
+    </tfoot>
 </table>
 
 <hr/>
@@ -46,4 +53,19 @@
         </tr>
     @endforeach
     </tbody>
+    <tfoot>
+    <tr>
+        <td></td>
+        <td>Total</td>
+        <td style="text-align: right">{{number_format($total_additional_costs)}}</td>
+    </tr>
+    </tfoot>
 </table>
+
+@php
+    $totalCost  = $total_additional_costs + $total_items_cost;
+@endphp
+<div class="text-right">
+    <h4 class="font-16"> <strong>Total Cost : {{number_format($totalCost)}}</strong> </h4>
+</div>
+

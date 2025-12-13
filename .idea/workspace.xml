@@ -4,37 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d44d5f7f-e478-428a-8108-98a2dcddfd72" name="Changes" comment="Make Auto Consume Room Items">
-      <change afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/CheckOutRequest/ApproveCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/CheckOutRequest/DeleteCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/CheckOutRequest/RejectCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/CheckOutRequest/ReviewCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/CheckOutRequest/StoreCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/CheckOutRequest/SubmitCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/CheckOutRequest/UpdateCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/booking_charges/show.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/checkout_request/approval_view.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/checkout_request/approved.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/checkout_request/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/checkout_request/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/checkout_request/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/checkout_request/reject_view.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/checkout_request/rejected.blade.php" afterDir="false" />
+    <list default="true" id="d44d5f7f-e478-428a-8108-98a2dcddfd72" name="Changes" comment="Added Checkout With Approval">
+      <change afterPath="$PROJECT_DIR$/Modules/Inventory/app/Commands/PurchaseRequest/RejectCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/Inventory/resources/views/purchase_request/approved.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/Inventory/resources/views/purchase_request/rejected.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/43de1f09-489f-44d2-8e1c-5ae6849ac275.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/43de1f09-489f-44d2-8e1c-5ae6849ac275.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/bc813df7-c2e0-4836-97a7-128262c39fce.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/bc813df7-c2e0-4836-97a7-128262c39fce.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/data_source_mapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/data_source_mapping.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/svh.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/svh.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/General/app/Http/Controllers/DiscountReqController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/General/app/Http/Controllers/DiscountReqController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/CheckInOut/ConfirmPaymentCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/CheckInOut/ConfirmPaymentCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Http/Controllers/BookingChargesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Http/Controllers/BookingChargesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/check_in_out/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/check_in_out/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/house_keeping_logs/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/house_keeping_logs/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/house_keeping_logs/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/house_keeping_logs/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/house_keeping_logs/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/house_keeping_logs/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Inventory/app/Http/Controllers/PurchaseRequestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Inventory/app/Http/Controllers/PurchaseRequestController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Inventory/app/Models/PurchaseRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Inventory/app/Models/PurchaseRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Inventory/resources/views/purchase_request/approval_view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Inventory/resources/views/purchase_request/approval_view.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Inventory/resources/views/purchase_request/items_view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Inventory/resources/views/purchase_request/items_view.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Inventory/resources/views/purchase_request/reject_view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Inventory/resources/views/purchase_request/reject_view.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Inventory/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Inventory/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/menus/director_menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menus/director_menu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/menus/front_office_menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menus/front_office_menu.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/menus/manager_menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menus/manager_menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/menus/store_menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menus/store_menu.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,52 +215,53 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
-    "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
-    "WebServerToolWindowPanel.toolwindow.show.date": "false",
-    "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
-    "WebServerToolWindowPanel.toolwindow.show.size": "false",
-    "com.laravel_idea.eloquent_global_unguard": "0",
-    "git-widget-placeholder": "main",
-    "laravel_idea.dialogs.code_generation:createController.width": "492",
-    "laravel_idea.dialogs.code_generation:createController.x": "510",
-    "laravel_idea.dialogs.code_generation:createController.y": "388",
-    "laravel_idea.dialogs.code_generation:createFormRequest.width": "473",
-    "laravel_idea.dialogs.code_generation:createFormRequest.x": "519",
-    "laravel_idea.dialogs.code_generation:createFormRequest.y": "350",
-    "last_opened_file_path": "/Volumes/DATA/PROJECT/OTHERS/svh/Modules/HotelMgnt/resources/views/checkout_request",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.mappings&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.symlinks&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
+    &quot;com.laravel_idea.eloquent_global_unguard&quot;: &quot;0&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;laravel_idea.dialogs.code_generation:createController.width&quot;: &quot;492&quot;,
+    &quot;laravel_idea.dialogs.code_generation:createController.x&quot;: &quot;510&quot;,
+    &quot;laravel_idea.dialogs.code_generation:createController.y&quot;: &quot;388&quot;,
+    &quot;laravel_idea.dialogs.code_generation:createFormRequest.width&quot;: &quot;473&quot;,
+    &quot;laravel_idea.dialogs.code_generation:createFormRequest.x&quot;: &quot;519&quot;,
+    &quot;laravel_idea.dialogs.code_generation:createFormRequest.y&quot;: &quot;350&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Volumes/DATA/PROJECT/OTHERS/svh/Modules/Inventory/resources/views/purchase_request&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql",
-      "mariadb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;,
+      &quot;mariadb&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Modules/Inventory/resources/views/purchase_request" />
+      <recent name="$PROJECT_DIR$/Modules/Inventory/app/Commands/PurchaseRequest" />
       <recent name="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/checkout_request" />
       <recent name="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/CheckOutRequest" />
       <recent name="$PROJECT_DIR$/Modules/HotelMgnt/resources/views" />
-      <recent name="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands" />
-      <recent name="$PROJECT_DIR$/Modules/General/resources/views/discount_request" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/menus" />
@@ -296,8 +284,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-a71380e98a7c-JavaScript-PS-252.28238.9" />
-        <option value="bundled-php-predefined-a98d8de5180a-58f58c5035b3-com.jetbrains.php.sharedIndexes-PS-252.28238.9" />
+        <option value="bundled-js-predefined-d6986cc7102b-c7e53b3be11b-JavaScript-PS-253.28294.345" />
+        <option value="bundled-php-predefined-a98d8de5180a-09080813851e-com.jetbrains.php.sharedIndexes-PS-253.28294.345" />
       </set>
     </attachedChunks>
   </component>
@@ -461,15 +449,11 @@
       <workItem from="1765186330514" duration="1921000" />
       <workItem from="1765421762196" duration="1438000" />
       <workItem from="1765423240229" duration="3661000" />
-      <workItem from="1765428458807" duration="8400000" />
-    </task>
-    <task id="LOCAL-00013" summary="House Keeping Log CRUD Implemented">
-      <option name="closed" value="true" />
-      <created>1747929721646</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1747929721646</updated>
+      <workItem from="1765428458807" duration="10361000" />
+      <workItem from="1765474717826" duration="821000" />
+      <workItem from="1765604903912" duration="14000" />
+      <workItem from="1765605319058" duration="5481000" />
+      <workItem from="1765610815946" duration="93000" />
     </task>
     <task id="LOCAL-00014" summary="Added Inventory Module">
       <option name="closed" value="true" />
@@ -855,14 +839,21 @@
       <option name="project" value="LOCAL" />
       <updated>1765188222838</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="Added Checkout With Approval">
+      <option name="closed" value="true" />
+      <created>1765442446760</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1765442446760</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Conference And Clients Implemented" />
     <MESSAGE value="Stock Requisition" />
     <MESSAGE value="Users" />
     <MESSAGE value="Rooms Modified" />
@@ -887,7 +878,8 @@
     <MESSAGE value="Modified Billing to Add Bill Items" />
     <MESSAGE value="Modified Booking" />
     <MESSAGE value="Make Auto Consume Room Items" />
-    <option name="LAST_COMMIT_MESSAGE" value="Make Auto Consume Room Items" />
+    <MESSAGE value="Added Checkout With Approval" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Checkout With Approval" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

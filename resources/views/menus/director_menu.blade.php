@@ -44,7 +44,8 @@
         <span class="nav-label">Purchase Request</span><i class="fa fa-angle-left arrow"></i></a>
     <ul class="nav-2-level collapse">
         <li><a href="{{route('purchase-request.approve-view')}}">Incoming</a></li>
-        <li><a href="{{route('client-wallet.approved')}}">Approved</a></li>
+        <li><a href="{{route('purchase-request.approved')}}">Approved</a></li>
+        <li><a href="{{route('purchase-request.rejected')}}">Rejected</a></li>
     </ul>
 </li>
 

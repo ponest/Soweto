@@ -67,6 +67,11 @@ class PurchaseRequest extends Model
         return $this->belongsTo(User::class, 'submitted_by');
     }
 
+    public function approvedBy(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'approved_by');
+    }
+
     public function reviewedBy(): BelongsTo
     {
         return $this->belongsTo(User::class, 'reviewed_by');

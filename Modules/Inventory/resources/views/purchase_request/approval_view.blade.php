@@ -79,10 +79,10 @@
                                 {{--                                                class="fa fx-2 fa-close"></i></a>--}}
                                 {{--                                @endif--}}
 
-{{--                                | <a class="text-muted font-16 reject-link"--}}
-{{--                                     href="{{route('stock-requisition.reject-view',$item->id)}}"--}}
-{{--                                     title="Reject" data-toggle="tooltip"><i--}}
-{{--                                            class="fa fx-2 fa-close"></i></a>--}}
+                                | <a class="text-muted font-16 reject-link"
+                                     href="{{route('purchase-request.reject-view',$item->id)}}"
+                                     title="Reject" data-toggle="tooltip"><i
+                                            class="fa fx-2 fa-close"></i></a>
 
                             </td>
                         </tr>

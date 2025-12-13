@@ -8,7 +8,6 @@
     <a href="javascript:;"><i class="sidebar-item-icon ti-bar-chart"></i>
         <span class="nav-label">Inventory</span><i class="fa fa-angle-left arrow"></i></a>
     <ul class="nav-2-level collapse">
-        <li><a href="{{route('purchase-request.index')}}">Purchase Request</a></li>
         <li><a href="{{route('stock-items.index')}}">Stock Items</a></li>
         <li><a href="{{route('suppliers.index')}}">Suppliers</a></li>
         <li><a href="{{route('unit-conversion.index')}}">Item Unit Conversion</a></li>
@@ -20,11 +19,13 @@
     </ul>
 </li>
 
-{{--<li>--}}
-{{--    <a href="javascript:;"><i class="sidebar-item-icon ti-bar-chart"></i>--}}
-{{--        <span class="nav-label">Approvals</span><i class="fa fa-angle-left arrow"></i></a>--}}
-{{--    <ul class="nav-2-level collapse">--}}
-{{--        <li><a href="{{route('stock-requisition.approve-view')}}">Stock Requisition</a></li>--}}
-{{--    </ul>--}}
-{{--</li>--}}
+<li>
+    <a href="javascript:;"><i class="sidebar-item-icon ti-bar-chart"></i>
+        <span class="nav-label">Purchase Request</span><i class="fa fa-angle-left arrow"></i></a>
+    <ul class="nav-2-level collapse">
+        <li><a href="{{route('purchase-request.index')}}">Request</a></li>
+        <li><a href="{{route('purchase-request.approved')}}">Approved</a></li>
+        <li><a href="{{route('purchase-request.rejected')}}">Rejected</a></li>
+    </ul>
+</li>
 

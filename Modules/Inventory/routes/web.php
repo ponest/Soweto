@@ -66,10 +66,11 @@ Route::middleware('auth')->group(function () {
     Route::get('purchase-request/preview/{id}', [PurchaseRequestController::class, 'previewRequest'])->name('purchase-request.preview');
     Route::get('purchase-request/review/{id}', [PurchaseRequestController::class, 'reviewRequest'])->name('purchase-request.review');
     Route::get('purchase-request/approve-view', [PurchaseRequestController::class, 'approverView'])->name('purchase-request.approve-view');
-//    Route::get('stock-requisition/approved', [StockRequisitionsController::class, 'approved'])->name('stock-requisition.approved');
+    Route::get('purchase-request/approved', [PurchaseRequestController::class, 'approved'])->name('purchase-request.approved');
     Route::get('purchase-request/items/{id}', [PurchaseRequestController::class, 'viewItems'])->name('purchase-request.items');
-//    Route::get('stock-requisition/reject/{id}', [StockRequisitionsController::class, 'rejectView'])->name('stock-requisition.reject-view');
-//    Route::post('stock-requisition/reject', [StockRequisitionsController::class, 'rejectRequest'])->name('stock-requisition.reject');
+    Route::get('purchase-request/reject/{id}', [PurchaseRequestController::class, 'rejectView'])->name('purchase-request.reject-view');
+    Route::post('purchase-request/reject', [PurchaseRequestController::class, 'rejectRequest'])->name('purchase-request.reject');
+    Route::get('purchase-request/rejected', [PurchaseRequestController::class, 'rejected'])->name('purchase-request.rejected');
 
 
     Route::resource('purchase-request-item', PurchaseReqItemsController::class)->except('show', 'destroy','index');
