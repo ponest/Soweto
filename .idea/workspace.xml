@@ -4,21 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d44d5f7f-e478-428a-8108-98a2dcddfd72" name="Changes" comment="Fixed Item Stock In">
-      <change afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/AdvancePayment/DeleteCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/AdvancePayment/StoreCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/AdvancePayment/UpdateCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/advance_payment/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/advance_payment/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/advance_payment/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/43de1f09-489f-44d2-8e1c-5ae6849ac275.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/43de1f09-489f-44d2-8e1c-5ae6849ac275.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/bc813df7-c2e0-4836-97a7-128262c39fce.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/bc813df7-c2e0-4836-97a7-128262c39fce.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/data_source_mapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/data_source_mapping.xml" afterDir="false" />
+    <list default="true" id="d44d5f7f-e478-428a-8108-98a2dcddfd72" name="Changes" comment="Advance Payment CRUD">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/CheckInOut/ComputeBillCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/CheckInOut/ComputeBillCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/CheckInOut/ConfirmPaymentCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/CheckInOut/ConfirmPaymentCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Http/Controllers/AdvancePaymentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Http/Controllers/AdvancePaymentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/advance_payment/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/advance_payment/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/check_in_out/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/check_in_out/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/check_in_out/payment_conf.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/check_in_out/payment_conf.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/menus/front_office_menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menus/front_office_menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Enums/PaymentMethodEnum.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Enums/PaymentMethodEnum.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -460,15 +454,7 @@
       <workItem from="1765619033479" duration="1091000" />
       <workItem from="1766392194859" duration="706000" />
       <workItem from="1766405797360" duration="10000" />
-      <workItem from="1766476164002" duration="16836000" />
-    </task>
-    <task id="LOCAL-00017" summary="Stock Items CRUD Implemented">
-      <option name="closed" value="true" />
-      <created>1748287465816</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1748287465816</updated>
+      <workItem from="1766476164002" duration="28630000" />
     </task>
     <task id="LOCAL-00018" summary="Suppliers CRUD Implemented">
       <option name="closed" value="true" />
@@ -854,14 +840,21 @@
       <option name="project" value="LOCAL" />
       <updated>1765619838146</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="Advance Payment CRUD">
+      <option name="closed" value="true" />
+      <created>1766741630716</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1766741630717</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Rooms Modified" />
     <MESSAGE value="Modified Entities" />
     <MESSAGE value="Fixed Changes Password" />
     <MESSAGE value="Stock Requisition Edit and Delete Implemented" />
@@ -886,7 +879,8 @@
     <MESSAGE value="Added Checkout With Approval" />
     <MESSAGE value="Fixed Purchase Request" />
     <MESSAGE value="Fixed Item Stock In" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed Item Stock In" />
+    <MESSAGE value="Advance Payment CRUD" />
+    <option name="LAST_COMMIT_MESSAGE" value="Advance Payment CRUD" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

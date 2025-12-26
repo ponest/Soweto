@@ -6,6 +6,8 @@ use App\Enums\PaymentMethodEnum;
 use Illuminate\Support\Facades\DB;
 use Modules\General\Models\DiscountReq;
 use Modules\General\Models\DiscountTransaction;
+use Modules\HotelMgnt\Models\AdvancePayment;
+use Modules\HotelMgnt\Models\AdvancePaymentTransaction;
 use Modules\HotelMgnt\Models\ClientWallet;
 use Modules\HotelMgnt\Models\RoomCheckInOut;
 use Modules\HotelMgnt\Models\WalletTransaction;
@@ -59,6 +61,25 @@ class ConfirmPaymentCommand
                 $discountTransaction->discount_id = $discount->id;
                 $discountTransaction->amount = $data['paid_amount'];
                 $discountTransaction->save();
+            }
+
+            if ($data['payment_method_id'] == PaymentMethodEnum::AdvancePaymentId) {
+                if ($data['advance_balance'] < $data['paid_amount']){
+                    return [
+                        'message' => 'Paid Amount is Less than Advance Balance!',
+                        'type' => 'error'
+                    ];
+                }
+
+                //Make Transaction
+                $advancePayment =  AdvancePayment::where('reference_number', $data['payment_reference'])->first();
+                $advanceTransaction = new AdvancePaymentTransaction();
+                $advanceTransaction->advance_payment_id = $advancePayment->id;
+                $advanceTransaction->amount = $data['paid_amount'];
+                $advanceTransaction->save();
+                //Update Usage
+                $advancePayment->is_used = true;
+                $advancePayment->save();
             }
 
             $bookingId = $data['booking_id'];

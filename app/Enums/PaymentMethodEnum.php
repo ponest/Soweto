@@ -8,6 +8,7 @@ use BenSampo\Enum\Enum;
 final class PaymentMethodEnum extends Enum
 {
     const WalletId = 4;
+    const AdvancePaymentId = 7;
     const DiscountId = 6;
     const CashId = 1;
 }

@@ -75,6 +75,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::resource('advance-payment', AdvancePaymentController::class)->except('show', 'destroy');
     Route::get('advance-payment/destroy/{id}', [AdvancePaymentController::class, 'destroy'])->name('advance-payment.destroy');
+    Route::get('advance-payment/details', [AdvancePaymentController::class, 'getPaymentDetails'])->name('advance-payment.details');
 
 
     Route::resource('conference-rooms', ConferenceRoomsController::class)->except('show', 'destroy');

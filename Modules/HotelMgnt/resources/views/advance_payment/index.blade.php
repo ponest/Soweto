@@ -45,10 +45,12 @@
                             <td style="text-align: right">{{number_format($item->amount)}}</td>
                             <td>{{$item->creator?->full_name}}</td>
                             <td style="width: 9%" class="text-center">
-                                <a class="text-muted font-16 edit-link" href="{{route('advance-payment.edit',$item->id)}}"
-                                   title="Edit" data-toggle="tooltip"><i class="fa fa-edit"></i></a> |
-                                <a class="text-muted font-16 delete-link" href="{{route('advance-payment.destroy',$item->id)}}"
-                                   title="Delete" data-toggle="tooltip"><i class="fa fa-trash-o"></i></a>
+                                @if(!$item->is_used)
+                                    <a class="text-muted font-16 edit-link" href="{{route('advance-payment.edit',$item->id)}}"
+                                       title="Edit" data-toggle="tooltip"><i class="fa fa-edit"></i></a> |
+                                    <a class="text-muted font-16 delete-link" href="{{route('advance-payment.destroy',$item->id)}}"
+                                       title="Delete" data-toggle="tooltip"><i class="fa fa-trash-o"></i></a>
+                                @endif
                             </td>
                         </tr>
                     @endforeach

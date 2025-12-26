@@ -23,6 +23,11 @@ use Modules\Setups\Models\PaymentMethod;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property int $is_used
+ * @property-read \Modules\HotelMgnt\Models\Booking $booking
+ * @property-read \Modules\HotelMgnt\Models\Client $client
+ * @property-read User $creator
+ * @property-read PaymentMethod $paymentMethod
  * @method static Builder<static>|AdvancePayment newModelQuery()
  * @method static Builder<static>|AdvancePayment newQuery()
  * @method static Builder<static>|AdvancePayment onlyTrashed()
@@ -34,6 +39,7 @@ use Modules\Setups\Models\PaymentMethod;
  * @method static Builder<static>|AdvancePayment whereCreatedBy($value)
  * @method static Builder<static>|AdvancePayment whereDeletedAt($value)
  * @method static Builder<static>|AdvancePayment whereId($value)
+ * @method static Builder<static>|AdvancePayment whereIsUsed($value)
  * @method static Builder<static>|AdvancePayment wherePaymentMethodId($value)
  * @method static Builder<static>|AdvancePayment whereReferenceNumber($value)
  * @method static Builder<static>|AdvancePayment whereTransactionReferenceNumber($value)

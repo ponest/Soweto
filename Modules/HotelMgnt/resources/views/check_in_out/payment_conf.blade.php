@@ -27,7 +27,6 @@
                 <input type="text" name="payment_reference" id="payment_reference" class="form-control form-control-air">
             </div>
             <div class="col-3 hid_div_btn" style="display: none">
-{{--                <button  onclick="verifyWallet()" class="btn btn-primary" style="margin-top: 3.2vh">Verify</button>--}}
                 <button  onclick="fetchDetails()" class="btn btn-primary" style="margin-top: 3.2vh">Verify</button>
             </div>
 
@@ -51,6 +50,17 @@
             <div class="col">
                 <label>Discount Balance</label>
                 <input type="number" id="discount_balance" name="discount_balance" class="form-control form-control-air" readonly>
+            </div>
+        </div>
+
+        <div class="hid_adv_div row mb-3" style="display: none">
+            <div class="col">
+                <label>Advance Payment Amount</label>
+                <input type="number" id="advance_amount" class="form-control form-control-air" readonly>
+            </div>
+            <div class="col">
+                <label>Advance Payment Balance</label>
+                <input type="number" id="advance_balance" name="advance_balance" class="form-control form-control-air" readonly>
             </div>
         </div>
 

@@ -136,7 +136,7 @@
             });
         });
 
-        $('.conf-payment-link').on('click', function (e) {
+        $('.checkout-req-link').on('click', function (e) {
             e.preventDefault();
             const dataURL = $(this).attr('href');
             $('.modal-checkout-req').load(dataURL, function () {
@@ -145,7 +145,7 @@
         });
 
 
-        $('.checkout-req-link').on('click', function (e) {
+        $('.conf-payment-link').on('click', function (e) {
             e.preventDefault();
             const dataURL = $(this).attr('href');
             $('.modal-conf-payment').load(dataURL, function () {
@@ -160,16 +160,25 @@
 
             $("#payment_method_id").on('change', function (e) {
                 const paymentMethodId = $(this).val();
+
                 if (paymentMethodId === "4") {
                     $(".hid_div").css("display", "block");
                     $(".hid_disc_div").css("display", "none");
+                    $(".hid_adv_div").css("display", "none");
                     $(".hid_div_btn").css("display", "block");
                 } else if (paymentMethodId === "6") {
                     $(".hid_div").css("display", "none");
+                    $(".hid_adv_div").css("display", "none");
                     $(".hid_disc_div").css("display", "block");
+                    $(".hid_div_btn").css("display", "block");
+                } else if (paymentMethodId === "7") {
+                    $(".hid_div").css("display", "none");
+                    $(".hid_adv_div").css("display", "block");
+                    $(".hid_disc_div").css("display", "none");
                     $(".hid_div_btn").css("display", "block");
                 } else {
                     $(".hid_div").css("display", "none");
+                    $(".hid_adv_div").css("display", "none");
                     $(".hid_disc_div").css("display", "none");
                     $(".hid_div_btn").css("display", "none");
                 }
@@ -182,6 +191,7 @@
                 const paidAmount = parseFloat($("#paid_amount").val()) || 0;
                 const walletBalance = parseFloat($("#wallet_balance").val()) || 0;
                 const discountBalance = parseFloat($("#discount_balance").val()) || 0;
+                const advanceBalance = parseFloat($("#advance_balance").val()) || 0;
                 const billAmount = parseFloat($("#bill_amount").val()) || 0;
 
                 if (paymentMethodId === "4") {
@@ -194,6 +204,13 @@
                 if (paymentMethodId === "6") {
                     if (paidAmount > discountBalance) {
                         swal("Warning", "The Discount Balance is smaller than the paid amount", "warning");
+                        return;
+                    }
+                }
+
+                if (paymentMethodId === "7") {
+                    if (paidAmount > advanceBalance) {
+                        swal("Warning", "The Advance Payment Balance is smaller than the paid amount", "warning");
                         return;
                     }
                 }
@@ -214,8 +231,10 @@
 
             if (paymentMethodId === "4") {
                 verifyWallet();
-            } else {
+            } else if (paymentMethodId === "6") {
                 verifyDiscount();
+            } else {
+                verifyAdvancePayment();
             }
         }
 
@@ -283,6 +302,32 @@
                         swal("Success", response.message, 'success');
                         $("#discount_amount").val(response.discount_amount);
                         $("#discount_balance").val(response.balance);
+                    } else {
+                        swal("Error", response.message, 'error');
+                    }
+                },
+                error: function (xhr) {
+                    console.error(xhr.responseText);
+                    swal("Error", 'Something went wrong. Please try again.', 'error');
+                }
+            });
+        }
+
+        function verifyAdvancePayment() {
+            const referenceNumber = $("#payment_reference").val();
+
+            $.ajax({
+                url: '{{ route("advance-payment.details") }}', // 👈 make sure route name or URL matches your controller route
+                method: 'GET',
+                data: {
+                    _token: '{{ csrf_token() }}', // CSRF protection
+                    reference_number: referenceNumber,
+                },
+                success: function (response) {
+                    if (response.success === true) {
+                        swal("Success", response.message, 'success');
+                        $("#advance_amount").val(response.advance_amount);
+                        $("#advance_balance").val(response.balance);
                     } else {
                         swal("Error", response.message, 'error');
                     }

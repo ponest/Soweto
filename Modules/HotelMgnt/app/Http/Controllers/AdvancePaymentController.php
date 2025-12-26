@@ -11,6 +11,7 @@ use Modules\HotelMgnt\Commands\AdvancePayment\DeleteCommand;
 use Modules\HotelMgnt\Commands\AdvancePayment\StoreCommand;
 use Modules\HotelMgnt\Commands\AdvancePayment\UpdateCommand;
 use Modules\HotelMgnt\Models\AdvancePayment;
+use Modules\HotelMgnt\Models\AdvancePaymentTransaction;
 use Modules\HotelMgnt\Models\Booking;
 use Modules\Setups\Models\PaymentMethod;
 
@@ -56,5 +57,27 @@ class AdvancePaymentController extends Controller
         $info = DeleteCommand::handle($id);
         $notification = General::customMessage($info['message'], $info['type']);
         return Redirect::back()->with($notification);
+    }
+
+    public function getPaymentDetails(Request $request)
+    {
+        $advancePayment = AdvancePayment::whereReferenceNumber($request->reference_number)->first();
+        if ($advancePayment) {
+            $total_transaction = AdvancePaymentTransaction::whereAdvancePaymentId($advancePayment->id)->sum('amount');
+            $balance = $advancePayment->amount - $total_transaction;
+            $advance_amount = $advancePayment->amount;
+            return response()->json([
+                'success' => true,
+                'message' => 'Advance Payment Successfully Found',
+                'balance' => $balance,
+                'total_transaction' => $total_transaction,
+                'advance_amount' => $advance_amount,
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'Advance Payment not found'
+            ]);
+        }
     }
 }
