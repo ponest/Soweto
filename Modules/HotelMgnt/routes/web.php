@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Modules\HotelMgnt\Http\Controllers\AdvancePaymentController;
 use Modules\HotelMgnt\Http\Controllers\BookingChargesController;
 use Modules\HotelMgnt\Http\Controllers\BookingsController;
 use Modules\HotelMgnt\Http\Controllers\CheckOutRequestController;
@@ -72,6 +73,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('client-wallet/reject/{id}', [ClientWalletController::class, 'rejectView'])->name('client-wallet.reject-view');
     Route::post('client-wallet/reject', [ClientWalletController::class, 'rejectRequest'])->name('client-wallet.reject');
 
+    Route::resource('advance-payment', AdvancePaymentController::class)->except('show', 'destroy');
+    Route::get('advance-payment/destroy/{id}', [AdvancePaymentController::class, 'destroy'])->name('advance-payment.destroy');
 
 
     Route::resource('conference-rooms', ConferenceRoomsController::class)->except('show', 'destroy');

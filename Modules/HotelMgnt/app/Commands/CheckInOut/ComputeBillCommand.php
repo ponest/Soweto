@@ -43,7 +43,6 @@ class ComputeBillCommand
 
                 $chargeableDays = $days + $additional;
 
-
                 $totalRoomCost += $chargeableDays * $stay->rate;
                 //Update Status
                 $stay->is_billed = true;
