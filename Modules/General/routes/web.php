@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Modules\General\Http\Controllers\DiscountReqController;
 use Modules\General\Http\Controllers\GeneralController;
+use Modules\General\Http\Controllers\IngredientController;
 use Modules\General\Http\Controllers\LogActivitiesController;
 use Modules\General\Http\Controllers\StaffsController;
 
@@ -28,5 +29,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('discount-req/reject', [DiscountReqController::class, 'rejectRequest'])->name('discount-req.reject');
     Route::get('discount-req/rejected', [DiscountReqController::class, 'rejected'])->name('discount-req.rejected');
     Route::get('discount-req/details', [DiscountReqController::class, 'getDiscountDetails'])->name('discount-req.details');
+
+    Route::resource('ingredients', IngredientController::class)->except('show', 'destroy','index');
+    Route::get('ingredients/index/{id}', [IngredientController::class, 'index'])->name('ingredients.index');
+    Route::get('ingredients/destroy/{id}', [IngredientController::class, 'destroy'])->name('ingredients.destroy');
 
 });

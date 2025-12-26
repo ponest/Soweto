@@ -1,14 +1,17 @@
 @extends('layouts.master')
-@section('title','Food Menu')
+@section('title','Ingredients')
 @section('content')
     <div class="ibox">
         <div class="ibox-body">
 
             <div class="row">
                 <div class="col-9" style="padding-top: 2vh">
-                    <h5 class="font-strong">FOOD MENU</h5>
+                    <h5 class="font-strong">{{$food_menu->name}} - INGREDIENTS</h5>
                 </div>
                 <div class="col-3" style="text-align: right">
+                    <a type="button" class="btn btn-primary" href="{{route('food-menu.index')}}">
+                        <i class="fa fa-backward"></i> Go Back
+                    </a>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create_modal">
                         <i class="fa fa-plus-circle"></i> Add New
                     </button>
@@ -25,7 +28,8 @@
                     <thead class="thead-default thead-lg">
                     <tr>
                         <th>S/N</th>
-                        <th>Name</th>
+                        <th>Stock Item</th>
+                        <th>Quantity</th>
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -33,14 +37,13 @@
                     @foreach($items as $key=>$item)
                         <tr>
                             <td style="width: 5%">{{++$key}}</td>
-                            <td class="desc_name">{{$item->name}}</td>
+                            <td class="desc_name">{{$item->stockItem?->name}}</td>
+                            <td style="text-align: right">{{$item->quantity." ".$item->unit?->name}}</td>
                             <td style="width: 9%" class="text-center">
-                                <a class="text-muted font-16 edit-link" href="{{route('food-menu.edit',$item->id)}}"
+                                <a class="text-muted font-16 edit-link" href="{{route('ingredients.edit',$item->id)}}"
                                    title="Edit" data-toggle="tooltip"><i class="fa fa-edit"></i></a> |
-                                <a class="text-muted font-16 delete-link" href="{{route('food-menu.destroy',$item->id)}}"
-                                   title="Delete" data-toggle="tooltip"><i class="fa fa-trash-o"></i></a> |
-                                <a class="text-muted font-16" href="{{route('ingredients.index',$item->id)}}"
-                                   title="Ingredients" data-toggle="tooltip"><i class="fa fa-arrow-circle-right"></i></a>
+                                <a class="text-muted font-16 delete-link" href="{{route('ingredients.destroy',$item->id)}}"
+                                   title="Delete" data-toggle="tooltip"><i class="fa fa-trash-o"></i></a>
                             </td>
                         </tr>
                     @endforeach
@@ -51,7 +54,7 @@
     </div>
 
     <!--Create Modal && Edit Modal -->
-    @include('sales::food_menu.create')
+    @include('general::ingredients.create')
 
     <div class="modal fade" id="edit_modal" aria-labelledby="edit_modal" aria-hidden="true">
         <div class="modal-dialog">
@@ -69,6 +72,22 @@
             const dataURL = $(this).attr('href');
             $('.modal-edit').load(dataURL, function () {
                 $('#edit_modal').modal({show: true});
+            });
+        });
+
+        $('#stock_item_id').on('change', function () {
+            const itemId = $(this).val();
+            const unitRef = $("#unit");
+            const unitIdRef = $("#unit_id");
+            getUnit(itemId, unitRef, unitIdRef);
+        });
+
+        $('#edit_modal').on('show.bs.modal', function (e) {
+            $('#e_stock_item_id').on('change', function () {
+                const itemId = $(this).val();
+                const unitRef = $("#e_unit");
+                const unitIdRef = $("#e_unit_id");
+                getUnit(itemId, unitRef, unitIdRef);
             });
         });
 
