@@ -68,3 +68,13 @@
         <li><a href="{{route('checkout-req.rejected')}}">Rejected</a></li>
     </ul>
 </li>
+
+<li>
+    <a href="javascript:;"><i class="sidebar-item-icon ti-target"></i>
+        <span class="nav-label">Stock Backlog Request</span><i class="fa fa-angle-left arrow"></i></a>
+    <ul class="nav-2-level collapse">
+        <li><a href="{{route('stock-backlog.approve-view')}}">Incoming</a></li>
+        <li><a href="{{route('stock-backlog.approved')}}">Approved</a></li>
+        <li><a href="{{route('stock-backlog.rejected')}}">Rejected</a></li>
+    </ul>
+</li>

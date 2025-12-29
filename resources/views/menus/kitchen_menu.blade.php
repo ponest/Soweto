@@ -12,6 +12,8 @@
         <li><a href="{{route('stock-balance')}}">Stock Balance</a></li>
         <li><a href="{{route('stock-requisition.index')}}">Stock Requisition</a></li>
         <li><a href="{{route('stock-issue.index')}}">Stock Receive</a></li>
+        <li><a href="{{route('stock-backlog.index')}}">Stock Backlog</a></li>
+
     </ul>
 </li>
 
@@ -29,8 +31,8 @@
         <span class="nav-label">Sales</span><i class="fa fa-angle-left arrow"></i></a>
     <ul class="nav-2-level collapse">
         <li><a href="{{route('sales.index','kitchen')}}">Sale Point</a></li>
-{{--        <li><a href="{{route('bills.index')}}">Bills</a></li>--}}
         <li><a href="{{route('sales-history')}}">Sales History</a></li>
+        <li><a href="{{route('food-menu.index')}}">Food Menus</a></li>
         <li><a href="{{route('menu-price.index')}}">Menu Price</a></li>
         <li><a href="{{route('menu-price-approval.index')}}">Menu Price Request</a></li>
     </ul>

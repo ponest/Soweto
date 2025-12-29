@@ -20,8 +20,10 @@ class ItemStockInController extends Controller
 {
     public function index()
     {
-        $departmentId = User::currentUserDepartmentId();
-        $params['items'] = ItemStockIn::whereDepartmentId($departmentId)->latest('id')->get();
+//        $departmentId = User::currentUserDepartmentId();
+        $storeId = User::userStoreId();
+//        $params['items'] = ItemStockIn::whereDepartmentId($departmentId)->latest('id')->get();
+        $params['items'] = ItemStockIn::whereStoreId($storeId)->latest('id')->get();
         $params['suppliers'] = Supplier::orderBy('name')->get();
         $params['stock_items'] = StockItem::orderBy('name')->get();
         $params['units'] = Unit::orderBy('name')->get();

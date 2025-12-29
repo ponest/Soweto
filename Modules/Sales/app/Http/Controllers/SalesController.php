@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Modules\Auth\Models\User;
+use Modules\General\Models\Ingredient;
 use Modules\HotelMgnt\Models\Booking;
 use Modules\HotelMgnt\Models\Client;
 use Modules\Inventory\Models\StockItem;
@@ -47,6 +48,7 @@ class SalesController extends Controller
     public function itemSales(Request $request)
     {
 //        dd($request->all());
+//        exit();
         return DB::transaction(function () use ($request) {
             $cart = $request->input('cart');
             $grandTotal = $request->input('grand_total');
@@ -58,9 +60,9 @@ class SalesController extends Controller
             $booking = null;
 
 
-            if ($isAdditionBill == 'Yes'){
+            if ($isAdditionBill == 'Yes') {
                 $billInfo = Bill::where('reference_no', $billRefNo)
-                    ->where('status','=','unpaid')->first();
+                    ->where('status', '=', 'unpaid')->first();
                 if (!$billInfo) {
                     return response()->json([
                         'success' => false,
@@ -94,6 +96,34 @@ class SalesController extends Controller
                     SaveStockOutCommand::handle($item, $storeId, StockOutCategories::SALES);
                 }
             }
+
+            if ($category === 'kitchen') {
+                foreach ($cart as $item) {
+                    $ingredients = Ingredient::whereMenuId($item['itemId'])->get();
+                    if (count($ingredients) == 0) {
+                        return response()->json([
+                            'success' => false,
+                            'message' => 'Ingredients not found!'
+                        ]);
+                    }
+                    foreach ($ingredients as $ingredient) {
+
+                        $itemData['itemId'] = $ingredient->stock_item_id;
+                        $itemData['quantity'] = $ingredient->quantity * $item['quantity'];
+                        //Check if Balance is Enough
+                        $itemInfo = StoreItem::stockBalance($storeId, $itemData['itemId']);
+                        if ($itemInfo['balance'] < $item['quantity']) {
+                            return response()->json([
+                                'success' => false,
+                                'message' => 'Balance is not enough!'
+                            ]);
+                        }
+                        //Save to Item Stock Out
+                        SaveStockOutCommand::handle($itemData, $storeId, StockOutCategories::SALES);
+                    }
+                }
+            }
+
             // Save Sale Batch
             $sale_batch = SaveSalesBatchCommand::handle($grandTotal, $category, $booking);
 
@@ -109,7 +139,7 @@ class SalesController extends Controller
             } else {
                 if ($isAdditionBill == 'Yes') {
                     $bill = $billInfo;
-                }else{
+                } else {
                     $bill = SaveBillCommand::handle($sale_batch, $grandTotal, $booking);
                 }
             }

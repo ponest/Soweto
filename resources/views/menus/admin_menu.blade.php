@@ -83,7 +83,6 @@
         <li><a href="{{route('units.index')}}">Units</a></li>
         <li><a href="{{route('item-categories.index')}}">Item Categories</a></li>
         <li><a href="{{route('institutions.index')}}">Institution</a></li>
-        <li><a href="{{route('food-menu.index')}}">Food Menus</a></li>
         <li><a href="{{route('payment-methods.index')}}">Payment Methods</a></li>
     </ul>
 </li>

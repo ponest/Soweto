@@ -6,6 +6,9 @@ use Modules\General\Http\Controllers\GeneralController;
 use Modules\General\Http\Controllers\IngredientController;
 use Modules\General\Http\Controllers\LogActivitiesController;
 use Modules\General\Http\Controllers\StaffsController;
+use Modules\General\Http\Controllers\StockBacklogItemController;
+use Modules\General\Http\Controllers\StockBacklogRequestController;
+use Modules\General\Models\StockBacklogRequest;
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('generals', GeneralController::class)->names('general');
@@ -33,5 +36,19 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('ingredients', IngredientController::class)->except('show', 'destroy','index');
     Route::get('ingredients/index/{id}', [IngredientController::class, 'index'])->name('ingredients.index');
     Route::get('ingredients/destroy/{id}', [IngredientController::class, 'destroy'])->name('ingredients.destroy');
+
+    Route::resource('stock-backlog', StockBacklogRequestController::class)->except('show', 'destroy');
+    Route::get('stock-backlog/destroy/{id}', [StockBacklogRequestController::class, 'destroy'])->name('stock-backlog.destroy');
+    Route::get('stock-backlog/submit/{id}', [StockBacklogRequestController::class, 'submitRequest'])->name('stock-backlog.submit');
+    Route::get('stock-backlog/approve/{id}', [StockBacklogRequestController::class, 'approveRequest'])->name('stock-backlog.approve');
+    Route::get('stock-backlog/approve-view', [StockBacklogRequestController::class, 'approverView'])->name('stock-backlog.approve-view');
+    Route::get('stock-backlog/approved', [StockBacklogRequestController::class, 'approved'])->name('stock-backlog.approved');
+    Route::get('stock-backlog/reject/{id}', [StockBacklogRequestController::class, 'rejectView'])->name('stock-backlog.reject-view');
+    Route::post('stock-backlog/reject', [StockBacklogRequestController::class, 'rejectRequest'])->name('stock-backlog.reject');
+    Route::get('stock-backlog/rejected', [StockBacklogRequestController::class, 'rejected'])->name('stock-backlog.rejected');
+
+    Route::resource('stock-backlog-item', StockBacklogItemController::class)->except( 'destroy','index');
+    Route::get('stock-backlog-item/index/{id}/{type?}', [StockBacklogItemController::class, 'index'])->name('stock-backlog-item.index');
+    Route::get('stock-backlog-item/destroy/{id}', [StockBacklogItemController::class, 'destroy'])->name('stock-backlog-item.destroy');
 
 });

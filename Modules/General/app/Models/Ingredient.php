@@ -2,12 +2,43 @@
 
 namespace Modules\General\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Carbon;
 use Modules\Inventory\Models\StockItem;
 use Modules\Setups\Models\Unit;
 
+/**
+ * 
+ *
+ * @property int $id
+ * @property int $menu_id
+ * @property int $stock_item_id
+ * @property float $quantity
+ * @property int $unit_id
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property Carbon|null $deleted_at
+ * @property-read StockItem $stockItem
+ * @property-read Unit $unit
+ * @method static Builder<static>|Ingredient newModelQuery()
+ * @method static Builder<static>|Ingredient newQuery()
+ * @method static Builder<static>|Ingredient onlyTrashed()
+ * @method static Builder<static>|Ingredient query()
+ * @method static Builder<static>|Ingredient whereCreatedAt($value)
+ * @method static Builder<static>|Ingredient whereDeletedAt($value)
+ * @method static Builder<static>|Ingredient whereId($value)
+ * @method static Builder<static>|Ingredient whereMenuId($value)
+ * @method static Builder<static>|Ingredient whereQuantity($value)
+ * @method static Builder<static>|Ingredient whereStockItemId($value)
+ * @method static Builder<static>|Ingredient whereUnitId($value)
+ * @method static Builder<static>|Ingredient whereUpdatedAt($value)
+ * @method static Builder<static>|Ingredient withTrashed()
+ * @method static Builder<static>|Ingredient withoutTrashed()
+ * @mixin \Eloquent
+ */
 class Ingredient extends Model
 {
     use SoftDeletes;
