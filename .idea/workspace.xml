@@ -4,42 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d44d5f7f-e478-428a-8108-98a2dcddfd72" name="Changes" comment="Ingredient CRUD">
-      <change afterPath="$PROJECT_DIR$/Modules/General/app/Commands/StockBacklog/ApproveCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/General/app/Commands/StockBacklog/DeleteCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/General/app/Commands/StockBacklog/RejectCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/General/app/Commands/StockBacklog/ReviewCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/General/app/Commands/StockBacklog/StoreCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/General/app/Commands/StockBacklog/SubmitCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/General/app/Commands/StockBacklog/UpdateCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/General/app/Commands/StockBacklogItem/DeleteCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/General/app/Commands/StockBacklogItem/StoreCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/General/app/Commands/StockBacklogItem/UpdateCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/General/resources/views/stock_backlog/approval.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/General/resources/views/stock_backlog/approval_view.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/General/resources/views/stock_backlog/approved.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/General/resources/views/stock_backlog/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/General/resources/views/stock_backlog/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/General/resources/views/stock_backlog/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/General/resources/views/stock_backlog/items_view.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/General/resources/views/stock_backlog/reject_view.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/General/resources/views/stock_backlog/rejected.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/General/resources/views/stock_backlog_item/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/General/resources/views/stock_backlog_item/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/General/resources/views/stock_backlog_item/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/43de1f09-489f-44d2-8e1c-5ae6849ac275.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/43de1f09-489f-44d2-8e1c-5ae6849ac275.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/data_source_mapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/data_source_mapping.xml" afterDir="false" />
+    <list default="true" id="d44d5f7f-e478-428a-8108-98a2dcddfd72" name="Changes" comment="Stock Backlog Implemented">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/General/app/Models/Ingredient.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/General/app/Models/Ingredient.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/General/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/General/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Inventory/app/Http/Controllers/ItemStockInController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Inventory/app/Http/Controllers/ItemStockInController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/SalesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/SalesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/menus/admin_menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menus/admin_menu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/menus/bar_menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menus/bar_menu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/menus/director_menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menus/director_menu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/menus/kitchen_menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menus/kitchen_menu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/menus/store_menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menus/store_menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Http/Controllers/BookingChargesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Http/Controllers/BookingChargesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/booking_charges/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/booking_charges/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -482,15 +450,8 @@
       <workItem from="1766392194859" duration="706000" />
       <workItem from="1766405797360" duration="10000" />
       <workItem from="1766476164002" duration="35979000" />
-      <workItem from="1766892474919" duration="24929000" />
-    </task>
-    <task id="LOCAL-00020" summary="Log Activity Implemented">
-      <option name="closed" value="true" />
-      <created>1748287734860</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1748287734860</updated>
+      <workItem from="1766892474919" duration="25091000" />
+      <workItem from="1767011344522" duration="3523000" />
     </task>
     <task id="LOCAL-00021" summary="Unit Conversion Implemented">
       <option name="closed" value="true" />
@@ -876,14 +837,21 @@
       <option name="project" value="LOCAL" />
       <updated>1766765939321</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="Stock Backlog Implemented">
+      <option name="closed" value="true" />
+      <created>1767003839070</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1767003839071</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed Changes Password" />
     <MESSAGE value="Stock Requisition Edit and Delete Implemented" />
     <MESSAGE value="Handle Stock Issues And Receiving" />
     <MESSAGE value="Some Changes" />
@@ -908,7 +876,8 @@
     <MESSAGE value="Fixed Item Stock In" />
     <MESSAGE value="Advance Payment CRUD" />
     <MESSAGE value="Ingredient CRUD" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ingredient CRUD" />
+    <MESSAGE value="Stock Backlog Implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="Stock Backlog Implemented" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

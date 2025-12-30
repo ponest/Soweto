@@ -9,7 +9,7 @@
                     <h5 class="font-strong">BOOKING CHARGES</h5>
                 </div>
                 <div class="col-3" style="text-align: right">
-                    <a href="{{route('room-checkinout')}}" class="btn btn-primary" >
+                    <a href="{{route('room-checkinout')}}" class="btn btn-primary">
                         <i class="fa fa-backward"></i> Go Back
                     </a>
                     @if($bill && $bill->status == 'unpaid')
@@ -57,7 +57,8 @@
                             <td>{{date('d M Y', strtotime($item->expense_date))}}</td>
                             <td style="width: 9%" class="text-center">
                                 @if($item->can_modify && $bill && $bill->status == 'unpaid')
-                                    <a class="text-muted font-16 edit-link" href="{{route('booking-charges.edit',$item->id)}}"
+                                    <a class="text-muted font-16 edit-link"
+                                       href="{{route('booking-charges.edit',$item->id)}}"
                                        title="Edit" data-toggle="tooltip"><i class="fa fa-edit"></i></a> |
                                     <a class="text-muted font-16 delete-link"
                                        href="{{route('booking-charges.destroy',$item->id)}}"
@@ -68,6 +69,22 @@
                             </td>
                         </tr>
                     @endforeach
+                    @if(!$bill)
+                        @foreach($partial as $key=>$part_bill)
+                            <tr>
+                                <td style="width: 5%">{{++$key}}</td>
+                                <td class="desc_name">Room Charges</td>
+                                <td>Accommodation</td>
+                                <td style="text-align: right">{{number_format($part_bill['rate'])}}</td>
+                                <td style="text-align: right">{{number_format($part_bill['days'])}}</td>
+                                <td style="text-align: right">{{number_format($part_bill['totalRoomCost'])}}</td>
+                                <td>{{date('d M Y')}}</td>
+                                <td style="width: 9%" class="text-center">
+                                    <span>No Action</span>
+                                </td>
+                            </tr>
+                        @endforeach
+                    @endif
                     </tbody>
                 </table>
             </div>
@@ -113,9 +130,9 @@
             const quantity = $("#quantity").val();
             const unitPrice = $("#unit_price").val();
             const totalPrice = quantity * unitPrice;
-            console.log("Quantity",quantity);
-            console.log("Unit Price",unitPrice);
-            console.log("Total Price",totalPrice);
+            console.log("Quantity", quantity);
+            console.log("Unit Price", unitPrice);
+            console.log("Total Price", totalPrice);
             $("#total_price").val(totalPrice);
         })
 
