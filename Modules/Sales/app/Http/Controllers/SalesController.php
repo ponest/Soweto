@@ -3,11 +3,13 @@
 namespace Modules\Sales\Http\Controllers;
 
 use App\Enums\StockOutCategories;
+use App\Exports\ExpSalesReport;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
+use Maatwebsite\Excel\Facades\Excel;
 use Modules\Auth\Models\User;
 use Modules\General\Models\Ingredient;
 use Modules\HotelMgnt\Models\Booking;
@@ -178,7 +180,7 @@ class SalesController extends Controller
                 ->where('store_id', $storeId)->where('is_paid', true)
                 ->select('sales.*')->latest()->get();
         }
-
+        $params['is_post_back'] = false;
         return view('sales::sales.sales_history', $params);
     }
 
@@ -198,8 +200,25 @@ class SalesController extends Controller
                 ->where('is_paid', true)
                 ->whereBetween('sales.created_at', [$start_date, $end_date])
                 ->select('sales.*')->latest()->get();
+
+            $params['total_price'] = Sale::join('sales_batches as sl', 'sl.id', '=', 'sales.sales_batch_id')
+                ->where('store_id', $storeId)
+                ->where('is_paid', true)
+                ->whereBetween('sales.created_at', [$start_date, $end_date])
+                ->sum('sales.total_price');
         }
+        $prefix = "Sales Report From {$data['start_date']} To {$data['end_date']}";
+        $params['is_post_back'] = true;
+        session(['sales_data' => $params['items']]);
+        session(['total_sales' => $params['total_price']]);
+        session(['header_prefix' => $prefix]);
         return view('sales::sales.sales_history', $params);
+    }
+
+    public function downloadExcel()
+    {
+//        session(['download' => 'download']);
+        return Excel::download(new ExpSalesReport(), 'sales_report.xlsx');
     }
 
 }
