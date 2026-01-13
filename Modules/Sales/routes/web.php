@@ -32,6 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::get('sales/index/{category}', [SalesController::class, 'index'])->name('sales.index');
     Route::post('sales/item-sale', [SalesController::class, 'itemSales'])->name('sales.item-sales');
     Route::get('sales-history', [SalesController::class, 'salesHistory'])->name('sales-history');
+    Route::post('sales-history/filter', [SalesController::class, 'salesHistoryFilter'])->name('sales-history-filter');
 
     Route::get('bills/index', [BillsController::class, 'index'])->name('bills.index');
     Route::get('bills/payment-conf/{id}', [BillsController::class, 'confirmPaymentView'])->name('bills.payment-conf');

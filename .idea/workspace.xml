@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d44d5f7f-e478-428a-8108-98a2dcddfd72" name="Changes" comment="Stock Backlog Implemented">
+    <list default="true" id="d44d5f7f-e478-428a-8108-98a2dcddfd72" name="Changes" comment="Added Bill Preview">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Http/Controllers/BookingChargesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Http/Controllers/BookingChargesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/booking_charges/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/booking_charges/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/SalesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/SalesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Sales/resources/views/sales/sales_history.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/resources/views/sales/sales_history.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Sales/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -275,8 +276,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-PS-253.29346.151" />
-        <option value="bundled-php-predefined-a98d8de5180a-0e0d91225499-com.jetbrains.php.sharedIndexes-PS-253.29346.151" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-PS-253.29346.257" />
+        <option value="bundled-php-predefined-a98d8de5180a-0e0d91225499-com.jetbrains.php.sharedIndexes-PS-253.29346.257" />
       </set>
     </attachedChunks>
   </component>
@@ -451,15 +452,9 @@
       <workItem from="1766405797360" duration="10000" />
       <workItem from="1766476164002" duration="35979000" />
       <workItem from="1766892474919" duration="25091000" />
-      <workItem from="1767011344522" duration="3523000" />
-    </task>
-    <task id="LOCAL-00021" summary="Unit Conversion Implemented">
-      <option name="closed" value="true" />
-      <created>1748377478503</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1748377478503</updated>
+      <workItem from="1767011344522" duration="8669000" />
+      <workItem from="1767623616413" duration="598000" />
+      <workItem from="1768285599275" duration="4110000" />
     </task>
     <task id="LOCAL-00022" summary="ITEM STOCK IN Implemented">
       <option name="closed" value="true" />
@@ -845,14 +840,21 @@
       <option name="project" value="LOCAL" />
       <updated>1767003839071</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="Added Bill Preview">
+      <option name="closed" value="true" />
+      <created>1767075061883</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1767075061883</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Stock Requisition Edit and Delete Implemented" />
     <MESSAGE value="Handle Stock Issues And Receiving" />
     <MESSAGE value="Some Changes" />
     <MESSAGE value="Food Menu Added" />
@@ -877,7 +879,8 @@
     <MESSAGE value="Advance Payment CRUD" />
     <MESSAGE value="Ingredient CRUD" />
     <MESSAGE value="Stock Backlog Implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="Stock Backlog Implemented" />
+    <MESSAGE value="Added Bill Preview" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Bill Preview" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

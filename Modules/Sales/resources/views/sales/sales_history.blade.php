@@ -5,11 +5,25 @@
         <div class="ibox-body">
 
             <div class="row">
-                <div class="col-9" style="padding-top: 2vh">
+                <div class="col-7" style="padding-top: 2vh">
                     <h5 class="font-strong">SALES HISTORY</h5>
                 </div>
-                <div class="col-3" style="text-align: right">
+                <div class="col-5" style="text-align: right">
                     <!--Buttons Goes Here-->
+                    <form autocomplete="off" method="post" action="{{route('sales-history-filter')}}">
+                        @csrf
+                        <div class="row">
+                            <div class="col-4">
+                                <input type="text" class="form-control form-control-air datePicker" name="start_date" placeholder="Start Date">
+                            </div>
+                            <div class="col-4">
+                                <input type="text" class="form-control form-control-air datePicker" name="end_date" placeholder="End Date">
+                            </div>
+                            <div class="col-3">
+                                <button type="submit" class="btn btn-primary">Search</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
 
@@ -51,6 +65,6 @@
 
 @section('Scripts')
     <script>
-        // JavaScript Goes here
+        datePickerLoad()
     </script>
 @endsection

@@ -5,6 +5,7 @@ namespace Modules\Sales\Http\Controllers;
 use App\Enums\StockOutCategories;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Modules\Auth\Models\User;
@@ -181,25 +182,24 @@ class SalesController extends Controller
         return view('sales::sales.sales_history', $params);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit($id)
+    public function salesHistoryFilter(Request $request)
     {
-        return view('sales::edit');
+        $storeId = User::userStoreId();
+        $data = $request->all();
+        $start_date = Carbon::parse($data['start_date'])->startOfDay();
+        $end_date = Carbon::parse($data['end_date'])->endOfDay();
+        if (Gate::allows('Cashier')) {
+            $params['items'] = Sale::join('sales_batches as sl', 'sl.id', '=', 'sales.sales_batch_id')
+                ->where('is_paid', true)
+                ->select('sales.*')->latest()->get();
+        } else {
+            $params['items'] = Sale::join('sales_batches as sl', 'sl.id', '=', 'sales.sales_batch_id')
+                ->where('store_id', $storeId)
+                ->where('is_paid', true)
+                ->whereBetween('sales.created_at', [$start_date, $end_date])
+                ->select('sales.*')->latest()->get();
+        }
+        return view('sales::sales.sales_history', $params);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, $id)
-    {
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy($id)
-    {
-    }
 }
