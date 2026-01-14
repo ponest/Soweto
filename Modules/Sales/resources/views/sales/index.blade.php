@@ -65,6 +65,15 @@
                                     <label>Bill Ref No:</label>
                                     <input type="text" id="bill_ref_no" class="form-control">
                                 </div>
+                                <div class="form-group col-md-4">
+                                    <label>Waiter Name</label>
+                                    <select id="staff_id" class="form-control" >
+                                        <option value="">---Select---</option>
+                                        @foreach($staffs as $staff)
+                                            <option value="{{$staff->id}}">{{$staff->full_name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-4">
@@ -130,6 +139,7 @@
     <script>
         let cart = [];
         let clientId = null;
+        let staffId = null;
         let billRefNo = null;
         let isAccommodation = "No";
         let isAddedBill = "No";
@@ -196,6 +206,7 @@
             const priceSelector = $('#price');
             let price = parseFloat(priceSelector.val());
             billRefNo = $('#bill_ref_no').val();
+            staffId = $('#staff_id').val();
 
             if (!itemId || quantity < 1) return;
 
@@ -266,6 +277,7 @@
                     is_accommodation: isAccommodation,
                     is_addition_bill: isAddedBill,
                     bill_ref_no: billRefNo,
+                    staff_id: staffId,
                 },
                 success: function (response) {
                     if (response.success === true) {

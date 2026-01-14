@@ -6,7 +6,7 @@ use Modules\Sales\Models\Sale;
 
 class SaveSalesCommand
 {
-    public static function handle($item, $storeId, $sale_batch)
+    public static function handle($item, $storeId, $sale_batch,$staff_id)
     {
         Sale::create([
             'sales_batch_id' => $sale_batch->id,
@@ -16,6 +16,7 @@ class SaveSalesCommand
             'ref_id' => $item['itemId'],
             'item_name' => $item['itemName'],
             'store_id' => $storeId,
+            'waiter_id' => $staff_id,
         ]);
     }
 }

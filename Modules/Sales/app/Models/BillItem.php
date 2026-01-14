@@ -7,9 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
+use Modules\General\Models\Staff;
 
 /**
- * 
+ *
  *
  * @property int $id
  * @property int $bill_id
@@ -45,10 +46,15 @@ class BillItem extends Model
 {
     use SoftDeletes;
 
-    protected $guarded =  [];
+    protected $guarded = [];
 
     public function bill(): BelongsTo
     {
         return $this->belongsTo(Bill::class);
+    }
+
+    public function waiter(): BelongsTo
+    {
+        return $this->belongsTo(Staff::class, 'waiter_id');
     }
 }

@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Gate;
 use Maatwebsite\Excel\Facades\Excel;
 use Modules\Auth\Models\User;
 use Modules\General\Models\Ingredient;
+use Modules\General\Models\Staff;
 use Modules\HotelMgnt\Models\Booking;
 use Modules\HotelMgnt\Models\Client;
 use Modules\Inventory\Models\StockItem;
@@ -43,6 +44,7 @@ class SalesController extends Controller
             $params['stock_items'] = [];
         }
         $params['category'] = $category;
+        $params['staffs'] = Staff::where('staff_role_id', 1)->orderBy('first_name')->get();
         $client_ids = Booking::whereBookingStatus('CheckedIn')->pluck('client_id')->toArray();
         $params['clients'] = Client::whereIn('id', $client_ids)->get();
         return view('sales::sales.index', $params);
@@ -59,6 +61,7 @@ class SalesController extends Controller
             $clientId = $request->input('client_id');
             $isAccommodation = $request->input('is_accommodation');
             $isAdditionBill = $request->input('is_addition_bill');
+            $staffId = $request->input('staff_id');
             $billRefNo = $request->input('bill_ref_no');
             $booking = null;
 
@@ -148,17 +151,15 @@ class SalesController extends Controller
             }
 
             foreach ($cart as $item) {
-                SaveSalesCommand::handle($item, $storeId, $sale_batch);
-
+                SaveSalesCommand::handle($item, $storeId, $sale_batch, $staffId);
                 if ($isAccommodation == 'Yes') {
                     //Save to Booking Charges
                     if ($booking != null) {
                         SaveBookingChargesCommand::handle($item, $category, $booking);
                     }
                 }
-
                 //Save Bill Items
-                SaveBillItemsCommand::handle($bill, $item, $storeId);
+                SaveBillItemsCommand::handle($bill, $item, $storeId, $staffId);
             }
 
             return response()->json([

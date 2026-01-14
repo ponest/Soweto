@@ -7,7 +7,7 @@ use Modules\Sales\Models\BillItem;
 
 class SaveBillItemsCommand
 {
-    public static function handle($bill, $item, $storeId)
+    public static function handle($bill, $item, $storeId, $staffId)
     {
         $billItem = new BillItem();
         $billItem->bill_id = $bill->id;
@@ -16,6 +16,7 @@ class SaveBillItemsCommand
         $billItem->quantity = $item['quantity'];
         $billItem->total_price = $item['total'];
         $billItem->store_id = $storeId;
+        $billItem->waiter_id = $staffId;
         $billItem->save();
 
         //Update Bill Amount
