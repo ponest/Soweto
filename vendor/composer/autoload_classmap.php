@@ -9,6 +9,7 @@ return array(
     'App\\Enums\\GeneralEnum' => $baseDir . '/app/Enums/GeneralEnum.php',
     'App\\Enums\\PaymentMethodEnum' => $baseDir . '/app/Enums/PaymentMethodEnum.php',
     'App\\Enums\\StockOutCategories' => $baseDir . '/app/Enums/StockOutCategories.php',
+    'App\\Exports\\ExpSalesReport' => $baseDir . '/app/Exports/ExpSalesReport.php',
     'App\\Helpers\\General' => $baseDir . '/app/Helpers/General.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Observers\\BaseModelObserver' => $baseDir . '/app/Observers/BaseModelObserver.php',

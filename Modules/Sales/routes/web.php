@@ -8,6 +8,7 @@ use Modules\Sales\Http\Controllers\FoodMenuController;
 use Modules\Sales\Http\Controllers\ItemPriceApprovalController;
 use Modules\Sales\Http\Controllers\MenuPriceApprovalItemController;
 use Modules\Sales\Http\Controllers\MenuPriceController;
+use Modules\Sales\Http\Controllers\PaymentsController;
 use Modules\Sales\Http\Controllers\PriceApprovalItemController;
 use Modules\Sales\Http\Controllers\SalesController;
 
@@ -34,6 +35,10 @@ Route::middleware('auth')->group(function () {
     Route::get('sales-history', [SalesController::class, 'salesHistory'])->name('sales-history');
     Route::post('sales-history/filter', [SalesController::class, 'salesHistoryFilter'])->name('sales-history-filter');
     Route::get('sales-history/excel', [SalesController::class, 'downloadExcel'])->name('sales-history-excel');
+
+    Route::get('payment-history', [PaymentsController::class, 'paymentHistory'])->name('payment-history');
+    Route::post('payment-history/filter', [PaymentsController::class, 'paymentHistoryFilter'])->name('payment-history-filter');
+    Route::get('payment-history/excel', [PaymentsController::class, 'downloadExcel'])->name('payment-history-excel');
 
     Route::get('bills/index', [BillsController::class, 'index'])->name('bills.index');
     Route::get('bills/payment-conf/{id}', [BillsController::class, 'confirmPaymentView'])->name('bills.payment-conf');

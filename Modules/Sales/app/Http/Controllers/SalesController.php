@@ -25,6 +25,7 @@ use Modules\Sales\Commands\Sales\SaveSalesCommand;
 use Modules\Sales\Commands\Sales\SaveStockOutCommand;
 use Modules\Sales\Models\Bill;
 use Modules\Sales\Models\FoodMenu;
+use Modules\Sales\Models\Payment;
 use Modules\Sales\Models\Sale;
 
 class SalesController extends Controller
@@ -227,5 +228,6 @@ class SalesController extends Controller
     {
         return Excel::download(new ExpSalesReport(), 'sales_report.xlsx');
     }
+
 
 }

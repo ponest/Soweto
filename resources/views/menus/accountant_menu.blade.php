@@ -10,6 +10,7 @@
     <ul class="nav-2-level collapse">
         <li><a href="{{route('bills.index')}}">Bills</a></li>
         <li><a href="{{route('sales-history')}}">Sales History</a></li>
+        <li><a href="{{route('payment-history')}}">Payment History</a></li>
         <li><a href="{{route('item-price.index')}}">Item Price</a></li>
         <li><a href="{{route('menu-price.index')}}">Menu Price</a></li>
     </ul>
