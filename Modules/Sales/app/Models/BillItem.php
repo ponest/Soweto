@@ -3,6 +3,7 @@
 namespace Modules\Sales\Models;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -57,4 +58,17 @@ class BillItem extends Model
     {
         return $this->belongsTo(Staff::class, 'waiter_id');
     }
+
+    public static function getWaiterByBillId($billId): string
+    {
+        $waiterIds = BillItem::whereBillId($billId)->pluck('waiter_id')->toArray();
+        $waiterIds = array_unique($waiterIds);
+        $waiters = Staff::select(['first_name','last_name'])->whereIn('id', $waiterIds)->get();
+        $waiterNames = [];
+        foreach ($waiters as $key=>$waiter){
+            $waiterNames[$key] = $waiter->full_name;
+        }
+       return implode(",",$waiterNames);
+    }
+
 }
