@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d44d5f7f-e478-428a-8108-98a2dcddfd72" name="Changes" comment="Added Excel Download to Sales Report">
-      <change beforePath="$PROJECT_DIR$/Modules/Sales/app/Commands/Sales/SaveBillItemsCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/app/Commands/Sales/SaveBillItemsCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Sales/app/Commands/Sales/SaveSalesCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/app/Commands/Sales/SaveSalesCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/SalesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/SalesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Sales/app/Models/BillItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/app/Models/BillItem.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Sales/resources/views/bills/bill_items.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/resources/views/bills/bill_items.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Sales/resources/views/sales/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/resources/views/sales/index.blade.php" afterDir="false" />
+    <list default="true" id="d44d5f7f-e478-428a-8108-98a2dcddfd72" name="Changes" comment="Added Waiter To Sales">
+      <change beforePath="$PROJECT_DIR$/.idea/data_source_mapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/data_source_mapping.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -462,15 +458,7 @@
       <workItem from="1766892474919" duration="25091000" />
       <workItem from="1767011344522" duration="8669000" />
       <workItem from="1767623616413" duration="598000" />
-      <workItem from="1768285599275" duration="17845000" />
-    </task>
-    <task id="LOCAL-00024" summary="Conference And Clients Implemented">
-      <option name="closed" value="true" />
-      <created>1748609870178</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1748609870178</updated>
+      <workItem from="1768285599275" duration="27377000" />
     </task>
     <task id="LOCAL-00025" summary="Stock Requisition">
       <option name="closed" value="true" />
@@ -856,14 +844,21 @@
       <option name="project" value="LOCAL" />
       <updated>1768296024004</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="Added Waiter To Sales">
+      <option name="closed" value="true" />
+      <created>1768377550522</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1768377550522</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Food Menu Added" />
     <MESSAGE value="Item Sales Implemented" />
     <MESSAGE value="KITCHEN Sales Implemented" />
     <MESSAGE value="Room Check In And Checkout" />
@@ -888,7 +883,8 @@
     <MESSAGE value="Added Bill Preview" />
     <MESSAGE value="Added Search capability to Sales History" />
     <MESSAGE value="Added Excel Download to Sales Report" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Excel Download to Sales Report" />
+    <MESSAGE value="Added Waiter To Sales" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Waiter To Sales" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
