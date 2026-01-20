@@ -33,8 +33,10 @@ class ConfirmPaymentCommand
             }
             $bill->save();
 
+
+            $savedBill = Bill::find($bill->id);
             //Update Sales Batch
-            if ($bill->category == "Sales") {
+            if ($bill->category == "Sales" &&  $savedBill->status == 'Paid') {
                 $salesBatch = SalesBatch::find($bill->ref_id);
                 $salesBatch->is_paid = true;
                 $salesBatch->save();

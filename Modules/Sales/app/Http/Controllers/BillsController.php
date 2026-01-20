@@ -62,6 +62,8 @@ class BillsController extends Controller
     public function confirmPaymentView($id)
     {
         $params['item'] = Bill::find($id);
+        $params['paidAmount'] = Payment::whereBillId($id)->sum('paid_amount');
+        $params['pending'] = $params['item']->bill_amount -$params['paidAmount'];
         $params['payment_methods'] = PaymentMethod::orderBy('name')->get();
         return view('sales::bills.payment_conf', $params);
     }

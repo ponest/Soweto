@@ -28,8 +28,18 @@
         </div>
         <div class="row mb-3">
             <div class="col">
-                <label>Bill Amount</label>
+                <label>Total Bill Amount</label>
                 <input type="text" value="{{$item->bill_amount}}" class="form-control form-control-air" readonly>
+            </div>
+            <div class="col">
+                <label>Remaining Bill Amount</label>
+                <input type="text" value="{{number_format($pending)}}" class="form-control form-control-air" readonly>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col">
+                <label>Already Paid Amount</label>
+                <input type="text" value="{{number_format($paidAmount)}}" class="form-control form-control-air" readonly>
             </div>
             <div class="col">
                 <label>Paid Amount</label>

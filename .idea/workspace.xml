@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d44d5f7f-e478-428a-8108-98a2dcddfd72" name="Changes" comment="Added gitignore">
+    <list default="true" id="d44d5f7f-e478-428a-8108-98a2dcddfd72" name="Changes" comment="Added Export excel file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Sales/app/Commands/Bills/ConfirmPaymentCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/app/Commands/Bills/ConfirmPaymentCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/BillsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/BillsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/SalesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/SalesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Sales/resources/views/bills/payment_conf.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/resources/views/bills/payment_conf.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -469,23 +473,7 @@
       <workItem from="1767623616413" duration="598000" />
       <workItem from="1768285599275" duration="17845000" />
       <workItem from="1768822697725" duration="1863000" />
-      <workItem from="1768885856498" duration="6093000" />
-    </task>
-    <task id="LOCAL-00026" summary="Users">
-      <option name="closed" value="true" />
-      <created>1749316264820</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1749316264820</updated>
-    </task>
-    <task id="LOCAL-00027" summary="Rooms Modified">
-      <option name="closed" value="true" />
-      <created>1749316326554</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1749316326554</updated>
+      <workItem from="1768885856498" duration="12387000" />
     </task>
     <task id="LOCAL-00028" summary="Rooms Modified">
       <option name="closed" value="true" />
@@ -863,15 +851,29 @@
       <option name="project" value="LOCAL" />
       <updated>1768891438209</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="renamed cashier to accountant">
+      <option name="closed" value="true" />
+      <created>1768892251581</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1768892251581</updated>
+    </task>
+    <task id="LOCAL-00076" summary="Added Export excel file">
+      <option name="closed" value="true" />
+      <created>1768893286887</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1768893286887</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Item Sales Implemented" />
-    <MESSAGE value="KITCHEN Sales Implemented" />
     <MESSAGE value="Room Check In And Checkout" />
     <MESSAGE value="Booking Charges Implemented" />
     <MESSAGE value="Modified Billing" />
@@ -895,7 +897,9 @@
     <MESSAGE value="Added Search capability to Sales History" />
     <MESSAGE value="Added Excel Download to Sales Report" />
     <MESSAGE value="Added gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added gitignore" />
+    <MESSAGE value="renamed cashier to accountant" />
+    <MESSAGE value="Added Export excel file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Export excel file" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
