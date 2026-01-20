@@ -25,23 +25,23 @@ class PaymentsController extends Controller
         $data = $request->all();
 
         $params['payment_methods'] = PaymentMethod::orderBy('name')->get();
-
+        $prefix = "Payment Report";
         $query = Payment::query();
         if ($data['start_date'] != null && $data['end_date'] != null) {
             $start_date = Carbon::parse($data['start_date'])->startOfDay();
             $end_date = Carbon::parse($data['end_date'])->endOfDay();
             $query->whereBetween('created_at', [$start_date, $end_date]);
+            $prefix = $prefix." From " . date('d M Y', strtotime($data['start_date'])) . " To " . date('d M Y', strtotime($data['end_date']));
+
         }
         if ($data['payment_method_id'] != null) {
             $query->where('payment_method_id', $data['payment_method_id']);
+            $method = PaymentMethod::find($data['payment_method_id'])->name;
+            $prefix = $prefix. " for ".$method." Payment method";
         }
         $params['total_price'] = $query->sum('paid_amount');
         $params['items'] = $query->latest()->get();
 
-//        $params['total_price'] = Payment::whereBetween('created_at', [$start_date, $end_date])
-//            ->sum('paid_amount');
-//
-        $prefix = "Payment Report From " . date('d M Y', strtotime($data['start_date'])) . " To " . date('d M Y', strtotime($data['end_date']));
         $params['is_post_back'] = true;
         session(['payment_data' => $params['items']]);
         session(['total_payments' => $params['total_price']]);
