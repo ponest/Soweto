@@ -52,8 +52,8 @@ class AppServiceProvider extends ServiceProvider
             return $user->hasRole('House Keeping');
         });
 
-        Gate::define('Cashier',function ($user){
-            return $user->hasRole('Cashier');
+        Gate::define('Accountant',function ($user){
+            return $user->hasRole('Accountant');
         });
 
         Gate::define('Director',function ($user){

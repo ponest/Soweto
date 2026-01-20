@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d44d5f7f-e478-428a-8108-98a2dcddfd72" name="Changes" comment="Added Excel Download to Sales Report">
+    <list default="true" id="d44d5f7f-e478-428a-8108-98a2dcddfd72" name="Changes" comment="Added gitignore">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -262,11 +262,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\PROJECTS\PERSONAL\Soweto" />
       <recent name="$PROJECT_DIR$/Modules/Sales/resources/views/sales" />
       <recent name="$PROJECT_DIR$/Modules/General/app/Commands" />
       <recent name="$PROJECT_DIR$/Modules/General/resources/views" />
       <recent name="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands" />
-      <recent name="$PROJECT_DIR$/Modules/HotelMgnt/resources/views" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/menus" />
@@ -469,15 +469,7 @@
       <workItem from="1767623616413" duration="598000" />
       <workItem from="1768285599275" duration="17845000" />
       <workItem from="1768822697725" duration="1863000" />
-      <workItem from="1768885856498" duration="5399000" />
-    </task>
-    <task id="LOCAL-00025" summary="Stock Requisition">
-      <option name="closed" value="true" />
-      <created>1749316196158</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1749316196158</updated>
+      <workItem from="1768885856498" duration="6093000" />
     </task>
     <task id="LOCAL-00026" summary="Users">
       <option name="closed" value="true" />
@@ -863,14 +855,21 @@
       <option name="project" value="LOCAL" />
       <updated>1768889228088</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="Added gitignore">
+      <option name="closed" value="true" />
+      <created>1768891438209</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1768891438209</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Food Menu Added" />
     <MESSAGE value="Item Sales Implemented" />
     <MESSAGE value="KITCHEN Sales Implemented" />
     <MESSAGE value="Room Check In And Checkout" />
@@ -895,7 +894,8 @@
     <MESSAGE value="Added Bill Preview" />
     <MESSAGE value="Added Search capability to Sales History" />
     <MESSAGE value="Added Excel Download to Sales Report" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Excel Download to Sales Report" />
+    <MESSAGE value="Added gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added gitignore" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

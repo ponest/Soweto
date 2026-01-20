@@ -69,7 +69,7 @@ class PurchaseRequestController extends Controller
 
     public function approverView()
     {
-        if (Gate::allows('Cashier')) {
+        if (Gate::allows('Accountant')) {
             $params['items'] = PurchaseRequest::whereNotNull('submitted_at')
                 ->whereNull('previewed_by')->latest('id')->get();
         } else if (Gate::allows('Manager')) {

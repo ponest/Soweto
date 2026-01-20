@@ -172,7 +172,7 @@ class SalesController extends Controller
     public function salesHistory()
     {
         $storeId = User::userStoreId();
-        if (Gate::allows('Cashier')) {
+        if (Gate::allows('Accountant')) {
             $params['items'] = Sale::join('sales_batches as sl', 'sl.id', '=', 'sales.sales_batch_id')
                 ->where('is_paid', true)
                 ->select('sales.*')->latest()->get();
@@ -191,7 +191,7 @@ class SalesController extends Controller
         $data = $request->all();
         $start_date = Carbon::parse($data['start_date'])->startOfDay();
         $end_date = Carbon::parse($data['end_date'])->endOfDay();
-        if (Gate::allows('Cashier')) {
+        if (Gate::allows('Accountant')) {
             $params['items'] = Sale::join('sales_batches as sl', 'sl.id', '=', 'sales.sales_batch_id')
                 ->where('is_paid', true)
                 ->select('sales.*')->latest()->get();

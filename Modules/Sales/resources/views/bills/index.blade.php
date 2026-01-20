@@ -51,7 +51,7 @@
                             <td style="width: 15%; text-align: right">{{$item->issuer?->full_name}}</td>
                             <td style="width: 9%" class="text-center">
                                 @if($item->status != 'Paid')
-                                    @cannot('Cashier')
+                                    @cannot('Accountant')
                                         <a class="text-muted font-16 conf-payment-link"
                                            href="{{route('bills.payment-conf',$item->id)}}"
                                            title="Confirm Payment" data-toggle="tooltip"><i class="fa fa-edit"></i></a>

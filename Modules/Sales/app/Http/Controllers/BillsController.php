@@ -20,7 +20,7 @@ class BillsController extends Controller
 
     public function index()
     {
-        if (Gate::allows('Cashier')) {
+        if (Gate::allows('Accountant')) {
             $params['items'] = Bill::where('status','!=','paid')->latest('id')->limit(1000)->get();
         } elseif (Gate::allows('FrontOfficer')) {
             $params['items'] = Bill::where('status','!=','paid')->whereNotNull('booking_id')->latest('id')->limit(1000)->get();
@@ -41,7 +41,7 @@ class BillsController extends Controller
 
     public function paid()
     {
-        if (Gate::allows('Cashier')) {
+        if (Gate::allows('Accountant')) {
             $params['items'] = Bill::where('status','paid')->latest('id')->limit(1000)->get();
         } elseif (Gate::allows('FrontOfficer')) {
             $params['items'] = Bill::where('status','paid')->whereNotNull('booking_id')->latest('id')->limit(1000)->get();
