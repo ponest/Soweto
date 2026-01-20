@@ -1,3 +1,4 @@
+@php use Modules\Sales\Models\BillItem; @endphp
 @extends('layouts.master')
 @section('title','Bills')
 @section('content')
@@ -24,7 +25,8 @@
                     <tr>
                         <th>S/N</th>
                         <th>Reference No</th>
-                        <th>Origin</th>
+                        <th>Waiter</th>
+{{--                        <th>Origin</th>--}}
                         <th>Bill Amount</th>
                         <th>Status</th>
                         <th>Issued At</th>
@@ -34,17 +36,22 @@
                     </thead>
                     <tbody>
                     @foreach($items as $key=>$item)
+                        @php
+                            $waiters = BillItem::getWaiterByBillId($item->id);
+                        @endphp
+
                         <tr>
                             <td style="width: 5%">{{++$key}}</td>
                             <td class="desc_name">{{$item->reference_no}}</td>
-                            <td style="width: 15%; text-align: right">{{$item->category}}</td>
+                            <td style="width: 15%;">{{$waiters}}</td>
+{{--                            <td style="width: 15%; text-align: right">{{$item->category}}</td>--}}
                             <td style="width: 15%; text-align: right">{{number_format($item->bill_amount)}}</td>
                             <td style="width: 15%; text-align: right">{{$item->status}}</td>
                             <td style="width: 15%;">{{date('d M Y H:i', strtotime($item->issued_at))}}</td>
                             <td style="width: 15%; text-align: right">{{$item->issuer?->full_name}}</td>
                             <td style="width: 9%" class="text-center">
                                 @if($item->status != 'Paid')
-                                    @cannot('Cashier')
+                                    @cannot('Accountant')
                                         <a class="text-muted font-16 conf-payment-link"
                                            href="{{route('bills.payment-conf',$item->id)}}"
                                            title="Confirm Payment" data-toggle="tooltip"><i class="fa fa-edit"></i></a>

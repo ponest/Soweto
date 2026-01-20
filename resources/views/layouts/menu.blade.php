@@ -22,8 +22,8 @@
             @can('House Keeping')
                 @include('menus.house_keeping_menu')
             @endcan
-            @can('Cashier')
-                @include('menus.cashier_menu')
+            @can('Accountant')
+                @include('menus.accountant_menu')
             @endcan
             @can('Director')
                 @include('menus.director_menu')

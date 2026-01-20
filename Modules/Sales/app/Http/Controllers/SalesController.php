@@ -172,7 +172,7 @@ class SalesController extends Controller
     public function salesHistory()
     {
         $storeId = User::userStoreId();
-        if (Gate::allows('Cashier')) {
+        if (Gate::allows('Accountant')) {
             $params['items'] = Sale::join('sales_batches as sl', 'sl.id', '=', 'sales.sales_batch_id')
                 ->where('is_paid', true)
                 ->select('sales.*')->latest()->get();
@@ -191,10 +191,17 @@ class SalesController extends Controller
         $data = $request->all();
         $start_date = Carbon::parse($data['start_date'])->startOfDay();
         $end_date = Carbon::parse($data['end_date'])->endOfDay();
-        if (Gate::allows('Cashier')) {
+        if (Gate::allows('Accountant')) {
             $params['items'] = Sale::join('sales_batches as sl', 'sl.id', '=', 'sales.sales_batch_id')
                 ->where('is_paid', true)
+                ->whereBetween('sales.created_at', [$start_date, $end_date])
                 ->select('sales.*')->latest()->get();
+
+            $params['total_price'] = Sale::join('sales_batches as sl', 'sl.id', '=', 'sales.sales_batch_id')
+                ->where('is_paid', true)
+                ->whereBetween('sales.created_at', [$start_date, $end_date])
+                ->sum('sales.total_price');
+
         } else {
             $params['items'] = Sale::join('sales_batches as sl', 'sl.id', '=', 'sales.sales_batch_id')
                 ->where('store_id', $storeId)
@@ -218,7 +225,6 @@ class SalesController extends Controller
 
     public function downloadExcel()
     {
-//        session(['download' => 'download']);
         return Excel::download(new ExpSalesReport(), 'sales_report.xlsx');
     }
 

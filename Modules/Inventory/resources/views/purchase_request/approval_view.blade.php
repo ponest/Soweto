@@ -44,7 +44,7 @@
                                 <a class="text-muted font-16 show-link"
                                    href="{{route('purchase-request.items',$item->id)}}"
                                    title="Items" data-toggle="tooltip"><i class="fa fx-2 fa-eye"></i></a>
-                                @can('Cashier')
+                                @can('Accountant')
                                     @if($item->previewed_by ==null)
                                         | <a class="text-muted font-16 preview-link"
                                              href="{{route('purchase-request.preview',$item->id)}}"
