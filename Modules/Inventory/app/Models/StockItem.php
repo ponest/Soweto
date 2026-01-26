@@ -79,10 +79,19 @@ class StockItem extends Model
         return self::orderBy('name')->get();
     }
 
+    public static function getByStoreId($storeId): Collection
+    {
+        return StockItem::join('store_items', 'stock_items.id', '=', 'store_items.item_id')
+            ->where('store_items.store_id', $storeId)
+            ->select('stock_items.*')
+            ->orderBy('name')
+            ->get();
+    }
+
     public static function getStoreItemBalance($id)
     {
-        $mainStoreId = Store::where('name','Main Store')->first()->id;
-        $total = ItemStockIn::where('item_id', $id)->where('store_id',$mainStoreId)->sum('quantity');
+        $mainStoreId = Store::where('name', 'Main Store')->first()->id;
+        $total = ItemStockIn::where('item_id', $id)->where('store_id', $mainStoreId)->sum('quantity');
         $total_issued = StockRequisitionItem::where('stock_item_id', $id)->sum('issued_quantity');
         return $total - $total_issued;
     }

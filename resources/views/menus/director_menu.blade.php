@@ -78,3 +78,13 @@
         <li><a href="{{route('stock-backlog.rejected')}}">Rejected</a></li>
     </ul>
 </li>
+
+<li>
+    <a href="javascript:;"><i class="sidebar-item-icon ti-bar-chart"></i>
+        <span class="nav-label">Disposal Request</span><i class="fa fa-angle-left arrow"></i></a>
+    <ul class="nav-2-level collapse">
+        <li><a href="{{route('disposal-request.approve-view')}}">Incoming</a></li>
+        <li><a href="{{route('disposal-request.approved')}}">Approved</a></li>
+        <li><a href="{{route('disposal-request.rejected')}}">Rejected</a></li>
+    </ul>
+</li>

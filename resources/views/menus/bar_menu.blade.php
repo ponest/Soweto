@@ -15,6 +15,7 @@
 {{--        <li><a href="{{route('stock-issue.requests')}}">Stock Issue</a></li>--}}
         <li><a href="{{route('stock-issue.index')}}">Stock Receive</a></li>
         <li><a href="{{route('stock-backlog.index')}}">Stock Backlog</a></li>
+        <li><a href="{{route('disposal-request.index')}}">Stock Disposal</a></li>
     </ul>
 </li>
 

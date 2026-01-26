@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Modules\Inventory\Http\Controllers\DisposalRequestController;
+use Modules\Inventory\Http\Controllers\DisposalRequestItemsController;
 use Modules\Inventory\Http\Controllers\InventoryController;
 use Modules\Inventory\Http\Controllers\ItemStockInController;
 use Modules\Inventory\Http\Controllers\ItemUnitConversionController;
@@ -81,5 +83,23 @@ Route::middleware('auth')->group(function () {
     Route::resource('purchase-req-cost', PurchaseReqAdditionalCostController::class)->except('show', 'destroy','index');
     Route::get('purchase-req-cost/index/{id}', [PurchaseReqAdditionalCostController::class, 'index'])->name('purchase-req-cost');
     Route::get('purchase-req-cost/destroy/{id}', [PurchaseReqAdditionalCostController::class, 'destroy'])->name('purchase-req-cost.destroy');
+
+
+    Route::resource('disposal-request', DisposalRequestController::class)->except('show', 'destroy');
+    Route::get('disposal-request/destroy/{id}', [DisposalRequestController::class, 'destroy'])->name('disposal-request.destroy');
+    Route::get('disposal-request/submit/{id}', [DisposalRequestController::class, 'submitRequest'])->name('disposal-request.submit');
+    Route::get('disposal-request/approve/{id}', [DisposalRequestController::class, 'approveRequest'])->name('disposal-request.approve');
+    Route::get('disposal-request/review/{id}', [DisposalRequestController::class, 'reviewRequest'])->name('disposal-request.review');
+    Route::get('disposal-request/approve-view', [DisposalRequestController::class, 'approverView'])->name('disposal-request.approve-view');
+    Route::get('disposal-request/approved', [DisposalRequestController::class, 'approved'])->name('disposal-request.approved');
+    Route::get('disposal-request/items/{id}', [DisposalRequestController::class, 'viewItems'])->name('disposal-request.items');
+    Route::get('disposal-request/reject/{id}', [DisposalRequestController::class, 'rejectView'])->name('disposal-request.reject-view');
+    Route::post('disposal-request/reject', [DisposalRequestController::class, 'rejectRequest'])->name('disposal-request.reject');
+    Route::get('disposal-request/rejected', [DisposalRequestController::class, 'rejected'])->name('disposal-request.rejected');
+
+
+    Route::resource('disposal-request-item', DisposalRequestItemsController::class)->except('show', 'destroy','index');
+    Route::get('disposal-request-item/index/{id}', [DisposalRequestItemsController::class, 'index'])->name('disposal-request-item.index');
+    Route::get('disposal-request-item/destroy/{id}', [DisposalRequestItemsController::class, 'destroy'])->name('disposal-request-item.destroy');
 
 });

@@ -1,0 +1,67 @@
+<?php
+
+namespace Modules\Inventory\Http\Controllers;
+
+use App\Helpers\General;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Modules\Inventory\Commands\DisposalRequestItem\DeleteCommand;
+use Modules\Inventory\Commands\DisposalRequestItem\StoreCommand;
+use Modules\Inventory\Commands\DisposalRequestItem\UpdateCommand;
+use Modules\Inventory\Models\DisposalRequest;
+use Modules\Inventory\Models\DisposalRequestItem;
+use Modules\Inventory\Models\StockItem;
+
+class DisposalRequestItemsController extends Controller
+{
+    public function index($id)
+    {
+        $params['items'] = DisposalRequestItem::whereDisposalRequestId($id)->latest('id')->get();
+        $params['requisition'] = DisposalRequest::find($id);
+        $storeId = $params['requisition']->store_id;
+        $params['stock_items'] = StockItem::getByStoreId($storeId);
+        return view('inventory::disposal_request_items.index', $params);
+    }
+
+    public function store(Request $request)
+    {
+        $data = $request->all();
+        $info = StoreCommand::handle($data);
+        $notification = General::customMessage($info['message'], $info['type']);
+        return Redirect::back()->with($notification);
+    }
+
+    public function edit($id)
+    {
+        $params['item'] = DisposalRequestItem::find($id);
+        $storeId = $params['item']->store_id;
+        $params['stock_items'] = StockItem::getByStoreId($storeId);
+        return view('inventory::disposal_request_items.edit', $params);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $data = $request->all();
+        $info = UpdateCommand::handle($data, $id);
+        $notification = General::customMessage($info['message'], $info['type']);
+        return Redirect::back()->with($notification);
+    }
+
+    public function destroy($id)
+    {
+        $info = DeleteCommand::handle($id);
+        $notification = General::customMessage($info['message'], $info['type']);
+        return Redirect::back()->with($notification);
+    }
+
+//    public function getItems(Request $request)
+//    {
+//        $itemIds = PurchaseReqItem::wherePurchaseRequestId($request->purchase_id)->pluck("stock_item_id")->toArray();
+//        $usedItems = ItemStockIn::where('purchase_request_id', $request->purchase_id)->pluck("item_id")->toArray();
+//        $usable= array_diff($itemIds, $usedItems);
+//        $stockItems = StockItem::whereIn('id',$usable)->pluck("name", "id");
+//        return json_encode($stockItems);
+//    }
+
+}
