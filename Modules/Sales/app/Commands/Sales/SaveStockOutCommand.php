@@ -9,7 +9,12 @@ class SaveStockOutCommand
 {
     public static function handle($item, $storeId, $category): void
     {
-        $unitId = StockItem::find($item['itemId'])->unit_id;
+        if (array_key_exists('unitId', $item)) {
+            $unitId = $item['unitId'];
+        }else{
+            $unitId = StockItem::find($item['itemId'])->unit_id;
+        }
+
         $itemStockOut = new ItemStockOut();
         $itemStockOut->item_id = $item['itemId'];
         $itemStockOut->quantity = $item['quantity'];

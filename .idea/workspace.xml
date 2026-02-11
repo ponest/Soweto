@@ -4,37 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d44d5f7f-e478-428a-8108-98a2dcddfd72" name="Changes" comment="Payment History Implemented">
-      <change afterPath="$PROJECT_DIR$/Modules/Inventory/app/Commands/DisposalRequest/ApproveCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Inventory/app/Commands/DisposalRequest/DeleteCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Inventory/app/Commands/DisposalRequest/RejectCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Inventory/app/Commands/DisposalRequest/ReviewCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Inventory/app/Commands/DisposalRequest/StoreCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Inventory/app/Commands/DisposalRequest/SubmitCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Inventory/app/Commands/DisposalRequest/UpdateCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Inventory/app/Commands/DisposalRequestItem/DeleteCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Inventory/app/Commands/DisposalRequestItem/StoreCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Inventory/app/Commands/DisposalRequestItem/UpdateCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Inventory/resources/views/disposal_request/approval.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Inventory/resources/views/disposal_request/approval_view.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Inventory/resources/views/disposal_request/approved.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Inventory/resources/views/disposal_request/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Inventory/resources/views/disposal_request/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Inventory/resources/views/disposal_request/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Inventory/resources/views/disposal_request/items_view.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Inventory/resources/views/disposal_request/reject_view.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Inventory/resources/views/disposal_request/rejected.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Inventory/resources/views/disposal_request_items/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Inventory/resources/views/disposal_request_items/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Inventory/resources/views/disposal_request_items/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/43de1f09-489f-44d2-8e1c-5ae6849ac275.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/43de1f09-489f-44d2-8e1c-5ae6849ac275.xml" afterDir="false" />
+    <list default="true" id="d44d5f7f-e478-428a-8108-98a2dcddfd72" name="Changes" comment="Disposal Request Implemented">
+      <change afterPath="$PROJECT_DIR$/Modules/Sales/resources/views/sales/kitchen_sales_index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/bc813df7-c2e0-4836-97a7-128262c39fce.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/bc813df7-c2e0-4836-97a7-128262c39fce.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_20_01_2026,_12_02_[Changes]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Inventory/app/Models/StockItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Inventory/app/Models/StockItem.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Inventory/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Inventory/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/menus/bar_menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menus/bar_menu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/menus/director_menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menus/director_menu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/menus/manager_menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menus/manager_menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Auth/app/Commands/Users/UpdateCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Auth/app/Commands/Users/UpdateCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/Booking/StoreCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/Booking/StoreCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Inventory/resources/views/stores/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Inventory/resources/views/stores/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Sales/app/Commands/Sales/SaveStockOutCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/app/Commands/Sales/SaveStockOutCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/SalesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/SalesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Sales/resources/views/sales/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/resources/views/sales/bar_sales_index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Setups/app/Models/Unit.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Setups/app/Models/Unit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Enums/GeneralEnum.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Enums/GeneralEnum.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -243,57 +226,57 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.highlight.mappings&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.highlight.symlinks&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;com.laravel_idea.eloquent_global_unguard&quot;: &quot;0&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;laravel_idea.dialogs.code_generation:createController.width&quot;: &quot;492&quot;,
-    &quot;laravel_idea.dialogs.code_generation:createController.x&quot;: &quot;510&quot;,
-    &quot;laravel_idea.dialogs.code_generation:createController.y&quot;: &quot;388&quot;,
-    &quot;laravel_idea.dialogs.code_generation:createFormRequest.width&quot;: &quot;473&quot;,
-    &quot;laravel_idea.dialogs.code_generation:createFormRequest.x&quot;: &quot;519&quot;,
-    &quot;laravel_idea.dialogs.code_generation:createFormRequest.y&quot;: &quot;350&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Volumes/DATA/PROJECT/OTHERS/svh/Modules/Inventory/app/Commands&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
+    "WebServerToolWindowPanel.toolwindow.show.date": "false",
+    "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
+    "WebServerToolWindowPanel.toolwindow.show.size": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "com.laravel_idea.eloquent_global_unguard": "0",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "laravel_idea.dialogs.code_generation:createController.width": "492",
+    "laravel_idea.dialogs.code_generation:createController.x": "510",
+    "laravel_idea.dialogs.code_generation:createController.y": "388",
+    "laravel_idea.dialogs.code_generation:createFormRequest.width": "473",
+    "laravel_idea.dialogs.code_generation:createFormRequest.x": "519",
+    "laravel_idea.dialogs.code_generation:createFormRequest.y": "350",
+    "last_opened_file_path": "/Volumes/DATA/PROJECT/OTHERS/svh/Modules/Sales/resources/views/sales",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;,
-      &quot;mariadb&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql",
+      "mariadb"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Modules/Sales/resources/views/sales" />
       <recent name="$PROJECT_DIR$/Modules/Inventory/app/Commands" />
       <recent name="$PROJECT_DIR$/Modules/Inventory/resources/views" />
       <recent name="$PROJECT_DIR$/Modules/Sales/resources/views" />
       <recent name="D:\PROJECTS\PERSONAL\Soweto" />
-      <recent name="$PROJECT_DIR$/Modules/Sales/resources/views/sales" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/menus" />
@@ -316,8 +299,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-PS-253.29346.257" />
-        <option value="bundled-php-predefined-a98d8de5180a-0e0d91225499-com.jetbrains.php.sharedIndexes-PS-253.29346.257" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-PS-253.30387.85" />
+        <option value="bundled-php-predefined-a98d8de5180a-0e0d91225499-com.jetbrains.php.sharedIndexes-PS-253.30387.85" />
       </set>
     </attachedChunks>
   </component>
@@ -504,15 +487,14 @@
       <workItem from="1769155389770" duration="576000" />
       <workItem from="1769357320681" duration="5005000" />
       <workItem from="1769369430277" duration="2820000" />
-      <workItem from="1769376781845" duration="2945000" />
-    </task>
-    <task id="LOCAL-00030" summary="Fixed Changes Password">
-      <option name="closed" value="true" />
-      <created>1749709806568</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1749709806568</updated>
+      <workItem from="1769376781845" duration="5513000" />
+      <workItem from="1769426569504" duration="1537000" />
+      <workItem from="1769494212721" duration="918000" />
+      <workItem from="1769503526593" duration="16000" />
+      <workItem from="1769771606335" duration="2236000" />
+      <workItem from="1770017087735" duration="596000" />
+      <workItem from="1770742461646" duration="2922000" />
+      <workItem from="1770786690633" duration="9604000" />
     </task>
     <task id="LOCAL-00031" summary="Stock Requisition Edit and Delete Implemented">
       <option name="closed" value="true" />
@@ -898,14 +880,21 @@
       <option name="project" value="LOCAL" />
       <updated>1768906592618</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="Disposal Request Implemented">
+      <option name="closed" value="true" />
+      <created>1769406823303</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1769406823303</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Booking Charges Implemented" />
     <MESSAGE value="Modified Billing" />
     <MESSAGE value="Client Wallet Successfully Developed" />
     <MESSAGE value="Client Approval Implemented" />
@@ -930,7 +919,8 @@
     <MESSAGE value="renamed cashier to accountant" />
     <MESSAGE value="Added Export excel file" />
     <MESSAGE value="Payment History Implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="Payment History Implemented" />
+    <MESSAGE value="Disposal Request Implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="Disposal Request Implemented" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

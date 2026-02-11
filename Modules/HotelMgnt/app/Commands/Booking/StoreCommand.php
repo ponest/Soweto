@@ -16,7 +16,8 @@ class StoreCommand
             ->whereIn('booking_status', ['Reserved', 'CheckedIn'])
             ->where(function ($query) use ($start_date, $end_date) {
                 $query->where('proposed_start_date', '<=', $end_date)
-                    ->where('proposed_end_date', '>=', $start_date);
+//                    ->where('proposed_end_date', '>=', $start_date);
+                    ->where('proposed_end_date', '>', $start_date);
             })->exists();
 
         if ($isBooked) {

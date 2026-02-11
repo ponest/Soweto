@@ -13,6 +13,7 @@ class UpdateCommand
         $user = User::find($id);
         $user_exist = User::isExistOnEdit($data['email'], $id);
         if (!$user_exist) {
+//            dd($data);
             $user->update($data);
             //Delete Existing Roles
             DB::table('role_user')->where('user_id', $id)->delete();

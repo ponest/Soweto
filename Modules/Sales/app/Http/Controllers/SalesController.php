@@ -2,6 +2,7 @@
 
 namespace Modules\Sales\Http\Controllers;
 
+use App\Enums\GeneralEnum;
 use App\Enums\StockOutCategories;
 use App\Exports\ExpSalesReport;
 use App\Http\Controllers\Controller;
@@ -15,6 +16,7 @@ use Modules\General\Models\Ingredient;
 use Modules\General\Models\Staff;
 use Modules\HotelMgnt\Models\Booking;
 use Modules\HotelMgnt\Models\Client;
+use Modules\Inventory\Models\ItemUnitConversion;
 use Modules\Inventory\Models\StockItem;
 use Modules\Inventory\Models\StoreItem;
 use Modules\Sales\Commands\Sales\SaveBillCommand;
@@ -27,6 +29,7 @@ use Modules\Sales\Models\Bill;
 use Modules\Sales\Models\FoodMenu;
 use Modules\Sales\Models\Payment;
 use Modules\Sales\Models\Sale;
+use Modules\Setups\Models\Unit;
 
 class SalesController extends Controller
 {
@@ -35,20 +38,24 @@ class SalesController extends Controller
      */
     public function index($category)
     {
-        if ($category === 'bar') {
-            $storeId = User::userStoreId();
-            $itemsArray = StoreItem::whereStoreId($storeId)->pluck('item_id')->toArray();
-            $params['stock_items'] = StockItem::whereIn('id', $itemsArray)->orderBy('name')->get();
-        } elseif ($category === 'kitchen') {
-            $params['stock_items'] = FoodMenu::orderBy('name')->get();
-        } else {
-            $params['stock_items'] = [];
-        }
         $params['category'] = $category;
         $params['staffs'] = Staff::where('staff_role_id', 1)->orderBy('first_name')->get();
         $client_ids = Booking::whereBookingStatus('CheckedIn')->pluck('client_id')->toArray();
         $params['clients'] = Client::whereIn('id', $client_ids)->get();
-        return view('sales::sales.index', $params);
+
+        if ($category === 'bar') {
+            $storeId = User::userStoreId();
+            $itemsArray = StoreItem::whereStoreId($storeId)->pluck('item_id')->toArray();
+            $params['stock_items'] = StockItem::whereIn('id', $itemsArray)->orderBy('name')->get();
+            $params['units'] = Unit::whereIn('id', GeneralEnum::BarUnitsArray)->get();
+            return view('sales::sales.bar_sales_index', $params);
+        } elseif ($category === 'kitchen') {
+            $params['stock_items'] = FoodMenu::orderBy('name')->get();
+            return view('sales::sales.kitchen_sales_index', $params);
+        } else {
+            $params['stock_items'] = [];
+            return view('sales::sales.kitchen_sales_index', $params);
+        }
     }
 
     public function itemSales(Request $request)
@@ -93,6 +100,19 @@ class SalesController extends Controller
             if ($category === 'bar') {
                 foreach ($cart as $item) {
                     $itemInfo = StoreItem::stockBalance($storeId, $item['itemId']);
+                    if ($item['unitId'] == 9){ //tots
+                        $unitConv = ItemUnitConversion::where('item_id', $item['itemId'])
+                            ->where('to_unit_id', $item['unitId'])->first();
+                        $item['quantity'] = $item['quantity']/$unitConv->multiplier;
+                    }
+
+                    if ($item['unitId'] == 10){ //glasses
+                        $unitConv = ItemUnitConversion::where('item_id', $item['itemId'])
+                            ->where('to_unit_id', $item['unitId'])->first();
+                        $item['quantity'] = $item['quantity']/$unitConv->multiplier;
+                    }
+
+
                     if ($itemInfo['balance'] < $item['quantity']) {
                         return response()->json([
                             'success' => false,

@@ -12,4 +12,8 @@ use BenSampo\Enum\Enum;
 final class GeneralEnum extends Enum
 {
     const HouseKeepingStoreId = 5;
+    const TotsUnitId = 9;
+    const GlassUnitId = 10;
+
+    const BarUnitsArray = array(5, 9, 10);
 }

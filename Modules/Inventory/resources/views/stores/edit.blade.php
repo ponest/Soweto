@@ -1,4 +1,4 @@
-<form action="{{route('departments.update',$item->id)}}" method="post" autocomplete="off">
+<form action="{{route('stores.update',$item->id)}}" method="post" autocomplete="off">
     @csrf
     @method('PUT')
     <div class="modal-header">
