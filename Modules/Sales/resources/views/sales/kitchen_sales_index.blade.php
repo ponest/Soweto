@@ -286,7 +286,8 @@
                 },
                 error: function (xhr) {
                     console.error(xhr.responseText);
-                    swal("Error", 'Something went wrong. Please try again.', 'error');
+                    // swal("Error", 'Something went wrong. Please try again.', 'error');
+                    swal("Error",xhr.responseText.message , 'error');
                 }
             });
         });

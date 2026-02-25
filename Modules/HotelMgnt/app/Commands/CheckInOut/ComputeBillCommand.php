@@ -4,6 +4,7 @@ namespace Modules\HotelMgnt\Commands\CheckInOut;
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Modules\Auth\Models\User;
 use Modules\HotelMgnt\Models\Booking;
 use Modules\HotelMgnt\Models\BookingCharges;
@@ -19,29 +20,71 @@ class ComputeBillCommand
         return DB::transaction(function () use ($id) {
             $roomCheckInOut = RoomCheckInOut::find($id);
             $booking = Booking::with('room')->find($roomCheckInOut->booking_id);
-            $bookingHistories = BookingRoomHistory::where([['booking_id', $booking->id],['is_billed',false]])->get();
+            $bookingHistories = BookingRoomHistory::where([['booking_id', $booking->id], ['is_billed', false]])->get();
             $totalRoomCost = 0;
 
             foreach ($bookingHistories as $stay) {
-                $start_date =  Carbon::parse($stay->start_date);
-                $end_date =  Carbon::parse($stay->end_date);
-                $days = $stay->end_date
-                    ? $start_date->diffInDays($end_date)
-                    : $start_date->diffInDays(Carbon::today());
+//                $start_date = Carbon::parse($stay->start_date);
+//                $end_date = Carbon::parse($stay->end_date);
+//                $days = $stay->end_date
+//                    ? $start_date->diffInDays($end_date)
+//                    : $start_date->diffInDays(Carbon::today());
+//
+//                Log::info("Days Before ".$days);
+//
+//                if ($days < 1) {
+//                    $days = 1;
+//                }
+//                Log::info("Days After ".$days);
+//
+//                $now = Carbon::now();
+//                $checkoutTime = $now->format('H:i');
+//
+//                // Additional charge based on time
+//                $additional = 0;
+//
+//                if ($checkoutTime >= '11:00' && $checkoutTime < '13:00') {
+//                    $additional = 0.5; // half-day
+//                } elseif ($checkoutTime >= '13:00') {
+//                    $additional = 1; // full extra day
+//                }
+//
+//                $chargeableDays = $days + $additional;
 
-                $now = Carbon::now();
-                $checkoutTime = $now->format('H:i');
 
-                // Additional charge based on time
-                $additional = 0;
+                $start = Carbon::parse($stay->start_date);
+                $end = $stay->end_date
+                    ? Carbon::parse($stay->end_date)
+                    : Carbon::now();
 
-                if ($checkoutTime >= '11:00' && $checkoutTime < '13:00') {
-                    $additional = 0.5; // half-day
-                } elseif ($checkoutTime >= '13:00') {
-                    $additional = 1; // full extra day
+                // Calculate nights stayed (based on calendar days)
+                $nights = $start->copy()->startOfDay()->diffInDays($end->copy()->startOfDay());
+
+                // Minimum 1 night
+                if ($nights < 1) {
+                    $nights = 1;
                 }
 
-                $chargeableDays = $days + $additional;
+                // Define important times on checkout date
+                $checkoutDate = $end->copy()->startOfDay();
+
+                $officialCheckout = $checkoutDate->copy()->setTime(10, 0);
+                $graceLimit       = $checkoutDate->copy()->setTime(11, 0);
+                $halfDayLimit     = $checkoutDate->copy()->setTime(13, 0);
+
+                $additional = 0;
+
+                // Apply late charges only if checkout is after grace period
+                if ($end->greaterThan($graceLimit)) {
+
+                    if ($end->lessThanOrEqualTo($halfDayLimit)) {
+                        $additional = 0.5; // Between 11:00 and 13:00
+                    } else {
+                        $additional = 1; // After 13:00
+                    }
+                }
+
+                $chargeableDays = $nights + $additional;
 
                 $totalRoomCost += $chargeableDays * $stay->rate;
                 //Update Status
@@ -66,7 +109,7 @@ class ComputeBillCommand
                 $bill = new Bill();
                 $bill->booking_id = $roomCheckInOut->booking_id;
                 $bill->bill_amount = $totalRoomCost;
-                $bill->reference_no = "BILL-".now()->timestamp;
+                $bill->reference_no = "BILL-" . now()->timestamp;
                 $bill->category = "Accommodation";
                 $bill->ref_id = $id;
                 $bill->issued_at = now();
@@ -75,9 +118,9 @@ class ComputeBillCommand
                 $bill->save();
             }
 
-            $skippedTypes = array('Beverage Charges','Meal Charges');
-            $AllBookingCharges = BookingCharges::where([['booking_id', $roomCheckInOut->booking_id],['is_billed',false]])
-                ->whereNotIn('type',$skippedTypes)->get();
+            $skippedTypes = array('Beverage Charges', 'Meal Charges');
+            $AllBookingCharges = BookingCharges::where([['booking_id', $roomCheckInOut->booking_id], ['is_billed', false]])
+                ->whereNotIn('type', $skippedTypes)->get();
             foreach ($AllBookingCharges as $item) {
                 $billItem = new BillItem();
                 $billItem->bill_id = $bookingBill ? $bookingBill->id : $bill->id;
@@ -86,6 +129,7 @@ class ComputeBillCommand
                 $billItem->unit_price = $item->unit_price;
                 $billItem->quantity = $item->quantity;
                 $billItem->total_price = $item->total_price;
+                $billItem->bill_source = "Front Office";
                 $billItem->save();
 
                 $item->is_billed = true;

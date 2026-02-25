@@ -16,7 +16,6 @@ use Modules\Sales\Models\Bill;
 
 class BookingChargesController extends Controller
 {
-
     public function index($id)
     {
         $params['items'] = BookingCharges::whereBookingId($id)->latest('id')->get();

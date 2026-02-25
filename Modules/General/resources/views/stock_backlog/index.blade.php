@@ -48,10 +48,10 @@
                                     <a class="text-muted font-16 delete-link"
                                        href="{{route('stock-backlog.destroy',$item->id)}}"
                                        title="Delete" data-toggle="tooltip"><i class="fa fx-2 fa-trash-o"></i></a> |
+                                @endif
                                     <a class="text-muted font-16"
                                        href="{{route('stock-backlog-item.index',$item->id)}}"
                                        title="Items" data-toggle="tooltip"><i class="fa fx-2 fa-arrow-right"></i></a>
-                                @endif
                                 @if(!$item->submitted_at)
                                     | <a class="text-muted font-16 submit-link"
                                          href="{{route('stock-backlog.submit',$item->id)}}"

@@ -6,6 +6,7 @@ use App\Enums\GeneralEnum;
 use App\Enums\StockOutCategories;
 use App\Exports\ExpSalesReport;
 use App\Http\Controllers\Controller;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
@@ -60,134 +61,143 @@ class SalesController extends Controller
 
     public function itemSales(Request $request)
     {
-//        dd($request->all());
-//        exit();
-        return DB::transaction(function () use ($request) {
-            $cart = $request->input('cart');
-            $grandTotal = $request->input('grand_total');
-            $category = $request->input('category');
-            $clientId = $request->input('client_id');
-            $isAccommodation = $request->input('is_accommodation');
-            $isAdditionBill = $request->input('is_addition_bill');
-            $staffId = $request->input('staff_id');
-            $billRefNo = $request->input('bill_ref_no');
-            $booking = null;
+        try {
+            return DB::transaction(function () use ($request) {
+                $cart = $request->input('cart');
+                $grandTotal = $request->input('grand_total');
+                $category = $request->input('category');
+                $clientId = $request->input('client_id');
+                $isAccommodation = $request->input('is_accommodation');
+                $isAdditionBill = $request->input('is_addition_bill');
+                $staffId = $request->input('staff_id');
+                $billRefNo = $request->input('bill_ref_no');
+                $booking = null;
 
 
-            if ($isAdditionBill == 'Yes') {
-                $billInfo = Bill::where('reference_no', $billRefNo)
-                    ->where('status', '=', 'unpaid')->first();
-                if (!$billInfo) {
-                    return response()->json([
-                        'success' => false,
-                        'message' => 'Bill Reference Number is not found or is Already Paid'], 400);
-                }
-            }
-
-
-            if ($clientId != null) {
-                $booking = Booking::whereClientId($clientId)->where('booking_status', 'CheckedIn')->first();
-            }
-
-            if (empty($cart)) {
-                return response()->json([
-                    'success' => false,
-                    'message' => 'Cart is empty'], 400);
-            }
-            //Check if Balance Exists
-            $storeId = User::userStoreId();
-
-            if ($category === 'bar') {
-                foreach ($cart as $item) {
-                    $itemInfo = StoreItem::stockBalance($storeId, $item['itemId']);
-                    if ($item['unitId'] == 9){ //tots
-                        $unitConv = ItemUnitConversion::where('item_id', $item['itemId'])
-                            ->where('to_unit_id', $item['unitId'])->first();
-                        $item['quantity'] = $item['quantity']/$unitConv->multiplier;
-                    }
-
-                    if ($item['unitId'] == 10){ //glasses
-                        $unitConv = ItemUnitConversion::where('item_id', $item['itemId'])
-                            ->where('to_unit_id', $item['unitId'])->first();
-                        $item['quantity'] = $item['quantity']/$unitConv->multiplier;
-                    }
-
-
-                    if ($itemInfo['balance'] < $item['quantity']) {
+                if ($isAdditionBill == 'Yes') {
+                    $billInfo = Bill::where('reference_no', $billRefNo)
+                        ->where('status', '=', 'unpaid')->first();
+                    if (!$billInfo) {
                         return response()->json([
                             'success' => false,
-                            'message' => 'Balance is not enough!'
-                        ]);
+                            'message' => 'Bill Reference Number is not found or is Already Paid'], 400);
                     }
-                    //Save to Item Stock Out
-                    SaveStockOutCommand::handle($item, $storeId, StockOutCategories::SALES);
                 }
-            }
 
-            if ($category === 'kitchen') {
-                foreach ($cart as $item) {
-                    $ingredients = Ingredient::whereMenuId($item['itemId'])->get();
-                    if (count($ingredients) == 0) {
-                        return response()->json([
-                            'success' => false,
-                            'message' => 'Ingredients not found!'
-                        ]);
-                    }
-                    foreach ($ingredients as $ingredient) {
 
-                        $itemData['itemId'] = $ingredient->stock_item_id;
-                        $itemData['quantity'] = $ingredient->quantity * $item['quantity'];
-                        //Check if Balance is Enough
-                        $itemInfo = StoreItem::stockBalance($storeId, $itemData['itemId']);
+                if ($clientId != null) {
+                    $booking = Booking::whereClientId($clientId)->where('booking_status', 'CheckedIn')->first();
+                }
+
+                if (empty($cart)) {
+//                    return response()->json([
+//                        'success' => false,
+//                        'message' => 'Cart is empty'], 400);
+                    throw new Exception('Cart is empty');
+                }
+                //Check if Balance Exists
+                $storeId = User::userStoreId();
+
+                if ($category === 'bar') {
+                    foreach ($cart as $item) {
+                        $itemInfo = StoreItem::stockBalance($storeId, $item['itemId']);
+                        if ($item['unitId'] == 9) { //tots
+                            $unitConv = ItemUnitConversion::where('item_id', $item['itemId'])
+                                ->where('to_unit_id', $item['unitId'])->first();
+                            $item['quantity'] = $item['quantity'] / $unitConv->multiplier;
+                        }
+
+                        if ($item['unitId'] == 10) { //glasses
+                            $unitConv = ItemUnitConversion::where('item_id', $item['itemId'])
+                                ->where('to_unit_id', $item['unitId'])->first();
+                            $item['quantity'] = $item['quantity'] / $unitConv->multiplier;
+                        }
+
+
                         if ($itemInfo['balance'] < $item['quantity']) {
-                            return response()->json([
-                                'success' => false,
-                                'message' => 'Balance is not enough!'
-                            ]);
+//                            return response()->json([
+//                                'success' => false,
+//                                'message' => 'Balance is not enough!'
+//                            ]);
+                            throw new Exception('Balance is not enough!');
                         }
                         //Save to Item Stock Out
-                        SaveStockOutCommand::handle($itemData, $storeId, StockOutCategories::SALES);
+                        SaveStockOutCommand::handle($item, $storeId, StockOutCategories::SALES);
                     }
                 }
-            }
 
-            // Save Sale Batch
-            $sale_batch = SaveSalesBatchCommand::handle($grandTotal, $category, $booking);
+                if ($category === 'kitchen') {
+                    foreach ($cart as $item) {
+                        $ingredients = Ingredient::whereMenuId($item['itemId'])->get();
+                        if (count($ingredients) == 0) {
+//                            return response()->json([
+//                                'success' => false,
+//                                'message' => 'Ingredients not found!'
+//                            ]);
+                            throw new Exception('Ingredient not found!');
+                        }
+                        foreach ($ingredients as $ingredient) {
 
-            //Save to Bills Table
-            if ($booking) {
-                //if bill exist
-                $billExist = Bill::whereBookingId($booking->id)->first();
-                if ($billExist) {
-                    $bill = $billExist;
-                } else {
-                    $bill = SaveBillCommand::handle($sale_batch, $grandTotal, $booking);
-                }
-            } else {
-                if ($isAdditionBill == 'Yes') {
-                    $bill = $billInfo;
-                } else {
-                    $bill = SaveBillCommand::handle($sale_batch, $grandTotal, $booking);
-                }
-            }
-
-            foreach ($cart as $item) {
-                SaveSalesCommand::handle($item, $storeId, $sale_batch, $staffId);
-                if ($isAccommodation == 'Yes') {
-                    //Save to Booking Charges
-                    if ($booking != null) {
-                        SaveBookingChargesCommand::handle($item, $category, $booking);
+                            $itemData['itemId'] = $ingredient->stock_item_id;
+                            $itemData['quantity'] = $ingredient->quantity * $item['quantity'];
+                            //Check if Balance is Enough
+                            $itemInfo = StoreItem::stockBalance($storeId, $itemData['itemId']);
+                            if ($itemInfo['balance'] < $item['quantity']) {
+//                                return response()->json([
+//                                    'success' => false,
+//                                    'message' => 'Balance is not enough!'
+//                                ]);
+                                throw new Exception('Balance is not enough!');
+                            }
+                            //Save to Item Stock Out
+                            SaveStockOutCommand::handle($itemData, $storeId, StockOutCategories::SALES);
+                        }
                     }
                 }
-                //Save Bill Items
-                SaveBillItemsCommand::handle($bill, $item, $storeId, $staffId);
-            }
 
+                // Save Sale Batch
+                $sale_batch = SaveSalesBatchCommand::handle($grandTotal, $category, $booking);
+
+                //Save to Bills Table
+                if ($booking) {
+                    //if bill exist
+                    $billExist = Bill::whereBookingId($booking->id)->first();
+                    if ($billExist) {
+                        $bill = $billExist;
+                    } else {
+                        $bill = SaveBillCommand::handle($sale_batch, $grandTotal, $booking);
+                    }
+                } else {
+                    if ($isAdditionBill == 'Yes') {
+                        $bill = $billInfo;
+                    } else {
+                        $bill = SaveBillCommand::handle($sale_batch, $grandTotal, $booking);
+                    }
+                }
+
+                foreach ($cart as $item) {
+                    SaveSalesCommand::handle($item, $storeId, $sale_batch, $staffId);
+                    if ($isAccommodation == 'Yes') {
+                        //Save to Booking Charges
+                        if ($booking != null) {
+                            SaveBookingChargesCommand::handle($item, $category, $booking);
+                        }
+                    }
+                    //Save Bill Items
+                    SaveBillItemsCommand::handle($bill, $item, $storeId, $staffId);
+                }
+
+                return response()->json([
+                    'success' => true,
+                    'message' => 'Sales successful!'
+                ]);
+            });
+        } catch (Exception $e) {
             return response()->json([
-                'success' => true,
-                'message' => 'Sales successful!'
-            ]);
-        });
+                'success' => false,
+                'message' => $e->getMessage()
+            ], 400);
+        }
     }
 
     public function salesHistory()

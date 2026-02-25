@@ -1,3 +1,4 @@
+@php use App\Enums\PaymentMethodEnum; @endphp
 @extends('layouts.master')
 @section('title','Check In/Out')
 @section('content')
@@ -161,20 +162,20 @@
             $("#payment_method_id").on('change', function (e) {
                 const paymentMethodId = $(this).val();
 
-                if (paymentMethodId === "4") {
+                if (paymentMethodId === "{{PaymentMethodEnum::WalletId}}") {
                     $(".hid_div").css("display", "block");
                     $(".hid_disc_div").css("display", "none");
                     $(".hid_adv_div").css("display", "none");
                     $(".hid_div_btn").css("display", "block");
-                } else if (paymentMethodId === "6") {
-                    $(".hid_div").css("display", "none");
-                    $(".hid_adv_div").css("display", "none");
-                    $(".hid_disc_div").css("display", "block");
-                    $(".hid_div_btn").css("display", "block");
-                } else if (paymentMethodId === "7") {
+                } else if (paymentMethodId === "{{PaymentMethodEnum::AdvancePaymentId}}") {
                     $(".hid_div").css("display", "none");
                     $(".hid_adv_div").css("display", "block");
                     $(".hid_disc_div").css("display", "none");
+                    $(".hid_div_btn").css("display", "block");
+                } else if (paymentMethodId === "{{PaymentMethodEnum::DiscountId}}") {
+                    $(".hid_div").css("display", "none");
+                    $(".hid_adv_div").css("display", "none");
+                    $(".hid_disc_div").css("display", "block");
                     $(".hid_div_btn").css("display", "block");
                 } else {
                     $(".hid_div").css("display", "none");
@@ -194,21 +195,21 @@
                 const advanceBalance = parseFloat($("#advance_balance").val()) || 0;
                 const billAmount = parseFloat($("#bill_amount").val()) || 0;
 
-                if (paymentMethodId === "4") {
+                if (paymentMethodId === "{{PaymentMethodEnum::WalletId}}") {
                     if (paidAmount > walletBalance) {
                         swal("Warning", "The wallet balance is smaller than the paid amount", "warning");
                         return;
                     }
                 }
 
-                if (paymentMethodId === "6") {
+                if (paymentMethodId === "{{PaymentMethodEnum::DiscountId}}") {
                     if (paidAmount > discountBalance) {
                         swal("Warning", "The Discount Balance is smaller than the paid amount", "warning");
                         return;
                     }
                 }
 
-                if (paymentMethodId === "7") {
+                if (paymentMethodId === "{{PaymentMethodEnum::AdvancePaymentId}}") {
                     if (paidAmount > advanceBalance) {
                         swal("Warning", "The Advance Payment Balance is smaller than the paid amount", "warning");
                         return;
@@ -229,9 +230,9 @@
         function fetchDetails() {
             const paymentMethodId = $("#payment_method_id").val();
 
-            if (paymentMethodId === "4") {
+            if (paymentMethodId === "{{PaymentMethodEnum::WalletId}}") {
                 verifyWallet();
-            } else if (paymentMethodId === "6") {
+            } else if (paymentMethodId === "{{PaymentMethodEnum::DiscountId}}") {
                 verifyDiscount();
             } else {
                 verifyAdvancePayment();

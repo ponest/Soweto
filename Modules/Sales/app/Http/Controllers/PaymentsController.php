@@ -23,7 +23,7 @@ class PaymentsController extends Controller
     public function paymentHistoryFilter(Request $request)
     {
         $data = $request->all();
-
+//        dd($data);
         $params['payment_methods'] = PaymentMethod::orderBy('name')->get();
         $prefix = "Payment Report";
         $query = Payment::query();

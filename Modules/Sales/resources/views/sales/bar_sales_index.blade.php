@@ -311,8 +311,12 @@
                 },
                 error: function (xhr) {
                     console.error(xhr.responseText);
-                    swal("Error", 'Something went wrong. Please try again.', 'error');
+                    const message = xhr.responseJSON?.message ||
+                        "Something went wrong. Please try again.";
+
+                    swal("Error", message, "error");
                 }
+
             });
         });
 
