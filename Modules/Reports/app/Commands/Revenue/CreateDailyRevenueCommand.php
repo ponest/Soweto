@@ -1,4 +1,5 @@
 <?php
+
 namespace Modules\Reports\Commands\Revenue;
 
 use Illuminate\Support\Carbon;
@@ -14,20 +15,15 @@ class CreateDailyRevenueCommand
     {
         Log::info("Start CreateDailyRevenueCommand");
 
-//        $start_date = '2026-02-10';
-//        $end_date = '2026-03-10';
+        $date = Carbon::yesterday();
 
-        $start_date = '2025-01-11';
-        $end_date = '2026-03-10';
-
-        $totals = Payment::whereBetween('created_at', [$start_date, $end_date])
+        $totals = Payment::whereDate('created_at', $date)
             ->select(
                 DB::raw('DATE(created_at) as date'),
                 'payment_method_id',
                 DB::raw('SUM(paid_amount) as total')
             )
             ->groupBy('date', 'payment_method_id')
-            ->orderBy('date')
             ->get();
 
         foreach ($totals as $row) {

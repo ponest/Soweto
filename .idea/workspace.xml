@@ -4,20 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d44d5f7f-e478-428a-8108-98a2dcddfd72" name="Changes" comment="Minor Fixes">
-      <change afterPath="$PROJECT_DIR$/Modules/Reports/app/Commands/Revenue/CreateDailyRevenueCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/43de1f09-489f-44d2-8e1c-5ae6849ac275.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/43de1f09-489f-44d2-8e1c-5ae6849ac275.xml" afterDir="false" />
+    <list default="true" id="d44d5f7f-e478-428a-8108-98a2dcddfd72" name="Changes" comment="Daily Revenue">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/bc813df7-c2e0-4836-97a7-128262c39fce.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/bc813df7-c2e0-4836-97a7-128262c39fce.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/CheckInOut/ComputeBillCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/CheckInOut/ComputeBillCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/PaymentsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/PaymentsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Sales/resources/views/payment/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/resources/views/payment/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Sales/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules_statuses.json" beforeDir="false" afterPath="$PROJECT_DIR$/modules_statuses.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Reports/app/Commands/Revenue/CreateDailyRevenueCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Reports/app/Commands/Revenue/CreateDailyRevenueCommand.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/console.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/console.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -518,15 +509,9 @@
       <workItem from="1772907380504" duration="754000" />
       <workItem from="1772908142152" duration="1126000" />
       <workItem from="1772909274648" duration="9976000" />
-      <workItem from="1773161587490" duration="4658000" />
-    </task>
-    <task id="LOCAL-00033" summary="Handle Stock Issues And Receiving">
-      <option name="closed" value="true" />
-      <created>1753797728977</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1753797728977</updated>
+      <workItem from="1773161587490" duration="6217000" />
+      <workItem from="1773214202558" duration="2250000" />
+      <workItem from="1773219166183" duration="2286000" />
     </task>
     <task id="LOCAL-00034" summary="Some Changes">
       <option name="closed" value="true" />
@@ -912,14 +897,21 @@
       <option name="project" value="LOCAL" />
       <updated>1772046268944</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="Daily Revenue">
+      <option name="closed" value="true" />
+      <created>1773209131058</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1773209131059</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Client Approval Implemented" />
     <MESSAGE value="Fix Issues" />
     <MESSAGE value="Purchase Request Implemented" />
     <MESSAGE value="Modified Bill Handling" />
@@ -944,7 +936,8 @@
     <MESSAGE value="Disposal Request Implemented" />
     <MESSAGE value="Implemented Tots and Glasses" />
     <MESSAGE value="Minor Fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Minor Fixes" />
+    <MESSAGE value="Daily Revenue" />
+    <option name="LAST_COMMIT_MESSAGE" value="Daily Revenue" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

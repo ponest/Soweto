@@ -4,6 +4,7 @@ use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Log;
 use Modules\HotelMgnt\Commands\Room\StoreConsumedItemCommand;
+use Modules\Reports\Commands\Revenue\CreateDailyRevenueCommand;
 
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
@@ -18,7 +19,7 @@ Schedule::call(function () {
 
 Schedule::call(function () {
     CreateDailyRevenueCommand::handle();
-})->dailyAt('23:55');
+})->dailyAt('00:10');
 
 
 //Schedule::call(function () {
