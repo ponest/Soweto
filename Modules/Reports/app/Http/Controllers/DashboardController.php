@@ -4,6 +4,8 @@ namespace Modules\Reports\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Gate;
+use Modules\HotelMgnt\Models\Room;
+use Modules\HotelMgnt\Models\RoomCheckInOut;
 use Modules\Reports\Queries\Revenue\WeeklyRevenueByPaymentMethodQuery;
 use Modules\Reports\Queries\Revenue\WeeklyRevenueQuery;
 use Modules\Sales\Models\Bill;
@@ -15,7 +17,10 @@ class DashboardController extends Controller
     {
         if (Gate::allows('Accountant')) {
             return $this->accountDashboard();
-        } else {
+        }elseif (Gate::allows('FrontOfficer')) {
+            return $this->frontOfficeDashboard();
+        }
+        else {
             return $this->defaultDashboard();
         }
     }
@@ -39,5 +44,16 @@ class DashboardController extends Controller
         $params = array_merge($params, $billInfo);
 
         return view('auth::dashboards.accounts_dashboard', $params);
+    }
+
+    public function frontOfficeDashboard()
+    {
+        $params['totalRooms'] = Room::count();
+        $params['occupiedRooms'] = Room::whereStatus('Occupied')->count();
+        $params['availableRooms'] = $params['totalRooms'] - $params['occupiedRooms'];
+        $params['checkIns'] = RoomCheckInOut::whereDate('checked_in_at', today())->count();
+        $params['checkOuts'] = RoomCheckInOut::whereDate('checked_out_at', today())->count();
+
+        return view('auth::dashboards.front_dashboard', $params);
     }
 }
