@@ -4,7 +4,6 @@ namespace Modules\HotelMgnt\Commands\CheckInOut;
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
 use Modules\Auth\Models\User;
 use Modules\HotelMgnt\Models\Booking;
 use Modules\HotelMgnt\Models\BookingCharges;

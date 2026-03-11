@@ -37,7 +37,7 @@ Route::middleware('auth')->group(function () {
     Route::get('sales-history/excel', [SalesController::class, 'downloadExcel'])->name('sales-history-excel');
 
     Route::get('payment-history', [PaymentsController::class, 'paymentHistory'])->name('payment-history');
-    Route::post('payment-history/filter', [PaymentsController::class, 'paymentHistoryFilter'])->name('payment-history-filter');
+    Route::get('payment-history/filter', [PaymentsController::class, 'paymentHistoryFilter'])->name('payment-history-filter');
     Route::get('payment-history/excel', [PaymentsController::class, 'downloadExcel'])->name('payment-history-excel');
 
     Route::get('bills/index', [BillsController::class, 'index'])->name('bills.index');

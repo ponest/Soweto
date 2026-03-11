@@ -4,20 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d44d5f7f-e478-428a-8108-98a2dcddfd72" name="Changes" comment="Implemented Tots and Glasses">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="d44d5f7f-e478-428a-8108-98a2dcddfd72" name="Changes" comment="Minor Fixes">
+      <change afterPath="$PROJECT_DIR$/Modules/Reports/app/Commands/Revenue/CreateDailyRevenueCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/43de1f09-489f-44d2-8e1c-5ae6849ac275.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/43de1f09-489f-44d2-8e1c-5ae6849ac275.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/bc813df7-c2e0-4836-97a7-128262c39fce.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/bc813df7-c2e0-4836-97a7-128262c39fce.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/General/resources/views/stock_backlog/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/General/resources/views/stock_backlog/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/CheckInOut/ComputeBillCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/CheckInOut/ComputeBillCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Http/Controllers/BookingChargesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Http/Controllers/BookingChargesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/check_in_out/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/check_in_out/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Sales/app/Commands/Sales/SaveBillItemsCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/app/Commands/Sales/SaveBillItemsCommand.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/PaymentsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/PaymentsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/SalesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/SalesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Sales/app/Models/BillItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/app/Models/BillItem.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Sales/resources/views/sales/bar_sales_index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/resources/views/sales/bar_sales_index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Sales/resources/views/sales/kitchen_sales_index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/resources/views/sales/kitchen_sales_index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Sales/resources/views/payment/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/resources/views/payment/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Sales/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules_statuses.json" beforeDir="false" afterPath="$PROJECT_DIR$/modules_statuses.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/console.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/console.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -505,15 +505,20 @@
       <workItem from="1771656164781" duration="10197000" />
       <workItem from="1771931181769" duration="3026000" />
       <workItem from="1771947046377" duration="596000" />
-      <workItem from="1771997538499" duration="6985000" />
-    </task>
-    <task id="LOCAL-00032" summary="Handle Stock Issues And Receiving">
-      <option name="closed" value="true" />
-      <created>1750521596286</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1750521596286</updated>
+      <workItem from="1771997538499" duration="7356000" />
+      <workItem from="1772129428030" duration="548000" />
+      <workItem from="1772213853710" duration="1115000" />
+      <workItem from="1772432611541" duration="2194000" />
+      <workItem from="1772713393607" duration="3513000" />
+      <workItem from="1772797385161" duration="87000" />
+      <workItem from="1772879976999" duration="3508000" />
+      <workItem from="1772886584435" duration="4881000" />
+      <workItem from="1772899043286" duration="2643000" />
+      <workItem from="1772905244033" duration="1924000" />
+      <workItem from="1772907380504" duration="754000" />
+      <workItem from="1772908142152" duration="1126000" />
+      <workItem from="1772909274648" duration="9976000" />
+      <workItem from="1773161587490" duration="4658000" />
     </task>
     <task id="LOCAL-00033" summary="Handle Stock Issues And Receiving">
       <option name="closed" value="true" />
@@ -899,14 +904,21 @@
       <option name="project" value="LOCAL" />
       <updated>1770815178923</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="Minor Fixes">
+      <option name="closed" value="true" />
+      <created>1772046268944</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1772046268944</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Client Wallet Successfully Developed" />
     <MESSAGE value="Client Approval Implemented" />
     <MESSAGE value="Fix Issues" />
     <MESSAGE value="Purchase Request Implemented" />
@@ -931,7 +943,8 @@
     <MESSAGE value="Payment History Implemented" />
     <MESSAGE value="Disposal Request Implemented" />
     <MESSAGE value="Implemented Tots and Glasses" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented Tots and Glasses" />
+    <MESSAGE value="Minor Fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor Fixes" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

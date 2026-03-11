@@ -4,5 +4,6 @@
     "HotelMgnt": true,
     "General": true,
     "Inventory": true,
-    "Sales": true
+    "Sales": true,
+    "Reports": true
 }

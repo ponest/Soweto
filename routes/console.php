@@ -16,6 +16,11 @@ Schedule::call(function () {
     StoreConsumedItemCommand::handle();
 })->dailyAt('23:55');
 
+Schedule::call(function () {
+    CreateDailyRevenueCommand::handle();
+})->dailyAt('23:55');
+
+
 //Schedule::call(function () {
 //    Log::info("Something Good");
 //})->everyMinute();

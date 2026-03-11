@@ -221,6 +221,10 @@ class ComposerStaticInit15e6712cb2bd72d23f7ef2f51138e19c
             'Modules\\Sales\\Database\\Seeders\\' => 31,
             'Modules\\Sales\\Database\\Factories\\' => 33,
             'Modules\\Sales\\' => 14,
+            'Modules\\Reports\\Tests\\' => 22,
+            'Modules\\Reports\\Database\\Seeders\\' => 33,
+            'Modules\\Reports\\Database\\Factories\\' => 35,
+            'Modules\\Reports\\' => 16,
             'Modules\\Inventory\\Tests\\' => 24,
             'Modules\\Inventory\\Database\\Seeders\\' => 35,
             'Modules\\Inventory\\Database\\Factories\\' => 37,
@@ -583,6 +587,22 @@ class ComposerStaticInit15e6712cb2bd72d23f7ef2f51138e19c
         array (
             0 => __DIR__ . '/../..' . '/Modules/Sales/app',
         ),
+        'Modules\\Reports\\Tests\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Modules/Reports/tests',
+        ),
+        'Modules\\Reports\\Database\\Seeders\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Modules/Reports/database/seeders',
+        ),
+        'Modules\\Reports\\Database\\Factories\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Modules/Reports/database/factories',
+        ),
+        'Modules\\Reports\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Modules/Reports/app',
+        ),
         'Modules\\Inventory\\Tests\\' => 
         array (
             0 => __DIR__ . '/../..' . '/Modules/Inventory/tests',
@@ -874,6 +894,7 @@ class ComposerStaticInit15e6712cb2bd72d23f7ef2f51138e19c
         'App\\Enums\\GeneralEnum' => __DIR__ . '/../..' . '/app/Enums/GeneralEnum.php',
         'App\\Enums\\PaymentMethodEnum' => __DIR__ . '/../..' . '/app/Enums/PaymentMethodEnum.php',
         'App\\Enums\\StockOutCategories' => __DIR__ . '/../..' . '/app/Enums/StockOutCategories.php',
+        'App\\Exports\\ExpPaymentReport' => __DIR__ . '/../..' . '/app/Exports/ExpPaymentReport.php',
         'App\\Exports\\ExpSalesReport' => __DIR__ . '/../..' . '/app/Exports/ExpSalesReport.php',
         'App\\Helpers\\General' => __DIR__ . '/../..' . '/app/Helpers/General.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
@@ -5118,6 +5139,16 @@ class ComposerStaticInit15e6712cb2bd72d23f7ef2f51138e19c
         'Modules\\HotelMgnt\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/Modules/HotelMgnt/app/Providers/EventServiceProvider.php',
         'Modules\\HotelMgnt\\Providers\\HotelMgntServiceProvider' => __DIR__ . '/../..' . '/Modules/HotelMgnt/app/Providers/HotelMgntServiceProvider.php',
         'Modules\\HotelMgnt\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/Modules/HotelMgnt/app/Providers/RouteServiceProvider.php',
+        'Modules\\Inventory\\Commands\\DisposalRequestItem\\DeleteCommand' => __DIR__ . '/../..' . '/Modules/Inventory/app/Commands/DisposalRequestItem/DeleteCommand.php',
+        'Modules\\Inventory\\Commands\\DisposalRequestItem\\StoreCommand' => __DIR__ . '/../..' . '/Modules/Inventory/app/Commands/DisposalRequestItem/StoreCommand.php',
+        'Modules\\Inventory\\Commands\\DisposalRequestItem\\UpdateCommand' => __DIR__ . '/../..' . '/Modules/Inventory/app/Commands/DisposalRequestItem/UpdateCommand.php',
+        'Modules\\Inventory\\Commands\\DisposalRequest\\ApproveCommand' => __DIR__ . '/../..' . '/Modules/Inventory/app/Commands/DisposalRequest/ApproveCommand.php',
+        'Modules\\Inventory\\Commands\\DisposalRequest\\DeleteCommand' => __DIR__ . '/../..' . '/Modules/Inventory/app/Commands/DisposalRequest/DeleteCommand.php',
+        'Modules\\Inventory\\Commands\\DisposalRequest\\RejectCommand' => __DIR__ . '/../..' . '/Modules/Inventory/app/Commands/DisposalRequest/RejectCommand.php',
+        'Modules\\Inventory\\Commands\\DisposalRequest\\ReviewCommand' => __DIR__ . '/../..' . '/Modules/Inventory/app/Commands/DisposalRequest/ReviewCommand.php',
+        'Modules\\Inventory\\Commands\\DisposalRequest\\StoreCommand' => __DIR__ . '/../..' . '/Modules/Inventory/app/Commands/DisposalRequest/StoreCommand.php',
+        'Modules\\Inventory\\Commands\\DisposalRequest\\SubmitCommand' => __DIR__ . '/../..' . '/Modules/Inventory/app/Commands/DisposalRequest/SubmitCommand.php',
+        'Modules\\Inventory\\Commands\\DisposalRequest\\UpdateCommand' => __DIR__ . '/../..' . '/Modules/Inventory/app/Commands/DisposalRequest/UpdateCommand.php',
         'Modules\\Inventory\\Commands\\ItemStockIn\\DeleteCommand' => __DIR__ . '/../..' . '/Modules/Inventory/app/Commands/ItemStockIn/DeleteCommand.php',
         'Modules\\Inventory\\Commands\\ItemStockIn\\StoreCommand' => __DIR__ . '/../..' . '/Modules/Inventory/app/Commands/ItemStockIn/StoreCommand.php',
         'Modules\\Inventory\\Commands\\ItemStockIn\\UpdateCommand' => __DIR__ . '/../..' . '/Modules/Inventory/app/Commands/ItemStockIn/UpdateCommand.php',
@@ -5160,6 +5191,8 @@ class ComposerStaticInit15e6712cb2bd72d23f7ef2f51138e19c
         'Modules\\Inventory\\Commands\\UnitConversion\\StoreCommand' => __DIR__ . '/../..' . '/Modules/Inventory/app/Commands/UnitConversion/StoreCommand.php',
         'Modules\\Inventory\\Commands\\UnitConversion\\UpdateCommand' => __DIR__ . '/../..' . '/Modules/Inventory/app/Commands/UnitConversion/UpdateCommand.php',
         'Modules\\Inventory\\Database\\Seeders\\InventoryDatabaseSeeder' => __DIR__ . '/../..' . '/Modules/Inventory/database/seeders/InventoryDatabaseSeeder.php',
+        'Modules\\Inventory\\Http\\Controllers\\DisposalRequestController' => __DIR__ . '/../..' . '/Modules/Inventory/app/Http/Controllers/DisposalRequestController.php',
+        'Modules\\Inventory\\Http\\Controllers\\DisposalRequestItemsController' => __DIR__ . '/../..' . '/Modules/Inventory/app/Http/Controllers/DisposalRequestItemsController.php',
         'Modules\\Inventory\\Http\\Controllers\\InventoryController' => __DIR__ . '/../..' . '/Modules/Inventory/app/Http/Controllers/InventoryController.php',
         'Modules\\Inventory\\Http\\Controllers\\ItemStockInController' => __DIR__ . '/../..' . '/Modules/Inventory/app/Http/Controllers/ItemStockInController.php',
         'Modules\\Inventory\\Http\\Controllers\\ItemStockOutController' => __DIR__ . '/../..' . '/Modules/Inventory/app/Http/Controllers/ItemStockOutController.php',
@@ -5175,6 +5208,8 @@ class ComposerStaticInit15e6712cb2bd72d23f7ef2f51138e19c
         'Modules\\Inventory\\Http\\Controllers\\StoreController' => __DIR__ . '/../..' . '/Modules/Inventory/app/Http/Controllers/StoreController.php',
         'Modules\\Inventory\\Http\\Controllers\\StoreItemController' => __DIR__ . '/../..' . '/Modules/Inventory/app/Http/Controllers/StoreItemController.php',
         'Modules\\Inventory\\Http\\Controllers\\SuppliersController' => __DIR__ . '/../..' . '/Modules/Inventory/app/Http/Controllers/SuppliersController.php',
+        'Modules\\Inventory\\Models\\DisposalRequest' => __DIR__ . '/../..' . '/Modules/Inventory/app/Models/DisposalRequest.php',
+        'Modules\\Inventory\\Models\\DisposalRequestItem' => __DIR__ . '/../..' . '/Modules/Inventory/app/Models/DisposalRequestItem.php',
         'Modules\\Inventory\\Models\\ItemStockIn' => __DIR__ . '/../..' . '/Modules/Inventory/app/Models/ItemStockIn.php',
         'Modules\\Inventory\\Models\\ItemStockOut' => __DIR__ . '/../..' . '/Modules/Inventory/app/Models/ItemStockOut.php',
         'Modules\\Inventory\\Models\\ItemUnitConversion' => __DIR__ . '/../..' . '/Modules/Inventory/app/Models/ItemUnitConversion.php',
@@ -5192,6 +5227,11 @@ class ComposerStaticInit15e6712cb2bd72d23f7ef2f51138e19c
         'Modules\\Inventory\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/Modules/Inventory/app/Providers/EventServiceProvider.php',
         'Modules\\Inventory\\Providers\\InventoryServiceProvider' => __DIR__ . '/../..' . '/Modules/Inventory/app/Providers/InventoryServiceProvider.php',
         'Modules\\Inventory\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/Modules/Inventory/app/Providers/RouteServiceProvider.php',
+        'Modules\\Reports\\Database\\Seeders\\ReportsDatabaseSeeder' => __DIR__ . '/../..' . '/Modules/Reports/database/seeders/ReportsDatabaseSeeder.php',
+        'Modules\\Reports\\Http\\Controllers\\ReportsController' => __DIR__ . '/../..' . '/Modules/Reports/app/Http/Controllers/ReportsController.php',
+        'Modules\\Reports\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/Modules/Reports/app/Providers/EventServiceProvider.php',
+        'Modules\\Reports\\Providers\\ReportsServiceProvider' => __DIR__ . '/../..' . '/Modules/Reports/app/Providers/ReportsServiceProvider.php',
+        'Modules\\Reports\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/Modules/Reports/app/Providers/RouteServiceProvider.php',
         'Modules\\Sales\\Commands\\Bills\\ConfirmPaymentCommand' => __DIR__ . '/../..' . '/Modules/Sales/app/Commands/Bills/ConfirmPaymentCommand.php',
         'Modules\\Sales\\Commands\\Bills\\StorePaymentCommand' => __DIR__ . '/../..' . '/Modules/Sales/app/Commands/Bills/StorePaymentCommand.php',
         'Modules\\Sales\\Commands\\FoodMenu\\DeleteCommand' => __DIR__ . '/../..' . '/Modules/Sales/app/Commands/FoodMenu/DeleteCommand.php',
@@ -5231,6 +5271,7 @@ class ComposerStaticInit15e6712cb2bd72d23f7ef2f51138e19c
         'Modules\\Sales\\Http\\Controllers\\MenuPriceApprovalController' => __DIR__ . '/../..' . '/Modules/Sales/app/Http/Controllers/MenuPriceApprovalController.php',
         'Modules\\Sales\\Http\\Controllers\\MenuPriceApprovalItemController' => __DIR__ . '/../..' . '/Modules/Sales/app/Http/Controllers/MenuPriceApprovalItemController.php',
         'Modules\\Sales\\Http\\Controllers\\MenuPriceController' => __DIR__ . '/../..' . '/Modules/Sales/app/Http/Controllers/MenuPriceController.php',
+        'Modules\\Sales\\Http\\Controllers\\PaymentsController' => __DIR__ . '/../..' . '/Modules/Sales/app/Http/Controllers/PaymentsController.php',
         'Modules\\Sales\\Http\\Controllers\\PriceApprovalItemController' => __DIR__ . '/../..' . '/Modules/Sales/app/Http/Controllers/PriceApprovalItemController.php',
         'Modules\\Sales\\Http\\Controllers\\SalesController' => __DIR__ . '/../..' . '/Modules/Sales/app/Http/Controllers/SalesController.php',
         'Modules\\Sales\\Models\\Bill' => __DIR__ . '/../..' . '/Modules/Sales/app/Models/Bill.php',
