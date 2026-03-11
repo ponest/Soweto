@@ -5,16 +5,33 @@ namespace Modules\Reports\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
-use Modules\Reports\Commands\Revenue\CreateDailyRevenueCommand;
 use Modules\Reports\Models\DailyRevenue;
 use Modules\Sales\Models\Payment;
 
 class ReportsController extends Controller
 {
 
-    public function index()
+    public function revenueTrend()
     {
-       CreateDailyRevenueCommand::handle();
+        $revenues = DB::table('daily_revenues')
+            ->select(
+                DB::raw('DATE(date) as day'),
+                DB::raw('SUM(amount) as total_revenue')
+            )
+            ->whereDate('date', '>=', Carbon::now()->subDays(6))
+            ->groupBy('day')
+            ->orderBy('day')
+            ->get();
+
+        $dates = [];
+        $amounts = [];
+
+        foreach ($revenues as $rev) {
+            $dates[] = Carbon::parse($rev->day)->format('D');
+            $amounts[] = (float) $rev->total_revenue;
+        }
+
+        return view('reports.revenue-trend', compact('dates','amounts'));
     }
 
     public function calculateDailyRevenue()

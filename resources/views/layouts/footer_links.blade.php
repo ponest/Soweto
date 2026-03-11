@@ -16,6 +16,14 @@
 <script src="{{asset('assets/vendors/select2/dist/js/select2.full.min.js')}}"></script>
 <script src="{{asset('assets/vendors/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
 <script src="{{asset('assets/js/custom.js')}}"></script>
+<!--High Charts-->
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/series-label.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<script src="https://code.highcharts.com/themes/adaptive.js"></script>
+
 <!-- CORE SCRIPTS-->
 <script src="{{asset('assets/js/app.min.js')}}"></script>
 <script>

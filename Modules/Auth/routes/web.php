@@ -4,13 +4,14 @@ use Illuminate\Support\Facades\Route;
 use Modules\Auth\Http\Controllers\AuthController;
 use Modules\Auth\Http\Controllers\RolesController;
 use Modules\Auth\Http\Controllers\UsersController;
+use Modules\Reports\Http\Controllers\DashboardController;
 
 //Route::middleware(['auth', 'verified'])->group(function () {
 //    Route::resource('auths', AuthController::class)->names('auth');
 //});
 
 Route::get('/', [AuthController::class, 'index'])->name('login');
-Route::get('dashboard', [AuthController::class, 'dashboard'])->name('dashboard');
+Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::post('login', [AuthController::class, 'login'])->name('login.post');
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('change-pass', [AuthController::class, 'changePasswordView'])->name('change-pass');

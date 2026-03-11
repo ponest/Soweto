@@ -43,10 +43,6 @@ class AuthController extends Controller
         return view('auth::index', $params);
     }
 
-    public function dashboard()
-    {
-        return view('auth::dashboards.main');
-    }
 
     public function logout(Request $request)
     {
