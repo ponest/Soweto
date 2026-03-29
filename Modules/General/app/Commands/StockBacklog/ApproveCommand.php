@@ -4,6 +4,7 @@ namespace Modules\General\Commands\StockBacklog;
 
 use Exception;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Modules\General\Models\StockBacklogRequest;
 use Modules\Inventory\Models\ItemStockIn;
 use Modules\Inventory\Models\StoreItem;
@@ -33,8 +34,6 @@ class ApproveCommand
                     $storeItem->save();
                 }
 
-                \Log::info($item);
-
                 //Add to Stock
                 $stockIn = new ItemStockIn();
                 $stockIn->store_id = $backlogReq->store_id;
@@ -54,6 +53,7 @@ class ApproveCommand
             ];
 
         } catch (Exception $ex) {
+            Log::error($ex->getMessage());
             DB::rollBack();
             return [
                 'message' => $ex->getMessage(),

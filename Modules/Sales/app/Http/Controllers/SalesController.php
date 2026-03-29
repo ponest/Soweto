@@ -51,7 +51,12 @@ class SalesController extends Controller
             $params['units'] = Unit::whereIn('id', GeneralEnum::BarUnitsArray)->get();
             return view('sales::sales.bar_sales_index', $params);
         } elseif ($category === 'kitchen') {
-            $params['stock_items'] = FoodMenu::orderBy('name')->get();
+            $menu_ids = Ingredient::distinct()->pluck('menu_id');
+            $menus = FoodMenu::whereIn('id', $menu_ids)
+                ->orderBy('name')
+                ->get();
+            $params['stock_items'] = $menus;
+            $params['companies'] = $menus->where('is_company', true);
             return view('sales::sales.kitchen_sales_index', $params);
         } else {
             $params['stock_items'] = [];

@@ -176,10 +176,6 @@
                         {
                             name: 'Available Rooms',
                             y: {{ $availableRooms }}
-                        },
-                        {
-                            name: 'Total Rooms',
-                            y: {{ $totalRooms }}
                         }
                     ]
                 }]

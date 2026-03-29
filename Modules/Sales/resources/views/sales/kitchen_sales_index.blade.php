@@ -14,7 +14,7 @@
 
             <div class="row">
                 <div class="col-9" style="padding-top: 2vh">
-                        <h5 class="font-strong">KITCHEN SELLING POINT</h5>
+                    <h5 class="font-strong">KITCHEN SELLING POINT</h5>
                 </div>
                 <div class="col-3" style="text-align: right">
                     <!--Buttons Goes Here-->
@@ -34,21 +34,21 @@
                             <div class="form-row">
                                 <div class="form-group col-md-4">
                                     <label>Include In Accommodation Bill?</label>
-                                    <select id="is_accommodation" class="form-control" >
+                                    <select id="is_accommodation" class="form-control">
                                         <option value="No" selected>No</option>
                                         <option value="Yes">Yes</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-4" id="added_bill">
                                     <label>Add On existing Bill?</label>
-                                    <select id="is_added_bill" class="form-control" >
+                                    <select id="is_added_bill" class="form-control">
                                         <option value="No" selected>No</option>
                                         <option value="Yes">Yes</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-4" id="guest_name" style="display: none">
                                     <label>Client Name</label>
-                                    <select id="client_id" class="form-control" >
+                                    <select id="client_id" class="form-control">
                                         <option value="" disabled selected>Select Client...</option>
                                         @foreach($clients as $client)
                                             <option value="{{$client->id}}">{{$client->full_name}}</option>
@@ -61,7 +61,7 @@
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label>Waiter Name</label>
-                                    <select id="staff_id" class="form-control" >
+                                    <select id="staff_id" class="form-control">
                                         <option value="">---Select---</option>
                                         @foreach($staffs as $staff)
                                             <option value="{{$staff->id}}">{{$staff->full_name}}</option>
@@ -70,7 +70,7 @@
                                 </div>
                             </div>
                             <div class="form-row">
-                                <div class="form-group col-4">
+                                <div class="form-group col-3">
                                     <label>Item</label>
                                     <select id="itemName" class="form-control" required>
                                         <option value="" disabled selected>Select item...</option>
@@ -80,15 +80,25 @@
                                         @endforeach
                                     </select>
                                 </div>
+                                <div class="form-group col-3">
+                                    <label>Company</label>
+                                    <select id="itemCompany" class="form-control" required>
+                                        <option value="" disabled selected>Select Company...</option>
+                                        @foreach($companies as $company )
+                                            <option value="{{$company->id}}"
+                                                    data-name="{{$company->name}}">{{$company->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                                 <div class="form-group col-2">
                                     <label>Quantity</label>
                                     <input type="number" id="quantity" class="form-control" min="1" value="1" required>
                                 </div>
-                                <div class="form-group col-3">
+                                <div class="form-group col-2">
                                     <label>Price (auto)</label>
                                     <input type="number" step="0.01" id="price" class="form-control" readonly>
                                 </div>
-                                <div class="form-group col-md-3 d-flex align-items-end">
+                                <div class="form-group col-md-2 d-flex align-items-end">
                                     <button type="submit" class="btn btn-success btn-block">Add to Cart</button>
                                 </div>
                             </div>
@@ -143,17 +153,17 @@
             const itemId = $(this).val();
             if (itemId != null) {
                 const category = $("#category").val();
-                getPrice(itemId,category);
+                getPrice(itemId, category);
             }
         });
 
 
         $('#is_accommodation').change(function () {
-             isAccommodation = $(this).val();
+            isAccommodation = $(this).val();
             if (isAccommodation === "Yes") {
-               $("#guest_name").css('display', 'block');
-               $("#added_bill").css('display', 'none');
-            }else{
+                $("#guest_name").css('display', 'block');
+                $("#added_bill").css('display', 'none');
+            } else {
                 $("#guest_name").css('display', 'none');
                 $("#added_bill").css('display', 'block');
             }
@@ -164,7 +174,7 @@
             if (isAddedBill === "Yes") {
                 $("#bill_ref").css('display', 'block');
                 $("#bill_ref_no").attr('required', true);
-            }else{
+            } else {
                 $("#bill_ref").css('display', 'none');
                 $("#bill_ref_no").attr('required', false);
             }
@@ -184,14 +194,14 @@
                 success: function (response) {
                     if (response.success === true) {
                         $('#price').val(response.price);
-                    }else{
+                    } else {
                         swal("Warning!", response.message, "warning");
                     }
                 }
             });
         }
 
-        // Add item to cart
+        // Add item to the cart
         $('#addItemForm').submit(function (e) {
             e.preventDefault();
             // get selected item
@@ -211,10 +221,36 @@
             cart.push({itemId, itemName, quantity, price, total});
             updateCart();
 
+            addCompany(quantity);
+
             this.reset();
             priceSelector.val('');
             itemIdSelector.val('').change();
         });
+
+
+        function addCompany(quantity) {
+            // get selected item
+            const itemIdSelector = $('#itemCompany');
+            let itemId = itemIdSelector.val();
+            console.log("Am here");
+            console.log(itemId);
+            if (itemId) {
+                let itemName = $('#itemCompany option:selected').data('name'); // ✅ correct way to get data-itemName
+                const priceSelector = 0;
+                let price = 0;
+                billRefNo = $('#bill_ref_no').val();
+                staffId = $('#staff_id').val();
+
+                if (!itemId || quantity < 1) return;
+
+                let total = 0;
+
+                cart.push({itemId, itemName, quantity, price, total});
+                updateCart();
+            }
+        }
+
 
         // Remove item
         function removeItem(index) {
@@ -287,7 +323,7 @@
                 error: function (xhr) {
                     console.error(xhr.responseText);
                     // swal("Error", 'Something went wrong. Please try again.', 'error');
-                    swal("Error",xhr.responseText.message , 'error');
+                    swal("Error", xhr.responseText.message, 'error');
                 }
             });
         });

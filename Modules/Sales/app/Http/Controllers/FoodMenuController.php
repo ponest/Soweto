@@ -16,6 +16,8 @@ class FoodMenuController extends Controller
     public function index()
     {
         $params['items'] = FoodMenu::latest('id')->get();
+        $params['is_company'] = [['value'=>0, 'text'=>'No'],['value'=>1, 'text'=>'Yes']];
+        $params['has_company'] = [['value'=>0, 'text'=>'No'],['value'=>1, 'text'=>'Yes']];
         return view('sales::food_menu.index', $params);
     }
 
@@ -30,6 +32,8 @@ class FoodMenuController extends Controller
     public function edit($id)
     {
         $params['item'] = FoodMenu::find($id);
+        $params['is_company'] = [['value'=>0, 'text'=>'No'],['value'=>1, 'text'=>'Yes']];
+        $params['has_company'] = [['value'=>0, 'text'=>'No'],['value'=>1, 'text'=>'Yes']];
         return view('sales::food_menu.edit', $params);
     }
 

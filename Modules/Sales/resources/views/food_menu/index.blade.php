@@ -26,6 +26,8 @@
                     <tr>
                         <th>S/N</th>
                         <th>Name</th>
+                        <th>Has Company</th>
+                        <th>Is Company</th>
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -34,13 +36,17 @@
                         <tr>
                             <td style="width: 5%">{{++$key}}</td>
                             <td class="desc_name">{{$item->name}}</td>
+                            <td>{{$item->has_company ? 'Yes':'No'}}</td>
+                            <td>{{$item->is_company ? 'Yes':'No'}}</td>
                             <td style="width: 9%" class="text-center">
                                 <a class="text-muted font-16 edit-link" href="{{route('food-menu.edit',$item->id)}}"
                                    title="Edit" data-toggle="tooltip"><i class="fa fa-edit"></i></a> |
-                                <a class="text-muted font-16 delete-link" href="{{route('food-menu.destroy',$item->id)}}"
+                                <a class="text-muted font-16 delete-link"
+                                   href="{{route('food-menu.destroy',$item->id)}}"
                                    title="Delete" data-toggle="tooltip"><i class="fa fa-trash-o"></i></a> |
                                 <a class="text-muted font-16" href="{{route('ingredients.index',$item->id)}}"
-                                   title="Ingredients" data-toggle="tooltip"><i class="fa fa-arrow-circle-right"></i></a>
+                                   title="Ingredients" data-toggle="tooltip"><i
+                                            class="fa fa-arrow-circle-right"></i></a>
                             </td>
                         </tr>
                     @endforeach

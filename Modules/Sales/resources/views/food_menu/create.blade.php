@@ -1,4 +1,4 @@
-<div class="modal fade" id="create_modal"  aria-labelledby="create_modal" aria-hidden="true">
+<div class="modal fade" id="create_modal" aria-labelledby="create_modal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <form action="{{route('food-menu.store')}}" method="post" autocomplete="off">
@@ -10,12 +10,38 @@
                     </button>
                 </div>
                 <div class="modal-body">
+
                     <div class="row mb-3">
                         <div class="col">
                             <label>Menu Name</label>
                             <input type="text" name="name" class="form-control form-control-air" required>
                         </div>
                     </div>
+
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label>Has Company</label>
+                            <select name="has_company" class="form-control form-control-air" required>
+                                <option value="">--Select--</option>
+                                @foreach($has_company as ['value'=> $value,'text'=> $text])
+                                    <option value="{{$value}}">{{$text}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label>Is Company</label>
+                            <select name="is_company" class="form-control form-control-air" required>
+                                <option value="">---Select---</option>
+                                @foreach($is_company as ['value'=> $value,'text'=> $text])
+                                    <option value="{{$value}}">{{$text}}</option>
+                                @endforeach()
+                            </select>
+                        </div>
+                    </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-close"></i>
