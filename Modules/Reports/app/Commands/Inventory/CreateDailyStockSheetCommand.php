@@ -1,7 +1,8 @@
 <?php
 
-namespace Modules\Reports\Commands\Revenue;
+namespace Modules\Reports\Commands\Inventory;
 
+use App\Enums\GeneralEnum;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -105,7 +106,8 @@ class CreateDailyStockSheetCommand
         $rangeStart = $date->copy()->startOfDay();
         $rangeEnd = $date->copy()->endOfDay();
 
-        $stores = Store::whereIn('id', [5])->get();
+//        $stores = Store::whereIn('id', [5])->get();
+        $stores = Store::whereIn('id', GeneralEnum::StockSheetStoreArray)->get();
 
         foreach ($stores as $store) {
 

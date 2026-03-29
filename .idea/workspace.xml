@@ -4,11 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d44d5f7f-e478-428a-8108-98a2dcddfd72" name="Changes" comment="Added Front Office Dashboard">
-      <change afterPath="$PROJECT_DIR$/Modules/Reports/app/Commands/Inventory/CreateDailyStockSheetCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/43de1f09-489f-44d2-8e1c-5ae6849ac275.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/43de1f09-489f-44d2-8e1c-5ae6849ac275.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="d44d5f7f-e478-428a-8108-98a2dcddfd72" name="Changes" comment="Daily Stock Sheet">
+      <change afterPath="$PROJECT_DIR$/Modules/Reports/resources/views/stock_sheet/excel.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/Reports/resources/views/stock_sheet/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Exports/DailyStockReport.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/bc813df7-c2e0-4836-97a7-128262c39fce.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/bc813df7-c2e0-4836-97a7-128262c39fce.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Reports/app/Commands/Inventory/CreateDailyStockSheetCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Reports/app/Commands/Inventory/CreateDailyStockSheetCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Reports/app/Http/Controllers/DailyStockSheetController.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Modules/Reports/app/Http/Controllers/ReportsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Reports/app/Http/Controllers/ReportsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Reports/app/Models/DailyStockSheet.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Reports/app/Models/DailyStockSheet.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Reports/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Reports/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Enums/GeneralEnum.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Enums/GeneralEnum.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/menus/accountant_menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menus/accountant_menu.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/console.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/console.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -245,7 +252,7 @@
     "laravel_idea.dialogs.code_generation:createFormRequest.width": "473",
     "laravel_idea.dialogs.code_generation:createFormRequest.x": "519",
     "laravel_idea.dialogs.code_generation:createFormRequest.y": "350",
-    "last_opened_file_path": "/Volumes/DataContainer/PROJECT/OTHERS/svh/Modules/Reports/app/Commands/Inventory",
+    "last_opened_file_path": "/Volumes/DataContainer/PROJECT/OTHERS/svh/Modules/Reports/resources/views/stock_sheet",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -265,11 +272,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Modules/Reports/resources/views/stock_sheet" />
       <recent name="$PROJECT_DIR$/Modules/Reports/app/Commands/Inventory" />
       <recent name="$PROJECT_DIR$/Modules/Auth/resources/views/dashboards" />
       <recent name="$PROJECT_DIR$/Modules/Sales/resources/views/sales" />
       <recent name="$PROJECT_DIR$/Modules/Inventory/app/Commands" />
-      <recent name="$PROJECT_DIR$/Modules/Inventory/resources/views" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/menus" />
@@ -521,15 +528,7 @@
       <workItem from="1774462997909" duration="2498000" />
       <workItem from="1774521776263" duration="1232000" />
       <workItem from="1774720623007" duration="628000" />
-      <workItem from="1774789709527" duration="12757000" />
-    </task>
-    <task id="LOCAL-00038" summary="Item Sales Implemented">
-      <option name="closed" value="true" />
-      <created>1761331135059</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1761331135059</updated>
+      <workItem from="1774789709527" duration="16982000" />
     </task>
     <task id="LOCAL-00039" summary="KITCHEN Sales Implemented">
       <option name="closed" value="true" />
@@ -915,14 +914,21 @@
       <option name="project" value="LOCAL" />
       <updated>1774802676733</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="Daily Stock Sheet">
+      <option name="closed" value="true" />
+      <created>1774810231711</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1774810231711</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Discount Request Implemented" />
     <MESSAGE value="Bill Print Test" />
     <MESSAGE value="Modified Billing to Add Bill Items" />
     <MESSAGE value="Modified Booking" />
@@ -947,7 +953,8 @@
     <MESSAGE value="Placed Schedulers" />
     <MESSAGE value="Added Dashboard" />
     <MESSAGE value="Added Front Office Dashboard" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Front Office Dashboard" />
+    <MESSAGE value="Daily Stock Sheet" />
+    <option name="LAST_COMMIT_MESSAGE" value="Daily Stock Sheet" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

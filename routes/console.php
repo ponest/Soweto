@@ -2,10 +2,9 @@
 
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\Log;
 use Modules\HotelMgnt\Commands\Room\StoreConsumedItemCommand;
+use Modules\Reports\Commands\Inventory\CreateDailyStockSheetCommand;
 use Modules\Reports\Commands\Revenue\CreateDailyRevenueCommand;
-use Modules\Reports\Commands\Revenue\CreateDailyStockSheetCommand;
 
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
@@ -24,8 +23,7 @@ Schedule::call(function () {
 
 Schedule::call(function () {
     CreateDailyStockSheetCommand::handle();
-})->dailyAt('00:10');
-
+})->dailyAt('00:30');
 
 
 //Schedule::call(function () {

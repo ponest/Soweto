@@ -4,7 +4,9 @@ namespace Modules\Reports\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Modules\Inventory\Models\StockItem;
 
 /**
  * @property int $id
@@ -55,4 +57,8 @@ class DailyStockSheet extends Model
 
     protected $guarded = [];
 
+    public function stockItem(): BelongsTo
+    {
+        return $this->belongsTo(StockItem::class, 'stock_item_id');
+    }
 }

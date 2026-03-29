@@ -2,75 +2,43 @@
 
 namespace Modules\Reports\Http\Controllers;
 
+use App\Enums\GeneralEnum;
+use App\Exports\DailyStockReport;
+use App\Exports\ExpPaymentReport;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\DB;
-use Modules\Reports\Models\DailyRevenue;
-use Modules\Sales\Models\Payment;
+use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use Modules\Inventory\Models\Store;
+use Modules\Reports\Models\DailyStockSheet;
 
 class ReportsController extends Controller
 {
 
-//    public function revenueTrend()
-//    {
-//        $revenues = DB::table('daily_revenues')
-//            ->select(
-//                DB::raw('DATE(date) as day'),
-//                DB::raw('SUM(amount) as total_revenue')
-//            )
-//            ->whereDate('date', '>=', Carbon::now()->subDays(6))
-//            ->groupBy('day')
-//            ->orderBy('day')
-//            ->get();
-//
-//        $dates = [];
-//        $amounts = [];
-//
-//        foreach ($revenues as $rev) {
-//            $dates[] = Carbon::parse($rev->day)->format('D');
-//            $amounts[] = (float) $rev->total_revenue;
-//        }
-//
-//        return view('reports.revenue-trend', compact('dates','amounts'));
-//    }
+    public function dailyStockSheetIndex()
+    {
+        $params['stores'] = Store::whereIn('id', GeneralEnum::StockSheetStoreArray)->get();
+        $params['is_post_back'] = false;
+        return view('reports::stock_sheet.index', $params);
+    }
 
-//    public function calculateDailyRevenue()
-//    {
-//        $date = Carbon::yesterday();
-//
-//        $totals = Payment::whereDate('created_at', $date)
-//            ->select(
-//                DB::raw('DATE(created_at) as date'),
-//                'payment_method_id',
-//                DB::raw('SUM(paid_amount) as total')
-//            )
-//            ->groupBy('date','payment_method_id')
-//            ->get();
-//
-//        foreach ($totals as $row) {
-//
-//            $date = Carbon::parse($row->date);
-//
-//            DailyRevenue::updateOrCreate(
-//                [
-//                    'date' => $date->format('Y-m-d'),
-//                    'payment_method_id' => $row->payment_method_id
-//                ],
-//                [
-//                    'day' => $date->format('d'),
-//                    'month' => $date->format('m'),
-//                    'year' => $date->format('Y'),
-//                    'amount' => $row->total
-//                ]
-//            );
-//        }
-//
-//        return response()->json([
-//            'success' => true,
-//            'totals' => $totals,
-//            'message' => 'Success'
-//        ]);
-//    }
+    public function getDailyStockSheet(Request $request)
+    {
+        $data = $request->all();
+        $params['stores'] = Store::whereIn('id', GeneralEnum::StockSheetStoreArray)->get();
+        $params['is_post_back'] = true;
+        $params['items'] = DailyStockSheet::where('store_id', $data['store_id'])
+            ->where('date', $data['date'])->get();
+        $store = Store::find($data['store_id']);
+        $params['header'] = "Daily Stock Sheet for " . $store->name . " on " . $data['date'];
 
+        session(['items_data' => $params['items']]);
+        session(['header' => $params['header']]);
+        return view('reports::stock_sheet.index', $params);
+    }
+
+    public function dailyStockSheetExcel()
+    {
+        return Excel::download(new DailyStockReport(), 'daily_stock_sheet.xlsx');
+    }
 
 }
