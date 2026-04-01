@@ -51,10 +51,8 @@ class SalesController extends Controller
             $params['units'] = Unit::whereIn('id', GeneralEnum::BarUnitsArray)->get();
             return view('sales::sales.bar_sales_index', $params);
         } elseif ($category === 'kitchen') {
-            $menu_ids = Ingredient::distinct()->pluck('menu_id');
-            $menus = FoodMenu::whereIn('id', $menu_ids)
-                ->orderBy('name')
-                ->get();
+//            $menu_ids = Ingredient::distinct()->pluck('menu_id');
+            $menus = FoodMenu::orderBy('name')->get();
             $params['stock_items'] = $menus;
             $params['companies'] = $menus->where('is_company', true);
             return view('sales::sales.kitchen_sales_index', $params);
@@ -78,26 +76,22 @@ class SalesController extends Controller
                 $billRefNo = $request->input('bill_ref_no');
                 $booking = null;
 
-
                 if ($isAdditionBill == 'Yes') {
                     $billInfo = Bill::where('reference_no', $billRefNo)
                         ->where('status', '=', 'unpaid')->first();
                     if (!$billInfo) {
-                        return response()->json([
-                            'success' => false,
-                            'message' => 'Bill Reference Number is not found or is Already Paid'], 400);
+                        throw new Exception('Bill Reference Number is not found or is Already Paid');
+//                        return response()->json([
+//                            'success' => false,
+//                            'message' => 'Bill Reference Number is not found or is Already Paid'], 400);
                     }
                 }
-
 
                 if ($clientId != null) {
                     $booking = Booking::whereClientId($clientId)->where('booking_status', 'CheckedIn')->first();
                 }
 
                 if (empty($cart)) {
-//                    return response()->json([
-//                        'success' => false,
-//                        'message' => 'Cart is empty'], 400);
                     throw new Exception('Cart is empty');
                 }
                 //Check if Balance Exists
@@ -118,12 +112,7 @@ class SalesController extends Controller
                             $item['quantity'] = $item['quantity'] / $unitConv->multiplier;
                         }
 
-
                         if ($itemInfo['balance'] < $item['quantity']) {
-//                            return response()->json([
-//                                'success' => false,
-//                                'message' => 'Balance is not enough!'
-//                            ]);
                             throw new Exception('Balance is not enough!');
                         }
                         //Save to Item Stock Out
@@ -135,28 +124,20 @@ class SalesController extends Controller
                     foreach ($cart as $item) {
                         $ingredients = Ingredient::whereMenuId($item['itemId'])->get();
                         if (count($ingredients) == 0) {
-//                            return response()->json([
-//                                'success' => false,
-//                                'message' => 'Ingredients not found!'
-//                            ]);
                             throw new Exception('Ingredient not found!');
                         }
-                        foreach ($ingredients as $ingredient) {
-
-                            $itemData['itemId'] = $ingredient->stock_item_id;
-                            $itemData['quantity'] = $ingredient->quantity * $item['quantity'];
-                            //Check if Balance is Enough
-                            $itemInfo = StoreItem::stockBalance($storeId, $itemData['itemId']);
-                            if ($itemInfo['balance'] < $item['quantity']) {
-//                                return response()->json([
-//                                    'success' => false,
-//                                    'message' => 'Balance is not enough!'
-//                                ]);
-                                throw new Exception('Balance is not enough!');
-                            }
-                            //Save to Item Stock Out
-                            SaveStockOutCommand::handle($itemData, $storeId, StockOutCategories::SALES);
-                        }
+//                        foreach ($ingredients as $ingredient) {
+//
+//                            $itemData['itemId'] = $ingredient->stock_item_id;
+//                            $itemData['quantity'] = $ingredient->quantity * $item['quantity'];
+//                            //Check if Balance is Enough
+//                            $itemInfo = StoreItem::stockBalance($storeId, $itemData['itemId']);
+//                            if ($itemInfo['balance'] < $item['quantity']) {
+//                                throw new Exception('Balance is not enough!');
+//                            }
+//                            //Save to Item Stock Out
+//                            SaveStockOutCommand::handle($itemData, $storeId, StockOutCategories::SALES);
+//                        }
                     }
                 }
 
@@ -165,7 +146,7 @@ class SalesController extends Controller
 
                 //Save to Bills Table
                 if ($booking) {
-                    //if bill exist
+                    //if bill exists
                     $billExist = Bill::whereBookingId($booking->id)->first();
                     if ($billExist) {
                         $bill = $billExist;
@@ -263,6 +244,4 @@ class SalesController extends Controller
     {
         return Excel::download(new ExpSalesReport(), 'sales_report.xlsx');
     }
-
-
 }

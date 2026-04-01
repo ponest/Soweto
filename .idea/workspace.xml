@@ -5,18 +5,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d44d5f7f-e478-428a-8108-98a2dcddfd72" name="Changes" comment="Daily Stock Sheet">
-      <change afterPath="$PROJECT_DIR$/Modules/Reports/resources/views/stock_sheet/excel.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Reports/resources/views/stock_sheet/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Exports/DailyStockReport.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/General/app/Commands/KitchenTransItem/DeleteCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/General/app/Commands/KitchenTransItem/StoreCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/General/app/Commands/KitchenTransRequest/ApproveCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/General/app/Commands/KitchenTransRequest/DeleteCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/General/app/Commands/KitchenTransRequest/RejectCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/General/app/Commands/KitchenTransRequest/ReviewCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/General/app/Commands/KitchenTransRequest/StoreCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/General/app/Commands/KitchenTransRequest/SubmitCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/General/app/Commands/KitchenTransRequest/UpdateCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/General/resources/views/kitchen_trans_req/approval.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/General/resources/views/kitchen_trans_req/approval_view.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/General/resources/views/kitchen_trans_req/approved.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/General/resources/views/kitchen_trans_req/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/General/resources/views/kitchen_trans_req/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/General/resources/views/kitchen_trans_req/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/General/resources/views/kitchen_trans_req/items_view.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/General/resources/views/kitchen_trans_req/reject_view.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/General/resources/views/kitchen_trans_req/rejected.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/General/resources/views/kitchen_trans_req_item/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/General/resources/views/kitchen_trans_req_item/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/General/resources/views/kitchen_trans_req_item/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/43de1f09-489f-44d2-8e1c-5ae6849ac275.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/43de1f09-489f-44d2-8e1c-5ae6849ac275.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/bc813df7-c2e0-4836-97a7-128262c39fce.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/bc813df7-c2e0-4836-97a7-128262c39fce.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Reports/app/Commands/Inventory/CreateDailyStockSheetCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Reports/app/Commands/Inventory/CreateDailyStockSheetCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Reports/app/Http/Controllers/DailyStockSheetController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Reports/app/Http/Controllers/ReportsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Reports/app/Http/Controllers/ReportsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Reports/app/Models/DailyStockSheet.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Reports/app/Models/DailyStockSheet.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Reports/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Reports/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/db-forest-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/db-forest-config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/svh.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/svh.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/General/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/General/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/SalesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/SalesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Sales/resources/views/food_menu/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/resources/views/food_menu/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Sales/resources/views/sales/kitchen_sales_index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/resources/views/sales/kitchen_sales_index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Enums/GeneralEnum.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Enums/GeneralEnum.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/menus/accountant_menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menus/accountant_menu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/console.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/console.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/menus/kitchen_menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menus/kitchen_menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/menus/manager_menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menus/manager_menu.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +64,7 @@
     <execution />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="5163" />
+    <option name="cachedIndexableFilesCount" value="5194" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -226,57 +248,58 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
-    "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
-    "WebServerToolWindowPanel.toolwindow.show.date": "false",
-    "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
-    "WebServerToolWindowPanel.toolwindow.show.size": "false",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "com.laravel_idea.eloquent_global_unguard": "0",
-    "git-widget-placeholder": "main",
-    "junie.onboarding.icon.badge.shown": "true",
-    "laravel_idea.dialogs.code_generation:createController.width": "492",
-    "laravel_idea.dialogs.code_generation:createController.x": "510",
-    "laravel_idea.dialogs.code_generation:createController.y": "388",
-    "laravel_idea.dialogs.code_generation:createFormRequest.width": "473",
-    "laravel_idea.dialogs.code_generation:createFormRequest.x": "519",
-    "laravel_idea.dialogs.code_generation:createFormRequest.y": "350",
-    "last_opened_file_path": "/Volumes/DataContainer/PROJECT/OTHERS/svh/Modules/Reports/resources/views/stock_sheet",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.mappings&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.symlinks&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;com.laravel_idea.eloquent_global_unguard&quot;: &quot;0&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;laravel_idea.dialogs.code_generation:createController.width&quot;: &quot;492&quot;,
+    &quot;laravel_idea.dialogs.code_generation:createController.x&quot;: &quot;510&quot;,
+    &quot;laravel_idea.dialogs.code_generation:createController.y&quot;: &quot;388&quot;,
+    &quot;laravel_idea.dialogs.code_generation:createFormRequest.width&quot;: &quot;473&quot;,
+    &quot;laravel_idea.dialogs.code_generation:createFormRequest.x&quot;: &quot;519&quot;,
+    &quot;laravel_idea.dialogs.code_generation:createFormRequest.y&quot;: &quot;350&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Volumes/DataContainer/PROJECT/OTHERS/svh/Modules/General/app/Commands&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql",
-      "mariadb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;,
+      &quot;mariadb&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Modules/General/app/Commands" />
+      <recent name="$PROJECT_DIR$/Modules/General/resources/views" />
       <recent name="$PROJECT_DIR$/Modules/Reports/resources/views/stock_sheet" />
       <recent name="$PROJECT_DIR$/Modules/Reports/app/Commands/Inventory" />
       <recent name="$PROJECT_DIR$/Modules/Auth/resources/views/dashboards" />
-      <recent name="$PROJECT_DIR$/Modules/Sales/resources/views/sales" />
-      <recent name="$PROJECT_DIR$/Modules/Inventory/app/Commands" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/menus" />
@@ -299,8 +322,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-PS-253.32098.40" />
-        <option value="bundled-php-predefined-a98d8de5180a-0e0d91225499-com.jetbrains.php.sharedIndexes-PS-253.32098.40" />
+        <option value="bundled-js-predefined-d6986cc7102b-3bd3a6803838-JavaScript-PS-261.22158.283" />
+        <option value="bundled-php-predefined-a98d8de5180a-a9a4ea3ee0f4-com.jetbrains.php.sharedIndexes-PS-261.22158.283" />
       </set>
     </attachedChunks>
   </component>
@@ -528,15 +551,11 @@
       <workItem from="1774462997909" duration="2498000" />
       <workItem from="1774521776263" duration="1232000" />
       <workItem from="1774720623007" duration="628000" />
-      <workItem from="1774789709527" duration="16982000" />
-    </task>
-    <task id="LOCAL-00039" summary="KITCHEN Sales Implemented">
-      <option name="closed" value="true" />
-      <created>1761456667951</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1761456667951</updated>
+      <workItem from="1774789709527" duration="19021000" />
+      <workItem from="1774853284622" duration="1233000" />
+      <workItem from="1774973255524" duration="10078000" />
+      <workItem from="1775060104088" duration="5602000" />
+      <workItem from="1775072099364" duration="2953000" />
     </task>
     <task id="LOCAL-00040" summary="Room Check In And Checkout">
       <option name="closed" value="true" />
@@ -922,7 +941,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774810231711</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="Daily Stock Sheet">
+      <option name="closed" value="true" />
+      <created>1774814451698</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1774814451699</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

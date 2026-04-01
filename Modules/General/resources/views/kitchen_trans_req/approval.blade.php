@@ -1,12 +1,12 @@
 @extends('layouts.master')
-@section('title','Food Menu')
+@section('title','Stock Requisition')
 @section('content')
     <div class="ibox">
         <div class="ibox-body">
 
             <div class="row">
                 <div class="col-9" style="padding-top: 2vh">
-                    <h5 class="font-strong">FOOD MENU</h5>
+                    <h5 class="font-strong">STOCK REQUISITION</h5>
                 </div>
                 <div class="col-3" style="text-align: right">
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create_modal">
@@ -25,9 +25,11 @@
                     <thead class="thead-default thead-lg">
                     <tr>
                         <th>S/N</th>
-                        <th>Name</th>
-                        <th>Has Company</th>
-                        <th>Is Company</th>
+                        <th>Requisition No</th>
+                        <th>Description</th>
+                        <th>Submitted At</th>
+                        <th>Submitted By</th>
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -35,18 +37,20 @@
                     @foreach($items as $key=>$item)
                         <tr>
                             <td style="width: 5%">{{++$key}}</td>
-                            <td class="desc_name">{{$item->name}}</td>
-                            <td>{{$item->has_company ? 'Yes':'No'}}</td>
-                            <td>{{$item->is_company ? 'Yes':'No'}}</td>
+                            <td class="desc_name">{{$item->requisition_number}}</td>
+                            <td>{{$item->description}}</td>
+                            <td>{{isset($item->submittedBy) ? $item->submittedBy:'Not Submitted'}}</td>
+                            <td>{{isset($item->submitted_at) ? date('d M Y H:i',strtotime($item->submitted_at)) : 'N/A'}}</td>
+                            <td>{{$item->status}}</td>
                             <td style="width: 9%" class="text-center">
-                                <a class="text-muted font-16 edit-link" href="{{route('food-menu.edit',$item->id)}}"
-                                   title="Edit" data-toggle="tooltip"><i class="fa fa-edit"></i></a> |
-                                <a class="text-muted font-16 delete-link"
-                                   href="{{route('food-menu.destroy',$item->id)}}"
-                                   title="Delete" data-toggle="tooltip"><i class="fa fa-trash-o"></i></a> |
-{{--                                <a class="text-muted font-16" href="{{route('ingredients.index',$item->id)}}"--}}
-{{--                                   title="Ingredients" data-toggle="tooltip"><i--}}
-{{--                                            class="fa fa-arrow-circle-right"></i></a>--}}
+                                <a class="text-muted font-16"
+                                   href="{{route('stock-requisition-item.index',$item->id)}}"
+                                   title="Items" data-toggle="tooltip"><i class="fa fa-arrow-circle-o-right"></i></a> |
+                               @if(!$item->submitted_at)
+                                    <a class="text-muted font-16 submit-link"
+                                       href="{{route('stock-requisition.submit',$item->id)}}"
+                                       title="Submit" data-toggle="tooltip"><i class="fa fa-check-circle-o"></i></a>
+                               @endif
                             </td>
                         </tr>
                     @endforeach
@@ -57,7 +61,7 @@
     </div>
 
     <!--Create Modal && Edit Modal -->
-    @include('sales::food_menu.create')
+    @include('inventory::stock_requisition.create')
 
     <div class="modal fade" id="edit_modal" aria-labelledby="edit_modal" aria-hidden="true">
         <div class="modal-dialog">
@@ -84,6 +88,15 @@
             const Description = $(this).closest('tr').children('td.desc_name').text().trim();
             const Url = $(this).attr('href');
             deleteConfirm(Description, Url);
+        });
+
+        //For Check In
+        $(".submit-link").click(function (e) {
+            e.preventDefault();
+            const Description = "Requisition " + $(this).closest('tr').children('td.desc_name').text().trim() + " Will be Submitted";
+            const Url = $(this).attr('href');
+            const ButtonText = 'Yes, Submit';
+            actionConfirm(Description, Url, ButtonText);
         });
 
     </script>

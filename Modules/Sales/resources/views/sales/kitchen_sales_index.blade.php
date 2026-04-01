@@ -82,7 +82,7 @@
                                 </div>
                                 <div class="form-group col-3">
                                     <label>Company</label>
-                                    <select id="itemCompany" class="form-control" required>
+                                    <select id="itemCompany" class="form-control">
                                         <option value="" disabled selected>Select Company...</option>
                                         @foreach($companies as $company )
                                             <option value="{{$company->id}}"

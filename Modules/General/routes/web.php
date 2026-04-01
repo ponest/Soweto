@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use Modules\General\Http\Controllers\DiscountReqController;
 use Modules\General\Http\Controllers\GeneralController;
 use Modules\General\Http\Controllers\IngredientController;
+use Modules\General\Http\Controllers\KitchenTransReqController;
+use Modules\General\Http\Controllers\KitchenTransReqItemController;
 use Modules\General\Http\Controllers\LogActivitiesController;
 use Modules\General\Http\Controllers\StaffsController;
 use Modules\General\Http\Controllers\StockBacklogItemController;
@@ -51,4 +53,18 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('stock-backlog-item/index/{id}/{type?}', [StockBacklogItemController::class, 'index'])->name('stock-backlog-item.index');
     Route::get('stock-backlog-item/destroy/{id}', [StockBacklogItemController::class, 'destroy'])->name('stock-backlog-item.destroy');
 
+    Route::resource('kitchen-trans-req', KitchenTransReqController::class)->except('show', 'destroy');
+    Route::get('kitchen-trans-req/destroy/{id}', [KitchenTransReqController::class, 'destroy'])->name('kitchen-trans-req.destroy');
+    Route::get('kitchen-trans-req/submit/{id}', [KitchenTransReqController::class, 'submitRequest'])->name('kitchen-trans-req.submit');
+    Route::get('kitchen-trans-req/approve/{id}', [KitchenTransReqController::class, 'approveRequest'])->name('kitchen-trans-req.approve');
+    Route::get('kitchen-trans-req/approve-view', [KitchenTransReqController::class, 'approverView'])->name('kitchen-trans-req.approve-view');
+    Route::get('kitchen-trans-req/approved', [KitchenTransReqController::class, 'approved'])->name('kitchen-trans-req.approved');
+    Route::get('kitchen-trans-req/reject/{id}', [KitchenTransReqController::class, 'rejectView'])->name('kitchen-trans-req.reject-view');
+    Route::post('kitchen-trans-req/reject', [KitchenTransReqController::class, 'rejectRequest'])->name('kitchen-trans-req.reject');
+    Route::get('kitchen-trans-req/rejected', [KitchenTransReqController::class, 'rejected'])->name('kitchen-trans-req.rejected');
+//    Route::get('kitchen-trans-req/details', [KitchenTransReqController::class, 'getDiscountDetails'])->name('kitchen-trans-req.details');
+
+    Route::resource('kitchen-trans-item', KitchenTransReqItemController::class)->except( 'destroy','index');
+    Route::get('kitchen-trans-item/index/{id}', [KitchenTransReqItemController::class, 'index'])->name('kitchen-trans-item.index');
+    Route::get('kitchen-trans-item/destroy/{id}', [KitchenTransReqItemController::class, 'destroy'])->name('kitchen-trans-item.destroy');
 });
