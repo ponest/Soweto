@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\HotelMgnt\Commands\Booking;
+namespace Modules\HotelMgnt\Commands\ConferenceBooking;
 
 use Modules\HotelMgnt\Models\Booking;
 

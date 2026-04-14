@@ -4,19 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d44d5f7f-e478-428a-8108-98a2dcddfd72" name="Changes" comment="Daily Stock Sheet">
-      <change afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/rooms/room_by_status.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Reports/app/Commands/Rooms/RoomsDailyStatusCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/43de1f09-489f-44d2-8e1c-5ae6849ac275.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/43de1f09-489f-44d2-8e1c-5ae6849ac275.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Auth/resources/views/dashboards/front_dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Auth/resources/views/dashboards/front_dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Http/Controllers/RoomCheckInOutController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Http/Controllers/RoomCheckInOutController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Http/Controllers/RoomsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Http/Controllers/RoomsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Models/RoomCheckInOut.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Models/RoomCheckInOut.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Reports/app/Commands/Inventory/CreateDailyStockSheetCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Reports/app/Commands/Inventory/CreateDailyStockSheetCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/SalesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/SalesController.php" afterDir="false" />
+    <list default="true" id="d44d5f7f-e478-428a-8108-98a2dcddfd72" name="Changes" comment="Daily Room Status">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/bc813df7-c2e0-4836-97a7-128262c39fce.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/bc813df7-c2e0-4836-97a7-128262c39fce.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/General/app/Commands/StockBacklog/ReviewCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/General/app/Commands/StockBacklog/ReviewCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/Booking/CheckOutCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/Booking/CheckOutCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/ConferenceBooking/CancelBookingCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/ConferenceBooking/CancelBookingCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/ConferenceBooking/CheckInCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/ConferenceBooking/CheckInCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/ConferenceBooking/CheckOutCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/ConferenceBooking/CheckOutCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/ConferenceBooking/DeleteCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/ConferenceBooking/DeleteCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/ConferenceBooking/UpdateCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/ConferenceBooking/UpdateCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Reports/app/Commands/Rooms/RoomsDailyStatusCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Reports/app/Commands/Rooms/RoomsDailyStatusCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Reports/database/migrations/2026_04_14_222435_create_daily_room_statuses_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Reports/database/migrations/2026_04_14_222435_create_daily_room_statuses_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/console.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/console.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -537,15 +535,7 @@
       <workItem from="1775072099364" duration="6663000" />
       <workItem from="1775139791398" duration="3037000" />
       <workItem from="1775721167455" duration="514000" />
-      <workItem from="1776101075408" duration="9728000" />
-    </task>
-    <task id="LOCAL-00041" summary="Room Check In And Checkout">
-      <option name="closed" value="true" />
-      <created>1761553753223</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1761553753223</updated>
+      <workItem from="1776101075408" duration="12102000" />
     </task>
     <task id="LOCAL-00042" summary="Booking Charges Implemented">
       <option name="closed" value="true" />
@@ -931,14 +921,21 @@
       <option name="project" value="LOCAL" />
       <updated>1775075629952</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="Daily Room Status">
+      <option name="closed" value="true" />
+      <created>1776198622911</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1776198622911</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Bill Print Test" />
     <MESSAGE value="Modified Billing to Add Bill Items" />
     <MESSAGE value="Modified Booking" />
     <MESSAGE value="Make Auto Consume Room Items" />
@@ -963,7 +960,8 @@
     <MESSAGE value="Added Dashboard" />
     <MESSAGE value="Added Front Office Dashboard" />
     <MESSAGE value="Daily Stock Sheet" />
-    <option name="LAST_COMMIT_MESSAGE" value="Daily Stock Sheet" />
+    <MESSAGE value="Daily Room Status" />
+    <option name="LAST_COMMIT_MESSAGE" value="Daily Room Status" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

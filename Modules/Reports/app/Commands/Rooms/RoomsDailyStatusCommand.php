@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Reports\Commands\Inventory;
+namespace Modules\Reports\Commands\Rooms;
 
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Log;
@@ -25,8 +25,8 @@ class RoomsDailyStatusCommand
             $guest = null;
             $arrival_date = null;
             $departure_date = null;
-            $no_of_nights = null;
-            $pax = null;
+            $no_of_nights = 0;
+            $pax = 0;
 
             if ($room->status == "Occupied") {
 
@@ -41,12 +41,15 @@ class RoomsDailyStatusCommand
                         $guest = $booking->client?->full_name;
 
                         $arrival = Carbon::parse($entry->checked_in_at);
-                        $departure = Carbon::parse($booking->proposed_end_date);
+//                        $departure = Carbon::parse($booking->proposed_end_date);
 
                         $arrival_date = $arrival->toDateString();
                         $departure_date = $booking->proposed_end_date;
 
-                        $no_of_nights = max(1, $arrival->diffInDays($departure));                        $pax = 1;
+//                        $no_of_nights = max(1, $arrival->diffInDays($departure));
+                        $no_of_nights = $arrival->startOfDay()
+                            ->diffInDays(Carbon::parse($booking->proposed_end_date)->startOfDay());
+                        $pax = 1;
                     }
                 }
             }

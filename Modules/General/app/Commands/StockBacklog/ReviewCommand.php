@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\General\Commands\DiscountRequest;
+namespace Modules\General\Commands\StockBacklog;
 
 use Exception;
 use Modules\General\Models\DiscountReq;

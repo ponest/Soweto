@@ -2,6 +2,7 @@
 
 namespace Modules\HotelMgnt\Commands\Booking;
 
+
 use App\Helpers\General;
 use Modules\HotelMgnt\Models\Booking;
 use Modules\HotelMgnt\Models\Room;

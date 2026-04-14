@@ -16,13 +16,13 @@ return new class extends Migration
             $table->string('room_number');
             $table->string('room_type');
             $table->bigInteger('rate');
-            $table->bigInteger('guest');
-            $table->date('arrival_date');
-            $table->date('departure_date');
-            $table->integer('no_of_nights');
+            $table->string('guest')->nullable();
+            $table->date('arrival_date')->nullable();
+            $table->date('departure_date')->nullable();
+            $table->integer('no_of_nights')->nullable();
             $table->integer('pax');
             $table->date('date');
-            $table->decimal('day');
+            $table->string('day');
             $table->string('month');
             $table->string('year');
             $table->timestamps();
