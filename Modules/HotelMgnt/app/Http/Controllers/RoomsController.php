@@ -57,5 +57,12 @@ class RoomsController extends Controller
         return Redirect::back()->with($notification);
     }
 
+    public function getRoomsByStatus($status)
+    {
+        $params['items'] = Room::where('status',$status)->orderBy('room_number')->get();
+        $params['header'] = $status." Rooms";
+        $params['status'] = $status;
+        return view('hotelmgnt::rooms.room_by_status', $params);
+    }
 
 }

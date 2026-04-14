@@ -10,7 +10,7 @@ use Illuminate\Support\Carbon;
 use Modules\Auth\Models\User;
 
 /**
- * 
+ *
  *
  * @property int $id
  * @property int $booking_id
@@ -87,5 +87,14 @@ class RoomCheckInOut extends Model
     public function room(): BelongsTo
     {
         return $this->belongsTo(Room::class);
+    }
+
+    public static function getClientByRoomId($roomId)
+    {
+        $entry = RoomCheckInOut::where('room_id', $roomId)
+            ->whereNull('checked_out_at')->first();
+        $booking = Booking::find($entry->booking_id);
+        $client = $booking->client;
+        return $client->full_name;
     }
 }

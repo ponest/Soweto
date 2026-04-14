@@ -2,13 +2,13 @@
 @section('title','Main Dashboard')
 @section('styles')
     <style>
-        .icon{
-            width:60px;
-            height:60px;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            font-size:24px;
+        .icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
         }
     </style>
 @endsection
@@ -18,64 +18,70 @@
 
     <div class="row mb-4 container">
 
-        <!-- Total Revenue -->
+        <!-- Total Rooms -->
         <div class="col-md-4 mb-3">
-            <div class="card shadow-sm border-0 h-100">
-                <div class="card-body d-flex align-items-center">
+            <a href="{{route('rooms.index')}}">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body d-flex align-items-center">
 
-                    <div class="icon bg-success text-white rounded-circle mr-4">
-                        <i class="fa fa-building"></i>
+                        <div class="icon bg-success text-white rounded-circle mr-4">
+                            <i class="fa fa-building"></i>
+                        </div>
+
+                        <div>
+                            <h6 class="text-muted mb-1">Total Rooms</h6>
+                            <h4 class="font-weight-bold mb-0">
+                                {{number_format($totalRooms)}}
+                            </h4>
+                        </div>
+
                     </div>
-
-                    <div>
-                        <h6 class="text-muted mb-1">Total Rooms</h6>
-                        <h4 class="font-weight-bold mb-0">
-                            {{number_format($totalRooms)}}
-                        </h4>
-                    </div>
-
                 </div>
-            </div>
+            </a>
         </div>
 
-        <!-- Unpaid Bills -->
+        <!-- Occupied Rooms -->
         <div class="col-md-4 mb-3">
-            <div class="card shadow-sm border-0 h-100">
-                <div class="card-body d-flex align-items-center">
+            <a href="{{route('rooms.filter.status',['status' => 'Occupied'])}}">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body d-flex align-items-center">
 
-                    <div class="icon bg-danger text-white rounded-circle mr-4">
-                        <i class="fa fa-bed"></i>
+                        <div class="icon bg-danger text-white rounded-circle mr-4">
+                            <i class="fa fa-bed"></i>
+                        </div>
+
+                        <div>
+                            <h6 class="text-muted mb-1">Occupied Rooms</h6>
+                            <h4 class="font-weight-bold mb-0">
+                                {{number_format($occupiedRooms)}}
+                            </h4>
+                        </div>
+
                     </div>
-
-                    <div>
-                        <h6 class="text-muted mb-1">Occupied Rooms</h6>
-                        <h4 class="font-weight-bold mb-0">
-                            {{number_format($occupiedRooms)}}
-                        </h4>
-                    </div>
-
                 </div>
-            </div>
+            </a>
         </div>
 
-        <!-- Daily Revenue -->
+        <!-- Available Rooms -->
         <div class="col-md-4 mb-3">
-            <div class="card shadow-sm border-0 h-100">
-                <div class="card-body d-flex align-items-center">
+            <a href="{{route('rooms.filter.status',['status' => 'Available'])}}">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body d-flex align-items-center">
 
-                    <div class="icon bg-primary text-white rounded-circle mr-4">
-                        <i class="fa fa-check"></i>
+                        <div class="icon bg-primary text-white rounded-circle mr-4">
+                            <i class="fa fa-check"></i>
+                        </div>
+
+                        <div>
+                            <h6 class="text-muted mb-1">Available</h6>
+                            <h4 class="font-weight-bold mb-0">
+                                {{number_format($availableRooms)}}
+                            </h4>
+                        </div>
+
                     </div>
-
-                    <div>
-                        <h6 class="text-muted mb-1">Available</h6>
-                        <h4 class="font-weight-bold mb-0">
-                            {{number_format($availableRooms)}}
-                        </h4>
-                    </div>
-
                 </div>
-            </div>
+            </a>
         </div>
     </div>
 

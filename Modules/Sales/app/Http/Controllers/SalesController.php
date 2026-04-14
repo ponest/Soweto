@@ -120,12 +120,12 @@ class SalesController extends Controller
                     }
                 }
 
-                if ($category === 'kitchen') {
-                    foreach ($cart as $item) {
-                        $ingredients = Ingredient::whereMenuId($item['itemId'])->get();
-                        if (count($ingredients) == 0) {
-                            throw new Exception('Ingredient not found!');
-                        }
+//                if ($category === 'kitchen') {
+//                    foreach ($cart as $item) {
+//                        $ingredients = Ingredient::whereMenuId($item['itemId'])->get();
+//                        if (count($ingredients) == 0) {
+//                            throw new Exception('Ingredient not found!');
+//                        }
 //                        foreach ($ingredients as $ingredient) {
 //
 //                            $itemData['itemId'] = $ingredient->stock_item_id;
@@ -138,8 +138,8 @@ class SalesController extends Controller
 //                            //Save to Item Stock Out
 //                            SaveStockOutCommand::handle($itemData, $storeId, StockOutCategories::SALES);
 //                        }
-                    }
-                }
+//                    }
+//                }
 
                 // Save Sale Batch
                 $sale_batch = SaveSalesBatchCommand::handle($grandTotal, $category, $booking);

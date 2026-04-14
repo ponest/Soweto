@@ -25,7 +25,8 @@ class RoomCheckInOutController extends Controller
 {
     public function index()
     {
-        $params['items'] = RoomCheckInOut::latest('id')->limit(500)->get();
+//        $params['items'] = RoomCheckInOut::latest('id')->limit(500)->get();
+        $params['items'] = RoomCheckInOut::whereNull('checked_out_at')->latest('id')->limit(500)->get();
         $params['bookings'] = Booking::whereBookingStatus('Reserved')->get();
         return view('hotelmgnt::check_in_out.index', $params);
     }
