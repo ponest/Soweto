@@ -9,4 +9,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('daily-stock-index', [ReportsController::class,'dailyStockSheetIndex'])->name('daily-stock-index');
     Route::post('daily-stock', [ReportsController::class,'getDailyStockSheet'])->name('daily-stock');
     Route::get('daily-stock-excel', [ReportsController::class,'dailyStockSheetExcel'])->name('daily-stock-excel');
+
+    Route::get('daily-room-status-index', [ReportsController::class,'dailyRoomStatusIndex'])->name('daily-room-status-index');
+    Route::post('daily-room-status', [ReportsController::class,'getDailyRoomStatus'])->name('daily-room-status');
+//    Route::get('daily-room-status-excel', [ReportsController::class,'dailyStockSheetExcel'])->name('daily-stock-excel');
 });

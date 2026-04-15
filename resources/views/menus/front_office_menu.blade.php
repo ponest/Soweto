@@ -15,6 +15,7 @@
         <li><a href="{{route('advance-payment.index')}}">Advance Payment</a></li>
         <li><a href="{{route('bookings.index')}}">Bookings</a></li>
         <li><a href="{{route('room-checkinout')}}">Check In/Out</a></li>
+        <li><a href="{{route('daily-room-status-index')}}">Daily Room Status</a></li>
     </ul>
 </li>
 

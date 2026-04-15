@@ -41,14 +41,13 @@ class RoomsDailyStatusCommand
                         $guest = $booking->client?->full_name;
 
                         $arrival = Carbon::parse($entry->checked_in_at);
-//                        $departure = Carbon::parse($booking->proposed_end_date);
 
                         $arrival_date = $arrival->toDateString();
                         $departure_date = $booking->proposed_end_date;
 
-//                        $no_of_nights = max(1, $arrival->diffInDays($departure));
                         $no_of_nights = $arrival->startOfDay()
                             ->diffInDays(Carbon::parse($booking->proposed_end_date)->startOfDay());
+                        $no_of_nights = max(1, $no_of_nights);
                         $pax = 1;
                     }
                 }
