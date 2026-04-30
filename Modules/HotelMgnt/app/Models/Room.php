@@ -8,15 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-// use Modules\HotelMgnt\Database\Factories\RoomFactory;
-
 /**
- *
- *
  * @property int $id
  * @property int $room_type_id
  * @property string $room_number
  * @property string $status
+ * @property int $pax
  * @property int|null $rate_per_night
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
@@ -29,12 +26,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static Builder<static>|Room whereCreatedAt($value)
  * @method static Builder<static>|Room whereDeletedAt($value)
  * @method static Builder<static>|Room whereId($value)
+ * @method static Builder<static>|Room wherePax($value)
  * @method static Builder<static>|Room whereRatePerNight($value)
  * @method static Builder<static>|Room whereRoomNumber($value)
  * @method static Builder<static>|Room whereRoomTypeId($value)
  * @method static Builder<static>|Room whereStatus($value)
  * @method static Builder<static>|Room whereUpdatedAt($value)
- * @method static Builder<static>|Room withTrashed()
+ * @method static Builder<static>|Room withTrashed(bool $withTrashed = true)
  * @method static Builder<static>|Room withoutTrashed()
  * @mixin \Eloquent
  */

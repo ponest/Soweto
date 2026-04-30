@@ -179,6 +179,7 @@
         <div><strong>Date:</strong> {{date('d M Y')}}</div>
         <div><strong>Time:</strong> {{ date('H:i') }}</div>
         <div><strong>Customer:</strong> Walk-In Customer</div>
+        <div><strong>Waiters:</strong> {{$waiters}}</div>
     </div>
 
     <div class="divider">----------------------------------------</div>

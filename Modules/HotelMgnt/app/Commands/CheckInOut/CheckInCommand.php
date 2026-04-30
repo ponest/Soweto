@@ -21,11 +21,13 @@ class CheckInCommand
             $checkIn->checked_in_by = auth()->id();
             $checkIn->booking_id = $data['booking_id'];
             $checkIn->room_id = $booking->room_id;
+            $checkIn->pax = $data['pax'];
             $checkIn->save();
 
             //Update room status
             $room = Room::find($booking->room_id);
             $room->status = 'Occupied';
+            $room->pax = $data['pax'];
             $room->update();
 
             //Update RoomHistory

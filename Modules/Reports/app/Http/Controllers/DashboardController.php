@@ -15,7 +15,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        if (Gate::allows('Accountant')) {
+        if (Gate::allows('Accountant') || Gate::allows('Director')) {
             return $this->accountDashboard();
         }elseif (Gate::allows('FrontOfficer')) {
             return $this->frontOfficeDashboard();

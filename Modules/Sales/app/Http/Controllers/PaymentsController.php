@@ -35,27 +35,34 @@ class PaymentsController extends Controller
             $end_date = Carbon::parse($data['end_date'])->endOfDay();
             $query->whereBetween('payments.created_at', [$start_date, $end_date]);
             $prefix = $prefix . " From " . date('d M Y', strtotime($data['start_date'])) . " To " . date('d M Y', strtotime($data['end_date']));
-
         }
         if ($data['payment_method_id'] != null) {
             $query->where('payment_method_id', $data['payment_method_id']);
             $method = PaymentMethod::find($data['payment_method_id'])->name;
             $prefix = $prefix . " for " . $method . " Payment method";
         }
-
         if ($data['bill_source'] != null) {
             $query->join('bills', 'bills.id', '=', 'payments.bill_id')
                 ->join('bill_items', 'bills.id', '=', 'bill_items.bill_id')
                 ->where('bill_items.bill_source', $data['bill_source']);
             $prefix = $prefix . " for " . $data['bill_source'];
         }
-
-        $params['total_price'] = $query->sum('payments.paid_amount');
-//        $params['items'] = $query->select('payments.*')->latest('payments.id')->get();
+//        $params['total_price'] = $query->sum('payments.paid_amount');
+        $params['total_price'] = (clone $query)
+            ->select('payments.id', 'payments.paid_amount')
+            ->groupBy('payments.id', 'payments.paid_amount')
+            ->get()
+            ->sum('paid_amount');
 
         // clone query so sum query doesn't affect results
+//        $params['items'] = (clone $query)
+//            ->select('payments.*')
+//            ->latest('payments.id')
+//            ->get();
+
         $params['items'] = (clone $query)
             ->select('payments.*')
+            ->distinct()
             ->latest('payments.id')
             ->get();
 

@@ -14,6 +14,7 @@ use Modules\HotelMgnt\Commands\Room\DeleteCommand;
 use Modules\HotelMgnt\Commands\Room\StoreCommand;
 use Modules\HotelMgnt\Commands\Room\UpdateCommand;
 use Modules\HotelMgnt\Models\Room;
+use Modules\HotelMgnt\Models\RoomCheckInOut;
 use Modules\HotelMgnt\Models\RoomItem;
 use Modules\HotelMgnt\Models\RoomType;
 use Modules\Sales\Commands\Sales\SaveStockOutCommand;
@@ -59,10 +60,23 @@ class RoomsController extends Controller
 
     public function getRoomsByStatus($status)
     {
-        $params['items'] = Room::where('status',$status)->orderBy('room_number')->get();
-        $params['header'] = $status." Rooms";
+        $params['items'] = Room::where('status', $status)->orderBy('room_number')->get();
+        $params['header'] = $status . " Rooms";
         $params['status'] = $status;
         return view('hotelmgnt::rooms.room_by_status', $params);
+    }
+
+    public function todayCheckInOut($type)
+    {
+        if ($type == 'Check-In') {
+            $params['items'] = RoomCheckInOut::whereDate('checked_in_at', today())->get();
+        } else {
+            $params['items'] = RoomCheckInOut::whereDate('checked_out_at', today())->get();
+        }
+
+        $params['type'] = $type;
+        $params['header'] = "Today's " . $type;
+        return view('hotelmgnt::rooms.check_in_out', $params);
     }
 
 }

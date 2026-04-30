@@ -87,40 +87,44 @@
 
     <div class="row mb-4 container">
         <div class="col-md-4 mb-3">
-            <div class="card shadow-sm border-0 h-100">
-                <div class="card-body d-flex align-items-center">
+            <a href="{{route('rooms.today-check-in-out',['type' => 'Check-In'])}}">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body d-flex align-items-center">
 
-                    <div class="icon bg-primary text-white rounded-circle mr-4">
-                        <i class="fa fa-sign-in"></i>
+                        <div class="icon bg-primary text-white rounded-circle mr-4">
+                            <i class="fa fa-sign-in"></i>
+                        </div>
+
+                        <div>
+                            <h6 class="text-muted mb-1">Today's CheckIn</h6>
+                            <h4 class="font-weight-bold mb-0">
+                                {{number_format($checkIns)}}
+                            </h4>
+                        </div>
+
                     </div>
-
-                    <div>
-                        <h6 class="text-muted mb-1">Today's CheckIn</h6>
-                        <h4 class="font-weight-bold mb-0">
-                            {{number_format($checkIns)}}
-                        </h4>
-                    </div>
-
                 </div>
-            </div>
+            </a>
         </div>
         <div class="col-md-4 mb-3">
-            <div class="card shadow-sm border-0 h-100">
-                <div class="card-body d-flex align-items-center">
+            <a href="{{route('rooms.today-check-in-out',['type' => 'Check-Out'])}}">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body d-flex align-items-center">
 
-                    <div class="icon bg-primary text-white rounded-circle mr-4">
-                        <i class="fa fa-power-off"></i>
+                        <div class="icon bg-primary text-white rounded-circle mr-4">
+                            <i class="fa fa-power-off"></i>
+                        </div>
+
+                        <div>
+                            <h6 class="text-muted mb-1">Today's CheckOut</h6>
+                            <h4 class="font-weight-bold mb-0">
+                                {{number_format($checkOuts)}}
+                            </h4>
+                        </div>
+
                     </div>
-
-                    <div>
-                        <h6 class="text-muted mb-1">Today's CheckOut</h6>
-                        <h4 class="font-weight-bold mb-0">
-                            {{number_format($checkOuts)}}
-                        </h4>
-                    </div>
-
                 </div>
-            </div>
+            </a>
         </div>
     </div>
 

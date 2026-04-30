@@ -15,12 +15,19 @@
                     <div class="row mb-3">
                         <div class="col">
                             <label>Choose Booking</label>
-                            <select name="booking_id" class="form-control form-control-air dd_select" style="width: 100%" required>
+                            <select name="booking_id" class="form-control form-control-air dd_select"
+                                    style="width: 100%" required>
                                 <option>Select Booking Reference</option>
                                 @foreach($bookings as $booking)
                                     <option value="{{$booking->id}}">{{$booking->reference_number}}</option>
                                 @endforeach
                             </select>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label>Pax</label>
+                            <input type="number" name="pax" class="form-control form-control-air" required>
                         </div>
                     </div>
                 </div>

@@ -55,18 +55,13 @@
                             <td class="desc_name">{{$item->menuItem?->name}}</td>
                             <td style="text-align: right;width: 20%">{{number_format($item->price)}}</td>
                             <td style="width: 9%" class="text-center">
-                                @if($type == "request" && !$price_approval->submitted_at)
+                                @if($type == "request" && !$item->submitted_at)
                                     <a class="text-muted font-16 edit-link"
-                                       href="{{route('price-approval-item.edit',$item->id)}}"
+                                       href="{{route('menu-price-approval-item.edit',$item->id)}}"
                                        title="Edit" data-toggle="tooltip"><i class="fa fx-2 fa-edit"></i></a> |
                                     <a class="text-muted font-16 delete-link"
-                                       href="{{route('price-approval-item.destroy',$item->id)}}"
+                                       href="{{route('menu-price-approval-item.destroy',$item->id)}}"
                                        title="Delete" data-toggle="tooltip"><i class="fa fx-2 fa-trash-o"></i></a>
-                                @endif
-                                @if($type == "issue" && !$price_approval->reviewed_at)
-                                    | <a class="text-muted font-16 confirm-link"
-                                         href="{{route('stock-issue.confirm-view',$item->id)}}"
-                                         title="Confirm" data-toggle="tooltip"><i class="fa fx-2 fa-check-circle-o"></i></a>
                                 @endif
                             </td>
                         </tr>
@@ -118,35 +113,12 @@
             });
         });
 
-        $('.confirm-link').on('click', function (e) {
-            e.preventDefault();
-            const dataURL = $(this).attr('href');
-            $('.modal-confirm').load(dataURL, function () {
-                $('#confirm_modal').modal({show: true});
-            });
-        });
-
         //For Deleting
         $(".delete-link").click(function (e) {
             e.preventDefault();
             const Description = $(this).closest('tr').children('td.desc_name').text().trim();
             const Url = $(this).attr('href');
             deleteConfirm(Description, Url);
-        });
-
-        $('#stock_item_id').on('change', function () {
-            const itemId = $(this).val();
-            const unitRef = $("#unit_name");
-            const unitIdRef = $("#unit_id");
-            getUnit(itemId, unitRef, unitIdRef);
-        });
-
-        $("#issue_stock").click(function (e) {
-            e.preventDefault();
-            const Description = "All the Requisition Items will be Issued";
-            const Url = $(this).attr('href');
-            const ButtonText = 'Yes, Issue';
-            actionConfirm(Description, Url, ButtonText);
         });
 
     </script>

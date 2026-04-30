@@ -9,21 +9,28 @@
         <span class="nav-label">Sales</span><i class="fa fa-angle-left arrow"></i></a>
     <ul class="nav-2-level collapse">
         <li><a href="{{route('bills.index')}}">Bills</a></li>
-        <li><a href="{{route('daily-stock-index')}}">Daily Stock Sheet</a></li>
-        <li><a href="{{route('sales-history')}}">Sales History</a></li>
-        <li><a href="{{route('payment-history')}}">Payment History</a></li>
         <li><a href="{{route('item-price.index')}}">Item Price</a></li>
         <li><a href="{{route('menu-price.index')}}">Menu Price</a></li>
     </ul>
 </li>
+
 
 <li>
     <a href="javascript:;"><i class="sidebar-item-icon ti-bar-chart"></i>
         <span class="nav-label">Reviews</span><i class="fa fa-angle-left arrow"></i></a>
     <ul class="nav-2-level collapse">
         <li><a href="{{route('purchase-request.approve-view')}}">Purchase Request</a></li>
-{{--        <li><a href="{{route('sales-history')}}">Sales History</a></li>--}}
-{{--        <li><a href="{{route('item-price.index')}}">Item Price</a></li>--}}
-{{--        <li><a href="{{route('menu-price.index')}}">Menu Price</a></li>--}}
+    </ul>
+</li>
+
+<li>
+    <a href="javascript:;"><i class="sidebar-item-icon ti-bar-chart"></i>
+        <span class="nav-label">Reports</span><i class="fa fa-angle-left arrow"></i></a>
+    <ul class="nav-2-level collapse">
+        <li><a href="{{route('daily-stock-index')}}">Daily Stock Sheet</a></li>
+        <li><a href="{{route('sales-history')}}">Sales History</a></li>
+        <li><a href="{{route('payment-history')}}">Payment History</a></li>
+        <li><a href="{{route('daily-room-status-index')}}">Daily Room Status</a></li>
+        <li><a href="{{route('front-office-dashboard')}}">Rooms Dashboard</a></li>
     </ul>
 </li>

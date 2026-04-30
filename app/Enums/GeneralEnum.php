@@ -17,4 +17,5 @@ final class GeneralEnum extends Enum
 //    const BarUnitsArray = array(5, 9, 10);
     const BarUnitsArray = array(3, 14, 12);
     const StockSheetStoreArray = array(5);
+    const WaiterStaffRoleId = 10;
 }

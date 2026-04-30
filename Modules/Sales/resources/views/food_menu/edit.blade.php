@@ -15,6 +15,30 @@
                      value="{{$item->name}}"  required>
             </div>
         </div>
+
+        <div class="row mb-3">
+            <div class="col">
+                <label>Has Company</label>
+                <select name="has_company" class="form-control form-control-air" required>
+                    <option value="">--Select--</option>
+                    @foreach($has_company as ['value'=> $value,'text'=> $text])
+                        <option value="{{$value}}" {{$value == $item->has_company ? 'selected':''}}>{{$text}}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col">
+                <label>Is Company</label>
+                <select name="is_company" class="form-control form-control-air" required>
+                    <option value="">---Select---</option>
+                    @foreach($is_company as ['value'=> $value,'text'=> $text])
+                        <option value="{{$value}}" {{$value == $item->is_company ? 'selected':''}}>{{$text}}</option>
+                    @endforeach()
+                </select>
+            </div>
+        </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-close"></i>

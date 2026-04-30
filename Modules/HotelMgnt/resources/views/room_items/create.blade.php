@@ -1,4 +1,4 @@
-<div class="modal fade" id="create_modal" tabindex="-1" aria-labelledby="create_modal" aria-hidden="true">
+<div class="modal fade" id="create_modal"  aria-labelledby="create_modal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <form action="{{route('room-items.store')}}" method="post" autocomplete="off">

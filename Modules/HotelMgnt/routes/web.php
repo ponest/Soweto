@@ -25,6 +25,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('room-types/destroy/{id}', [RoomTypesController::class, 'destroy'])->name('room-types.destroy');
 
     Route::get('rooms/filter/{status}', [RoomsController::class, 'getRoomsByStatus'])->name('rooms.filter.status');
+    Route::get('rooms/check-in-out/{type}', [RoomsController::class, 'todayCheckInOut'])->name('rooms.today-check-in-out');
     Route::resource('rooms', RoomsController::class)->except('show', 'destroy');
     Route::get('rooms/destroy/{id}', [RoomsController::class, 'destroy'])->name('rooms.destroy');
 

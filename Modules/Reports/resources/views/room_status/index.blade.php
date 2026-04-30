@@ -27,7 +27,7 @@
                                 </button>
 
                                 @if($is_post_back)
-                                    <a href="{{route('daily-stock-excel')}}" class="btn btn-primary">
+                                    <a href="{{route('daily-room-status-excel')}}" class="btn btn-primary">
                                         Export Excel
                                     </a>
                                 @endif

@@ -5,28 +5,28 @@
     </tr>
     <tr>
         <th>S/N</th>
-        <th>Item</th>
-        <th>OP</th>
-        <th>ADD</th>
-        <th>TOTAL</th>
-        <th>CL</th>
-        <th>SOLD</th>
-        <th>PRICE</th>
-        <th>TOTAL PRICE</th>
+        <th>Room #</th>
+        <th>Room Type</th>
+        <th>Rate</th>
+        <th>Guest</th>
+        <th>Arrival</th>
+        <th>Expected Departure</th>
+        <th>No of Nights</th>
+        <th>Pax</th>
     </tr>
     </thead>
     <tbody>
     @foreach($items as $key=>$item)
         <tr>
             <td>{{++$key}}</td>
-            <td class="desc_name">{{$item->stockItem?->name}}</td>
-            <td style="text-align: right">{{number_format($item->opening_stock)}}</td>
-            <td style="text-align: right">{{number_format($item->additional_stock)}}</td>
-            <td style="text-align: right">{{number_format($item->total_stock)}}</td>
-            <td style="text-align: right">{{number_format($item->closing_stock)}}</td>
-            <td style="text-align: right">{{number_format($item->sold_qty)}}</td>
-            <td style="text-align: right">{{number_format($item->unit_price)}}</td>
-            <td style="text-align: right">{{number_format($item->total_price)}}</td>
+            <td>{{$item->room_number}}</td>
+            <td>{{$item->room_type}}</td>
+            <td style="text-align: right">{{number_format($item->rate)}}</td>
+            <td>{{$item->guest}}</td>
+            <td>{{$item->arrival_date ? date('d M Y',strtotime($item->arrival_date)):""}}</td>
+            <td>{{$item->arrival_date ? date('d M Y',strtotime($item->departure_date)):""}}</td>
+            <td style="text-align: right">{{number_format($item->no_of_nights)}}</td>
+            <td style="text-align: right">{{number_format($item->pax)}}</td>
         </tr>
     @endforeach
     </tbody>

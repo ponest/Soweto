@@ -1,4 +1,4 @@
-<form action="{{route('price-approval-item.update',$item)}}" method="post" autocomplete="off">
+<form action="{{route('menu-price-approval-item.update',$item)}}" method="post" autocomplete="off">
     @csrf
     @method('PUT')
     <div class="modal-header">
@@ -11,10 +11,10 @@
         <div class="row mb-3">
             <div class="col">
                 <label>Item Name</label>
-                <select name="item_id" id="item_id" class="form-control form-control-air" required>
+                <select name="menu_id" id="menu_id" class="form-control form-control-air"  required>
                     <option value="">Select Item</option>
-                    @foreach($stock_items as $stock_item)
-                        <option value="{{$stock_item->id}}" {{$stock_item->id == $item->item_id ? 'selected':''}}>{{$stock_item->name}}</option>
+                    @foreach($menu_items as $menu_item)
+                        <option value="{{$menu_item->id}}" {{$item->menu_id == $menu_item->id ? 'selected':''}}>{{$menu_item->name}}</option>
                     @endforeach
                 </select>
             </div>
@@ -22,8 +22,7 @@
         <div class="row mb-3">
             <div class="col">
                 <label>Price</label>
-                <input type="number" name="price" class="form-control form-control-air"
-                      value="{{$item->price}}" required>
+                <input type="number" name="price" value="{{$item->price}}" class="form-control form-control-air" required>
             </div>
         </div>
     </div>

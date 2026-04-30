@@ -93,6 +93,7 @@ class BillsController extends Controller
         $params['bill'] = Bill::findOrFail($id);
         $params['bill_items'] = BillItem::whereBillId($id)->get();
         $params['bill_sum'] = BillItem::whereBillId($id)->sum('total_price');
+        $params['waiters'] = BillItem::getWaiterByBillId($id);
         $pdf = PDF::loadView('sales::bills.bill_pdf', $params);
         return $pdf->download("Bill" . '.pdf');
     }

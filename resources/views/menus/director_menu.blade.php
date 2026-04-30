@@ -1,7 +1,10 @@
 <li>
-    <a href="{{route('dashboard')}}"><i class="sidebar-item-icon ti-dashboard"></i>
-        <span class="nav-label">Dashboard</span>
-    </a>
+    <a href="javascript:;"><i class="sidebar-item-icon ti-bar-chart"></i>
+        <span class="nav-label">Dashboards</span><i class="fa fa-angle-left arrow"></i></a>
+    <ul class="nav-2-level collapse">
+        <li><a href="{{route('front-office-dashboard')}}">Front Office</a></li>
+        <li><a href="{{route('accounts-dashboard')}}">Accounts</a></li>
+    </ul>s
 </li>
 
 
@@ -86,5 +89,19 @@
         <li><a href="{{route('disposal-request.approve-view')}}">Incoming</a></li>
         <li><a href="{{route('disposal-request.approved')}}">Approved</a></li>
         <li><a href="{{route('disposal-request.rejected')}}">Rejected</a></li>
+    </ul>
+</li>
+
+<li class="heading">REPORTS</li>
+
+
+<li>
+    <a href="javascript:;"><i class="sidebar-item-icon ti-bar-chart"></i>
+        <span class="nav-label">Sales</span><i class="fa fa-angle-left arrow"></i></a>
+    <ul class="nav-2-level collapse">
+{{--        <li><a href="{{route('bills.index')}}">Bills</a></li>--}}
+        <li><a href="{{route('daily-stock-index')}}">Daily Stock Sheet</a></li>
+        <li><a href="{{route('sales-history')}}">Sales History</a></li>
+        <li><a href="{{route('payment-history')}}">Payment History</a></li>
     </ul>
 </li>

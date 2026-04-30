@@ -21,6 +21,7 @@ class CheckOutCommand
         $booking = Booking::find($roomCheckInOut->booking_id);
         $room = Room::find($roomCheckInOut->room_id);
         $room->status = 'Available';
+        $room->pax = 0;
         $room->save();
 
         //Update Booking

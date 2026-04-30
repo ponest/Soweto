@@ -10,12 +10,11 @@ use Illuminate\Support\Carbon;
 use Modules\Auth\Models\User;
 
 /**
- *
- *
  * @property int $id
  * @property int $booking_id
  * @property string $checked_in_at
  * @property string|null $checked_out_at
+ * @property int|null $pax
  * @property string|null $remarks
  * @property int $checked_in_by
  * @property int|null $checked_out_by
@@ -27,9 +26,7 @@ use Modules\Auth\Models\User;
  * @property int|null $billed_by
  * @property string|null $billed_at
  * @property int $is_paid
- * @property string $paid_amount
- * @property string|null $payment_method
- * @property string|null $payment_reference
+ * @property numeric $paid_amount
  * @property-read \Modules\HotelMgnt\Models\Booking $booking
  * @property-read User $checkedInBy
  * @property-read User|null $checkedOutBy
@@ -51,12 +48,11 @@ use Modules\Auth\Models\User;
  * @method static Builder<static>|RoomCheckInOut whereIsBilled($value)
  * @method static Builder<static>|RoomCheckInOut whereIsPaid($value)
  * @method static Builder<static>|RoomCheckInOut wherePaidAmount($value)
- * @method static Builder<static>|RoomCheckInOut wherePaymentMethod($value)
- * @method static Builder<static>|RoomCheckInOut wherePaymentReference($value)
+ * @method static Builder<static>|RoomCheckInOut wherePax($value)
  * @method static Builder<static>|RoomCheckInOut whereRemarks($value)
  * @method static Builder<static>|RoomCheckInOut whereRoomId($value)
  * @method static Builder<static>|RoomCheckInOut whereUpdatedAt($value)
- * @method static Builder<static>|RoomCheckInOut withTrashed()
+ * @method static Builder<static>|RoomCheckInOut withTrashed(bool $withTrashed = true)
  * @method static Builder<static>|RoomCheckInOut withoutTrashed()
  * @mixin \Eloquent
  */

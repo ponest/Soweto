@@ -40,7 +40,7 @@ class SalesController extends Controller
     public function index($category)
     {
         $params['category'] = $category;
-        $params['staffs'] = Staff::where('staff_role_id', 1)->orderBy('first_name')->get();
+        $params['staffs'] = Staff::where('staff_role_id', GeneralEnum::WaiterStaffRoleId)->orderBy('first_name')->get();
         $client_ids = Booking::whereBookingStatus('CheckedIn')->pluck('client_id')->toArray();
         $params['clients'] = Client::whereIn('id', $client_ids)->get();
 

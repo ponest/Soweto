@@ -3,6 +3,7 @@
 namespace Modules\Reports\Http\Controllers;
 
 use App\Enums\GeneralEnum;
+use App\Exports\DailyRoomReport;
 use App\Exports\DailyStockReport;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -57,5 +58,10 @@ class ReportsController extends Controller
         session(['room_status_data' => $params['items']]);
         session(['header' => $params['header']]);
         return view('reports::room_status.index', $params);
+    }
+
+    public function dailyRoomStatusExcel()
+    {
+        return Excel::download(new DailyRoomReport(), 'daily_room_status.xlsx');
     }
 }

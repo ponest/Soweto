@@ -12,6 +12,10 @@ use Modules\Reports\Http\Controllers\DashboardController;
 
 Route::get('/', [AuthController::class, 'index'])->name('login');
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+//Dashboards
+Route::get('front-office-dash', [DashboardController::class, 'frontOfficeDashboard'])->name('front-office-dashboard');
+Route::get('accounts-dash', [DashboardController::class, 'accountDashboard'])->name('accounts-dashboard');
+
 Route::post('login', [AuthController::class, 'login'])->name('login.post');
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('change-pass', [AuthController::class, 'changePasswordView'])->name('change-pass');

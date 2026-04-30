@@ -36,7 +36,7 @@ class MenuPriceApprovalItemController extends Controller
     {
         $params['item'] = MenuPriceApprovalItem::find($id);
         $params['menu_items'] = FoodMenu::getAll();
-        return view('sales::price_approval_items.edit', $params);
+        return view('sales::menu_price_approval_items.edit', $params);
     }
 
     public function update(Request $request, $id)
