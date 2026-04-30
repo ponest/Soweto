@@ -48,7 +48,7 @@ class RoomsDailyStatusCommand
                         $no_of_nights = $arrival->startOfDay()
                             ->diffInDays(Carbon::parse($booking->proposed_end_date)->startOfDay());
                         $no_of_nights = max(1, $no_of_nights);
-                        $pax = 1;
+                        $pax = max(1, $entry->pax);
                     }
                 }
             }

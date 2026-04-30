@@ -4,38 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d44d5f7f-e478-428a-8108-98a2dcddfd72" name="Changes" comment="Daily Room Status">
-      <change afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/rooms/check_in_out.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Exports/DailyRoomReport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/bc813df7-c2e0-4836-97a7-128262c39fce.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/bc813df7-c2e0-4836-97a7-128262c39fce.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Auth/resources/views/dashboards/front_dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Auth/resources/views/dashboards/front_dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Auth/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Auth/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/CheckInOut/CheckInCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Commands/CheckInOut/CheckInCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Http/Controllers/RoomsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Http/Controllers/RoomsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Models/Room.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Models/Room.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/app/Models/RoomCheckInOut.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/app/Models/RoomCheckInOut.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/check_in_out/check_in.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/check_in_out/check_in.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/room_items/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/resources/views/room_items/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/HotelMgnt/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/HotelMgnt/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Inventory/app/Commands/StockIssue/ReceiveStockCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Inventory/app/Commands/StockIssue/ReceiveStockCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Reports/app/Http/Controllers/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Reports/app/Http/Controllers/DashboardController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Reports/app/Http/Controllers/ReportsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Reports/app/Http/Controllers/ReportsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Reports/resources/views/room_status/excel.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Reports/resources/views/room_status/excel.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Reports/resources/views/room_status/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Reports/resources/views/room_status/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Reports/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Reports/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/BillsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/BillsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/MenuPriceApprovalItemController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/MenuPriceApprovalItemController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/PaymentsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/PaymentsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/SalesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/app/Http/Controllers/SalesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Sales/resources/views/bills/bill_pdf.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/resources/views/bills/bill_pdf.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Sales/resources/views/food_menu/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/resources/views/food_menu/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Sales/resources/views/menu_price_approval_items/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/resources/views/menu_price_approval_items/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Sales/resources/views/menu_price_approval_items/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Sales/resources/views/menu_price_approval_items/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Enums/GeneralEnum.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Enums/GeneralEnum.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/menus/accountant_menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menus/accountant_menu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/menus/director_menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menus/director_menu.blade.php" afterDir="false" />
+    <list default="true" id="d44d5f7f-e478-428a-8108-98a2dcddfd72" name="Changes" comment="Fixes">
+      <change beforePath="$PROJECT_DIR$/Modules/Reports/app/Commands/Rooms/RoomsDailyStatusCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Reports/app/Commands/Rooms/RoomsDailyStatusCommand.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -570,15 +540,7 @@
       <workItem from="1776786103378" duration="673000" />
       <workItem from="1776843512031" duration="6198000" />
       <workItem from="1777364048546" duration="5351000" />
-      <workItem from="1777544862502" duration="6204000" />
-    </task>
-    <task id="LOCAL-00044" summary="Modified Billing">
-      <option name="closed" value="true" />
-      <created>1762084754108</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1762084754108</updated>
+      <workItem from="1777544862502" duration="6607000" />
     </task>
     <task id="LOCAL-00045" summary="Client Wallet Successfully Developed">
       <option name="closed" value="true" />
@@ -964,14 +926,21 @@
       <option name="project" value="LOCAL" />
       <updated>1776236628947</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL-00093" summary="Fixes">
+      <option name="closed" value="true" />
+      <created>1777560714612</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1777560714613</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Modified Billing to Add Bill Items" />
     <MESSAGE value="Modified Booking" />
     <MESSAGE value="Make Auto Consume Room Items" />
     <MESSAGE value="Added Checkout With Approval" />
@@ -996,7 +965,8 @@
     <MESSAGE value="Added Front Office Dashboard" />
     <MESSAGE value="Daily Stock Sheet" />
     <MESSAGE value="Daily Room Status" />
-    <option name="LAST_COMMIT_MESSAGE" value="Daily Room Status" />
+    <MESSAGE value="Fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixes" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
