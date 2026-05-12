@@ -15,6 +15,7 @@ use Modules\Inventory\Commands\PurchaseRequest\StoreCommand;
 use Modules\Inventory\Commands\PurchaseRequest\SubmitCommand;
 use Modules\Inventory\Commands\PurchaseRequest\UpdateCommand;
 use Modules\Inventory\Commands\PurchaseRequest\RejectCommand;
+use Modules\Inventory\Commands\PurchaseRequest\AmendReqCommand;
 use Modules\Inventory\Models\PurchaseReqAdditionalCost;
 use Modules\Inventory\Models\PurchaseReqItem;
 use Modules\Inventory\Models\PurchaseRequest;
@@ -32,6 +33,13 @@ class PurchaseRequestController extends Controller
     {
         $data = $request->all();
         $info = StoreCommand::handle($data);
+        $notification = General::customMessage($info['message'], $info['type']);
+        return Redirect::back()->with($notification);
+    }
+
+    public function amendRequest($id)
+    {
+        $info = AmendReqCommand::handle($id);
         $notification = General::customMessage($info['message'], $info['type']);
         return Redirect::back()->with($notification);
     }
@@ -113,8 +121,10 @@ class PurchaseRequestController extends Controller
     public function viewItems($id)
     {
         $params['items'] = PurchaseReqItem::wherePurchaseRequestId($id)->get();
+        $params['request'] = PurchaseRequest::find($id);
         $params['additional_costs'] = PurchaseReqAdditionalCost::wherePurchaseRequestId($id)->get();
         $params['total_items_cost'] = collect($params['items'])->sum('total_price');
+        $params['total_amended_cost'] = collect($params['items'])->sum('amended_total_price');
         $params['total_additional_costs'] = collect($params['additional_costs'])->sum('amount');
         return view('inventory::purchase_request.items_view', $params);
     }

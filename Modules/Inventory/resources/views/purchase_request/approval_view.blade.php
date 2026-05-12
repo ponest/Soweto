@@ -24,6 +24,7 @@
                     <tr>
                         <th>S/N</th>
                         <th>Requisition No</th>
+                        <th>Request Type</th>
                         <th>Description</th>
                         <th>Submitted By</th>
                         <th>Submitted At</th>
@@ -36,6 +37,7 @@
                         <tr>
                             <td style="width: 5%">{{++$key}}</td>
                             <td class="desc_name">{{$item->request_number}}</td>
+                            <td>{{$item->request_type}}</td>
                             <td>{{$item->description}}</td>
                             <td>{{isset($item->submittedBy) ? $item->submittedBy->full_name:'Not Submitted'}}</td>
                             <td>{{isset($item->submitted_at) ? date('d M Y H:i',strtotime($item->submitted_at)) : 'N/A'}}</td>

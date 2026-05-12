@@ -14,9 +14,16 @@
                         <i class="fa fa-backward"></i> Go Back
                     </a>
                     @if(!$requisition->submitted_at)
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create_modal">
-                            <i class="fa fa-plus-circle"></i> Add New
-                        </button>
+                        @if($requisition->request_type == "New")
+                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                    data-target="#create_modal">
+                                <i class="fa fa-plus-circle"></i> Add New
+                            </button>
+                        @else
+                            <a type="button" href="{{route('purchase-request-item.create-amend',$requisition->parent_id)}}" class="btn btn-primary" id="amend-btn">
+                                <i class="fa fa-plus-circle"></i> Add New
+                            </a>
+                        @endif
                     @endif
                 </div>
             </div>
@@ -35,6 +42,10 @@
                         <th>Quantity</th>
                         <th>Unit Price</th>
                         <th>Total Price</th>
+                        @if($requisition->request_type != "New")
+                            <th>Amended Unit Price</th>
+                            <th>Amended Total Price</th>
+                        @endif
                         <th>Balance</th>
                         <th>Action</th>
                     </tr>
@@ -50,12 +61,23 @@
                             <td style="text-align: right">{{number_format($item->quantity)." ".$item->unit?->name}}</td>
                             <td style="text-align: right">{{number_format($item->unit_price)}}</td>
                             <td style="text-align: right">{{number_format($item->total_price)}}</td>
+                            @if($requisition->request_type != "New")
+                                <td style="text-align: right">{{number_format($item->amended_unit_price)}}</td>
+                                <td style="text-align: right">{{number_format($item->amended_total_price)}}</td>
+                            @endif
                             <td style="text-align: right">{{number_format($balance)." ".$item->unit?->name}}</td>
                             <td style="width: 9%" class="text-center">
                                 @if(!$requisition->submitted_at)
-                                    <a class="text-muted font-16 edit-link"
-                                       href="{{route('purchase-request-item.edit',$item->id)}}"
-                                       title="Edit" data-toggle="tooltip"><i class="fa fx-2 fa-edit"></i></a> |
+                                    @if($requisition->request_type == "New")
+                                        <a class="text-muted font-16 edit-link"
+                                           href="{{route('purchase-request-item.edit',$item->id)}}"
+                                           title="Edit" data-toggle="tooltip"><i class="fa fx-2 fa-edit"></i></a> |
+                                    @else
+                                        <a class="text-muted font-16 edit-link"
+                                           href="{{route('purchase-request-item.amend-edit',$item->id)}}"
+                                           title="Edit" data-toggle="tooltip"><i class="fa fx-2 fa-edit"></i></a> |
+                                    @endif
+
                                     <a class="text-muted font-16 delete-link"
                                        href="{{route('purchase-request-item.destroy',$item->id)}}"
                                        title="Delete" data-toggle="tooltip"><i class="fa fx-2 fa-trash-o"></i></a>
@@ -89,6 +111,15 @@
             </div>
         </div>
     </div>
+
+    <!--Add Amended-->
+    <div class="modal fade" id="amend_modal" aria-labelledby="amend_modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content modal-amend">
+                <!--Edit Form Loads Here-->
+            </div>
+        </div>
+    </div>
 @endsection
 
 @section('Scripts')
@@ -98,6 +129,20 @@
             const dataURL = $(this).attr('href');
             $('.modal-edit').load(dataURL, function () {
                 $('#edit_modal').modal({show: true});
+            });
+        });
+
+        $('#amend-btn').on('click', function (e) {
+            e.preventDefault();
+            const dataURL = $(this).attr('href');
+            $('.modal-amend').load(dataURL, function () {
+                $('#amend_modal').modal({show: true});
+            });
+        });
+
+        $('#amend_modal').on('shown.bs.modal', function () {
+            $('select').select2({
+                width: '100%'
             });
         });
 
@@ -122,6 +167,14 @@
                 const total = unitPrice * quantity;
                 $('#e_total_price').val(total);
             });
+
+            $('#amended_unit_price').on('keyup', function () {
+                const unitPrice = parseFloat($(this).val());
+                const quantity = parseFloat($("#am_quantity").val());
+                const total = unitPrice * quantity;
+                $('#amended_total_price').val(total);
+            });
+
         });
 
         $('.confirm-link').on('click', function (e) {

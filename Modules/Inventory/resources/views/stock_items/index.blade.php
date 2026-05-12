@@ -9,9 +9,11 @@
                     <h5 class="font-strong">STOCK ITEMS</h5>
                 </div>
                 <div class="col-3" style="text-align: right">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create_modal">
-                        <i class="fa fa-plus-circle"></i> Add New
-                    </button>
+                    @can('StoreOfficer')
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create_modal">
+                            <i class="fa fa-plus-circle"></i> Add New
+                        </button>
+                    @endcan
                 </div>
             </div>
 
@@ -41,11 +43,14 @@
                             <td>{{isset($item->bulkUnit) ? $item->bulkUnit->name : 'Not Defined'}}</td>
                             <td>{{isset($item->unit) ? $item->unit->name : 'Not Defined'}}</td>
                             <td style="width: 9%" class="text-center">
-                                <a class="text-muted font-16 edit-link" href="{{route('stock-items.edit',$item->id)}}"
-                                   title="Edit" data-toggle="tooltip"><i class="fa fa-edit"></i></a> |
-                                <a class="text-muted font-16 delete-link"
-                                   href="{{route('stock-item.destroy',$item->id)}}"
-                                   title="Delete" data-toggle="tooltip"><i class="fa fa-trash-o"></i></a>
+                                @can('StoreOfficer')
+                                    <a class="text-muted font-16 edit-link"
+                                       href="{{route('stock-items.edit',$item->id)}}"
+                                       title="Edit" data-toggle="tooltip"><i class="fa fa-edit"></i></a> |
+                                    <a class="text-muted font-16 delete-link"
+                                       href="{{route('stock-item.destroy',$item->id)}}"
+                                       title="Delete" data-toggle="tooltip"><i class="fa fa-trash-o"></i></a>
+                                @endcan
                             </td>
                         </tr>
                     @endforeach

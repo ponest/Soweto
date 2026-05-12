@@ -40,6 +40,45 @@ class PurchaseReqItemsController extends Controller
         return view('inventory::purchase_request_items.edit', $params);
     }
 
+    public function edit_amended($id)
+    {
+        $params['item'] = PurchaseReqItem::find($id);
+        return view('inventory::purchase_request_items.amendment', $params);
+    }
+
+
+    public function addAmendedItemsView($id)
+    {
+        $params['request'] = PurchaseRequest::where('parent_id', $id)->first();
+        $existing_items = PurchaseReqItem::where('purchase_request_id', $params['request']->id)->pluck('stock_item_id');
+//       dd($existing_items);
+        $params['items'] = PurchaseReqItem::where('purchase_request_id', $id)
+            ->whereNotIn('stock_item_id', $existing_items)->get();
+//        dd($params['items']);
+        return view('inventory::purchase_request_items.add_amended', $params);
+    }
+
+
+    public function feedAmendedItems(Request $request)
+    {
+        $data = $request->all();
+
+        foreach ($data['stock_item_id'] as $stockItemId) {
+            $existingItem = PurchaseReqItem::find($stockItemId);
+            $reqItem = new PurchaseReqItem();
+            $reqItem->purchase_request_id = $data['current_request_id'];
+            $reqItem->stock_item_id = $existingItem->stock_item_id;
+            $reqItem->quantity = $existingItem->quantity;
+            $reqItem->unit_price = $existingItem->unit_price;
+            $reqItem->unit_id = $existingItem->unit_id;
+            $reqItem->total_price = $existingItem->total_price;
+            $reqItem->save();
+        }
+
+        $notification = General::customMessage("Successfully Saved", "success");
+        return Redirect::back()->with($notification);
+    }
+
     public function update(Request $request, $id)
     {
         $data = $request->all();
@@ -59,8 +98,8 @@ class PurchaseReqItemsController extends Controller
     {
         $itemIds = PurchaseReqItem::wherePurchaseRequestId($request->purchase_id)->pluck("stock_item_id")->toArray();
         $usedItems = ItemStockIn::where('purchase_request_id', $request->purchase_id)->pluck("item_id")->toArray();
-        $usable= array_diff($itemIds, $usedItems);
-        $stockItems = StockItem::whereIn('id',$usable)->pluck("name", "id");
+        $usable = array_diff($itemIds, $usedItems);
+        $stockItems = StockItem::whereIn('id', $usable)->pluck("name", "id");
         return json_encode($stockItems);
     }
 

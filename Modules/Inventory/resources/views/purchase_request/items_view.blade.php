@@ -1,7 +1,12 @@
 <table class="table table-bordered table-hover table-sm" id="datatable">
     <thead class="thead-default thead-sm">
     <tr>
-        <th colspan="5">Stock Items</th>
+        @if($request->request_type == "Amendment")
+            <th colspan="7">Stock Items</th>
+
+        @else
+            <th colspan="5">Stock Items</th>
+        @endif
     </tr>
     <tr>
         <th>S/N</th>
@@ -9,6 +14,10 @@
         <th>Quantity</th>
         <th>Unit Price</th>
         <th>Total Price</th>
+        @if($request->request_type == "Amendment")
+            <th>Amended Unit Price</th>
+            <th>Amended Total Price</th>
+        @endif
     </tr>
     </thead>
     <tbody>
@@ -19,6 +28,10 @@
             <td style="text-align: right">{{number_format($item->quantity)." ".$item->unit->name}}</td>
             <td style="text-align: right">{{number_format($item->unit_price)}}</td>
             <td style="text-align: right">{{number_format($item->total_price)}}</td>
+            @if($request->request_type == "Amendment")
+                <td style="text-align: right">{{number_format($item->amended_unit_price)}}</td>
+                <td style="text-align: right">{{number_format($item->amended_total_price)}}</td>
+            @endif
         </tr>
     @endforeach
     </tbody>
@@ -27,6 +40,10 @@
         <td></td>
         <td colspan="3">Total</td>
         <td style="text-align: right">{{number_format($total_items_cost)}}</td>
+        @if($request->request_type == "Amendment")
+            <td></td>
+            <td style="text-align: right">{{number_format($total_amended_cost)}}</td>
+        @endif
     </tr>
     </tfoot>
 </table>
@@ -64,8 +81,15 @@
 
 @php
     $totalCost  = $total_additional_costs + $total_items_cost;
+    $totalAmendedCost = $total_amended_cost + $total_additional_costs;
 @endphp
 <div class="text-right">
-    <h4 class="font-16"> <strong>Total Cost : {{number_format($totalCost)}}</strong> </h4>
+    <h4 class="font-16"><strong>Total Cost : {{number_format($totalCost)}}</strong></h4>
 </div>
+@if($request->request_type == "Amendment")
+    <div class="text-right">
+        <h4 class="font-16"><strong>Total Amended Cost : {{number_format($totalAmendedCost)}}</strong></h4>
+    </div>
+@endif
+
 

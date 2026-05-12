@@ -73,11 +73,14 @@ Route::middleware('auth')->group(function () {
     Route::get('purchase-request/reject/{id}', [PurchaseRequestController::class, 'rejectView'])->name('purchase-request.reject-view');
     Route::post('purchase-request/reject', [PurchaseRequestController::class, 'rejectRequest'])->name('purchase-request.reject');
     Route::get('purchase-request/rejected', [PurchaseRequestController::class, 'rejected'])->name('purchase-request.rejected');
+    Route::get('purchase-request/amend/{id}', [PurchaseRequestController::class, 'amendRequest'])->name('purchase-request.amend-request');
 
-
+    Route::post('feed-amended/purchase-request-item', [PurchaseReqItemsController::class, 'feedAmendedItems'])->name('purchase-request-item.feed-amended');
     Route::resource('purchase-request-item', PurchaseReqItemsController::class)->except('show', 'destroy','index');
     Route::get('purchase-request-item/index/{id}', [PurchaseReqItemsController::class, 'index'])->name('purchase-request-item.index');
     Route::get('purchase-request-item/destroy/{id}', [PurchaseReqItemsController::class, 'destroy'])->name('purchase-request-item.destroy');
+    Route::get('purchase-request-item/amend/{id}', [PurchaseReqItemsController::class, 'edit_amended'])->name('purchase-request-item.amend-edit');
+    Route::get('purchase-request-item/create-amend/{id}', [PurchaseReqItemsController::class, 'addAmendedItemsView'])->name('purchase-request-item.create-amend');
     Route::get('ajax/get-items', [PurchaseReqItemsController::class, 'getItems'])->name('ajax.get-items');
 
     Route::resource('purchase-req-cost', PurchaseReqAdditionalCostController::class)->except('show', 'destroy','index');

@@ -1398,7 +1398,7 @@
     <schema id="576" parent="1" name="soweto_db">
       <AutoIntrospectionLevel>3</AutoIntrospectionLevel>
       <LastIntrospectionLevel>3</LastIntrospectionLevel>
-      <LastIntrospectionLocalTimestamp>2026-04-14.19:56:28</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2026-05-12.17:16:57</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
     <schema id="577" parent="1" name="sys">
@@ -1804,7 +1804,7 @@
       <Predicate>json_valid(`properties`)</Predicate>
     </check>
     <column id="661" parent="586" name="id">
-      <AutoIncrement>1300</AutoIncrement>
+      <AutoIncrement>1312</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
@@ -5013,7 +5013,7 @@ causer_id</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="1354" parent="628" name="id">
-      <AutoIncrement>145</AutoIncrement>
+      <AutoIncrement>150</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int(10) unsigned|0s</StoredType>
@@ -5293,7 +5293,7 @@ causer_id</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="1413" parent="634" name="id">
-      <AutoIncrement>9</AutoIncrement>
+      <AutoIncrement>12</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
@@ -5340,1934 +5340,1980 @@ causer_id</ColNames>
       <Position>10</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <foreign-key id="1423" parent="634" name="purchase_req_items_purchase_request_id_foreign">
+    <column id="1423" parent="634" name="amended_unit_price">
+      <DefaultExpression>0.00</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>11</Position>
+      <StoredType>decimal(18,2 digit)|0s</StoredType>
+    </column>
+    <column id="1424" parent="634" name="amended_total_price">
+      <DefaultExpression>0.00</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>12</Position>
+      <StoredType>decimal(18,2 digit)|0s</StoredType>
+    </column>
+    <column id="1425" parent="634" name="is_for_amendment">
+      <DefaultExpression>0</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>13</Position>
+      <StoredType>tinyint(1)|0s</StoredType>
+    </column>
+    <foreign-key id="1426" parent="634" name="purchase_req_items_purchase_request_id_foreign">
       <ColNames>purchase_request_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>purchase_requests</RefTableName>
     </foreign-key>
-    <foreign-key id="1424" parent="634" name="purchase_req_items_stock_item_id_foreign">
+    <foreign-key id="1427" parent="634" name="purchase_req_items_stock_item_id_foreign">
       <ColNames>stock_item_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>stock_items</RefTableName>
     </foreign-key>
-    <foreign-key id="1425" parent="634" name="purchase_req_items_unit_id_foreign">
+    <foreign-key id="1428" parent="634" name="purchase_req_items_unit_id_foreign">
       <ColNames>unit_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>units</RefTableName>
     </foreign-key>
-    <index id="1426" parent="634" name="PRIMARY">
+    <index id="1429" parent="634" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="1427" parent="634" name="purchase_req_items_purchase_request_id_foreign">
+    <index id="1430" parent="634" name="purchase_req_items_purchase_request_id_foreign">
       <ColNames>purchase_request_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1428" parent="634" name="purchase_req_items_stock_item_id_foreign">
+    <index id="1431" parent="634" name="purchase_req_items_stock_item_id_foreign">
       <ColNames>stock_item_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1429" parent="634" name="purchase_req_items_unit_id_foreign">
+    <index id="1432" parent="634" name="purchase_req_items_unit_id_foreign">
       <ColNames>unit_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="1430" parent="634" name="PRIMARY">
+    <key id="1433" parent="634" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="1431" parent="635" name="id">
-      <AutoIncrement>5</AutoIncrement>
+    <column id="1434" parent="635" name="id">
+      <AutoIncrement>10</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1432" parent="635" name="description">
+    <column id="1435" parent="635" name="description">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>text|0s</StoredType>
     </column>
-    <column id="1433" parent="635" name="request_number">
+    <column id="1436" parent="635" name="request_number">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="1434" parent="635" name="status">
+    <column id="1437" parent="635" name="status">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="1435" parent="635" name="is_approved">
+    <column id="1438" parent="635" name="is_approved">
       <Position>5</Position>
       <StoredType>tinyint(1)|0s</StoredType>
     </column>
-    <column id="1436" parent="635" name="submitted_by">
+    <column id="1439" parent="635" name="submitted_by">
       <Position>6</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1437" parent="635" name="submitted_at">
+    <column id="1440" parent="635" name="submitted_at">
       <Position>7</Position>
       <StoredType>datetime|0s</StoredType>
     </column>
-    <column id="1438" parent="635" name="previewed_by">
+    <column id="1441" parent="635" name="previewed_by">
       <Position>8</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1439" parent="635" name="previewed_at">
+    <column id="1442" parent="635" name="previewed_at">
       <Position>9</Position>
       <StoredType>datetime|0s</StoredType>
     </column>
-    <column id="1440" parent="635" name="reviewed_by">
+    <column id="1443" parent="635" name="reviewed_by">
       <Position>10</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1441" parent="635" name="reviewed_at">
+    <column id="1444" parent="635" name="reviewed_at">
       <Position>11</Position>
       <StoredType>datetime|0s</StoredType>
     </column>
-    <column id="1442" parent="635" name="approved_by">
+    <column id="1445" parent="635" name="approved_by">
       <Position>12</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1443" parent="635" name="approved_at">
+    <column id="1446" parent="635" name="approved_at">
       <Position>13</Position>
       <StoredType>datetime|0s</StoredType>
     </column>
-    <column id="1444" parent="635" name="reject_comments">
+    <column id="1447" parent="635" name="reject_comments">
       <Position>14</Position>
       <StoredType>text|0s</StoredType>
     </column>
-    <column id="1445" parent="635" name="created_at">
+    <column id="1448" parent="635" name="request_type">
+      <DefaultExpression>&apos;New&apos;</DefaultExpression>
+      <NotNull>1</NotNull>
       <Position>15</Position>
-      <StoredType>timestamp|0s</StoredType>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="1446" parent="635" name="updated_at">
+    <column id="1449" parent="635" name="created_at">
       <Position>16</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1447" parent="635" name="deleted_at">
+    <column id="1450" parent="635" name="updated_at">
       <Position>17</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <foreign-key id="1448" parent="635" name="purchase_requests_submitted_by_foreign">
+    <column id="1451" parent="635" name="deleted_at">
+      <Position>18</Position>
+      <StoredType>timestamp|0s</StoredType>
+    </column>
+    <column id="1452" parent="635" name="parent_id">
+      <Position>19</Position>
+      <StoredType>bigint(20) unsigned|0s</StoredType>
+    </column>
+    <foreign-key id="1453" parent="635" name="purchase_requests_submitted_by_foreign">
       <ColNames>submitted_by</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>users</RefTableName>
     </foreign-key>
-    <foreign-key id="1449" parent="635" name="purchase_requests_previewed_by_foreign">
+    <foreign-key id="1454" parent="635" name="purchase_requests_previewed_by_foreign">
       <ColNames>previewed_by</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>users</RefTableName>
     </foreign-key>
-    <foreign-key id="1450" parent="635" name="purchase_requests_reviewed_by_foreign">
+    <foreign-key id="1455" parent="635" name="purchase_requests_reviewed_by_foreign">
       <ColNames>reviewed_by</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>users</RefTableName>
     </foreign-key>
-    <foreign-key id="1451" parent="635" name="purchase_requests_approved_by_foreign">
+    <foreign-key id="1456" parent="635" name="purchase_requests_approved_by_foreign">
       <ColNames>approved_by</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>users</RefTableName>
     </foreign-key>
-    <index id="1452" parent="635" name="PRIMARY">
+    <foreign-key id="1457" parent="635" name="purchase_requests_parent_id_foreign">
+      <ColNames>parent_id</ColNames>
+      <RefColNames>id</RefColNames>
+      <RefTableName>purchase_requests</RefTableName>
+    </foreign-key>
+    <index id="1458" parent="635" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="1453" parent="635" name="purchase_requests_submitted_by_foreign">
+    <index id="1459" parent="635" name="purchase_requests_submitted_by_foreign">
       <ColNames>submitted_by</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1454" parent="635" name="purchase_requests_previewed_by_foreign">
+    <index id="1460" parent="635" name="purchase_requests_previewed_by_foreign">
       <ColNames>previewed_by</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1455" parent="635" name="purchase_requests_reviewed_by_foreign">
+    <index id="1461" parent="635" name="purchase_requests_reviewed_by_foreign">
       <ColNames>reviewed_by</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1456" parent="635" name="purchase_requests_approved_by_foreign">
+    <index id="1462" parent="635" name="purchase_requests_approved_by_foreign">
       <ColNames>approved_by</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="1457" parent="635" name="PRIMARY">
+    <index id="1463" parent="635" name="purchase_requests_parent_id_foreign">
+      <ColNames>parent_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="1464" parent="635" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="1458" parent="636" name="id">
+    <column id="1465" parent="636" name="id">
       <AutoIncrement>30</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1459" parent="636" name="user_id">
+    <column id="1466" parent="636" name="user_id">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1460" parent="636" name="role_id">
+    <column id="1467" parent="636" name="role_id">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1461" parent="636" name="created_at">
+    <column id="1468" parent="636" name="created_at">
       <Position>4</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1462" parent="636" name="updated_at">
+    <column id="1469" parent="636" name="updated_at">
       <Position>5</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <foreign-key id="1463" parent="636" name="role_users_user_id_foreign">
+    <foreign-key id="1470" parent="636" name="role_users_user_id_foreign">
       <ColNames>user_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>users</RefTableName>
     </foreign-key>
-    <foreign-key id="1464" parent="636" name="role_users_role_id_foreign">
+    <foreign-key id="1471" parent="636" name="role_users_role_id_foreign">
       <ColNames>role_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>roles</RefTableName>
     </foreign-key>
-    <index id="1465" parent="636" name="PRIMARY">
+    <index id="1472" parent="636" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="1466" parent="636" name="role_users_user_id_foreign">
+    <index id="1473" parent="636" name="role_users_user_id_foreign">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1467" parent="636" name="role_users_role_id_foreign">
+    <index id="1474" parent="636" name="role_users_role_id_foreign">
       <ColNames>role_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="1468" parent="636" name="PRIMARY">
+    <key id="1475" parent="636" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="1469" parent="637" name="id">
+    <column id="1476" parent="637" name="id">
       <AutoIncrement>10</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1470" parent="637" name="name">
+    <column id="1477" parent="637" name="name">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="1471" parent="637" name="created_at">
+    <column id="1478" parent="637" name="created_at">
       <Position>3</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1472" parent="637" name="updated_at">
+    <column id="1479" parent="637" name="updated_at">
       <Position>4</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1473" parent="637" name="deleted_at">
+    <column id="1480" parent="637" name="deleted_at">
       <Position>5</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <index id="1474" parent="637" name="PRIMARY">
+    <index id="1481" parent="637" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="1475" parent="637" name="PRIMARY">
+    <key id="1482" parent="637" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="1476" parent="638" name="id">
+    <column id="1483" parent="638" name="id">
       <AutoIncrement>19</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1477" parent="638" name="booking_id">
+    <column id="1484" parent="638" name="booking_id">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1478" parent="638" name="checked_in_at">
+    <column id="1485" parent="638" name="checked_in_at">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>datetime|0s</StoredType>
     </column>
-    <column id="1479" parent="638" name="checked_out_at">
+    <column id="1486" parent="638" name="checked_out_at">
       <Position>4</Position>
       <StoredType>datetime|0s</StoredType>
     </column>
-    <column id="1480" parent="638" name="remarks">
+    <column id="1487" parent="638" name="pax">
       <Position>5</Position>
+      <StoredType>int(11)|0s</StoredType>
+    </column>
+    <column id="1488" parent="638" name="remarks">
+      <Position>6</Position>
       <StoredType>text|0s</StoredType>
     </column>
-    <column id="1481" parent="638" name="checked_in_by">
+    <column id="1489" parent="638" name="checked_in_by">
       <NotNull>1</NotNull>
-      <Position>6</Position>
-      <StoredType>bigint(20) unsigned|0s</StoredType>
-    </column>
-    <column id="1482" parent="638" name="checked_out_by">
       <Position>7</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1483" parent="638" name="created_at">
+    <column id="1490" parent="638" name="checked_out_by">
       <Position>8</Position>
-      <StoredType>timestamp|0s</StoredType>
+      <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1484" parent="638" name="updated_at">
+    <column id="1491" parent="638" name="created_at">
       <Position>9</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1485" parent="638" name="deleted_at">
+    <column id="1492" parent="638" name="updated_at">
       <Position>10</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1486" parent="638" name="room_id">
+    <column id="1493" parent="638" name="deleted_at">
       <Position>11</Position>
+      <StoredType>timestamp|0s</StoredType>
+    </column>
+    <column id="1494" parent="638" name="room_id">
+      <Position>12</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1487" parent="638" name="is_billed">
+    <column id="1495" parent="638" name="is_billed">
       <DefaultExpression>0</DefaultExpression>
       <NotNull>1</NotNull>
-      <Position>12</Position>
+      <Position>13</Position>
       <StoredType>tinyint(1)|0s</StoredType>
     </column>
-    <column id="1488" parent="638" name="billed_by">
-      <Position>13</Position>
+    <column id="1496" parent="638" name="billed_by">
+      <Position>14</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1489" parent="638" name="billed_at">
-      <Position>14</Position>
+    <column id="1497" parent="638" name="billed_at">
+      <Position>15</Position>
       <StoredType>datetime|0s</StoredType>
     </column>
-    <column id="1490" parent="638" name="is_paid">
+    <column id="1498" parent="638" name="is_paid">
       <DefaultExpression>0</DefaultExpression>
       <NotNull>1</NotNull>
-      <Position>15</Position>
+      <Position>16</Position>
       <StoredType>tinyint(1)|0s</StoredType>
     </column>
-    <column id="1491" parent="638" name="paid_amount">
+    <column id="1499" parent="638" name="paid_amount">
       <DefaultExpression>0.00</DefaultExpression>
       <NotNull>1</NotNull>
-      <Position>16</Position>
+      <Position>17</Position>
       <StoredType>decimal(8,2 digit)|0s</StoredType>
     </column>
-    <foreign-key id="1492" parent="638" name="room_check_in_outs_booking_id_foreign">
+    <foreign-key id="1500" parent="638" name="room_check_in_outs_booking_id_foreign">
       <ColNames>booking_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>bookings</RefTableName>
     </foreign-key>
-    <foreign-key id="1493" parent="638" name="room_check_in_outs_checked_in_by_foreign">
+    <foreign-key id="1501" parent="638" name="room_check_in_outs_checked_in_by_foreign">
       <ColNames>checked_in_by</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>users</RefTableName>
     </foreign-key>
-    <foreign-key id="1494" parent="638" name="room_check_in_outs_checked_out_by_foreign">
+    <foreign-key id="1502" parent="638" name="room_check_in_outs_checked_out_by_foreign">
       <ColNames>checked_out_by</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>users</RefTableName>
     </foreign-key>
-    <foreign-key id="1495" parent="638" name="room_check_in_outs_room_id_foreign">
+    <foreign-key id="1503" parent="638" name="room_check_in_outs_room_id_foreign">
       <ColNames>room_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>rooms</RefTableName>
     </foreign-key>
-    <foreign-key id="1496" parent="638" name="room_check_in_outs_billed_by_foreign">
+    <foreign-key id="1504" parent="638" name="room_check_in_outs_billed_by_foreign">
       <ColNames>billed_by</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>users</RefTableName>
     </foreign-key>
-    <index id="1497" parent="638" name="PRIMARY">
+    <index id="1505" parent="638" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="1498" parent="638" name="room_check_in_outs_booking_id_foreign">
+    <index id="1506" parent="638" name="room_check_in_outs_booking_id_foreign">
       <ColNames>booking_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1499" parent="638" name="room_check_in_outs_checked_in_by_foreign">
+    <index id="1507" parent="638" name="room_check_in_outs_checked_in_by_foreign">
       <ColNames>checked_in_by</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1500" parent="638" name="room_check_in_outs_checked_out_by_foreign">
+    <index id="1508" parent="638" name="room_check_in_outs_checked_out_by_foreign">
       <ColNames>checked_out_by</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1501" parent="638" name="room_check_in_outs_room_id_foreign">
+    <index id="1509" parent="638" name="room_check_in_outs_room_id_foreign">
       <ColNames>room_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1502" parent="638" name="room_check_in_outs_billed_by_foreign">
+    <index id="1510" parent="638" name="room_check_in_outs_billed_by_foreign">
       <ColNames>billed_by</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="1503" parent="638" name="PRIMARY">
+    <key id="1511" parent="638" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="1504" parent="639" name="id">
+    <column id="1512" parent="639" name="id">
       <AutoIncrement>4</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1505" parent="639" name="room_id">
+    <column id="1513" parent="639" name="room_id">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1506" parent="639" name="stock_item_id">
+    <column id="1514" parent="639" name="stock_item_id">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1507" parent="639" name="quantity">
+    <column id="1515" parent="639" name="quantity">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <column id="1508" parent="639" name="created_at">
+    <column id="1516" parent="639" name="created_at">
       <Position>5</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1509" parent="639" name="updated_at">
+    <column id="1517" parent="639" name="updated_at">
       <Position>6</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1510" parent="639" name="deleted_at">
+    <column id="1518" parent="639" name="deleted_at">
       <Position>7</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <foreign-key id="1511" parent="639" name="room_items_room_id_foreign">
+    <foreign-key id="1519" parent="639" name="room_items_room_id_foreign">
       <ColNames>room_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>rooms</RefTableName>
     </foreign-key>
-    <foreign-key id="1512" parent="639" name="room_items_stock_item_id_foreign">
+    <foreign-key id="1520" parent="639" name="room_items_stock_item_id_foreign">
       <ColNames>stock_item_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>stock_items</RefTableName>
     </foreign-key>
-    <index id="1513" parent="639" name="PRIMARY">
+    <index id="1521" parent="639" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="1514" parent="639" name="room_items_room_id_foreign">
+    <index id="1522" parent="639" name="room_items_room_id_foreign">
       <ColNames>room_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1515" parent="639" name="room_items_stock_item_id_foreign">
+    <index id="1523" parent="639" name="room_items_stock_item_id_foreign">
       <ColNames>stock_item_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="1516" parent="639" name="PRIMARY">
+    <key id="1524" parent="639" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="1517" parent="640" name="id">
+    <column id="1525" parent="640" name="id">
       <AutoIncrement>5</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1518" parent="640" name="name">
+    <column id="1526" parent="640" name="name">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="1519" parent="640" name="description">
+    <column id="1527" parent="640" name="description">
       <Position>3</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="1520" parent="640" name="capacity">
+    <column id="1528" parent="640" name="capacity">
       <DefaultExpression>1</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <column id="1521" parent="640" name="created_at">
+    <column id="1529" parent="640" name="created_at">
       <Position>5</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1522" parent="640" name="updated_at">
+    <column id="1530" parent="640" name="updated_at">
       <Position>6</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1523" parent="640" name="deleted_at">
+    <column id="1531" parent="640" name="deleted_at">
       <Position>7</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <index id="1524" parent="640" name="PRIMARY">
+    <index id="1532" parent="640" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="1525" parent="640" name="PRIMARY">
+    <key id="1533" parent="640" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="1526" parent="641" name="id">
+    <column id="1534" parent="641" name="id">
       <AutoIncrement>8</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1527" parent="641" name="room_type_id">
+    <column id="1535" parent="641" name="room_type_id">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1528" parent="641" name="room_number">
+    <column id="1536" parent="641" name="room_number">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="1529" parent="641" name="status">
+    <column id="1537" parent="641" name="status">
       <DefaultExpression>&apos;Available&apos;</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="1530" parent="641" name="rate_per_night">
+    <column id="1538" parent="641" name="pax">
+      <NotNull>1</NotNull>
       <Position>5</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <column id="1531" parent="641" name="created_at">
+    <column id="1539" parent="641" name="rate_per_night">
       <Position>6</Position>
-      <StoredType>timestamp|0s</StoredType>
+      <StoredType>int(11)|0s</StoredType>
     </column>
-    <column id="1532" parent="641" name="updated_at">
+    <column id="1540" parent="641" name="created_at">
       <Position>7</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1533" parent="641" name="deleted_at">
+    <column id="1541" parent="641" name="updated_at">
       <Position>8</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <foreign-key id="1534" parent="641" name="rooms_room_type_id_foreign">
+    <column id="1542" parent="641" name="deleted_at">
+      <Position>9</Position>
+      <StoredType>timestamp|0s</StoredType>
+    </column>
+    <foreign-key id="1543" parent="641" name="rooms_room_type_id_foreign">
       <ColNames>room_type_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>room_types</RefTableName>
     </foreign-key>
-    <index id="1535" parent="641" name="PRIMARY">
+    <index id="1544" parent="641" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="1536" parent="641" name="rooms_room_type_id_foreign">
+    <index id="1545" parent="641" name="rooms_room_type_id_foreign">
       <ColNames>room_type_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="1537" parent="641" name="PRIMARY">
+    <key id="1546" parent="641" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="1538" parent="642" name="id">
+    <column id="1547" parent="642" name="id">
       <AutoIncrement>55</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1539" parent="642" name="sales_batch_id">
+    <column id="1548" parent="642" name="sales_batch_id">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1540" parent="642" name="item_type">
+    <column id="1549" parent="642" name="item_type">
       <DefaultExpression>&apos;stock_item&apos;</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="1541" parent="642" name="store_id">
+    <column id="1550" parent="642" name="store_id">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1542" parent="642" name="ref_id">
+    <column id="1551" parent="642" name="ref_id">
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StoredType>bigint(20)|0s</StoredType>
     </column>
-    <column id="1543" parent="642" name="item_name">
+    <column id="1552" parent="642" name="item_name">
       <NotNull>1</NotNull>
       <Position>6</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="1544" parent="642" name="unit_price">
+    <column id="1553" parent="642" name="unit_price">
       <NotNull>1</NotNull>
       <Position>7</Position>
       <StoredType>decimal(8,2 digit)|0s</StoredType>
     </column>
-    <column id="1545" parent="642" name="quantity">
+    <column id="1554" parent="642" name="quantity">
       <NotNull>1</NotNull>
       <Position>8</Position>
       <StoredType>decimal(8,2 digit)|0s</StoredType>
     </column>
-    <column id="1546" parent="642" name="total_price">
+    <column id="1555" parent="642" name="total_price">
       <NotNull>1</NotNull>
       <Position>9</Position>
       <StoredType>decimal(8,2 digit)|0s</StoredType>
     </column>
-    <column id="1547" parent="642" name="created_at">
+    <column id="1556" parent="642" name="created_at">
       <Position>10</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1548" parent="642" name="updated_at">
+    <column id="1557" parent="642" name="updated_at">
       <Position>11</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1549" parent="642" name="deleted_at">
+    <column id="1558" parent="642" name="deleted_at">
       <Position>12</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1550" parent="642" name="waiter_id">
+    <column id="1559" parent="642" name="waiter_id">
       <Position>13</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <foreign-key id="1551" parent="642" name="sales_sales_batch_id_foreign">
+    <foreign-key id="1560" parent="642" name="sales_sales_batch_id_foreign">
       <ColNames>sales_batch_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>sales_batches</RefTableName>
     </foreign-key>
-    <foreign-key id="1552" parent="642" name="sales_store_id_foreign">
+    <foreign-key id="1561" parent="642" name="sales_store_id_foreign">
       <ColNames>store_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>stores</RefTableName>
     </foreign-key>
-    <foreign-key id="1553" parent="642" name="sales_waiter_id_foreign">
+    <foreign-key id="1562" parent="642" name="sales_waiter_id_foreign">
       <ColNames>waiter_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>staffs</RefTableName>
     </foreign-key>
-    <index id="1554" parent="642" name="PRIMARY">
+    <index id="1563" parent="642" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="1555" parent="642" name="sales_sales_batch_id_foreign">
+    <index id="1564" parent="642" name="sales_sales_batch_id_foreign">
       <ColNames>sales_batch_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1556" parent="642" name="sales_store_id_foreign">
+    <index id="1565" parent="642" name="sales_store_id_foreign">
       <ColNames>store_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1557" parent="642" name="sales_waiter_id_foreign">
+    <index id="1566" parent="642" name="sales_waiter_id_foreign">
       <ColNames>waiter_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="1558" parent="642" name="PRIMARY">
+    <key id="1567" parent="642" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="1559" parent="643" name="id">
+    <column id="1568" parent="643" name="id">
       <AutoIncrement>45</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1560" parent="643" name="batch_number">
+    <column id="1569" parent="643" name="batch_number">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="1561" parent="643" name="client_id">
+    <column id="1570" parent="643" name="client_id">
       <Position>3</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1562" parent="643" name="client_type">
+    <column id="1571" parent="643" name="client_type">
       <Position>4</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="1563" parent="643" name="room_id">
+    <column id="1572" parent="643" name="room_id">
       <Position>5</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1564" parent="643" name="total_price">
+    <column id="1573" parent="643" name="total_price">
       <NotNull>1</NotNull>
       <Position>6</Position>
       <StoredType>decimal(8,2 digit)|0s</StoredType>
     </column>
-    <column id="1565" parent="643" name="created_by">
+    <column id="1574" parent="643" name="created_by">
       <NotNull>1</NotNull>
       <Position>7</Position>
       <StoredType>int(10) unsigned|0s</StoredType>
     </column>
-    <column id="1566" parent="643" name="created_at">
+    <column id="1575" parent="643" name="created_at">
       <Position>8</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1567" parent="643" name="updated_at">
+    <column id="1576" parent="643" name="updated_at">
       <Position>9</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1568" parent="643" name="deleted_at">
+    <column id="1577" parent="643" name="deleted_at">
       <Position>10</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1569" parent="643" name="source">
+    <column id="1578" parent="643" name="source">
       <Position>11</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="1570" parent="643" name="is_paid">
+    <column id="1579" parent="643" name="is_paid">
       <DefaultExpression>0</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>12</Position>
       <StoredType>tinyint(1)|0s</StoredType>
     </column>
-    <index id="1571" parent="643" name="PRIMARY">
+    <index id="1580" parent="643" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="1572" parent="643" name="PRIMARY">
+    <key id="1581" parent="643" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="1573" parent="644" name="id">
+    <column id="1582" parent="644" name="id">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="1574" parent="644" name="user_id">
+    <column id="1583" parent="644" name="user_id">
       <Position>2</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1575" parent="644" name="ip_address">
+    <column id="1584" parent="644" name="ip_address">
       <Position>3</Position>
       <StoredType>varchar(45)|0s</StoredType>
     </column>
-    <column id="1576" parent="644" name="user_agent">
+    <column id="1585" parent="644" name="user_agent">
       <Position>4</Position>
       <StoredType>text|0s</StoredType>
     </column>
-    <column id="1577" parent="644" name="payload">
+    <column id="1586" parent="644" name="payload">
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StoredType>longtext|0s</StoredType>
     </column>
-    <column id="1578" parent="644" name="last_activity">
+    <column id="1587" parent="644" name="last_activity">
       <NotNull>1</NotNull>
       <Position>6</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <index id="1579" parent="644" name="PRIMARY">
+    <index id="1588" parent="644" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="1580" parent="644" name="sessions_user_id_index">
+    <index id="1589" parent="644" name="sessions_user_id_index">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1581" parent="644" name="sessions_last_activity_index">
+    <index id="1590" parent="644" name="sessions_last_activity_index">
       <ColNames>last_activity</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="1582" parent="644" name="PRIMARY">
+    <key id="1591" parent="644" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="1583" parent="645" name="id">
+    <column id="1592" parent="645" name="id">
       <AutoIncrement>3</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1584" parent="645" name="name">
+    <column id="1593" parent="645" name="name">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="1585" parent="645" name="created_at">
+    <column id="1594" parent="645" name="created_at">
       <Position>3</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1586" parent="645" name="updated_at">
+    <column id="1595" parent="645" name="updated_at">
       <Position>4</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1587" parent="645" name="deleted_at">
+    <column id="1596" parent="645" name="deleted_at">
       <Position>5</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <index id="1588" parent="645" name="PRIMARY">
+    <index id="1597" parent="645" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="1589" parent="645" name="PRIMARY">
+    <key id="1598" parent="645" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="1590" parent="646" name="id">
+    <column id="1599" parent="646" name="id">
       <AutoIncrement>4</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1591" parent="646" name="first_name">
+    <column id="1600" parent="646" name="first_name">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="1592" parent="646" name="last_name">
+    <column id="1601" parent="646" name="last_name">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="1593" parent="646" name="gender">
+    <column id="1602" parent="646" name="gender">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="1594" parent="646" name="physical_address">
+    <column id="1603" parent="646" name="physical_address">
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="1595" parent="646" name="phone_number">
+    <column id="1604" parent="646" name="phone_number">
       <NotNull>1</NotNull>
       <Position>6</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="1596" parent="646" name="staff_role_id">
+    <column id="1605" parent="646" name="staff_role_id">
       <NotNull>1</NotNull>
       <Position>7</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1597" parent="646" name="created_at">
+    <column id="1606" parent="646" name="created_at">
       <Position>8</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1598" parent="646" name="updated_at">
+    <column id="1607" parent="646" name="updated_at">
       <Position>9</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1599" parent="646" name="deleted_at">
+    <column id="1608" parent="646" name="deleted_at">
       <Position>10</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <foreign-key id="1600" parent="646" name="staffs_staff_role_id_foreign">
+    <foreign-key id="1609" parent="646" name="staffs_staff_role_id_foreign">
       <ColNames>staff_role_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>staff_roles</RefTableName>
     </foreign-key>
-    <index id="1601" parent="646" name="PRIMARY">
+    <index id="1610" parent="646" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="1602" parent="646" name="staffs_staff_role_id_foreign">
+    <index id="1611" parent="646" name="staffs_staff_role_id_foreign">
       <ColNames>staff_role_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="1603" parent="646" name="PRIMARY">
+    <key id="1612" parent="646" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="1604" parent="647" name="id">
+    <column id="1613" parent="647" name="id">
       <AutoIncrement>14</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1605" parent="647" name="backlog_request_id">
+    <column id="1614" parent="647" name="backlog_request_id">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1606" parent="647" name="stock_item_id">
+    <column id="1615" parent="647" name="stock_item_id">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1607" parent="647" name="quantity">
+    <column id="1616" parent="647" name="quantity">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>double|0s</StoredType>
     </column>
-    <column id="1608" parent="647" name="unit_id">
+    <column id="1617" parent="647" name="unit_id">
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1609" parent="647" name="created_at">
+    <column id="1618" parent="647" name="created_at">
       <Position>6</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1610" parent="647" name="updated_at">
+    <column id="1619" parent="647" name="updated_at">
       <Position>7</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1611" parent="647" name="deleted_at">
+    <column id="1620" parent="647" name="deleted_at">
       <Position>8</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <foreign-key id="1612" parent="647" name="stock_backlog_items_backlog_request_id_foreign">
+    <foreign-key id="1621" parent="647" name="stock_backlog_items_backlog_request_id_foreign">
       <ColNames>backlog_request_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>stock_backlog_requests</RefTableName>
     </foreign-key>
-    <foreign-key id="1613" parent="647" name="stock_backlog_items_stock_item_id_foreign">
+    <foreign-key id="1622" parent="647" name="stock_backlog_items_stock_item_id_foreign">
       <ColNames>stock_item_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>stock_items</RefTableName>
     </foreign-key>
-    <foreign-key id="1614" parent="647" name="stock_backlog_items_unit_id_foreign">
+    <foreign-key id="1623" parent="647" name="stock_backlog_items_unit_id_foreign">
       <ColNames>unit_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>units</RefTableName>
     </foreign-key>
-    <index id="1615" parent="647" name="PRIMARY">
+    <index id="1624" parent="647" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="1616" parent="647" name="stock_backlog_items_backlog_request_id_foreign">
+    <index id="1625" parent="647" name="stock_backlog_items_backlog_request_id_foreign">
       <ColNames>backlog_request_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1617" parent="647" name="stock_backlog_items_stock_item_id_foreign">
+    <index id="1626" parent="647" name="stock_backlog_items_stock_item_id_foreign">
       <ColNames>stock_item_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1618" parent="647" name="stock_backlog_items_unit_id_foreign">
+    <index id="1627" parent="647" name="stock_backlog_items_unit_id_foreign">
       <ColNames>unit_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="1619" parent="647" name="PRIMARY">
+    <key id="1628" parent="647" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="1620" parent="648" name="id">
+    <column id="1629" parent="648" name="id">
       <AutoIncrement>7</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1621" parent="648" name="description">
+    <column id="1630" parent="648" name="description">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="1622" parent="648" name="request_number">
+    <column id="1631" parent="648" name="request_number">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="1623" parent="648" name="status">
+    <column id="1632" parent="648" name="status">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="1624" parent="648" name="store_id">
+    <column id="1633" parent="648" name="store_id">
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1625" parent="648" name="submitted_at">
+    <column id="1634" parent="648" name="submitted_at">
       <Position>6</Position>
       <StoredType>datetime|0s</StoredType>
     </column>
-    <column id="1626" parent="648" name="submitted_by">
+    <column id="1635" parent="648" name="submitted_by">
       <Position>7</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1627" parent="648" name="reviewed_at">
+    <column id="1636" parent="648" name="reviewed_at">
       <Position>8</Position>
       <StoredType>datetime|0s</StoredType>
     </column>
-    <column id="1628" parent="648" name="reviewed_by">
+    <column id="1637" parent="648" name="reviewed_by">
       <Position>9</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1629" parent="648" name="is_approved">
+    <column id="1638" parent="648" name="is_approved">
       <Position>10</Position>
       <StoredType>tinyint(1)|0s</StoredType>
     </column>
-    <column id="1630" parent="648" name="reject_comments">
+    <column id="1639" parent="648" name="reject_comments">
       <Position>11</Position>
       <StoredType>text|0s</StoredType>
     </column>
-    <column id="1631" parent="648" name="created_at">
+    <column id="1640" parent="648" name="created_at">
       <Position>12</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1632" parent="648" name="updated_at">
+    <column id="1641" parent="648" name="updated_at">
       <Position>13</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1633" parent="648" name="deleted_at">
+    <column id="1642" parent="648" name="deleted_at">
       <Position>14</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <foreign-key id="1634" parent="648" name="stock_backlog_requests_store_id_foreign">
+    <foreign-key id="1643" parent="648" name="stock_backlog_requests_store_id_foreign">
       <ColNames>store_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>stores</RefTableName>
     </foreign-key>
-    <foreign-key id="1635" parent="648" name="stock_backlog_requests_submitted_by_foreign">
+    <foreign-key id="1644" parent="648" name="stock_backlog_requests_submitted_by_foreign">
       <ColNames>submitted_by</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>users</RefTableName>
     </foreign-key>
-    <foreign-key id="1636" parent="648" name="stock_backlog_requests_reviewed_by_foreign">
+    <foreign-key id="1645" parent="648" name="stock_backlog_requests_reviewed_by_foreign">
       <ColNames>reviewed_by</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>users</RefTableName>
     </foreign-key>
-    <index id="1637" parent="648" name="PRIMARY">
+    <index id="1646" parent="648" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="1638" parent="648" name="stock_backlog_requests_store_id_foreign">
+    <index id="1647" parent="648" name="stock_backlog_requests_store_id_foreign">
       <ColNames>store_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1639" parent="648" name="stock_backlog_requests_submitted_by_foreign">
+    <index id="1648" parent="648" name="stock_backlog_requests_submitted_by_foreign">
       <ColNames>submitted_by</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1640" parent="648" name="stock_backlog_requests_reviewed_by_foreign">
+    <index id="1649" parent="648" name="stock_backlog_requests_reviewed_by_foreign">
       <ColNames>reviewed_by</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="1641" parent="648" name="PRIMARY">
+    <key id="1650" parent="648" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="1642" parent="649" name="id">
+    <column id="1651" parent="649" name="id">
       <AutoIncrement>13</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1643" parent="649" name="stock_requisition_id">
+    <column id="1652" parent="649" name="stock_requisition_id">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1644" parent="649" name="issue_number">
+    <column id="1653" parent="649" name="issue_number">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="1645" parent="649" name="requisition_number">
+    <column id="1654" parent="649" name="requisition_number">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="1646" parent="649" name="issued_by">
+    <column id="1655" parent="649" name="issued_by">
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1647" parent="649" name="issued_at">
+    <column id="1656" parent="649" name="issued_at">
       <NotNull>1</NotNull>
       <Position>6</Position>
       <StoredType>datetime|0s</StoredType>
     </column>
-    <column id="1648" parent="649" name="received_by">
+    <column id="1657" parent="649" name="received_by">
       <Position>7</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1649" parent="649" name="received_at">
+    <column id="1658" parent="649" name="received_at">
       <Position>8</Position>
       <StoredType>date|0s</StoredType>
     </column>
-    <column id="1650" parent="649" name="department_id">
+    <column id="1659" parent="649" name="department_id">
       <NotNull>1</NotNull>
       <Position>9</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1651" parent="649" name="store_id">
+    <column id="1660" parent="649" name="store_id">
       <Position>10</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1652" parent="649" name="created_at">
+    <column id="1661" parent="649" name="created_at">
       <Position>11</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1653" parent="649" name="updated_at">
+    <column id="1662" parent="649" name="updated_at">
       <Position>12</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1654" parent="649" name="deleted_at">
+    <column id="1663" parent="649" name="deleted_at">
       <Position>13</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <foreign-key id="1655" parent="649" name="stock_issue_stock_requisition_id_foreign">
+    <foreign-key id="1664" parent="649" name="stock_issue_stock_requisition_id_foreign">
       <ColNames>stock_requisition_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>stock_requisitions</RefTableName>
     </foreign-key>
-    <foreign-key id="1656" parent="649" name="stock_issue_issued_by_foreign">
+    <foreign-key id="1665" parent="649" name="stock_issue_issued_by_foreign">
       <ColNames>issued_by</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>users</RefTableName>
     </foreign-key>
-    <foreign-key id="1657" parent="649" name="stock_issue_received_by_foreign">
+    <foreign-key id="1666" parent="649" name="stock_issue_received_by_foreign">
       <ColNames>received_by</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>users</RefTableName>
     </foreign-key>
-    <foreign-key id="1658" parent="649" name="stock_issue_department_id_foreign">
+    <foreign-key id="1667" parent="649" name="stock_issue_department_id_foreign">
       <ColNames>department_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>departments</RefTableName>
     </foreign-key>
-    <foreign-key id="1659" parent="649" name="stock_issue_store_id_foreign">
+    <foreign-key id="1668" parent="649" name="stock_issue_store_id_foreign">
       <ColNames>store_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>stores</RefTableName>
     </foreign-key>
-    <index id="1660" parent="649" name="PRIMARY">
+    <index id="1669" parent="649" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="1661" parent="649" name="stock_issue_stock_requisition_id_foreign">
+    <index id="1670" parent="649" name="stock_issue_stock_requisition_id_foreign">
       <ColNames>stock_requisition_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1662" parent="649" name="stock_issue_issued_by_foreign">
+    <index id="1671" parent="649" name="stock_issue_issued_by_foreign">
       <ColNames>issued_by</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1663" parent="649" name="stock_issue_received_by_foreign">
+    <index id="1672" parent="649" name="stock_issue_received_by_foreign">
       <ColNames>received_by</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1664" parent="649" name="stock_issue_department_id_foreign">
+    <index id="1673" parent="649" name="stock_issue_department_id_foreign">
       <ColNames>department_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1665" parent="649" name="stock_issue_store_id_foreign">
+    <index id="1674" parent="649" name="stock_issue_store_id_foreign">
       <ColNames>store_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="1666" parent="649" name="PRIMARY">
+    <key id="1675" parent="649" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="1667" parent="650" name="id">
+    <column id="1676" parent="650" name="id">
       <AutoIncrement>10</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1668" parent="650" name="stock_issue_id">
+    <column id="1677" parent="650" name="stock_issue_id">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1669" parent="650" name="requisition_number">
+    <column id="1678" parent="650" name="requisition_number">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="1670" parent="650" name="item_id">
+    <column id="1679" parent="650" name="item_id">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1671" parent="650" name="quantity">
+    <column id="1680" parent="650" name="quantity">
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StoredType>double|0s</StoredType>
     </column>
-    <column id="1672" parent="650" name="unit_id">
+    <column id="1681" parent="650" name="unit_id">
       <NotNull>1</NotNull>
       <Position>6</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1673" parent="650" name="issued_at">
+    <column id="1682" parent="650" name="issued_at">
       <NotNull>1</NotNull>
       <Position>7</Position>
       <StoredType>datetime|0s</StoredType>
     </column>
-    <column id="1674" parent="650" name="stock_requisition_item_id">
+    <column id="1683" parent="650" name="stock_requisition_item_id">
       <NotNull>1</NotNull>
       <Position>8</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1675" parent="650" name="department_id">
+    <column id="1684" parent="650" name="department_id">
       <NotNull>1</NotNull>
       <Position>9</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1676" parent="650" name="store_id">
+    <column id="1685" parent="650" name="store_id">
       <Position>10</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1677" parent="650" name="issuing_store_id">
+    <column id="1686" parent="650" name="issuing_store_id">
       <Position>11</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1678" parent="650" name="is_received">
+    <column id="1687" parent="650" name="is_received">
       <DefaultExpression>0</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>12</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <column id="1679" parent="650" name="created_at">
+    <column id="1688" parent="650" name="created_at">
       <Position>13</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1680" parent="650" name="updated_at">
+    <column id="1689" parent="650" name="updated_at">
       <Position>14</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1681" parent="650" name="deleted_at">
+    <column id="1690" parent="650" name="deleted_at">
       <Position>15</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <foreign-key id="1682" parent="650" name="stock_issue_items_stock_issue_id_foreign">
+    <foreign-key id="1691" parent="650" name="stock_issue_items_stock_issue_id_foreign">
       <ColNames>stock_issue_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>stock_issue</RefTableName>
     </foreign-key>
-    <foreign-key id="1683" parent="650" name="stock_issue_items_item_id_foreign">
+    <foreign-key id="1692" parent="650" name="stock_issue_items_item_id_foreign">
       <ColNames>item_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>stock_items</RefTableName>
     </foreign-key>
-    <foreign-key id="1684" parent="650" name="stock_issue_items_unit_id_foreign">
+    <foreign-key id="1693" parent="650" name="stock_issue_items_unit_id_foreign">
       <ColNames>unit_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>units</RefTableName>
     </foreign-key>
-    <foreign-key id="1685" parent="650" name="stock_issue_items_stock_requisition_item_id_foreign">
+    <foreign-key id="1694" parent="650" name="stock_issue_items_stock_requisition_item_id_foreign">
       <ColNames>stock_requisition_item_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>stock_requisition_items</RefTableName>
     </foreign-key>
-    <foreign-key id="1686" parent="650" name="stock_issue_items_department_id_foreign">
+    <foreign-key id="1695" parent="650" name="stock_issue_items_department_id_foreign">
       <ColNames>department_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>departments</RefTableName>
     </foreign-key>
-    <foreign-key id="1687" parent="650" name="stock_issue_items_store_id_foreign">
+    <foreign-key id="1696" parent="650" name="stock_issue_items_store_id_foreign">
       <ColNames>store_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>stores</RefTableName>
     </foreign-key>
-    <foreign-key id="1688" parent="650" name="stock_issue_items_issuing_store_id_foreign">
+    <foreign-key id="1697" parent="650" name="stock_issue_items_issuing_store_id_foreign">
       <ColNames>issuing_store_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>stores</RefTableName>
     </foreign-key>
-    <index id="1689" parent="650" name="PRIMARY">
+    <index id="1698" parent="650" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="1690" parent="650" name="stock_issue_items_stock_issue_id_foreign">
+    <index id="1699" parent="650" name="stock_issue_items_stock_issue_id_foreign">
       <ColNames>stock_issue_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1691" parent="650" name="stock_issue_items_item_id_foreign">
+    <index id="1700" parent="650" name="stock_issue_items_item_id_foreign">
       <ColNames>item_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1692" parent="650" name="stock_issue_items_unit_id_foreign">
+    <index id="1701" parent="650" name="stock_issue_items_unit_id_foreign">
       <ColNames>unit_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1693" parent="650" name="stock_issue_items_stock_requisition_item_id_foreign">
+    <index id="1702" parent="650" name="stock_issue_items_stock_requisition_item_id_foreign">
       <ColNames>stock_requisition_item_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1694" parent="650" name="stock_issue_items_department_id_foreign">
+    <index id="1703" parent="650" name="stock_issue_items_department_id_foreign">
       <ColNames>department_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1695" parent="650" name="stock_issue_items_store_id_foreign">
+    <index id="1704" parent="650" name="stock_issue_items_store_id_foreign">
       <ColNames>store_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1696" parent="650" name="stock_issue_items_issuing_store_id_foreign">
+    <index id="1705" parent="650" name="stock_issue_items_issuing_store_id_foreign">
       <ColNames>issuing_store_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="1697" parent="650" name="PRIMARY">
+    <key id="1706" parent="650" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="1698" parent="651" name="id">
+    <column id="1707" parent="651" name="id">
       <AutoIncrement>15</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1699" parent="651" name="name">
+    <column id="1708" parent="651" name="name">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="1700" parent="651" name="category_id">
+    <column id="1709" parent="651" name="category_id">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1701" parent="651" name="bulk_unit_id">
+    <column id="1710" parent="651" name="bulk_unit_id">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1702" parent="651" name="unit_id">
+    <column id="1711" parent="651" name="unit_id">
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1703" parent="651" name="reorder_level">
+    <column id="1712" parent="651" name="reorder_level">
       <DefaultExpression>1</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>6</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <column id="1704" parent="651" name="created_at">
+    <column id="1713" parent="651" name="created_at">
       <Position>7</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1705" parent="651" name="updated_at">
+    <column id="1714" parent="651" name="updated_at">
       <Position>8</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1706" parent="651" name="deleted_at">
+    <column id="1715" parent="651" name="deleted_at">
       <Position>9</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1707" parent="651" name="allow_partial_sale">
+    <column id="1716" parent="651" name="allow_partial_sale">
       <DefaultExpression>0</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>10</Position>
       <StoredType>tinyint(1)|0s</StoredType>
     </column>
-    <foreign-key id="1708" parent="651" name="stock_items_category_id_foreign">
+    <foreign-key id="1717" parent="651" name="stock_items_category_id_foreign">
       <ColNames>category_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>item_categories</RefTableName>
     </foreign-key>
-    <foreign-key id="1709" parent="651" name="stock_items_bulk_unit_id_foreign">
+    <foreign-key id="1718" parent="651" name="stock_items_bulk_unit_id_foreign">
       <ColNames>bulk_unit_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>units</RefTableName>
     </foreign-key>
-    <foreign-key id="1710" parent="651" name="stock_items_unit_id_foreign">
+    <foreign-key id="1719" parent="651" name="stock_items_unit_id_foreign">
       <ColNames>unit_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>units</RefTableName>
     </foreign-key>
-    <index id="1711" parent="651" name="PRIMARY">
+    <index id="1720" parent="651" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="1712" parent="651" name="stock_items_category_id_foreign">
+    <index id="1721" parent="651" name="stock_items_category_id_foreign">
       <ColNames>category_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1713" parent="651" name="stock_items_base_unit_id_foreign">
+    <index id="1722" parent="651" name="stock_items_base_unit_id_foreign">
       <ColNames>bulk_unit_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1714" parent="651" name="stock_items_unit_id_foreign">
+    <index id="1723" parent="651" name="stock_items_unit_id_foreign">
       <ColNames>unit_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="1715" parent="651" name="PRIMARY">
+    <key id="1724" parent="651" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="1716" parent="652" name="id">
+    <column id="1725" parent="652" name="id">
       <AutoIncrement>20</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1717" parent="652" name="stock_requisition_id">
+    <column id="1726" parent="652" name="stock_requisition_id">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1718" parent="652" name="stock_item_id">
+    <column id="1727" parent="652" name="stock_item_id">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1719" parent="652" name="unit_id">
+    <column id="1728" parent="652" name="unit_id">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1720" parent="652" name="requested_quantity">
+    <column id="1729" parent="652" name="requested_quantity">
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StoredType>double|0s</StoredType>
     </column>
-    <column id="1721" parent="652" name="issued_quantity">
+    <column id="1730" parent="652" name="issued_quantity">
       <Position>6</Position>
       <StoredType>double|0s</StoredType>
     </column>
-    <column id="1722" parent="652" name="is_issued">
+    <column id="1731" parent="652" name="is_issued">
       <DefaultExpression>0</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>7</Position>
       <StoredType>tinyint(1)|0s</StoredType>
     </column>
-    <column id="1723" parent="652" name="is_received">
+    <column id="1732" parent="652" name="is_received">
       <DefaultExpression>0</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>8</Position>
       <StoredType>tinyint(1)|0s</StoredType>
     </column>
-    <column id="1724" parent="652" name="created_at">
+    <column id="1733" parent="652" name="created_at">
       <Position>9</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1725" parent="652" name="updated_at">
+    <column id="1734" parent="652" name="updated_at">
       <Position>10</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1726" parent="652" name="deleted_at">
+    <column id="1735" parent="652" name="deleted_at">
       <Position>11</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <foreign-key id="1727" parent="652" name="stock_requisition_items_stock_requisition_id_foreign">
+    <foreign-key id="1736" parent="652" name="stock_requisition_items_stock_requisition_id_foreign">
       <ColNames>stock_requisition_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>stock_requisitions</RefTableName>
     </foreign-key>
-    <foreign-key id="1728" parent="652" name="stock_requisition_items_stock_item_id_foreign">
+    <foreign-key id="1737" parent="652" name="stock_requisition_items_stock_item_id_foreign">
       <ColNames>stock_item_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>stock_items</RefTableName>
     </foreign-key>
-    <foreign-key id="1729" parent="652" name="stock_requisition_items_unit_id_foreign">
+    <foreign-key id="1738" parent="652" name="stock_requisition_items_unit_id_foreign">
       <ColNames>unit_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>units</RefTableName>
     </foreign-key>
-    <index id="1730" parent="652" name="PRIMARY">
+    <index id="1739" parent="652" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="1731" parent="652" name="stock_requisition_items_stock_requisition_id_foreign">
+    <index id="1740" parent="652" name="stock_requisition_items_stock_requisition_id_foreign">
       <ColNames>stock_requisition_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1732" parent="652" name="stock_requisition_items_stock_item_id_foreign">
+    <index id="1741" parent="652" name="stock_requisition_items_stock_item_id_foreign">
       <ColNames>stock_item_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1733" parent="652" name="stock_requisition_items_unit_id_foreign">
+    <index id="1742" parent="652" name="stock_requisition_items_unit_id_foreign">
       <ColNames>unit_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="1734" parent="652" name="PRIMARY">
+    <key id="1743" parent="652" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="1735" parent="653" name="id">
+    <column id="1744" parent="653" name="id">
       <AutoIncrement>15</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1736" parent="653" name="description">
+    <column id="1745" parent="653" name="description">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="1737" parent="653" name="requisition_number">
+    <column id="1746" parent="653" name="requisition_number">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="1738" parent="653" name="status">
+    <column id="1747" parent="653" name="status">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="1739" parent="653" name="department_id">
+    <column id="1748" parent="653" name="department_id">
       <Position>5</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1740" parent="653" name="store_id">
+    <column id="1749" parent="653" name="store_id">
       <Position>6</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1741" parent="653" name="submitted_at">
+    <column id="1750" parent="653" name="submitted_at">
       <Position>7</Position>
       <StoredType>datetime|0s</StoredType>
     </column>
-    <column id="1742" parent="653" name="submitted_by">
+    <column id="1751" parent="653" name="submitted_by">
       <Position>8</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1743" parent="653" name="reviewed_at">
+    <column id="1752" parent="653" name="reviewed_at">
       <Position>9</Position>
       <StoredType>datetime|0s</StoredType>
     </column>
-    <column id="1744" parent="653" name="reviewed_by">
+    <column id="1753" parent="653" name="reviewed_by">
       <Position>10</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1745" parent="653" name="is_approved">
+    <column id="1754" parent="653" name="is_approved">
       <Position>11</Position>
       <StoredType>tinyint(1)|0s</StoredType>
     </column>
-    <column id="1746" parent="653" name="issued_at">
+    <column id="1755" parent="653" name="issued_at">
       <Position>12</Position>
       <StoredType>datetime|0s</StoredType>
     </column>
-    <column id="1747" parent="653" name="issued_by">
+    <column id="1756" parent="653" name="issued_by">
       <Position>13</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1748" parent="653" name="received_at">
+    <column id="1757" parent="653" name="received_at">
       <Position>14</Position>
       <StoredType>datetime|0s</StoredType>
     </column>
-    <column id="1749" parent="653" name="received_by">
+    <column id="1758" parent="653" name="received_by">
       <Position>15</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1750" parent="653" name="created_at">
+    <column id="1759" parent="653" name="created_at">
       <Position>16</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1751" parent="653" name="updated_at">
+    <column id="1760" parent="653" name="updated_at">
       <Position>17</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1752" parent="653" name="deleted_at">
+    <column id="1761" parent="653" name="deleted_at">
       <Position>18</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1753" parent="653" name="reject_comments">
+    <column id="1762" parent="653" name="reject_comments">
       <Position>19</Position>
       <StoredType>text|0s</StoredType>
     </column>
-    <foreign-key id="1754" parent="653" name="stock_requisitions_department_id_foreign">
+    <foreign-key id="1763" parent="653" name="stock_requisitions_department_id_foreign">
       <ColNames>department_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>departments</RefTableName>
     </foreign-key>
-    <foreign-key id="1755" parent="653" name="stock_requisitions_store_id_foreign">
+    <foreign-key id="1764" parent="653" name="stock_requisitions_store_id_foreign">
       <ColNames>store_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>stores</RefTableName>
     </foreign-key>
-    <foreign-key id="1756" parent="653" name="stock_requisitions_submitted_by_foreign">
+    <foreign-key id="1765" parent="653" name="stock_requisitions_submitted_by_foreign">
       <ColNames>submitted_by</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>users</RefTableName>
     </foreign-key>
-    <foreign-key id="1757" parent="653" name="stock_requisitions_reviewed_by_foreign">
+    <foreign-key id="1766" parent="653" name="stock_requisitions_reviewed_by_foreign">
       <ColNames>reviewed_by</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>users</RefTableName>
     </foreign-key>
-    <foreign-key id="1758" parent="653" name="stock_requisitions_issued_by_foreign">
+    <foreign-key id="1767" parent="653" name="stock_requisitions_issued_by_foreign">
       <ColNames>issued_by</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>users</RefTableName>
     </foreign-key>
-    <foreign-key id="1759" parent="653" name="stock_requisitions_received_by_foreign">
+    <foreign-key id="1768" parent="653" name="stock_requisitions_received_by_foreign">
       <ColNames>received_by</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>users</RefTableName>
     </foreign-key>
-    <index id="1760" parent="653" name="PRIMARY">
+    <index id="1769" parent="653" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="1761" parent="653" name="stock_requisitions_department_id_foreign">
+    <index id="1770" parent="653" name="stock_requisitions_department_id_foreign">
       <ColNames>department_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1762" parent="653" name="stock_requisitions_store_id_foreign">
+    <index id="1771" parent="653" name="stock_requisitions_store_id_foreign">
       <ColNames>store_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1763" parent="653" name="stock_requisitions_submitted_by_foreign">
+    <index id="1772" parent="653" name="stock_requisitions_submitted_by_foreign">
       <ColNames>submitted_by</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1764" parent="653" name="stock_requisitions_reviewed_by_foreign">
+    <index id="1773" parent="653" name="stock_requisitions_reviewed_by_foreign">
       <ColNames>reviewed_by</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1765" parent="653" name="stock_requisitions_issued_by_foreign">
+    <index id="1774" parent="653" name="stock_requisitions_issued_by_foreign">
       <ColNames>issued_by</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1766" parent="653" name="stock_requisitions_received_by_foreign">
+    <index id="1775" parent="653" name="stock_requisitions_received_by_foreign">
       <ColNames>received_by</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="1767" parent="653" name="PRIMARY">
+    <key id="1776" parent="653" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="1768" parent="654" name="id">
+    <column id="1777" parent="654" name="id">
       <AutoIncrement>19</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1769" parent="654" name="store_id">
+    <column id="1778" parent="654" name="store_id">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1770" parent="654" name="item_id">
+    <column id="1779" parent="654" name="item_id">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1771" parent="654" name="created_at">
+    <column id="1780" parent="654" name="created_at">
       <Position>4</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1772" parent="654" name="updated_at">
+    <column id="1781" parent="654" name="updated_at">
       <Position>5</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1773" parent="654" name="deleted_at">
+    <column id="1782" parent="654" name="deleted_at">
       <Position>6</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <foreign-key id="1774" parent="654" name="store_items_store_id_foreign">
+    <foreign-key id="1783" parent="654" name="store_items_store_id_foreign">
       <ColNames>store_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>stores</RefTableName>
     </foreign-key>
-    <foreign-key id="1775" parent="654" name="store_items_item_id_foreign">
+    <foreign-key id="1784" parent="654" name="store_items_item_id_foreign">
       <ColNames>item_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>stock_items</RefTableName>
     </foreign-key>
-    <index id="1776" parent="654" name="PRIMARY">
+    <index id="1785" parent="654" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="1777" parent="654" name="store_items_store_id_foreign">
+    <index id="1786" parent="654" name="store_items_store_id_foreign">
       <ColNames>store_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1778" parent="654" name="store_items_item_id_foreign">
+    <index id="1787" parent="654" name="store_items_item_id_foreign">
       <ColNames>item_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="1779" parent="654" name="PRIMARY">
+    <key id="1788" parent="654" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="1780" parent="655" name="id">
+    <column id="1789" parent="655" name="id">
       <AutoIncrement>5</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1781" parent="655" name="name">
+    <column id="1790" parent="655" name="name">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="1782" parent="655" name="created_at">
+    <column id="1791" parent="655" name="created_at">
       <Position>3</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1783" parent="655" name="updated_at">
+    <column id="1792" parent="655" name="updated_at">
       <Position>4</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1784" parent="655" name="deleted_at">
+    <column id="1793" parent="655" name="deleted_at">
       <Position>5</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <index id="1785" parent="655" name="PRIMARY">
+    <index id="1794" parent="655" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="1786" parent="655" name="PRIMARY">
+    <key id="1795" parent="655" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="1787" parent="656" name="id">
+    <column id="1796" parent="656" name="id">
       <AutoIncrement>3</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1788" parent="656" name="name">
+    <column id="1797" parent="656" name="name">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="1789" parent="656" name="phone_number">
+    <column id="1798" parent="656" name="phone_number">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="1790" parent="656" name="email">
+    <column id="1799" parent="656" name="email">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="1791" parent="656" name="postal_address">
+    <column id="1800" parent="656" name="postal_address">
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="1792" parent="656" name="location">
+    <column id="1801" parent="656" name="location">
       <NotNull>1</NotNull>
       <Position>6</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="1793" parent="656" name="created_at">
+    <column id="1802" parent="656" name="created_at">
       <Position>7</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1794" parent="656" name="updated_at">
+    <column id="1803" parent="656" name="updated_at">
       <Position>8</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1795" parent="656" name="deleted_at">
+    <column id="1804" parent="656" name="deleted_at">
       <Position>9</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <index id="1796" parent="656" name="PRIMARY">
+    <index id="1805" parent="656" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="1797" parent="656" name="suppliers_email_unique">
+    <index id="1806" parent="656" name="suppliers_email_unique">
       <ColNames>email</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="1798" parent="656" name="PRIMARY">
+    <key id="1807" parent="656" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <key id="1799" parent="656" name="suppliers_email_unique">
+    <key id="1808" parent="656" name="suppliers_email_unique">
       <UnderlyingIndexName>suppliers_email_unique</UnderlyingIndexName>
     </key>
-    <column id="1800" parent="657" name="id">
+    <column id="1809" parent="657" name="id">
       <AutoIncrement>11</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1801" parent="657" name="name">
+    <column id="1810" parent="657" name="name">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="1802" parent="657" name="symbol">
+    <column id="1811" parent="657" name="symbol">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="1803" parent="657" name="created_at">
+    <column id="1812" parent="657" name="created_at">
       <Position>4</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1804" parent="657" name="updated_at">
+    <column id="1813" parent="657" name="updated_at">
       <Position>5</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1805" parent="657" name="deleted_at">
+    <column id="1814" parent="657" name="deleted_at">
       <Position>6</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <index id="1806" parent="657" name="PRIMARY">
+    <index id="1815" parent="657" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="1807" parent="657" name="PRIMARY">
+    <key id="1816" parent="657" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="1808" parent="658" name="id">
+    <column id="1817" parent="658" name="id">
       <AutoIncrement>13</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1809" parent="658" name="first_name">
+    <column id="1818" parent="658" name="first_name">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="1810" parent="658" name="last_name">
+    <column id="1819" parent="658" name="last_name">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="1811" parent="658" name="email">
+    <column id="1820" parent="658" name="email">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="1812" parent="658" name="email_verified_at">
+    <column id="1821" parent="658" name="email_verified_at">
       <Position>5</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1813" parent="658" name="password">
+    <column id="1822" parent="658" name="password">
       <NotNull>1</NotNull>
       <Position>6</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="1814" parent="658" name="phone_number">
+    <column id="1823" parent="658" name="phone_number">
       <Position>7</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="1815" parent="658" name="remember_token">
+    <column id="1824" parent="658" name="remember_token">
       <Position>8</Position>
       <StoredType>varchar(100)|0s</StoredType>
     </column>
-    <column id="1816" parent="658" name="created_at">
+    <column id="1825" parent="658" name="created_at">
       <Position>9</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1817" parent="658" name="updated_at">
+    <column id="1826" parent="658" name="updated_at">
       <Position>10</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1818" parent="658" name="department_id">
+    <column id="1827" parent="658" name="department_id">
       <Position>11</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1819" parent="658" name="store_id">
+    <column id="1828" parent="658" name="store_id">
       <Position>12</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <foreign-key id="1820" parent="658" name="users_department_id_foreign">
+    <foreign-key id="1829" parent="658" name="users_department_id_foreign">
       <ColNames>department_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>departments</RefTableName>
     </foreign-key>
-    <foreign-key id="1821" parent="658" name="users_store_id_foreign">
+    <foreign-key id="1830" parent="658" name="users_store_id_foreign">
       <ColNames>store_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>stores</RefTableName>
     </foreign-key>
-    <index id="1822" parent="658" name="PRIMARY">
+    <index id="1831" parent="658" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="1823" parent="658" name="users_email_unique">
+    <index id="1832" parent="658" name="users_email_unique">
       <ColNames>email</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="1824" parent="658" name="users_phone_number_unique">
+    <index id="1833" parent="658" name="users_phone_number_unique">
       <ColNames>phone_number</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="1825" parent="658" name="users_department_id_foreign">
+    <index id="1834" parent="658" name="users_department_id_foreign">
       <ColNames>department_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="1826" parent="658" name="users_store_id_foreign">
+    <index id="1835" parent="658" name="users_store_id_foreign">
       <ColNames>store_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="1827" parent="658" name="PRIMARY">
+    <key id="1836" parent="658" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <key id="1828" parent="658" name="users_email_unique">
+    <key id="1837" parent="658" name="users_email_unique">
       <UnderlyingIndexName>users_email_unique</UnderlyingIndexName>
     </key>
-    <key id="1829" parent="658" name="users_phone_number_unique">
+    <key id="1838" parent="658" name="users_phone_number_unique">
       <UnderlyingIndexName>users_phone_number_unique</UnderlyingIndexName>
     </key>
-    <column id="1830" parent="659" name="id">
+    <column id="1839" parent="659" name="id">
       <AutoIncrement>3</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1831" parent="659" name="wallet_id">
+    <column id="1840" parent="659" name="wallet_id">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>bigint(20) unsigned|0s</StoredType>
     </column>
-    <column id="1832" parent="659" name="amount">
+    <column id="1841" parent="659" name="amount">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>decimal(8,2 digit)|0s</StoredType>
     </column>
-    <column id="1833" parent="659" name="created_at">
+    <column id="1842" parent="659" name="created_at">
       <Position>4</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1834" parent="659" name="updated_at">
+    <column id="1843" parent="659" name="updated_at">
       <Position>5</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <column id="1835" parent="659" name="deleted_at">
+    <column id="1844" parent="659" name="deleted_at">
       <Position>6</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <foreign-key id="1836" parent="659" name="wallet_transactions_wallet_id_foreign">
+    <foreign-key id="1845" parent="659" name="wallet_transactions_wallet_id_foreign">
       <ColNames>wallet_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>client_wallets</RefTableName>
     </foreign-key>
-    <index id="1837" parent="659" name="PRIMARY">
+    <index id="1846" parent="659" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="1838" parent="659" name="wallet_transactions_wallet_id_foreign">
+    <index id="1847" parent="659" name="wallet_transactions_wallet_id_foreign">
       <ColNames>wallet_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="1839" parent="659" name="PRIMARY">
+    <key id="1848" parent="659" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>

@@ -64,6 +64,11 @@
                                          href="{{route('purchase-request.submit',$item->id)}}"
                                          title="Submit" data-toggle="tooltip"><i class="fa fx-2 fa-check-circle-o"></i></a>
                                 @endif
+                                @if($item->is_approved)
+                                        | <a class="text-muted font-16 amend-link"
+                                             href="{{route('purchase-request.amend-request',$item->id)}}"
+                                             title="Amend Request" data-toggle="tooltip"><i class="fa fx-2 fa-check-circle-o"></i></a>
+                                @endif
                             </td>
                         </tr>
                     @endforeach
@@ -109,6 +114,15 @@
             const Description = "Requisition " + $(this).closest('tr').children('td.desc_name').text().trim() + " Will be Submitted";
             const Url = $(this).attr('href');
             const ButtonText = 'Yes, Submit';
+            actionConfirm(Description, Url, ButtonText);
+        });
+
+        //For Check In
+        $(".amend-link").click(function (e) {
+            e.preventDefault();
+            const Description = "Requisition " + $(this).closest('tr').children('td.desc_name').text().trim() + " Will be Amended";
+            const Url = $(this).attr('href');
+            const ButtonText = 'Yes, Amend';
             actionConfirm(Description, Url, ButtonText);
         });
 

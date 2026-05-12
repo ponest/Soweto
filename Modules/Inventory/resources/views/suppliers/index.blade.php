@@ -9,9 +9,11 @@
                     <h5 class="font-strong">SUPPLIERS</h5>
                 </div>
                 <div class="col-3" style="text-align: right">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create_modal">
-                        <i class="fa fa-plus-circle"></i> Add New
-                    </button>
+                    @can('StoreOfficer')
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create_modal">
+                            <i class="fa fa-plus-circle"></i> Add New
+                        </button>
+                    @endcan
                 </div>
             </div>
 
@@ -30,7 +32,9 @@
                         <th>Phone Number</th>
                         <th>Postal Address</th>
                         <th>Physical Location</th>
-                        <th>Action</th>
+                        @can('StoreOfficer')
+                            <th>Action</th>
+                        @endcan
                     </tr>
                     </thead>
                     <tbody>
@@ -42,13 +46,15 @@
                             <td>{{$item->phone_number}}</td>
                             <td>{{$item->postal_address}}</td>
                             <td>{{$item->location}}</td>
-                            <td style="width: 9%" class="text-center">
-                                <a class="text-muted font-16 edit-link" href="{{route('suppliers.edit',$item->id)}}"
-                                   title="Edit" data-toggle="tooltip"><i class="fa fa-edit"></i></a> |
-                                <a class="text-muted font-16 delete-link"
-                                   href="{{route('suppliers.destroy',$item->id)}}"
-                                   title="Delete" data-toggle="tooltip"><i class="fa fa-trash-o"></i></a>
-                            </td>
+                            @can('StoreOfficer')
+                                <td style="width: 9%" class="text-center">
+                                    <a class="text-muted font-16 edit-link" href="{{route('suppliers.edit',$item->id)}}"
+                                       title="Edit" data-toggle="tooltip"><i class="fa fa-edit"></i></a> |
+                                    <a class="text-muted font-16 delete-link"
+                                       href="{{route('suppliers.destroy',$item->id)}}"
+                                       title="Delete" data-toggle="tooltip"><i class="fa fa-trash-o"></i></a>
+                                </td>
+                            @endcan
                         </tr>
                     @endforeach
                     </tbody>

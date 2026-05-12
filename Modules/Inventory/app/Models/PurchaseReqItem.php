@@ -10,25 +10,31 @@ use Illuminate\Support\Carbon;
 use Modules\Setups\Models\Unit;
 
 /**
- *
- *
  * @property int $id
  * @property int $purchase_request_id
  * @property int $stock_item_id
  * @property int $unit_id
- * @property string $quantity
- * @property string $unit_price
- * @property string $total_price
+ * @property numeric $quantity
+ * @property numeric $unit_price
+ * @property numeric $total_price
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property Carbon|null $deleted_at
+ * @property numeric $amended_unit_price
+ * @property numeric $amended_total_price
+ * @property int $is_for_amendment
+ * @property-read \Modules\Inventory\Models\StockItem $stockItem
+ * @property-read Unit $unit
  * @method static Builder<static>|PurchaseReqItem newModelQuery()
  * @method static Builder<static>|PurchaseReqItem newQuery()
  * @method static Builder<static>|PurchaseReqItem onlyTrashed()
  * @method static Builder<static>|PurchaseReqItem query()
+ * @method static Builder<static>|PurchaseReqItem whereAmendedTotalPrice($value)
+ * @method static Builder<static>|PurchaseReqItem whereAmendedUnitPrice($value)
  * @method static Builder<static>|PurchaseReqItem whereCreatedAt($value)
  * @method static Builder<static>|PurchaseReqItem whereDeletedAt($value)
  * @method static Builder<static>|PurchaseReqItem whereId($value)
+ * @method static Builder<static>|PurchaseReqItem whereIsForAmendment($value)
  * @method static Builder<static>|PurchaseReqItem wherePurchaseRequestId($value)
  * @method static Builder<static>|PurchaseReqItem whereQuantity($value)
  * @method static Builder<static>|PurchaseReqItem whereStockItemId($value)
@@ -36,7 +42,7 @@ use Modules\Setups\Models\Unit;
  * @method static Builder<static>|PurchaseReqItem whereUnitId($value)
  * @method static Builder<static>|PurchaseReqItem whereUnitPrice($value)
  * @method static Builder<static>|PurchaseReqItem whereUpdatedAt($value)
- * @method static Builder<static>|PurchaseReqItem withTrashed()
+ * @method static Builder<static>|PurchaseReqItem withTrashed(bool $withTrashed = true)
  * @method static Builder<static>|PurchaseReqItem withoutTrashed()
  * @mixin \Eloquent
  */

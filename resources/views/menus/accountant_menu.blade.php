@@ -32,5 +32,8 @@
         <li><a href="{{route('payment-history')}}">Payment History</a></li>
         <li><a href="{{route('daily-room-status-index')}}">Daily Room Status</a></li>
         <li><a href="{{route('front-office-dashboard')}}">Rooms Dashboard</a></li>
+        <li><a href="{{route('stock-items.index')}}">Stock Items</a></li>
+        <li><a href="{{route('suppliers.index')}}">Suppliers</a></li>
+        <li><a href="{{route('stock-balance')}}">Stock Balance</a></li>
     </ul>
 </li>

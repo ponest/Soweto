@@ -7,11 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Carbon;
 use Modules\Auth\Models\User;
 
 /**
- *
- *
  * @property int $id
  * @property string $description
  * @property string $request_number
@@ -26,9 +25,16 @@ use Modules\Auth\Models\User;
  * @property int|null $approved_by
  * @property string|null $approved_at
  * @property string|null $reject_comments
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property string $request_type
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property Carbon|null $deleted_at
+ * @property int|null $parent_id
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\Inventory\Models\PurchaseReqAdditionalCost> $additionalCost
+ * @property-read int|null $additional_cost_count
+ * @property-read User|null $approvedBy
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\Inventory\Models\PurchaseReqItem> $items
+ * @property-read int|null $items_count
  * @property-read User|null $reviewedBy
  * @property-read User|null $submittedBy
  * @method static Builder<static>|PurchaseRequest newModelQuery()
@@ -42,17 +48,19 @@ use Modules\Auth\Models\User;
  * @method static Builder<static>|PurchaseRequest whereDescription($value)
  * @method static Builder<static>|PurchaseRequest whereId($value)
  * @method static Builder<static>|PurchaseRequest whereIsApproved($value)
+ * @method static Builder<static>|PurchaseRequest whereParentId($value)
  * @method static Builder<static>|PurchaseRequest wherePreviewedAt($value)
  * @method static Builder<static>|PurchaseRequest wherePreviewedBy($value)
  * @method static Builder<static>|PurchaseRequest whereRejectComments($value)
  * @method static Builder<static>|PurchaseRequest whereRequestNumber($value)
+ * @method static Builder<static>|PurchaseRequest whereRequestType($value)
  * @method static Builder<static>|PurchaseRequest whereReviewedAt($value)
  * @method static Builder<static>|PurchaseRequest whereReviewedBy($value)
  * @method static Builder<static>|PurchaseRequest whereStatus($value)
  * @method static Builder<static>|PurchaseRequest whereSubmittedAt($value)
  * @method static Builder<static>|PurchaseRequest whereSubmittedBy($value)
  * @method static Builder<static>|PurchaseRequest whereUpdatedAt($value)
- * @method static Builder<static>|PurchaseRequest withTrashed()
+ * @method static Builder<static>|PurchaseRequest withTrashed(bool $withTrashed = true)
  * @method static Builder<static>|PurchaseRequest withoutTrashed()
  * @mixin \Eloquent
  */
