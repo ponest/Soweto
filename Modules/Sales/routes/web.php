@@ -70,4 +70,5 @@ Route::middleware('auth')->group(function () {
     Route::get('menu-price-approval-item/destroy/{id}', [MenuPriceApprovalItemController::class, 'destroy'])->name('menu-price-approval-item.destroy');
 
     Route::get('print-bill/{id}', [BillsController::class, 'print'])->name('bills.print');
+    Route::post('print-partial-bill', [BillsController::class, 'printPartialBill'])->name('print-partial-bill');
 });

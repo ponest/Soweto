@@ -60,6 +60,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::resource('booking-charges', BookingChargesController::class)->except( 'destroy','index');
     Route::get('booking-charges/index/{id}', [BookingChargesController::class, 'index'])->name('booking-charges.index');
+    Route::get('partial-charges/bill/{id}', [BookingChargesController::class, 'partialBillView'])->name('partial.bill.view');
     Route::get('booking-charges/destroy/{id}', [BookingChargesController::class, 'destroy'])->name('booking-charges.destroy');
 
     Route::resource('clients', ClientsController::class)->except('show', 'destroy');

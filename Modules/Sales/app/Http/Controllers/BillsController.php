@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Redirect;
 use Modules\Auth\Models\User;
+use Modules\HotelMgnt\Models\BookingCharges;
 use Modules\Sales\Commands\Bills\ConfirmPaymentCommand;
 use Modules\Sales\Models\Bill;
 use Modules\Sales\Models\BillItem;
@@ -94,7 +95,37 @@ class BillsController extends Controller
         $params['bill_items'] = BillItem::whereBillId($id)->get();
         $params['bill_sum'] = BillItem::whereBillId($id)->sum('total_price');
         $params['waiters'] = BillItem::getWaiterByBillId($id);
+        $params['reference_no'] = $params['bill']->reference_no;
         $pdf = PDF::loadView('sales::bills.bill_pdf', $params);
-        return $pdf->download("Bill" . '.pdf');
+        return $pdf->download($params['reference_no'] . '.pdf');
+    }
+
+    public function printPartialBill(Request $request)
+    {
+        $data = $request->all();
+        $params['reference_no'] = "BILL-" . now()->timestamp;
+        $params['bill_items'] = null;
+
+        foreach ($data['items'] as $item) {
+
+            $charges = BookingCharges::find($item);
+
+            // skip if not found
+            if (!$charges) {
+                continue;
+            }
+
+            $params['bill_items'][] = (object) [
+                'item_name'   => $charges->description,
+                'quantity'    => $charges->quantity,
+                'total_price' => $charges->total_price,
+            ];
+        }
+
+        $params['bill_sum'] = collect($params['bill_items'])->sum('total_price');
+        $params['waiters'] = $data['waiter_name'];
+        $params['client_name'] = $data['client_name'];
+        $pdf = PDF::loadView('sales::bills.bill_pdf', $params);
+        return $pdf->download($params['reference_no'] . '.pdf');
     }
 }

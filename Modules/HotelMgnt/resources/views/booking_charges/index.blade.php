@@ -5,10 +5,10 @@
         <div class="ibox-body">
 
             <div class="row">
-                <div class="col-9" style="padding-top: 2vh">
+                <div class="col-7" style="padding-top: 2vh">
                     <h5 class="font-strong">BOOKING CHARGES</h5>
                 </div>
-                <div class="col-3" style="text-align: right">
+                <div class="col-5" style="text-align: right">
                     <a href="{{route('room-checkinout')}}" class="btn btn-primary">
                         <i class="fa fa-backward"></i> Go Back
                     </a>
@@ -22,6 +22,11 @@
                             <i class="fa fa-plus-circle"></i> Add New
                         </button>
                     @endif
+                    <a href="{{route('partial.bill.view',$booking_id)}}" type="button" class="btn btn-primary"
+                       id="bill_btn">
+                        <i class="fa fa-plus-circle"></i> Create Partial Bill
+                    </a>
+
 
                 </div>
             </div>
@@ -110,6 +115,14 @@
         </div>
     </div>
 
+    <div class="modal fade" id="partial_bill_modal" aria-labelledby="partial_bill_modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content modal-partial-bill">
+                <!--Partial Bill Form Loads Here-->
+            </div>
+        </div>
+    </div>
+
 @endsection
 
 @section('Scripts')
@@ -119,6 +132,20 @@
             const dataURL = $(this).attr('href');
             $('.modal-edit').load(dataURL, function () {
                 $('#edit_modal').modal({show: true});
+            });
+        });
+
+        $('#bill_btn').on('click', function (e) {
+            e.preventDefault();
+            const dataURL = $(this).attr('href');
+            $('.modal-partial-bill').load(dataURL, function () {
+                $('#partial_bill_modal').modal({show: true});
+            });
+        });
+
+        $('#partial_bill_modal').on('shown.bs.modal', function (e) {
+            $('select').select2({
+                width: '100%'
             });
         });
 

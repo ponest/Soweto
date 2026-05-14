@@ -2,14 +2,17 @@
 
 namespace Modules\HotelMgnt\Http\Controllers;
 
+use App\Enums\GeneralEnum;
 use App\Helpers\General;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Modules\General\Models\Staff;
 use Modules\HotelMgnt\Commands\BookingCharges\DeleteCommand;
 use Modules\HotelMgnt\Commands\BookingCharges\StoreCommand;
 use Modules\HotelMgnt\Commands\BookingCharges\UpdateCommand;
+use Modules\HotelMgnt\Models\Booking;
 use Modules\HotelMgnt\Models\BookingCharges;
 use Modules\HotelMgnt\Models\BookingRoomHistory;
 use Modules\Sales\Models\Bill;
@@ -24,6 +27,14 @@ class BookingChargesController extends Controller
         $params['bill'] = Bill::where('booking_id', $id)->first();
         $params['partial'] = $this->calculateRoomCharges($id);
         return view('hotelmgnt::booking_charges.index', $params);
+    }
+
+    public function partialBillView($id)
+    {
+        $params['items'] = BookingCharges::whereBookingId($id)->latest('id')->get();
+        $params['waiters'] = Staff::where('staff_role_id', GeneralEnum::WaiterStaffRoleId)->orderBy('first_name')->get();
+        $params['client_name'] = Booking::find($id)->client->full_name;
+        return view('hotelmgnt::booking_charges.create_partial_bill', $params);
     }
 
     public function calculateRoomCharges($booking_id)

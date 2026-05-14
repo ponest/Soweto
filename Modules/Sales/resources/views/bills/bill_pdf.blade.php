@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soweto Village Hotel - Receipt</title>
+    <title>Soweto Village Hotel - Bill</title>
     <style>
         /* Thermal printer optimized for 80mm x 297mm paper */
         @page {
@@ -175,10 +175,10 @@
 
     <!-- Invoice Details -->
     <div class="details">
-        <div><strong>Bill Ref:</strong> {{$bill->reference_no}}</div>
+        <div><strong>Bill Ref:</strong> {{$reference_no}}</div>
         <div><strong>Date:</strong> {{date('d M Y')}}</div>
         <div><strong>Time:</strong> {{ date('H:i') }}</div>
-        <div><strong>Customer:</strong> Walk-In Customer</div>
+        <div><strong>Customer:</strong> {{isset($client_name) ? $client_name : "Walk-In Customer"}} </div>
         <div><strong>Waiters:</strong> {{$waiters}}</div>
     </div>
 
