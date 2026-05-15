@@ -74,4 +74,24 @@ class StockItemController extends Controller
         }
         return response()->json($response);
     }
+
+    public function getBulkUnit(Request $request)
+    {
+        $stock_item = StockItem::find($request->item_id);
+        if ($stock_item) {
+            $unit['unit_id'] = $stock_item->bulk_unit_id;
+            $unit['unit_name'] = Unit::find($unit['unit_id'])->name;
+            $response = [
+                'msg' => "Unit Successfully Fetched",
+                'status' => 'success',
+                'data' => $unit
+            ];
+        } else {
+            $response = [
+                'status' => 'fail',
+                'msg' => "Unit not found"
+            ];
+        }
+        return response()->json($response);
+    }
 }

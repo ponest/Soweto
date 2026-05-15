@@ -80,6 +80,31 @@ function getUnit(itemId, unitRef, unitIdRef) {
     });
 }
 
+function getBulkUnit(itemId, unitRef, unitIdRef) {
+    const baseUrl = window.location.origin;
+    const ajaxUrl = baseUrl + '/ajax/get-bulk-unit';
+
+    $.ajax({
+        url: ajaxUrl,
+        type: "GET",
+        data: {item_id: itemId},
+        dataType: "json",
+        success: function (resp_data) {
+            if (resp_data.status === "success") {
+                unitRef.val(resp_data.data.unit_name);
+                unitIdRef.val(resp_data.data.unit_id);
+            } else {
+                swal("Warning", "Item Bulk Unit Not Found", "warning");
+            }
+        },
+        error: function (xhr) {
+            const errorMessage = xhr.status + ': ' + xhr.statusText;
+            console.log(errorMessage);
+            // handleAjaxError(xhr);
+        }
+    });
+}
+
 
 function populateItems(purchaseId, itemRef) {
     const baseUrl = window.location.origin;

@@ -71,4 +71,9 @@ class PurchaseReqItem extends Model
     {
         return $this->belongsTo(Unit::class);
     }
+
+    public function bulkUnit(): BelongsTo
+    {
+        return $this->belongsTo(Unit::class,'bulk_unit_id');
+    }
 }

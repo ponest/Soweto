@@ -64,7 +64,7 @@
                                          href="{{route('purchase-request.submit',$item->id)}}"
                                          title="Submit" data-toggle="tooltip"><i class="fa fx-2 fa-check-circle-o"></i></a>
                                 @endif
-                                @if($item->is_approved)
+                                @if($item->is_approved && $item->request_type == "New")
                                         | <a class="text-muted font-16 amend-link"
                                              href="{{route('purchase-request.amend-request',$item->id)}}"
                                              title="Amend Request" data-toggle="tooltip"><i class="fa fx-2 fa-check-circle-o"></i></a>

@@ -3,6 +3,7 @@
 namespace Modules\Inventory\Commands\PurchaseRequestItem;
 
 use Exception;
+use Modules\Inventory\Models\ItemUnitConversion;
 use Modules\Inventory\Models\PurchaseReqItem;
 
 class UpdateCommand
@@ -13,6 +14,15 @@ class UpdateCommand
             $requestItem = PurchaseReqItem::find($id);
             $isExist = PurchaseReqItem::isExistOnEdit($data['stock_item_id'], $requestItem->purchase_request_id, $id);
             if (!$isExist) {
+                $unit_conversion = ItemUnitConversion::where('item_id', $data['stock_item_id'])->first();
+                if ($unit_conversion) {
+                    $data['unit_id'] = $unit_conversion->to_unit_id;
+                    $data['quantity'] = $data['bulk_quantity'] * $unit_conversion->multiplier;
+                }else{
+                    $data['unit_id'] = $data['bulk_unit_id'];
+                    $data['quantity'] = $data['bulk_quantity'];
+                }
+
                 $requestItem->update($data);
                 //Sending Notification Back to Roles
                 return [

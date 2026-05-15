@@ -22,12 +22,13 @@
         <div class="row mb-3">
             <div class="col">
                 <label>Quantity</label>
-                <input type="number" name="quantity" value="{{$item->quantity}}" id="e_quantity" class="form-control form-control-air"  required>
+                <input type="number" name="bulk_quantity" value="{{$item->bulk_quantity}}" id="e_quantity" class="form-control form-control-air"  required>
             </div>
             <div class="col">
                 <label>Unit</label>
-                <input type="text" id="e_unit_name" value="{{$item->unit->name}}" class="form-control form-control-air"  readonly>
-                <input type="hidden" id="e_unit_id" value="{{$item->unit_id}}" name="unit_id">
+                <input type="text" id="e_unit_name" value="{{$item->bulkUnit->name}}" class="form-control form-control-air"  readonly>
+{{--                <input type="hidden" id="e_unit_id" value="{{$item->unit_id}}" name="unit_id">--}}
+                <input type="hidden" id="e_unit_id" value="{{$item->bulk_unit_id}}" name="bulk_unit_id">
             </div>
         </div>
         <div class="row mb-3">

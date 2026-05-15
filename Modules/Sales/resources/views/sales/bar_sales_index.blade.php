@@ -51,8 +51,11 @@
                                     <label>Client Name</label>
                                     <select id="client_id" class="form-control">
                                         <option value="" disabled selected>Select Client...</option>
-                                        @foreach($clients as $client)
-                                            <option value="{{$client->id}}">{{$client->full_name}}</option>
+{{--                                        @foreach($clients as $client)--}}
+{{--                                            <option value="{{$client->id}}">{{$client->full_name}}</option>--}}
+{{--                                        @endforeach--}}
+                                        @foreach($bookings as $booking)
+                                            <option value="{{$booking->client_id}}">{{$booking->client->full_name." - ".$booking->room->room_number}}</option>
                                         @endforeach
                                     </select>
                                 </div>

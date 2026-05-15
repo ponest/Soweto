@@ -24,13 +24,15 @@
                     </div>
                     <div class="row mb-3">
                         <div class="col">
-                            <label>Quantity</label>
-                            <input type="number" name="quantity" id="quantity" class="form-control form-control-air"  required>
+                            <label>Bulk Quantity</label>
+{{--                            <input type="number" name="quantity" id="quantity" class="form-control form-control-air"  required>--}}
+                            <input type="number" name="bulk_quantity" id="bulk_quantity" class="form-control form-control-air"  required>
                         </div>
                         <div class="col">
-                            <label>Unit</label>
+                            <label>Bulk Unit</label>
                             <input type="text" id="unit_name" class="form-control form-control-air"  readonly>
-                            <input type="hidden" id="unit_id" name="unit_id">
+{{--                            <input type="hidden" id="unit_id" name="unit_id">--}}
+                            <input type="hidden" id="bulk_unit_id" name="bulk_unit_id">
                         </div>
                     </div>
                     <div class="row mb-3">

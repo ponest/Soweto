@@ -90,12 +90,19 @@
 
 @section('Scripts')
     <script>
-        $('.edit-link').on('click', function (e) {
-            e.preventDefault();
-            const dataURL = $(this).attr('href');
-            $('.modal-edit').load(dataURL, function () {
-                $('#edit_modal').modal({show: true});
-            });
+        // $('.edit-link').on('click', function (e) {
+        //     e.preventDefault();
+        //     const dataURL = $(this).attr('href');
+        //     $('.modal-edit').load(dataURL, function () {
+        //         $('#edit_modal').modal({show: true});
+        //     });
+        // });
+
+        $('#item_id').on('change', function () {
+            const itemId = $(this).val();
+            const unitRef = $("#unit_name");
+            const unitIdRef = $("#bulk_unit_id");
+            getBulkUnit(itemId, unitRef, unitIdRef);
         });
 
         //Populating the station
@@ -122,14 +129,14 @@
             $("#total_price").val(totalPrice);
         });
 
-        $('#edit_modal').on('shown.bs.modal', function () {
-            $("#e_unit_price").on('keyup', function () {
-                const unitPrice = $(this).val();
-                const quantity = $("#e_quantity").val();
-                const totalPrice = parseFloat(unitPrice) * parseFloat(quantity);
-                $("#e_total_price").val(totalPrice);
-            })
-        });
+        // $('#edit_modal').on('shown.bs.modal', function () {
+        //     $("#e_unit_price").on('keyup', function () {
+        //         const unitPrice = $(this).val();
+        //         const quantity = $("#e_quantity").val();
+        //         const totalPrice = parseFloat(unitPrice) * parseFloat(quantity);
+        //         $("#e_total_price").val(totalPrice);
+        //     })
+        // });
 
     </script>
 @endsection

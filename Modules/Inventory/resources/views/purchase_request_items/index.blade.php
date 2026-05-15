@@ -39,6 +39,7 @@
                     <tr>
                         <th>S/N</th>
                         <th>Item Name</th>
+                        <th>Bulk Quantity</th>
                         <th>Quantity</th>
                         <th>Unit Price</th>
                         <th>Total Price</th>
@@ -58,6 +59,7 @@
                         <tr>
                             <td style="width: 5%">{{++$key}}</td>
                             <td class="desc_name">{{$item->stockItem?->name}}</td>
+                            <td style="text-align: right">{{number_format($item->bulk_quantity)." ".$item->bulkUnit?->name}}</td>
                             <td style="text-align: right">{{number_format($item->quantity)." ".$item->unit?->name}}</td>
                             <td style="text-align: right">{{number_format($item->unit_price)}}</td>
                             <td style="text-align: right">{{number_format($item->total_price)}}</td>
@@ -146,9 +148,9 @@
             });
         });
 
-        $('#unit_price').on('keyup', function () {
-            const unitPrice = parseFloat($(this).val());
-            const quantity = parseFloat($("#quantity").val());
+        $('#unit_price, #bulk_quantity').on('keyup', function () {
+            const unitPrice = parseFloat($('#unit_price').val()) || 0;
+            const quantity = parseFloat($('#bulk_quantity').val()) || 0;
             const total = unitPrice * quantity;
             $('#total_price').val(total);
         });
@@ -158,13 +160,15 @@
                 const itemId = $(this).val();
                 const unitRef = $("#e_unit_name");
                 const unitIdRef = $("#e_unit_id");
-                getUnit(itemId, unitRef, unitIdRef);
+                // getUnit(itemId, unitRef, unitIdRef);
+                getBulkUnit(itemId, unitRef, unitIdRef);
             });
 
-            $('#e_unit_price').on('keyup', function () {
-                const unitPrice = parseFloat($(this).val());
-                const quantity = parseFloat($("#e_quantity").val());
+            $('#e_unit_price, #e_quantity').on('keyup', function () {
+                const unitPrice = parseFloat($('#e_unit_price').val()) || 0;
+                const quantity = parseFloat($('#e_quantity').val()) || 0;
                 const total = unitPrice * quantity;
+
                 $('#e_total_price').val(total);
             });
 
@@ -196,8 +200,10 @@
         $('#stock_item_id').on('change', function () {
             const itemId = $(this).val();
             const unitRef = $("#unit_name");
-            const unitIdRef = $("#unit_id");
-            getUnit(itemId, unitRef, unitIdRef);
+            // const unitIdRef = $("#unit_id");
+            const unitIdRef = $("#bulk_unit_id");
+            // getUnit(itemId, unitRef, unitIdRef);
+            getBulkUnit(itemId, unitRef, unitIdRef);
         });
 
         $("#issue_stock").click(function (e) {

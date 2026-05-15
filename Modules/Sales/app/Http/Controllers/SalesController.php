@@ -41,8 +41,9 @@ class SalesController extends Controller
     {
         $params['category'] = $category;
         $params['staffs'] = Staff::where('staff_role_id', GeneralEnum::WaiterStaffRoleId)->orderBy('first_name')->get();
-        $client_ids = Booking::whereBookingStatus('CheckedIn')->pluck('client_id')->toArray();
-        $params['clients'] = Client::whereIn('id', $client_ids)->get();
+//        $client_ids = Booking::whereBookingStatus('CheckedIn')->pluck('client_id')->toArray();
+//        $params['clients'] = Client::whereIn('id', $client_ids)->get();
+        $params['bookings'] = Booking::whereBookingStatus('CheckedIn')->get();
 
         if ($category === 'bar') {
             $storeId = User::userStoreId();

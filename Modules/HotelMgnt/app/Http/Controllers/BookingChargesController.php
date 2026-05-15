@@ -22,7 +22,7 @@ class BookingChargesController extends Controller
     public function index($id)
     {
         $params['items'] = BookingCharges::whereBookingId($id)->latest('id')->get();
-        $params['types'] = array('Laundry', 'Ironing', 'Swimming');
+        $params['types'] = array('Laundry', 'Ironing', 'Swimming','Damage');
         $params['booking_id'] = $id;
         $params['bill'] = Bill::where('booking_id', $id)->first();
         $params['partial'] = $this->calculateRoomCharges($id);
@@ -94,7 +94,7 @@ class BookingChargesController extends Controller
     public function edit($id)
     {
         $params['item'] = BookingCharges::find($id);
-        $params['types'] = array('Laundry', 'Ironing', 'Swimming');
+        $params['types'] = array('Laundry', 'Ironing', 'Swimming','Damage');
         return view('hotelmgnt::booking_charges.edit', $params);
     }
 

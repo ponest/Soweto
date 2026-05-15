@@ -11,6 +11,7 @@
     <tr>
         <th>S/N</th>
         <th>Item Name</th>
+        <th>Bulk Quantity</th>
         <th>Quantity</th>
         <th>Unit Price</th>
         <th>Total Price</th>
@@ -25,6 +26,7 @@
         <tr>
             <td style="width: 5%">{{++$key}}</td>
             <td class="desc_name">{{isset($item->stockItem) ? $item->stockItem->name:'Not Defined'}}</td>
+            <td style="text-align: right">{{number_format($item->bulk_quantity)." ".$item->bulkUnit->name}}</td>
             <td style="text-align: right">{{number_format($item->quantity)." ".$item->unit->name}}</td>
             <td style="text-align: right">{{number_format($item->unit_price)}}</td>
             <td style="text-align: right">{{number_format($item->total_price)}}</td>

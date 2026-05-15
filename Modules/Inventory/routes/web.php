@@ -53,6 +53,7 @@ Route::middleware('auth')->group(function () {
     Route::get('stock-requisition-item/destroy/{id}', [StockRequisitionItemsController::class, 'destroy'])->name('stock-requisition-item.destroy');
 
     Route::get('ajax/get_unit', [StockItemController::class, 'getUnit'])->name('get-unit');
+    Route::get('ajax/get-bulk-unit', [StockItemController::class, 'getBulkUnit'])->name('get-bulk-unit');
 
     Route::get('stock-issue/requests', [StockIssuingController::class, 'request'])->name('stock-issue.requests');
     Route::get('stock-issue/confirm/{id}', [StockIssuingController::class, 'confirmItemView'])->name('stock-issue.confirm-view');

@@ -34,10 +34,7 @@
                         <div class="col-4">
                             <label>Item</label>
                             <select  name="item_id" id="item_id" class="form-control form-control-air" required>
-{{--                                <option value="">Item</option>--}}
-{{--                                @foreach($stock_items as $stock_item)--}}
-{{--                                    <option value="{{$stock_item->id}}">{{$stock_item->name}}</option>--}}
-{{--                                @endforeach--}}
+                                <!-- Code Goes here-->
                             </select>
                         </div>
                         <div class="col-4">
@@ -53,12 +50,14 @@
                     <div class="row mb-3">
                         <div class="col-4">
                             <label>Bulk Unit</label>
-                            <select  name="bulk_unit_id" class="form-control form-control-air" required>
-                                <option value="">Bulk Unit</option>
-                                @foreach($units as $unit)
-                                    <option value="{{$unit->id}}">{{$unit->name}}</option>
-                                @endforeach
-                            </select>
+                            <input type="text" id="unit_name" class="form-control form-control-air"  readonly>
+                            <input type="hidden" id="bulk_unit_id" name="bulk_unit_id">
+{{--                            <select  name="bulk_unit_id" class="form-control form-control-air" required>--}}
+{{--                                <option value="">Bulk Unit</option>--}}
+{{--                                @foreach($units as $unit)--}}
+{{--                                    <option value="{{$unit->id}}">{{$unit->name}}</option>--}}
+{{--                                @endforeach--}}
+{{--                            </select>--}}
                         </div>
                         <div class="col-4">
                             <label>Unit Price</label>
